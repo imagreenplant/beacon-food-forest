@@ -252,6 +252,21 @@ p{
 	filter: alpha(opacity=80);
 }
 
+#fadeTran{
+	display: none;
+	position: fixed;
+	top: 0%;
+	left: 0%;
+	width: 100%;
+	height: 100%;
+	background-color: black;
+	z-index:1001;
+	-moz-opacity: 0.8;
+	opacity:.80;
+	filter: alpha(opacity=80);
+	
+}
+
 #fadeReg{
 	display: none;
 	position: fixed;
@@ -417,11 +432,39 @@ p{
 	z-index:1002;
 	overflow:visible;
 	padding: 15px 5px 0px 20px;
-	border: 10px #50B748 solid;
-
-	
+	border: 10px #50B748 solid;	
+}
+#translate{
+	display: none;
+	position: fixed;
+	top: 25%;
+	right: 5px;
+	width: 165px;
+	height: 350px;
+	margin-left: -100px;
+	margin-top: -100px;					
+	background: #FFF;
+	z-index:1002;
+	overflow:visible;
+	padding: 20px 15px 0px 20px;
+	border: 10px #50B748 solid;	
+}
+#trans_left{
+	float:left;	
 }
 
+#trans_right{
+	float:right;
+	padding: 0 10px 0 0;
+}
+
+#trans_right span{
+	color:#4C301C;
+	font-size: 12px;
+	text-align:right;
+	font-family: "helvetica";
+	text-decoration:none;
+}
 #fade p{
 	color:#4C301C;
 	font-size: 12px;
@@ -475,7 +518,7 @@ body{
 		float: right;
 		text-align: right;
 
-		margin: 12px 0 0 0;
+		margin: 8px 0 0 0;
 
 		}
 		.nav a {

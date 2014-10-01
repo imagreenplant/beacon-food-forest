@@ -54,6 +54,18 @@ function regisbox_close(){
 	document.getElementById('fadeReg').style.display='none';
 }
 
+// Translate
+function translbox_open(){
+	window.scrollTo(0,0);
+	document.getElementById('translate').style.display='block';
+	document.getElementById('fadeTran').style.display='block';
+}
+function translbox_close(){
+	document.getElementById('translate').style.display='none';
+	document.getElementById('fadeTran').style.display='none';
+}
+
+
 // Video
 function videobox_open(){
 	window.scrollTo(0,0);
