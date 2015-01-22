@@ -23,8 +23,99 @@ Blue +
 		.subtitle-text
 		.side-title
 		.sponsor   
-							*/
 
+
+						*/
+/*BEGIN RESET*/
+
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: transparent;
+}
+body {
+    line-height: 1;
+}
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+nav ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after, q:before, q:after {
+    content: '';
+    content: none;
+}
+a {
+    margin: 0;
+    padding: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: transparent;
+}
+/* change colours to suit your needs */
+
+ins {
+    background-color: #ff9;
+    color: #000;
+    text-decoration: none;
+}
+/* change colours to suit your needs */
+
+mark {
+    background-color: #ff9;
+    color: #000;
+    font-style: italic;
+    font-weight: bold;
+}
+del {
+    text-decoration: line-through;
+}
+abbr[title], dfn[title] {
+    border-bottom: 1px dotted;
+    cursor: help;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+/* change border colour to suit your needs */
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #cccccc;
+    margin: 1em 0;
+    padding: 0;
+}
+input, select {
+    vertical-align: middle;
+}
+/*END RESET*/
+
+
+
+/*Box Sizing*/
+
+html {
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+/*END Box Sizing*/
+
+
+
+html, body {margin:0;padding:0;height:100%;}
 body {
     font-size: 100%;
 }
@@ -32,6 +123,7 @@ p {
     color: #4C301C;
     font-size: 100%;
     font-family: "helvetica";
+    line-height: 1.1em;
     -webkit-margin-before: 0em;
     -webkit-margin-after: 0em;
     -webkit-margin-start: 0px;
@@ -41,12 +133,13 @@ p {
     font-size: 150%;
     color: #A5978D;
     font-family: "Georgia";
-    padding: 0px 0 0px 0;
+    margin: 1em 0 1em 0;
+    font-weight: normal;
 }
 .text-bold {
     font-weight: bold;
     color: #4C301C;
-    font-size: 12px;
+    font-size: 1.02em;
     font-family: "helvetica";
 }
 .text-green {
@@ -427,6 +520,9 @@ body {
     position: absolute;
     z-index: 0;
 }
+#headercontent {
+	height: 260px;
+}
 #brown-bg {
     background-color: #4C301C;
     height: 225px;
@@ -453,7 +549,7 @@ body {
 }
 .nav {
     width: 90%;
-    height: 21px;
+    height: 24px;
     background-color: #0DAED3;
     float: right;
     text-align: right;
@@ -491,9 +587,9 @@ body {
     
     font-family: "helvetica";
     font-size: 14px;
-    float: right;
+/*    float: right;
     margin: -12px auto;
-    padding: 5px 35px 0 0;
+    padding: 5px 35px 0 0;*/
     position: relative;
     z-index: 1;
 }
@@ -540,30 +636,37 @@ body {
 
 #container {
     width: 100%;
-    height: auto;
+    /*height: auto;*/
     margin: 33px 0 0 0;
-    padding: 250px 0 0px 0;
     z-index: -5
+    position:relative;
 }
 /* Front page content (left) */
 
 #indexcontent {
-    width: 100%;
+    /*width: 100%;*/
+    overflow: hidden;
+    padding: 0 33px 0 33px;
+    margin-right: 440px;
+}
+
+.content-block {
+	margin-bottom: 30px;
 }
 #content {
-    width: 60%;
+    /*width: 60%;*/
     height: auto;
-    margin: 0px 0px -30px 33px;
-    padding: 0 0 30px 0;
+    /*margin: 0px 450px -30px 33px;*/
+    /*padding: 0 0 30px 0;*/
     float: left;
     z-index: 3;
-    padding-right: 276px;
+    /*padding-right: 276px;*/
 }
 #content-ext {
-    width: 65%;
+    /*width: 65%;*/
     height: auto;
-    margin: 30px 0px 0 33px;
-    padding: 0 276px 0 0;
+
+    /*padding: 0 276px 0 0;*/
     float: left;
     z-index: 3;
     /*border-right: 10px #50B748 solid;*/
@@ -601,6 +704,9 @@ body {
 .section-div {
     margin: 0 0 5% 0;
 }
+.block-items {
+	margin: 1em 0 0 0;
+}
 .block-items p {
     display: inline-block;
 }
@@ -614,6 +720,7 @@ body {
 }
 .content-div {
     margin: 0 0 2em 0;
+
 }
 #contact-info p {
     width: 260px;
@@ -642,10 +749,10 @@ body {
 
 #imageBar {
     width: 212px;
-    margin: 0 0 0 -222px;
-    position: relative;
-    float: left;
-    padding: 0 0 -30px 45px;
+    /*margin: 0 0 0 -222px;*/
+    /*position: relative;*/
+    /*float: left;*/
+    /*padding: 0 0 -30px 45px;*/
     /* border-right: 10px #50B748 solid;	 */
 }
 /* Image spacing */
@@ -664,12 +771,30 @@ body {
 
 #sidecontent {
     width: 220px;
-    height: 77%;
-    position: absolute;
-    right: 0;
-    top: 500px;
+    height: 100%;
+    /*position: absolute;*/
+    /*right: 0;*/
+    /*top: 500px;*/
+    
     border-left: 10px solid #50B748;
     padding-left: 20px;
+    float: right;
+}
+#imgcontent {
+    width: 220px;
+    padding-left: 8px;
+    float: left;
+}
+.right-column {
+    overflow: hidden;
+    float: right;
+    /*margin-top: 240px;*/
+    /*height: 100%;*/
+    /*border: 1px solid;*/
+    position: absolute;
+	right: 0px;
+	top: 550px;
+	bottom: 0px;
 }
 #sidenav {
     /*    float: left;
@@ -700,7 +825,7 @@ body {
     line-height: 1.3em;
     position: absolute;
     bottom: 0;
-    margin: -100px 0 0 0;
+    /*margin: -100px 0 0 0;*/
 }
 .sponsor img {
     display: block;
@@ -720,7 +845,7 @@ body {
     background-color: #4C301C;
     border-right: 10px #50B748 solid;
     padding: 8px 0 8px 25px;
-    margin: 0 274px 0 -35px;
+    margin: 0 209px 0 -35px;
 }
 /* Footer */
 
