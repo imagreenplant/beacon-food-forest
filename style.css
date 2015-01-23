@@ -571,16 +571,6 @@ body {
     padding: 15px 0px 0 0;
     z-index: 1;
 }
-#main_alt {
-    background-image: url('img/bg_alt.png');
-    background-repeat: no-repeat;
-    width: 100%;
-    height: auto;
-    position: absolute;
-    margin: -8px -8px;
-    padding: 15px 0px 0 0;
-    z-index: 1;
-}
 .top-text {
     color: #4C301C;
     /* font-family: "Segoe"; */
@@ -644,10 +634,11 @@ body {
 /* Front page content (left) */
 
 #indexcontent {
-    /*width: 100%;*/
+    margin-right: 440px;
+}
+.main-content {
     overflow: hidden;
     padding: 0 33px 0 33px;
-    margin-right: 440px;
 }
 
 .content-block {
