@@ -685,6 +685,9 @@ body {
 	margin: 2em 0 0.7em 0;
 	font-size: 110%;
 }
+.single-content-image {
+	max-width: 100%;
+}
 #content2-perma {
     width: 460px;
     height: auto;
@@ -720,7 +723,9 @@ body {
 }
 .content-div {
     margin: 0 0 2em 0;
-
+}
+.first-content-div {
+	margin-right: 14em;
 }
 #contact-info p {
     width: 260px;
