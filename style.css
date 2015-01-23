@@ -116,7 +116,7 @@ p {
     color: #4C301C;
     font-size: 100%;
     font-family: "helvetica";
-    line-height: 1.1em;
+    line-height: 1.15em;
     -webkit-margin-before: 0em;
     -webkit-margin-after: 0em;
     -webkit-margin-start: 0px;
@@ -681,7 +681,7 @@ body {
     z-index: 3;
     border-right: 10px #50B748 solid;
 }*/
-.perma-principles h3{
+.content-div h3{
 	margin: 2em 0 0.7em 0;
 	font-size: 110%;
 }
@@ -717,6 +717,7 @@ body {
     width: 220px;
     height: auto;
     margin: 0.5em 2em 0.5em 1em;
+    vertical-align: top;
 }
 .content-text {
     margin-bottom: 0;
