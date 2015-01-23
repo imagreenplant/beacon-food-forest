@@ -46,13 +46,6 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 nav ul {
     list-style: none;
 }
-blockquote, q {
-    quotes: none;
-}
-blockquote:before, blockquote:after, q:before, q:after {
-    content: '';
-    content: none;
-}
 a {
     margin: 0;
     padding: 0;
@@ -128,6 +121,15 @@ p {
     -webkit-margin-after: 0em;
     -webkit-margin-start: 0px;
     -webkit-margin-end: 0px;
+}
+q { 
+    display: inline;
+}
+q:before { 
+    content: open-quote;
+}
+q:after { 
+    content: close-quote;
 }
 .content-title {
     font-size: 150%;
@@ -630,17 +632,20 @@ body {
     margin: 33px 0 0 0;
     z-index: -5
     position:relative;
+    min-height: 1500px;
 }
 /* Front page content (left) */
 
 #indexcontent {
     margin-right: 440px;
 }
+.sub-page-content {
+	margin-right: 220px;
+}
 .main-content {
     overflow: hidden;
     padding: 0 33px 0 33px;
 }
-
 .content-block {
 	margin-bottom: 30px;
 }
@@ -675,6 +680,10 @@ body {
     z-index: 3;
     z-index: 3;
     border-right: 10px #50B748 solid;
+}
+.perma-principles h3{
+	margin: 2em 0 0.7em 0;
+	font-size: 110%;
 }
 #content2-perma {
     width: 460px;
