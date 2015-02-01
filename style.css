@@ -108,7 +108,7 @@ html {
 
 
 
-html, body {margin:0;padding:0;height:100%;}
+html, body {margin:2px 0 0 0;padding:0;height:100%;}
 body {
     font-size: 100%;
 }
@@ -186,6 +186,7 @@ a, .nav a:link, .nav a:visited, .nav a:hover, .nav a:active {
     text-decoration: none;
     text-transform: uppercase;
     padding: 0px 20px 0 0px;
+    display: inline-block;
 }
 /* 	Normal & Underlined */
 
@@ -592,7 +593,7 @@ body {
     font-family: "helvetica";
     font-size: 14px;
     float: right;
-    margin: -12px auto;
+    margin: -10px auto;
     padding: 5px 35px 0 0;
     position: relative;
     z-index: 1;
