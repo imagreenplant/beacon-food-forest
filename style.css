@@ -534,6 +534,14 @@ body {
     margin: 21px 0 0 -8px;
     z-index: -4;
 }
+.background-nut {
+    background: url("img/nut.png") no-repeat scroll 0% 0% transparent;
+    position: absolute;
+    top: 30px;
+    right: 0px;
+    width: 500px;
+    height: 600px;
+}
 #green {
     width: 155px;
     height: 255px;
@@ -645,7 +653,7 @@ body {
 }
 .main-content {
     overflow: hidden;
-    padding: 0 33px 0 33px;
+    padding: 0px 60px 0 33px;
 }
 .content-block {
 	margin-bottom: 30px;
@@ -752,17 +760,6 @@ body {
     margin: 0 0 -1px -1px;
     vertical-align: top;
 }
-/* Images here */
-
-#imageBar {
-    width: 212px;
-    /*margin: 0 0 0 -222px;*/
-    /*position: relative;*/
-    /*float: left;*/
-    /*padding: 0 0 -30px 45px;*/
-    /* border-right: 10px #50B748 solid;	 */
-}
-/* Image spacing */
 
 .regular {
     margin: 0px 10px 0px 0;
@@ -880,4 +877,16 @@ span.blue a {
 }
 #translate-this {
     z-index: 10;
+}
+
+@media only screen and (max-width: 839px) {
+    .background-nut {
+        background-size: 20em;
+    }
+    .right-column {
+        top: 390px;
+    }
+    #imgcontent img {
+        width:70%;
+    }
 }
