@@ -646,7 +646,7 @@ body {
 /* Front page content (left) */
 
 #indexcontent {
-    margin-right: 440px;
+    margin-right: 152px;
 }
 .sub-page-content {
 	margin-right: 220px;
@@ -877,6 +877,13 @@ span.blue a {
 }
 #translate-this {
     z-index: 10;
+}
+.imageBar {
+    float: right;
+    display: inline-block;
+    width: 220px;
+    margin-top: 240px;
+    margin-left: 50px;
 }
 
 @media only screen and (max-width: 839px) {
