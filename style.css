@@ -185,7 +185,7 @@ a, .nav a:link, .nav a:visited, .nav a:hover, .nav a:active {
     font-weight: bold;
     text-decoration: none;
     text-transform: uppercase;
-    padding: 0px 20px 0 0px;
+    padding: 0px 20px 6px 0px;
     display: inline-block;
 }
 /* 	Normal & Underlined */
@@ -848,7 +848,7 @@ body {
     height: auto;
     background-color: #4C301C;
     border-right: 10px #50B748 solid;
-    padding: 8px 0 8px 25px;
+    padding: 8px 0 0 25px;
     margin: 0 209px 0 -35px;
 }
 /* Footer */
@@ -882,8 +882,7 @@ span.blue a {
     float: right;
     display: inline-block;
     width: 220px;
-    margin-top: 240px;
-    margin-left: 50px;
+    margin: 240px 0 40px 50px;
 }
 
 @media only screen and (max-width: 839px) {
