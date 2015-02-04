@@ -535,7 +535,8 @@ body {
     z-index: -4;
 }
 .background-nut {
-    background: url("img/nut.png") no-repeat scroll 0% 0% transparent;
+    background: url("img/nut.png") no-repeat scroll right top transparent;
+    /*background-position: top right;*/
     position: absolute;
     top: 30px;
     right: 0px;
@@ -809,10 +810,10 @@ body {
     height: auto;*/
     /* border-left: 10px #50B748 solid;  */
 }
-.sideblock {
+/*.sideblock {
     margin: 25px 0 0 0;
     margin: 25px 0 0 0;
-}
+}*/
 .sidetitle {
     font-size: 19px;
     color: #7AC143;
@@ -829,19 +830,18 @@ body {
     line-height: 1.3em;
     position: absolute;
     bottom: 0;
-    /*margin: -100px 0 0 0;*/
+    padding-bottom: 10px;
 }
 .sponsor img {
     display: block;
     border: 0;
     margin-top: 10px;
+    width: 92%;
 }
 .sponsorlh10 {
     margin-bottom: 13px;
 }
-.sponsor img#chinook-sponsor {
-    width: 156px;
-}
+
 /* Bottom Navigation Bar */
 
 #botnav {
@@ -881,8 +881,12 @@ span.blue a {
 .imageBar {
     float: right;
     display: inline-block;
-    width: 220px;
+    max-width: 220px;
+    width: 27%;
     margin: 240px 0 40px 50px;
+}
+.imageBar img {
+    width: 100%;
 }
 
 @media only screen and (max-width: 839px) {
@@ -895,4 +899,37 @@ span.blue a {
     #imgcontent img {
         width:70%;
     }
+    #sidenav {
+        font-size: 0.8em;
+    }
+    #sidecontent {
+        width: 160px;
+        padding-left: 10px;
+    }
+    #botnav {
+        margin: 0px 149px 0px -35px
+    }
+    #indexcontent {
+        margin-right: 92px;
+    }
+    .imageBar {
+        margin-top: 80px;
+    }
+}
+@media only screen and (max-width: 750px) {
+    #contact-info p{
+        text-align: center;
+        width: 100%;
+    }
+}
+@media only screen and (max-width: 560px) {
+    .imageBar {
+        display: none;
+    }
+    #botnav a {
+        width: 90%;
+        text-align: center;
+        padding: 15px;
+    }
+
 }
