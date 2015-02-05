@@ -641,11 +641,11 @@ h2.subtitle-text {
 }
 /* Front page content (left) */
 
-#indexcontent {
+.main-content {
     margin-right: 152px;
 }
 .sub-page-content {
-    margin-right: 220px;
+    margin-right: 150px;
 }
 .main-content {
     overflow: hidden;
@@ -734,9 +734,6 @@ h2.subtitle-text {
 }
 .content-div {
     margin: 0 30px 2em 0;
-}
-.first-content-div {
-    margin-right: 14em;
 }
 #contact-info p {
     width: 260px;
@@ -888,6 +885,14 @@ span.blue a {
 .imageBar img {
     width: 100%;
 }
+
+/*First major breakpoint where hazelnut image reduces in size*/
+@media only screen and (min-width: 840px) {
+    .first-content-div {
+        margin-right: 14em;
+    }
+}
+
 @media only screen and (max-width: 839px) {
     .background-nut {
         background-size: 20em;
@@ -908,11 +913,14 @@ span.blue a {
     #botnav {
         margin: 0px 149px 0px -35px
     }
-    #indexcontent {
+    .main-content {
         margin-right: 92px;
     }
     .imageBar {
         margin-top: 80px;
+    }
+    .sub-page-content {
+        margin-right: 100px;
     }
 }
 @media only screen and (max-width: 800px) {
@@ -978,7 +986,7 @@ span.blue a {
     #container {
         margin: 0;
     }
-    #indexcontent {
+    .main-content {
         margin-right: 0px;
         padding: 0 10px 0 10px;
     }
