@@ -388,19 +388,47 @@ a, .nav a:link, .nav a:visited, .nav a:hover, .nav a:active {
 }
 #calendar {
     display: none;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    width: 820px;
+    /*position: fixed;*/
+/*    top: 50%;
+    left: 50%;*/
+/*    width: 820px;
     height: 620px;
     margin-left: -410px;
-    margin-top: -310px;
-    background: #FFF;
-    z-index: 1002;
-    overflow: visible;
-    padding: 15px 5px 0px 20px;
-    border: 10px #50B748 solid;
+    margin-top: -310px;*/
+    /*background: #FFF;
+    z-index: 1002;*/
+    /*overflow: visible;*/
+    /*padding: 15px 5px 0px 20px;*/
+    /*border: 10px #50B748 solid;*/
 }
+/*For responsive Calendar*/
+.responsive-iframe-container {
+        background: #FFF;
+    z-index: 1002;
+    position: fixed;
+    top:7%;
+    left: 7%;
+    bottom: 7%;
+    right: 7%;
+    /*padding-bottom: 56.25%;*/
+    /*padding-top: 30px;*/
+    /*height: 0;*/
+    overflow: hidden;
+    border: 10px #50B748 solid;
+    /*width: 80%;*/
+    /*height: 80%;*/
+}
+ 
+.responsive-iframe-container iframe,   
+.vresponsive-iframe-container object,  
+.vresponsive-iframe-container embed {
+    position: fixed;
+    top: 9%;
+    left: 9%;
+    width: 82%;
+    height: 82%;
+}
+
 #donate {
     display: none;
     position: fixed;
@@ -885,6 +913,9 @@ span.blue a {
 .imageBar img {
     width: 100%;
 }
+
+
+
 
 /*First major breakpoint where hazelnut image reduces in size*/
 @media only screen and (min-width: 840px) {
