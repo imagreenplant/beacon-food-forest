@@ -356,21 +356,39 @@ a, .nav a:link, .nav a:visited, .nav a:hover, .nav a:active {
 /* END Fade for popUps */
 /* Actual pop ups */
 
+.center-popup {
+    -ms-transform: translate(-50%, -50%); /* IE 9 */
+    -webkit-transform: translate(-50%, -50%); /* Chrome, Safari, Opera */
+    transform: translate(-50%, -50%);
+    /*position: absolute;*/
+    left: 50%;
+    top: 20%;
+
+    transform: translate(-50%, 0%);
+
+    width: 90%;
+}
+input[type=text] {
+    width: 65%;
+}
 #mailList {
     display: none;
     position: fixed;
-    top: 50%;
-    left: 50%;
-    width: 300px;
-    height: 200px;
-    margin-left: -150px;
-    margin-top: -100px;
+    /*top: 50%;*/
+    /*left: 50%;*/
+    max-width: 400px;
+    max-height: 220px;
+    min-height: 210px;
+    height: 25%;
+    /*margin-left: -150px;*/
+    /*margin-top: -100px;*/
     background: #FFF;
     z-index: 1002;
     overflow: visible;
-    padding: 15px 5px 0px 20px;
+    padding: 0px 5px 0px 20px;
     border: 10px #50B748 solid;
 }
+
 #directions {
     display: none;
     position: fixed;
@@ -506,18 +524,21 @@ a, .nav a:link, .nav a:visited, .nav a:hover, .nav a:active {
 }
 #translate {
     display: none;
-    position: fixed;
-    top: 25%;
+    /*position: fixed;*/
+    top: 15%;
+    bottom: 55%;
     right: 5px;
-    width: 165px;
-    height: 350px;
-    margin-left: -100px;
-    margin-top: -100px;
-    background: #FFF;
-    z-index: 1002;
-    overflow: visible;
+    width: 90%;
+    max-width: 400px;
+    /*width: 165px;*/
+    height: auto;
+    /*margin-left: -100px;*/
+    /*margin-top: -100px;*/
+    /*background: #FFF;*/
+    /*z-index: 1002;*/
+    /*overflow: visible;*/
     padding: 20px 15px 0px 20px;
-    border: 10px #50B748 solid;
+    /*border: 10px #50B748 solid;*/
 }
 #trans_left {
     float: left;
