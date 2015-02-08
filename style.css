@@ -510,17 +510,24 @@ input[type=text] {
     border: 10px #50B748 solid;
     width:90%;
     /*height: 90%;*/
-    padding-top: 2%;
-    padding-left: 2%;
-    padding-right: 2%;
+    padding-top: 1%;
+    padding-left: 1%;
+    padding-right: 1%;
 
 }
 #video p {
     max-height: 500px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+a.no-padding-link {
+    padding: 0;
 }
 .embed-container {
     position: relative;
-    padding-bottom: 56.25%;
+    padding-bottom: 58.25%;
     height: 0;
     overflow: hidden;
     max-width: 100%;
@@ -534,6 +541,20 @@ input[type=text] {
     width: 100%;
     /*height: 50%;*/
     height: 100%;
+}
+@media screen and (device-aspect-ratio: 16/9) { 
+    div#video {
+        width: 50%;
+        top: 3%;
+    }
+
+}
+@media all and (orientation:landscape) { 
+    div#video {
+        width: 60%;
+        top: 3%;
+    }
+
 }
 /*End Vimeo Video*/
 
