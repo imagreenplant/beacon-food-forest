@@ -362,11 +362,7 @@ a, .nav a:link, .nav a:visited, .nav a:hover, .nav a:active {
     transform: translate(-50%, -50%);
     /*position: absolute;*/
     left: 50%;
-    top: 20%;
-
     transform: translate(-50%, 0%);
-
-    width: 90%;
 }
 input[type=text] {
     width: 65%;
@@ -387,6 +383,8 @@ input[type=text] {
     overflow: visible;
     padding: 0px 5px 0px 20px;
     border: 10px #50B748 solid;
+    top: 20%;
+    width: 90%;
 }
 
 #directions {
@@ -446,6 +444,8 @@ input[type=text] {
     width: 82%;
     height: 59.5%;
 }
+/*End responsive calendar*/
+
 
 #donate {
     display: none;
@@ -492,21 +492,51 @@ input[type=text] {
     font-family: "helvetica";
     resize: none;
 }
+
+/* Vimeo Video*/
 #video {
     display: none;
     position: fixed;
-    top: 50%;
-    left: 50%;
-    width: 700px;
-    height: 500x;
-    margin-left: -350px;
-    margin-top: -250px;
+    top: 10%;
+    /*left: 50%;*/
+    /*width: 700px;*/
+    /*height: 500x;*/
+    /*margin-left: -350px;*/
+    /*margin-top: -250px;*/
     background: #FFF;
     z-index: 1002;
     overflow: visible;
-    padding: 20px 20px;
+    /*padding: 20px 20px;*/
     border: 10px #50B748 solid;
+    width:90%;
+    /*height: 90%;*/
+    padding-top: 2%;
+    padding-left: 2%;
+    padding-right: 2%;
+
 }
+#video p {
+    max-height: 500px;
+}
+.embed-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    max-width: 100%;
+}
+.embed-container iframe,
+.embed-container object,
+.embed-container embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    /*height: 50%;*/
+    height: 100%;
+}
+/*End Vimeo Video*/
+
 #register {
     display: none;
     position: fixed;
