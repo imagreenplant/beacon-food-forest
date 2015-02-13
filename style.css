@@ -493,18 +493,23 @@ div#directions p {
 }
 /*End responsive calendar*/
 
+
+/*Donate Form Begin*/
 #donate {
     display: none;
     position: fixed;
-    top: 50%;
-    left: 50%;
-    width: 600px;
-    height: 500px;
-    margin-left: -300px;
-    margin-top: -250px;
+    top: 5%;
+    height: 88%;
+    /*left: 50%;*/
+    max-width: 600px;
+    max-height: 550px;
+    width: 90%;
+    /*height: 500px;*/
+    /*margin-left: -300px;*/
+    /*margin-top: -250px;*/
     background: #FFF;
     z-index: 1002;
-    overflow: visible;
+    overflow: scroll;
     padding: 15px 15px 0px 15px;
     border: 10px #50B748 solid;
 }
@@ -516,7 +521,7 @@ div#directions p {
     font-family: "helvetica";
 }
 .donateform input, .donateform select {
-    width: 580px;
+    width: 100%;
     height: 30px;
     margin: 0px 0px 5px 0px;
     padding: 0 0 0 5px;
@@ -524,7 +529,7 @@ div#directions p {
     font-family: "helvetica";
 }
 .donateform label select {
-    width: 585px;
+    width: 100%;
     height: 30px;
     font-size: 12px;
     font-height: 18px;
@@ -532,14 +537,25 @@ div#directions p {
     font-family: "helvetica";
 }
 .donateform textarea {
-    width: 580px;
+    width: 100%;
     height: 100px;
     color: #4C301C;
     font-family: "helvetica";
     resize: none;
+    padding: 4px;
 }
-/* Vimeo Video*/
+div#donate h2.content-title {
+    margin-top: 0;
+}
+.donateform a {
+    display: none;
+}
 
+/*Donate Form End*/
+
+
+
+/* Vimeo Video*/
 #video {
     display: none;
     position: fixed;
