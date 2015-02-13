@@ -1161,4 +1161,7 @@ span.blue a {
         top: 30px;
         height: 199px;
     }
+    .content-div {
+    margin: 0 10px 2em 0;
+    }
 }
