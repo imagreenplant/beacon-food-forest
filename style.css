@@ -133,7 +133,6 @@ q:after {
 .float-right {
     float: right;
 }
-
 .content-title {
     font-size: 150%;
     color: #A5978D;
@@ -397,17 +396,19 @@ input[type=text] {
     top: 20%;
     width: 90%;
 }
-
 /*Directions popup*/
+
 #directions {
     display: none;
     position: fixed;
     /*top: 50%;*/
     /*left: 50%;*/
+    
     max-width: 1000px;
     max-height: 720px;
     /*margin-left: -300px;*/
     /*margin-top: -350px;*/
+    
     background: #FFF;
     z-index: 1002;
     overflow: scroll;
@@ -419,11 +420,11 @@ input[type=text] {
 }
 @media only screen and (max-width: 525px) {
     .directions-content .directions-img {
-        width:100%;
+        width: 100%;
         padding-bottom: 15px;
     }
-    .directions-content .directions-img img{
-        width:100%;
+    .directions-content .directions-img img {
+        width: 100%;
     }
 }
 @media only screen and (min-width: 526px) {
@@ -432,13 +433,12 @@ input[type=text] {
         padding-bottom: 10px;
     }
 }
-
 h4 {
     font-family: Helvetica;
     margin-top: 10px;
     margin-bottom: 10px;
 }
-.social-locations a{
+.social-locations a {
     display: inline-block;
     padding: 0px;
 }
@@ -449,9 +449,6 @@ div#directions p {
     margin-left: 10px;
 }
 /*End Directions popup*/
-
-
-
 
 #calendar {
     display: none;
@@ -541,9 +538,8 @@ div#directions p {
     font-family: "helvetica";
     resize: none;
 }
-
-
 /* Vimeo Video*/
+
 #video {
     display: none;
     position: fixed;
@@ -1162,6 +1158,6 @@ span.blue a {
         height: 199px;
     }
     .content-div {
-    margin: 0 10px 2em 0;
+        margin: 0 10px 2em 0;
     }
 }
