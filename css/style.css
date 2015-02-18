@@ -684,7 +684,7 @@ body {
     padding: 0px 0px;
     top: 30px;
     position: absolute;
-    z-index: 0;
+    z-index: 5;
 }
 #headercontent {
     height: 260px;
