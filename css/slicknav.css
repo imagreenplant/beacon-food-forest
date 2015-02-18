@@ -19,7 +19,7 @@
 .slicknav_menu .slicknav_icon {
     float: left;
     margin: 0 0 0 0.438em;
-    border: 0.2em solid white;
+    border: 0.2em solid #4C301C;
     padding: 0.2em;
     font-size: 0.7em;
 }
@@ -29,7 +29,7 @@
 .slicknav_menu .slicknav_icon-bar {
     display: block;
     width: 1.125em;
-    height: 0.125em;
+    height: 0.16em;
     -webkit-border-radius: 1px;
     -moz-border-radius: 1px;
     border-radius: 1px;
@@ -121,7 +121,7 @@
 /* Button Lines */
 
 .slicknav_menu .slicknav_icon-bar {
-    background-color: #f5f5f5;
+    background-color: #4C301C;
 }
 .slicknav_nav {
     color: #fff;
