@@ -120,6 +120,7 @@ p {
     -webkit-margin-after: 0em;
     -webkit-margin-start: 0px;
     -webkit-margin-end: 0px;
+    margin-top: 1em;
 }
 q {
     display: inline;
@@ -175,7 +176,7 @@ a, .nav a:link, .nav a:visited, .nav a:hover, .nav a:active {
     font-weight: bold;
     text-decoration: none;
     text-transform: uppercase;
-    padding: 0px 30px 0 0;
+    /*padding: 0px 30px 0 0;*/
     vertical-align: middle;
 }
 #botnav a, #botnav a:link, #botnav a:visited, #botnav a:hover, #botnav a:active {
@@ -935,12 +936,16 @@ h2.subtitle-text {
     margin: 1% 1% 2% 1%;
     vertical-align: top;
 }
+
+/*Permaculture Principles table*/
 .perma-table {
-    width: 700px;
+    /*width: 700px;*/
     height: auto;
     border-color: #A5978D;
     border-spacing: 0;
     margin: 0px 0 0 5px;
+    border-collapse: collapse;
+    border-top: 0;
 }
 .perma-table td, .perma-table th {
     width: 50%;
@@ -951,7 +956,28 @@ h2.subtitle-text {
     padding: 10px 10px;
     margin: 0 0 -1px -1px;
     vertical-align: top;
+    border: 1px solid #A5978D;
 }
+.perma-table th:first-child {
+  border-top: 0;
+}
+.perma-table tr:first-child th {
+  border-top: 0;
+}
+.perma-table tr:last-child td {
+  border-bottom: 0;
+}
+.perma-table tr td:first-child,
+.perma-table tr th:first-child {
+  border-left: 0;
+}
+.perma-table tr td:last-child,
+.perma-table tr th:last-child {
+  border-right: 0;
+}
+/*END Permaculture Principles table */
+
+
 .regular {
     margin: 0px 10px 0px 0;
 }
@@ -1005,6 +1031,12 @@ h2.subtitle-text {
     margin: 25px 0 0 0;
     margin: 25px 0 0 0;
 }*/
+.sideblock ul{
+    list-style: none;
+}
+.sideblock li {
+    margin: 10px;
+}
 
 .sidetitle {
     font-size: 19px;
@@ -1012,6 +1044,7 @@ h2.subtitle-text {
     font-family: "Georgia";
     line-height: 100%;
     vertical-align: top;
+    font-weight: normal;
 }
 /* This only appears once */
 
@@ -1126,6 +1159,66 @@ span.blue a {
         text-align: center;
         width: 100%;
     }
+        .imageBar {
+        display: none;
+    }
+
+    /*Move right Column to bottom*/
+    .right-column {
+        position: relative;
+        top: 0px;
+        width: 100%;
+        /*padding-left: 30px;*/
+        margin-bottom: 20px;
+    }
+    .right-column #sidecontent {
+        /*float: none;*/
+        width: 100%;
+        border-left: none;
+    }
+    .sponsor {
+        position: relative;
+    }
+    div.side-logo {
+        display: none;
+    }
+    .sponsor img {
+        max-width: 300px;
+        margin-left: auto;
+        margin-right: auto;
+        /*width: 45%;*/
+
+    }
+    .community-partners {
+        margin-bottom: 20px;
+    }
+    .community-partners a {
+        display: inline-block;
+        text-align: center;
+        width: 45%;
+        min-width: 200px;
+    }
+    .community-partners img {
+        width: 100%;
+    }
+    #footer {
+        padding: 0px;
+    }
+    #botnav {
+        margin: 0px;
+        border: none;
+    }
+    .sidetitle {
+        font-size: 150%;
+        color: #A5978D;
+        font-family: "Georgia";
+        margin: 1em 0px;
+        font-weight: normal;
+        text-shadow: 1px 1px #000;
+    }
+    #sidenav {
+        font-size: 1em;
+    }
 }
 @media only screen and (min-width: 561px) {
     #botnav a {
@@ -1133,9 +1226,6 @@ span.blue a {
     }
 }
 @media only screen and (max-width: 560px) {
-    .imageBar {
-        display: none;
-    }
     #botnav {
         width: 100%;
         margin: 0;
@@ -1149,11 +1239,11 @@ span.blue a {
     #container {
         position: relative;
     }
-    .right-column {
+/*    .right-column {
         position: absolute;
         bottom: 0px;
         display: none;
-    }
+    }*/
     .top-text {
         padding: 0px;
         margin-top: 4px;
@@ -1192,9 +1282,9 @@ span.blue a {
     #main {
         margin: 0;
     }
-    #footer {
+/*    #footer {
         padding: 0;
-    }
+    }*/
     .banner-img {
         margin: 0px 0px 0px 0px;
         width: 130px;
