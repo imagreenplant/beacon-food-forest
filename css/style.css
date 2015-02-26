@@ -110,6 +110,7 @@ html, body {
 }
 body {
     font-size: 100%;
+    font-family: "Helvetica";
 }
 p {
     color: #4C301C;
@@ -140,13 +141,13 @@ q:after {
     font-family: "Georgia";
     margin: 1em 0 1em 0;
     font-weight: normal;
-    text-shadow: 1px 1px #000;
+    /*text-shadow: 1px 1px #000;*/
 }
 .text-bold {
     font-weight: bold;
     color: #4C301C;
     font-size: 1.02em;
-    font-family: "helvetica";
+    /*font-family: "helvetica";*/
 }
 .text-green {
     color: #50B748;
@@ -160,7 +161,7 @@ q:after {
     font-size: 100%;
     /* font-family: "Segoe"; */
     
-    font-family: "helvetica";
+    /*font-family: "helvetica";*/
     font-weight: bold;
     text-decoration: none;
     text-transform: uppercase;
@@ -172,7 +173,7 @@ a, .nav a:link, .nav a:visited, .nav a:hover, .nav a:active {
     font-size: 100%;
     /* font-family: "Segoe"; */
     
-    font-family: "helvetica";
+    /*font-family: "helvetica";*/
     font-weight: bold;
     text-decoration: none;
     text-transform: uppercase;
@@ -185,7 +186,7 @@ a, .nav a:link, .nav a:visited, .nav a:hover, .nav a:active {
     font-size: 100%;
     /* font-family: "Segoe"; */
     
-    font-family: "helvetica";
+    /*font-family: "helvetica";*/
     font-weight: bold;
     text-decoration: none;
     text-transform: uppercase;
@@ -199,7 +200,7 @@ a, .nav a:link, .nav a:visited, .nav a:hover, .nav a:active {
     font-weight: normal;
     /* font-family: "Segoe"; */
     
-    font-family: "helvetica";
+    /*font-family: "helvetica";*/
     text-decoration: underline;
     text-transform: none;
     padding: 0px 0 0 0;
@@ -210,7 +211,7 @@ a, .nav a:link, .nav a:visited, .nav a:hover, .nav a:active {
     font-weight: normal;
     /* font-family: "Segoe"; */
     
-    font-family: "helvetica";
+    /*font-family: "helvetica";*/
     text-decoration: underline;
     text-transform: none;
     padding: 0px 0 0 0;
@@ -222,7 +223,7 @@ a, .nav a:link, .nav a:visited, .nav a:hover, .nav a:active {
     font-size: 100%;
     /* font-family: "Segoe"; */
     
-    font-family: "helvetica";
+    /*font-family: "helvetica";*/
     font-weight: bold;
     text-decoration: underline;
     text-transform: none;
@@ -235,7 +236,7 @@ a, .nav a:link, .nav a:visited, .nav a:hover, .nav a:active {
     font-size: 100%;
     /* font-family: "Segoe Semibold"; */
     
-    font-family: "helvetica";
+    /*font-family: "helvetica";*/
     font-weight: bold;
     text-decoration: none;
     text-transform: none;
@@ -246,7 +247,7 @@ a, .nav a:link, .nav a:visited, .nav a:hover, .nav a:active {
     font-size: 100%;
     /* font-family: "Segoe Semibold"; */
     
-    font-family: "helvetica";
+    /*font-family: "helvetica";*/
     font-weight: bold;
     text-decoration: none;
     text-transform: none;
@@ -644,6 +645,7 @@ a.no-padding-link {
     right: 5px;
     width: 90%;
     max-width: 400px;
+    min-height: 220px;
     /*width: 165px;*/
     
     height: auto;
@@ -1054,7 +1056,7 @@ h2.subtitle-text {
     font-family: "Georgia";
     line-height: 1.3em;
     position: absolute;
-    bottom: 0;
+    bottom: 20px;
     padding-bottom: 10px;
 }
 .sponsor img {
@@ -1155,12 +1157,12 @@ span.blue a {
     }
 }
 @media only screen and (max-width: 750px) {
-    #contact-info p {
-        text-align: center;
-        width: 100%;
-    }
-        .imageBar {
+    .imageBar {
         display: none;
+    }
+    .main-content {
+        margin-right: 0px;
+        padding-right: 0px;
     }
 
     /*Move right Column to bottom*/
@@ -1175,6 +1177,7 @@ span.blue a {
         /*float: none;*/
         width: 100%;
         border-left: none;
+        margin-left: 33px;
     }
     .sponsor {
         position: relative;
@@ -1213,11 +1216,24 @@ span.blue a {
         color: #A5978D;
         font-family: "Georgia";
         margin: 1em 0px;
+        /*margin-top: 50px;*/
         font-weight: normal;
-        text-shadow: 1px 1px #000;
+        /*text-shadow: 1px 1px #000;*/
     }
     #sidenav {
         font-size: 1em;
+    }
+}
+@media only screen and (max-width: 750px) and (min-width: 561px) {
+    .sidetitle {
+        margin-left: 33px;
+    }
+    #contact-info p {
+        text-align: center;
+        width: 45%;
+    }
+    ul.side-ul {
+        margin-left: 10%;
     }
 }
 @media only screen and (min-width: 561px) {
@@ -1295,5 +1311,12 @@ span.blue a {
     }
     .content-div {
         margin: 0 10px 2em 0;
+    }
+    #contact-info p {
+        text-align: center;
+        width: 100%;
+    }
+    ul.side-ul {
+        margin-left: 4%;
     }
 }
