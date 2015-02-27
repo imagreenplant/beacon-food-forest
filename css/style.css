@@ -1164,6 +1164,9 @@ span.blue a {
         margin-right: 0px;
         padding-right: 0px;
     }
+    #main {
+        background-image: none;
+    }
 
     /*Move right Column to bottom*/
     .right-column {
