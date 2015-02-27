@@ -1037,7 +1037,7 @@ h2.subtitle-text {
     list-style: none;
 }
 .sideblock li {
-    margin: 10px;
+    margin: 10px 10px 10px 0px;
 }
 
 .sidetitle {
@@ -1320,6 +1320,6 @@ span.blue a {
         width: 100%;
     }
     ul.side-ul {
-        margin-left: 4%;
+        /*margin-left: 4%;*/
     }
 }
