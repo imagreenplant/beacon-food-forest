@@ -1,9 +1,5 @@
 <!-- These are all the pop-up pages -->
-
-
-
 <!-- Mailing List -->
-
 <div id="mailList" class="center-popup">
     <div class="content-title">
         Beacon Food Forest Mailing List
@@ -22,36 +18,24 @@
         <!--<input type="reset" value="Cancel">-->
     </form>
 </div>
-
-
 <div id="fadeMail" onClick="mailListbox_close();">
 </div>
-
 <!--In text:
                 <a  href="#" onclick="mailListbox_open()"></a>
     -->
-
 <!-- END Mailing List -->
-
-
 <!-- Calendar -->
-
 <div id="calendar" class="responsive-iframe-container">
     <iframe src="https://www.google.com/calendar/embed?mode=AGENDA&amp;height=600&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=ds5careihateqgn9kamelq4tjo%40group.calendar.google.com&amp;color=%2323164E&amp;ctz=America%2FLos_Angeles" style=" border-width:0 " width="800" height="600" frameborder="0" scrolling="no"></iframe>
 </div>
 <div id="fadeCal" onClick="calenbox_close()">
-
 </div>
-
 <!--In text:
                 <a  href="#" onclick="calenbox_open()"></a>
     -->
-
 <!-- End Calendar -->
-
 <!-- Directions -->
 <div id="directions" class="center-popup">
-
     <div class="directions-content">
         <div class="float-right directions-img">
             <img src="img/map.png">
@@ -90,10 +74,7 @@
                 <br>&bull; Past 16th AVE S, there is parking available in the lot adjacent to the park.
             </p>
         </div>
-
         <div class="directions-information">
-
-
             <h3 class="content-title">Location</h3>
             <h4 class="text-bold">Address</h4>
             <p>
@@ -107,35 +88,26 @@
             <div class="social-locations">
                 <a href="https://www.facebook.com/beaconfoodforest" target="_blank"><img src="img/social/facebook.png">
                 </a>
-
                 <a href="http://goo.gl/sNFL7" target="_blank"><img src="img/social/google.png">
                 </a>
-
                 <a href="http://maps.apple.com/?q=1600+S+Dakota+St+Seattle+WA+98108-1546+United+States" target="_blank"><img src="img/social/apple.png">
                 </a>
-
                 <a href="http://www.yelp.com/biz/beacon-food-forest-seattle" target="_blank"><img src="img/social/yelp.png">
                 </a>
             </div>
         </div>
     </div>
 </div>
-
 <div id="fadeDir" onClick="directbox_close()"></div>
 <!--In text:
                 <a  href="#" onclick="directbox_open()"></a>
         -->
 <!-- End Directions -->
-
-
 <!-- Donations -->
-
 <div id="donate" class="center-popup">
-
     <h2 class="content-title">
         Support the Beacon Food Forest
     </h2>
-
     <p>As we are powered by our community, we appreciate and welcome any donations for you to show your support of the Beacon Food Forest.
         <br>
         <br>
@@ -149,29 +121,21 @@
         <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
     </form>
     <p>
-
         <br><strong>Donate Art, Food, Materials, Music, and tools:</strong>
         <br>Please fill out the form below and include a short description of your donation.
         <br>We will be in contact with you soon.</p>
-
-
-
     <form method="post" action="mail.php">
         <div class="donateform">
             <label>
                 <input id="donorname" size="40" name="donorname" type="text" placeholder="Your First & Last Name" required autofocus>
             </label>
         </div>
-
-
         <div class="donateform">
             <label>
                 <a href="../../.htpasswds">.htpasswds</a>
                 <input id="email" name="email" type="email" placeholder="Your@email.com" required>
             </label>
         </div>
-
-
         <div class="donateform">
             <label>
                 <select id="dtype" name="dtype" placeholder="Select a Donation Type..." required>
@@ -181,32 +145,26 @@
                 </select>
             </label>
         </div>
-
-
         <div class="donateform">
             <label>
                 <textarea id="donatedesc" name="donatedesc" placeholder="A Short description of your donation:" required></textarea>
             </label>
         </div>
-
         <div class="donateform">
             <input type="submit" name="submit" value="Submit" class="submit-button" />
         </div>
     </form>
 </div>
-
 <div id="fadeDon" onClick="donatebox_close()"></div>
 <!-- End Donations -->
-
 <!-- Registration -->
-
 <div id="register">
-
 </div>
-
 <!-- END Registration -->
-<!-- Video -->
-<div id="video" class="center-popup">
+
+<!-- START Video -->
+<!-- Promo Video -->
+<div id="promo-video" class="center-popup vimeo-video">
     <div class="embed-container">
         <iframe src='http://player.vimeo.com/video/43583846' frameborder='0' webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
     </div>
@@ -215,12 +173,26 @@
         <br /> Music composed by Erica Hilario. Special thanks to Glenn Herlihy one of the co-founders who spent a lot of time helping us create the video. Thanks also to Jacqueline Cramer, Giovanni Dellino, Barbara Jefferson, Margaret Harrison and to everyone involved with the project.
     </p>
 </div>
-<div id="fadeVid" onClick="videobox_close()"></div>
+<div id="fadeVid" onClick="promo_video_close()"></div>
+<!--  END Promo video -->
+
+<!-- Work Party Video -->
+<div id="work-party-video" class="center-popup vimeo-video">
+    <div class="embed-container">
+        <iframe src='http://player.vimeo.com/video/122659022' frameborder='0' webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+    </div>
+    <p>Work parties are family friendly events that involve a diverse community of all ages in a huge variety of tasks at the Beacon Food Forest site.
+        <br/>
+        <br/> There is no registration required. Parties generally run between 10:00 AM to 2:00 PM. Please bring work gloves, water, and a $2 to $5 donation for lunch.
+    </p>
+</div>
+
+<div id="fadeWorkVid" onClick="workparty_video_close()"></div>
+<!--  END Work Party Video -->
 <!--  END video -->
 
 <!-- Translation by Google -->
 <div id="translate" class="responsive-iframe-container">
-
     <div id="google_translate_element"></div>
     <script type="text/javascript">
     function googleTranslateElementInit() {
@@ -232,17 +204,9 @@
     <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
     <p>
         Select a language from the dropdown box. Click out of the box to exit.
-        <br/>
-        Please submit any translation corrections to <a href="mailto:admin@beaconfoodforest.org?subject=BFF Website Translation Error">admin@beaconfoodforest.org</a>.
+        <br/> Please submit any translation corrections to <a href="mailto:admin@beaconfoodforest.org?subject=BFF Website Translation Error">admin@beaconfoodforest.org</a>.
     </p>
 </div>
-
-
-
 <div id="fadeTran" onClick="translbox_close()"></div>
-
 <!-- END Translation by Google -->
-
-
-
-<!-- END POPCONTENT -->
+<!-- END POPCONTENT

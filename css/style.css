@@ -360,6 +360,19 @@ a, .nav a:link, .nav a:visited, .nav a:hover, .nav a:active {
     opacity: .80;
     filter: alpha(opacity=80);
 }
+#fadeWorkVid {
+    display: none;
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    z-index: 1001;
+    -moz-opacity: 0.8;
+    opacity: .80;
+    filter: alpha(opacity=80);
+}
 /* END Fade for popUps */
 /* Actual pop ups */
 
@@ -560,7 +573,7 @@ div#donate h2.content-title {
 
 
 /* Vimeo Video*/
-#video {
+.vimeo-video {
     display: none;
     position: fixed;
     top: 10%;
@@ -583,7 +596,7 @@ div#donate h2.content-title {
     padding-left: 1%;
     padding-right: 1%;
 }
-#video p {
+.vimeo-video p {
     max-height: 500px;
     padding-bottom: 10px;
     padding-top: 10px;
@@ -610,13 +623,13 @@ a.no-padding-link {
     height: 100%;
 }
 @media screen and (device-aspect-ratio: 16/9) {
-    div#video {
+    div.vimeo-video {
         width: 50%;
         top: 3%;
     }
 }
 @media all and (orientation: landscape) {
-    div#video {
+    div.vimeo-video {
         width: 60%;
         top: 3%;
     }

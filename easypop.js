@@ -72,14 +72,26 @@ function translbox_close() {
 }
 
 
-// Video
-function videobox_open() {
+// Vimeo promo
+function promo_video_open() {
     window.scrollTo(0, 0);
-    document.getElementById('video').style.display = 'block';
+    document.getElementById('promo-video').style.display = 'block';
     document.getElementById('fadeVid').style.display = 'block';
 }
 
-function videobox_close() {
-    document.getElementById('video').style.display = 'none';
+function promo_video_close() {
+    document.getElementById('promo-video').style.display = 'none';
     document.getElementById('fadeVid').style.display = 'none';
+}
+
+// Videos
+function workparty_video_open() {
+    window.scrollTo(0, 0);
+    document.getElementById('work-party-video').style.display = 'block';
+    document.getElementById('fadeWorkVid').style.display = 'block';
+}
+
+function workparty_video_close() {
+    document.getElementById('work-party-video').style.display = 'none';
+    document.getElementById('fadeWorkVid').style.display = 'none';
 }
