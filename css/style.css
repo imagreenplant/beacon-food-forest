@@ -98,6 +98,12 @@ input, select {
 html {
     box-sizing: border-box;
 }
+
+/*Fix for choppy iOS scrolling*/
+* {
+  -webkit-overflow-scrolling: touch;
+}
+
 *, *:before, *:after {
     box-sizing: inherit;
 }
