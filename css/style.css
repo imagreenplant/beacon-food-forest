@@ -383,6 +383,7 @@ a, .nav a:link, .nav a:visited, .nav a:hover, .nav a:active {
 /* Actual pop ups */
 
 .center-popup {
+    -ms-transform: translate(-50%, -50%);
     /* IE 9 */
     
     -webkit-transform: translate(-50%, -50%);
@@ -392,8 +393,7 @@ a, .nav a:link, .nav a:visited, .nav a:hover, .nav a:active {
     /*position: absolute;*/
     
     left: 50%;
-    -webkit-transform: translate(-50%, 0%);
-            transform: translate(-50%, 0%);
+    transform: translate(-50%, 0%);
 }
 input[type=text] {
     width: 65%;
@@ -854,8 +854,7 @@ h2.subtitle-text {
     /*height: auto;*/
     
     margin: 33px 0 0 0;
-    z-index: -5; 
-    position: relative;
+    z-index: -5 position: relative;
     min-height: 1500px;
 }
 /* Front page content (left) */
