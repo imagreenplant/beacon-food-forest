@@ -360,11 +360,14 @@ a, .nav a:link, .nav a:visited, .nav a:hover, .nav a:active {
     -webkit-transform: translate(-50%, -50%);
     /* Chrome, Safari, Opera */
     
-    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    
+        transform: translate(-50%, -50%);
 
     left: 50%;
     -webkit-transform: translate(-50%, 0%);
-            transform: translate(-50%, 0%);
+            -ms-transform: translate(-50%, 0%);
+        transform: translate(-50%, 0%);
 }
 input[type=text] {
     width: 65%;
