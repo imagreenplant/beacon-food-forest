@@ -901,7 +901,7 @@ h2.subtitle-text {
     float: right;
     position: absolute;
     right: 0px;
-    top: 550px;
+    top: 242px;
     bottom: 0px;
 }
 .sideblock ul{
@@ -997,7 +997,7 @@ span.blue a {
         background-size: 20em;
     }
     .right-column {
-        top: 390px;
+        top: 80px;
     }
     #imgcontent img {
         width: 70%;
