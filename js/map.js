@@ -10,12 +10,15 @@ function initialize() {
     };
 
 
-  var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+  var plant_map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
 
-  var ctaLayer = new google.maps.KmlLayer({
-    url: 'http://lapora.org/tree_list.kml'
-  });
-  ctaLayer.setMap(map);
+  // var ctaLayer = new google.maps.KmlLayer({
+  //   url: 'http://lapora.org/tree_list.kml'
+  // });
+  // ctaLayer.setMap(map);
+
+  var myParser = new geoXML3.parser({map: plant_map});
+  myParser.parse('maps/tree_list.kml');
 }
 
 google.maps.event.addDomListener(window, 'load', initialize);
