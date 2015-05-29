@@ -32,9 +32,12 @@ function initialize() {
     // iconFromDescription:false, domouseover:false});
 
     // exml.parse("NPL");
-    gml = new GeoXml("gml", plant_map, "maps/tree_list.kml", {
+    gml = new GeoXml("gml", plant_map, "maps/features.kml", {
         sidebarid: "the_side_bar",
-        iwwidth: 250
+        // iwwidth: 250,
+        quiet: true,
+        // pointlabelclass: "point-label",
+        // polylabelclass: "poly-label",
     });
     gml.parse();
 }
