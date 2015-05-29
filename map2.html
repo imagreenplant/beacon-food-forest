@@ -1,0 +1,110 @@
+<!-- See this link for great KML info:  https://developers.google.com/earth/documentation/kml -->
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="css/bff-main.css">
+
+    <meta charset="UTF-8">
+
+    <title>bff example</title>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+    var ge;
+    var kml;
+    // Use for GPS
+    // google.load("earth", "1", {"other_params":"sensor=true"});
+
+    google.load("earth", "1", {
+        "other_params": "sensor=false"
+    });
+
+    function init() {
+        google.earth.createInstance('map3d', initCB, failureCB);
+    }
+
+    function traverseKml(node) {
+        if (node.getFeatures().hasChildNodes()) {
+
+            console.log("Traversing...");
+            var subNodes = node.getFeatures().getChildNodes();
+            var length = subNodes.getLength();
+            // debugger;
+            for (var i = 0; i < length; i++) {
+
+                var eachSubNode = subNodes.item(i);
+                var nodeType = eachSubNode.getType();
+                console.log("Name:" + eachSubNode.getName() + " Type:" + nodeType + " ID:" + eachSubNode.getId());
+                switch (nodeType) {
+                    // kml containers 
+                    case 'KmlFolder':
+                    case 'KmlDocument':
+                        traverseKml(eachSubNode);
+                        break;
+                        // do something with all placemarks...
+                    case 'KmlPlacemark':
+                        // alert(eachSubNode.getName()); 
+                        break;
+                }
+            }
+        }
+    }
+
+    function initCB(instance) {
+        ge = instance;
+        ge.getWindow().setVisibility(true);
+        ge.getOptions().setScaleLegendVisibility(true);
+        ge.getOptions().setStatusBarVisibility(true);
+        ge.getOptions().setFlyToSpeed(0.1);
+
+        //    var link = ge.createLink('');
+        //    var href = 'http://lapora.org/bff6.kmz';
+        //    link.setHref(href);
+
+        //    var networkLink = ge.createNetworkLink('');
+        //    networkLink.set(link, true, true); // Sets the link, refreshVisibility, and flyToView.
+
+        //    ge.getFeatures().appendChild(networkLink);
+
+        ge.getNavigationControl().setVisibility(ge.VISIBILITY_AUTO);
+        ge.getLayerRoot().enableLayerById(ge.LAYER_BORDERS, true);
+        ge.getLayerRoot().enableLayerById(ge.LAYER_ROADS, true);
+
+        var lookAt = ge.createLookAt('');
+        lookAt.setLatitude(47.56845610052802);
+        lookAt.setLongitude(-122.31254031038299);
+        lookAt.setHeading(89.69468716063705);
+        lookAt.setTilt(14.95293107392);
+        lookAt.setRange(320.2491571091358);
+        ge.getView().setAbstractView(lookAt);
+
+        var href = 'http://example.com/bff6.kmz';
+
+        google.earth.fetchKml(ge, href, function(kmlObject) {
+            if (kmlObject)
+                kml = kmlObject;
+            ge.getFeatures().appendChild(kmlObject);
+            traverseKml(kmlObject);
+        });
+    }
+
+
+    function failureCB(errorCode) {}
+
+    function showHideKml() {
+        kmlObject.setVisibility(!kmlObject.getVisibility());
+    }
+    google.setOnLoadCallback(init);
+    </script>
+</head>
+
+<body>
+    <h1>Beacon Food Forest (Seattle, WA) Interactive Map</h1>
+    <div id="map3d"></div>
+    <div id="visibility_controls">
+        <p>
+            <input type="button" value="Hide/Show KML" onclick="showHideKml()">
+        </p>
+    </div>
+</body>
+
+</html>
