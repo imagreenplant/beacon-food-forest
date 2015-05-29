@@ -3,6 +3,10 @@
 // Additionally, we add a toggleDOM() method, which attaches or detaches the
 // overlay to or from the map.
 
+// Further notes --mlapora:
+// This example uses Google's direct javascript API, but the KML overlay seems limited and buggy.
+// The overlay keeps appearing with a poor tilt, causing display errors when rotating the screen.
+
 var overlay;
 
 BFFOverlay.prototype = new google.maps.OverlayView();
