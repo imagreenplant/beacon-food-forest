@@ -3,8 +3,8 @@ var gml, plant_map;
 function initialize() {
     var myLatLng = new google.maps.LatLng(47.56845610052802, -122.31254031038299);
     var mapOptions = {
-        zoom: 18,
-        // heading: 90,
+        zoom: 10,
+        //Heading can't be used here, appears to conflict with GeoXML lib.  Stuck with North/South orientation.
         center: myLatLng,
         // mapTypeId: google.maps.MapTypeId.HYBRID // Should also try SATELLITE
         mapTypeId: google.maps.MapTypeId.SATELLITE,
