@@ -91,7 +91,7 @@ function GeoXml(myvar, map, url, opts) {
   }
 
   this.dohilite = true;
-  if (typeof this.opts.dohilite != "undefined" && this.opts.dohilite == false) {
+  if (typeof this.opts.dohilite != "undefined" && this.opts.dohilite === false) {
     this.dohilite = false;
   }
   this.clickablepolys = true;
@@ -343,7 +343,7 @@ GeoXml.prototype.clear = function() {
   this.bounds = new google.maps.LatLngBounds();
   this.overlayman = new OverlayManager(this.map, this, this.opts.clustering);
   this.overlayman.rowHeight = 20;
-  if (typeof this.basesidebar != "undefined" && this.basesidebar != "") {
+  if (typeof this.basesidebar !== "undefined" && this.basesidebar !== "") {
     Lance$(this.basesidebar).innerHTML = "";
   }
   this.currdeschead = "";
@@ -391,7 +391,7 @@ GeoXml.prototype.createMarker = function(point, name, desc, styleid, idx, instyl
     scale = instyle.scale;
   }
   var bicon;
-  if ((instyle && (typeof instyle.url == "undefined" || instyle.url == "")) && this.showLabels) {
+  if ((instyle && (typeof instyle.url === "undefined" || instyle.url === "")) && this.showLabels) {
     if ((scale * 12) < 7) {
       scale = 0.6;
     }
@@ -443,7 +443,7 @@ GeoXml.prototype.createMarker = function(point, name, desc, styleid, idx, instyl
   if (instyle) {
     bicon = instyle;
   } else {
-    var bicon = new google.maps.MarkerImage("http://maps.google.com/mapfiles/kml/pal3/icon40.png",
+    bicon = new google.maps.MarkerImage("http://maps.google.com/mapfiles/kml/pal3/icon40.png",
       new google.maps.Size(32 * scale, 32 * scale), //size
       new google.maps.Point(0, 0), //origin
       new google.maps.Point(16 * scale, 16 * scale), //anchor
@@ -471,13 +471,13 @@ GeoXml.prototype.createMarker = function(point, name, desc, styleid, idx, instyl
     var result;
     var pattern2 = /src\s*=\s*[\'\"]/;
     var pattern3 = /[\'\"]/;
-    while ((result = pattern.exec(text)) != null) {
+    while ((result = pattern.exec(text)) !== null) {
       var stuff = text.substr(result.index);
       var result2 = pattern2.exec(stuff);
-      if (result2 != null) {
+      if (result2 !== null) {
         stuff = stuff.substr(result2.index + result2[0].length);
         var result3 = pattern3.exec(stuff);
-        if (result3 != null) {
+        if (result3 !== null) {
           var imageUrl = stuff.substr(0, result3.index);
           href = imageUrl;
         }
@@ -493,7 +493,7 @@ GeoXml.prototype.createMarker = function(point, name, desc, styleid, idx, instyl
     icon.url = href;
   } else {
     href = "http://maps.google.com/mapfiles/kml/pal3/icon40";
-    if (instyle == null || typeof instyle == "undefined") {
+    if (instyle === null || typeof instyle === "undefined") {
       shadow = href + "s.png";
       href += ".png";
       if (this.opts.baseicon) {
@@ -530,13 +530,13 @@ GeoXml.prototype.createMarker = function(point, name, desc, styleid, idx, instyl
     var result;
     var pattern2 = /href\s*=\s*[\'\"]/;
     var pattern3 = /[\'\"]/;
-    while ((result = pattern.exec(text)) != null) {
-      var stuff = text.substr(result.index);
+    while ((result = pattern.exec(text)) !== null) {
+      stuff = text.substr(result.index);
       var result2 = pattern2.exec(stuff);
-      if (result2 != null) {
-        stuff = stuff.substr(result2.index + result2[0].length);
+      if (result2 !== null) {
+        var stuff = stuff.substr(result2.index + result2[0].length);
         var result3 = pattern3.exec(stuff);
-        if (result3 != null) {
+        if (result3 !== null) {
           var urlLink = stuff.substr(0, result3.index);
         }
       }
@@ -551,14 +551,14 @@ GeoXml.prototype.createMarker = function(point, name, desc, styleid, idx, instyl
     var pattern2 = /data\s*=\s*[\'\"]/;
     var pattern3 = /[\'\"]/;
     var x = 0;
-    while ((result = pattern.exec(text)) != null) {
+    while ((result = pattern.exec(text)) !== null) {
       var stuff = text.substr(result.index);
       var result1 = pattern1.exec(stuff);
       var result2 = pattern2.exec(stuff);
-      if (result2 != null) {
+      if (result2 !== null) {
         var stuff2 = stuff.substr(result2.index + result2[0].length);
         var result3 = pattern3.exec(stuff2);
-        if (result3 != null) {
+        if (result3 !== null) {
           var urlLink = stuff2.substr(0, result3.index);
           urlLink = urlLink.replace("http://", "");
           contentUrl[x] = urlLink;
@@ -593,12 +593,12 @@ GeoXml.prototype.createMarker = function(point, name, desc, styleid, idx, instyl
         changed = true;
       }
 
-      if (newurl != "" && icon.url.match(/^..\//)) {
+      if (newurl !== "" && icon.url.match(/^..\//)) {
         newurl = "";
         icon.url = icon.url.substring(3);
       }
 
-      if (newurl == "") {
+      if (newurl === "") {
         markeroptions.icon.url = icon.url;
       } else {
         markeroptions.icon.url = newurl + "/" + icon.url;
@@ -704,7 +704,7 @@ GeoXml.prototype.createMarker = function(point, name, desc, styleid, idx, instyl
   }
   if (this.opts.markerfollowlinks) {
     if (markerurl && typeof markerurl == "string") {
-      if (markerurl != '') {
+      if (markerurl !== '') {
         m.url = markerurl;
         google.maps.event.addListener(m, this.linkmethod, function() {
           if (m.geoxml.linktarget == "_blank")
@@ -787,7 +787,7 @@ GeoXml.prototype.createMarker = function(point, name, desc, styleid, idx, instyl
     });
   }
 
-  if (this.opendivmarkers != '') {
+  if (this.opendivmarkers !== '') {
     m.div = this.opendivmarkers;
     google.maps.event.addListener(m, this.iwmethod, function() {
       if (m != m.geoxml.lastMarker) {
@@ -946,7 +946,7 @@ GeoXml.prototype.processLine = function(pnum, lnum, idx, multi) {
   });
   p.bounds = op.pbounds;
   p.id = op.id;
-  if (isnew == false) {
+  if (isnew === false) {
     if (this.opts.sidebarid) {
       p.sidebar = this.latestsidebar;
     }
@@ -965,7 +965,7 @@ GeoXml.prototype.processLine = function(pnum, lnum, idx, multi) {
   var html = "<div style='font-weight: bold; font-size: medium; margin-bottom: 0em;'>" + op.name;
   html += "</div>" + "<div style='font-family: Arial, sans-serif;font-size: small;width:" + awidth + "px;'>" + desc + "</div>";
 
-  if (lnum == 0) {
+  if (lnum === 0) {
     if (this.opts.sidebarid && isnew) {
       var s_w = op.width;
       if (s_w <= 2) {
@@ -973,7 +973,7 @@ GeoXml.prototype.processLine = function(pnum, lnum, idx, multi) {
       }
       if (s_w > 16) {
         s_w = 16;
-      };
+      }
       var blob;
       if (this.rectangleLegend) {
         var m_w = parseInt(((16 - s_w) / 2));
@@ -1039,7 +1039,7 @@ GeoXml.prototype.processLine = function(pnum, lnum, idx, multi) {
   p.onOver = function(e) {
     var pline = this.geoxml.polylines[this.idx];
     if (this.geoxml.dohilite) {
-      if (this.hidden != true) {
+      if (this.hidden !== true) {
         for (var l = 0; l < pline.lineidx.length; l++) {
           var mark = this.geoxml.overlayman.markers[pline.lineidx[l]];
           mark.realColor = mark.strokeColor;
@@ -1068,7 +1068,7 @@ GeoXml.prototype.processLine = function(pnum, lnum, idx, multi) {
   p.onOut = function() {
     if (this.geoxml.dohilite) {
       var pline = this.geoxml.polylines[this.idx];
-      if (this.hidden != true) {
+      if (this.hidden !== true) {
         //alert(pline.lineidx);
         for (var l = 0; l < pline.lineidx.length; l++) {
           var mark = this.geoxml.overlayman.markers[pline.lineidx[l]];
@@ -1320,7 +1320,7 @@ GeoXml.prototype.finishPolygonJSON = function(op, idx, updatebound, lastpoly) {
       if (this.geoxml.clickablepolys) {
 
         var poly = this.geoxml.polygons[this.polyindex];
-        if (poly && this.hidden != true) {
+        if (poly && this.hidden !== true) {
           for (var pg = 0; pg < poly.length; pg++) {
             var mark = this.geoxml.overlayman.markers[poly[pg]];
             var color;
@@ -1356,7 +1356,7 @@ GeoXml.prototype.finishPolygonJSON = function(op, idx, updatebound, lastpoly) {
       if (this.geoxml.clickablepolys) {
         poly = this.geoxml.polygons[this.polyindex];
       }
-      if (poly && this.hidden != true) {
+      if (poly && this.hidden !== true) {
         for (var pg = 0; pg < poly.length; pg++) {
           var mark = this.geoxml.overlayman.markers[poly[pg]];
           var color = mark.realColor.toString();
@@ -1503,7 +1503,7 @@ GeoXml.prototype.finishLineJSON = function(po, idx, lastlinename) {
         }
       }
       this.realColor = this.strokeColor;
-      if (m.hidden != true) {
+      if (m.hidden !== true) {
         if (m && typeof m != "undefined") {
           m.setOptions({
             strokeColor: this.hilite.color
@@ -1526,7 +1526,7 @@ GeoXml.prototype.finishLineJSON = function(po, idx, lastlinename) {
           bar.style.background = "none";
         }
       }
-      if (m.hidden != true) {
+      if (m.hidden !== true) {
         if (m && typeof m != "undefined") {
           m.setOptions({
             strokeColor: this.realColor
@@ -1972,7 +1972,7 @@ GeoXml.prototype.contentToggle = function(i, show) {
       this.overlayman.markers[f[j]].setMap(this.map);
       this.overlayman.markers[f[j]].onMap = true;
       if (!!this.overlayman.markers[f[j]].label) {
-        this.overlayman.markers[f[j]].label.setMap(this.map)
+        this.overlayman.markers[f[j]].label.setMap(this.map);
       }
 
       if (this.basesidebar) {
@@ -1990,7 +1990,7 @@ GeoXml.prototype.contentToggle = function(i, show) {
       this.overlayman.markers[f[j]].onMap = false;
       this.overlayman.markers[f[j]].setMap(null);
       if (!!this.overlayman.markers[f[j]].label) {
-        this.overlayman.markers[f[j]].label.setMap(null)
+        this.overlayman.markers[f[j]].label.setMap(null);
       }
 
       if (this.basesidebar) {
@@ -2031,7 +2031,7 @@ GeoXml.prototype.showHide = function(a, show, p) { // if a is not defined then p
       this.overlayman.markers[a].hidden = false;
       //			if(!!this.overlayman.markers[a].label){ this.overlayman.markers[a].label.show();  }
       if (!!this.overlayman.markers[a].label) {
-        this.overlayman.markers[a].label.setMap(this.map)
+        this.overlayman.markers[a].label.setMap(this.map);
       }
     } else {
       this.overlayman.markers[a].setMap(null);
@@ -2302,7 +2302,7 @@ GeoXml.prototype.makeDescription = function(elem, title, depth) {
       }
       if (base.match(/(\S)*(name|title)(\S)*/i)) {
         if (!val) {
-          val = this.getText(subelem)
+          val = this.getText(subelem);
         }
         title = val;
         if (val && typeof title != "undefined" && title.length > this.maxtitlewidth) {
@@ -2314,7 +2314,7 @@ GeoXml.prototype.makeDescription = function(elem, title, depth) {
           if (val.match(/^http:\/\/|^https:\/\//i)) {
             val = '<a target="_blank" " href="' + val + '">[go]</a>';
           } else {
-            if (!title || title == "") {
+            if (!title || title === "") {
               title = val;
               if (val && typeof title != "undefined" && title.length > this.maxtitlewidth) {
                 this.maxtitlewidth = title.length;
@@ -2323,8 +2323,8 @@ GeoXml.prototype.makeDescription = function(elem, title, depth) {
           }
 
         }
-        if (val && val != "null" && val != '  ' && val != ' ' && (val.match(/(\s|\t|\n)*/) != true)) {
-          if (this.currdeschead != '') {
+        if (val && val !== "null" && val !== '  ' && val !== ' ' && (val.match(/(\s|\t|\n)*/) !== true)) {
+          if (this.currdeschead !== '') {
             d += '<br />';
           }
           d += this.currdeschead + "" + val + "";
@@ -2498,7 +2498,7 @@ GeoXml.prototype.handleGeomark = function(mark, idx, trans) {
     var path = coords.split(" ");
     // Is this a polyline/polygon?
 
-    if (path.length == 1 || path[1] == "") {
+    if (path.length == 1 || path[1] === "") {
       bits = path[0].split(",");
       point = new google.maps.LatLng(parseFloat(bits[1]) / trans.ys - trans.y, parseFloat(bits[0]) / trans.xs - trans.x);
       that.bounds.extend(point);
@@ -2586,7 +2586,7 @@ GeoXml.prototype.handleGeomark = function(mark, idx, trans) {
     //alert("found Polygon");
     if (typeof name == "undefined") {
       name = GeoXml.stripHTML(desc);
-      desc = ""
+      desc = "";
     }
     if (name == desc) {
       desc = "";
@@ -2895,7 +2895,7 @@ GeoXml.prototype.handlePlacemarkGeometry = function(mark, geom, idx, depth, full
           cc++;
         }
       }
-      if (coords != "") {
+      if (coords !== "") {
         node = this.parseXML("<coordinates>" + coords + "</coordinates>");
         if (coordset.push) {
           coordset.push(node);
@@ -2914,7 +2914,7 @@ GeoXml.prototype.handlePlacemarkGeometry = function(mark, geom, idx, depth, full
     style = fullstyle;
   }
   var iwheightstr;
-  if (this.iwheight != 0) {
+  if (this.iwheight !== 0) {
     iwheightstr = "height:" + this.iwheight + "px";
   }
   if (typeof desc == "undefined" || !desc || this.opts.makedescription) {
@@ -2934,7 +2934,7 @@ GeoXml.prototype.handlePlacemarkGeometry = function(mark, geom, idx, depth, full
   }
 
 
-  if (coordset.length == 0 && typeof lat != "undefined") {
+  if (coordset.length === 0 && typeof lat !== "undefined") {
     point = new google.maps.LatLng(lat, lon);
     this.overlayman.folderBounds[idx].extend(point);
     // Does the user have their own createmarker function?
@@ -2971,7 +2971,7 @@ GeoXml.prototype.handlePlacemarkGeometry = function(mark, geom, idx, depth, full
       var path = coords.split(" ");
       // Is this a polyline/polygon?
 
-      if (path.length == 1 || path[1] == "") {
+      if (path.length == 1 || path[1] === "") {
         bits = path[0].split(",");
         point = new google.maps.LatLng(parseFloat(bits[1]), parseFloat(bits[0]));
         this.overlayman.folderBounds[idx].extend(point);
@@ -3218,7 +3218,7 @@ GeoXml.prototype.handleStyle = function(style, sid, currstyle) {
     }
     tempstyle = that.styles[strid];
     that.styles[strid].textColor = color;
-    if (scale == 0) {
+    if (scale === 0) {
       scale = 1;
     }
     that.styles[strid].scale = scale;
@@ -3255,10 +3255,10 @@ GeoXml.prototype.handleStyle = function(style, sid, currstyle) {
 
     color = this.getText(polystyles[0].getElementsByTagName("color")[0]);
     colormode = this.getText(polystyles[0].getElementsByTagName("colorMode")[0]);
-    if (polystyles[0].getElementsByTagName("fill").length != 0) {
+    if (polystyles[0].getElementsByTagName("fill").length !== 0) {
       fill = parseInt(this.getText(polystyles[0].getElementsByTagName("fill")[0]), 10);
     }
-    if (polystyles[0].getElementsByTagName("outline").length != 0) {
+    if (polystyles[0].getElementsByTagName("outline").length !== 0) {
       outline = parseInt(this.getText(polystyles[0].getElementsByTagName("outline")[0]), 10);
     }
     aa = color.substr(0, 2);
@@ -3524,7 +3524,7 @@ GeoXml.prototype.processKML = function(node, marks, title, sbid, depth, paren) {
           blob = '<img src="' + myurl + '" style="width:100px" />';
         }
       }
-      if (this.sidebarsnippet && snippet == "") {
+      if (this.sidebarsnippet && snippet === "") {
         snippet = GeoXml.stripHTML(desc);
         desc2 = desc2.substring(0, 40);
       }
