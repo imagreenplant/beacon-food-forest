@@ -4,8 +4,8 @@ var gps_marker_image = {
   url:'/img/gps.gif',
   size: new google.maps.Size(120,120),
   origin: new google.maps.Point(0, 0),
-  anchor: new google.maps.Point(12, 12),
-  scaledSize: new google.maps.Size(25, 25)
+  anchor: new google.maps.Point(13, 13),
+  scaledSize: new google.maps.Size(26, 26)
 };
 
 function gpsMarker(myloc) {
