@@ -58,7 +58,7 @@ function event2box_open() {
 
 function event2box_close() {
     document.getElementById('event2').style.display = 'none';
-    document.getElementById('fadeEvent12').style.display = 'none';
+    document.getElementById('fadeEvent2').style.display = 'none';
 }
 
 
