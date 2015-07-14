@@ -429,6 +429,22 @@ input[type=text] {
 }
 /*Directions popup*/
 
+#event1, #event2, #event3 {
+    display: none;
+    position: fixed;
+    max-width: 1000px;
+    max-height: 728px;
+    background: #FFF;
+    z-index: 1002;
+    overflow: scroll;
+    padding: 0px 15px 0px 15px;
+    border: 10px #50B748 solid;
+    top: 7%;
+    width: 90%;
+    height: 88%;
+}
+
+
 #directions {
     display: none;
     position: fixed;
