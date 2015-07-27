@@ -15,6 +15,16 @@ var beacon_food_forest_location = new google.maps.LatLng(47.56845610052802, -122
 //   scaledSize: new google.maps.Size(26, 26)
 // };
 
+// Good example:
+// http://gmaps-samples-v3.googlecode.com/svn/trunk/geolocate/geolocate.html
+
+
+var PositionOptions = {
+    enableHighAccuracy:true,
+    timeout:10,
+    maximumAge:0
+};
+
 var gpsIcon = {
     path: "M90,45h-1.3C86.4,27.5,72.5,13.6,55,11.3V10c0-2.8-2.2-5-5-5s-5,2.2-5,5v1.3C27.5,13.6,13.6,27.5,11.3,45H10,c-2.8,0-5,2.2-5,5s2.2,5,5,5h1.3C13.6,72.5,27.5,86.4,45,88.7V90c0,2.8,2.2,5,5,5s5-2.2,5-5v-1.3C72.5,86.4,86.4,72.5,88.7,55H90 c2.8,0,5-2.2,5-5S92.8,45,90,45z M55,80.6V80c0-2.8-2.2-5-5-5s-5,2.2-5,5v0.6C31.9,78.5,21.5,68.1,19.4,55H20c2.8,0,5-2.2,5-5 s-2.2-5-5-5h-0.6C21.5,31.9,31.9,21.5,45,19.4V20c0,2.8,2.2,5,5,5s5-2.2,5-5v-0.6C68.1,21.5,78.5,31.9,80.6,45H80c-2.8,0-5,2.2-5,5 s2.2,5,5,5h0.6C78.5,68.1,68.1,78.5,55,80.6z",
     fillColor: '#05c400',
@@ -36,6 +46,20 @@ function gpsMarker(myloc) {
         // ...
     });
 }
+
+// get to know the api helper function
+function whatIsMyPosition() {
+    navigator.geolocation.getCurrentPosition( function(position) {
+      console.log(position.coords.latitude);
+    });
+}
+function watchMyPosition(position) {
+    console.log("New position");
+    console.log(position.coords.latitude);
+    console.log(position.coords.longitude);
+}
+
+var watcher = navigator.geolocation.watchPosition( watchMyPosition);
 
 function gpsMarkerToBeaconFoodForest(myloc) {
     if (navigator.geolocation) navigator.geolocation.getCurrentPosition(function(pos) {
