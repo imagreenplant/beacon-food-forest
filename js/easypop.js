@@ -35,6 +35,46 @@ function donatebox_close() {
     document.getElementById('fadeDon').style.display = 'none';
 }
 
+
+//workshop_event1
+function event1box_open() {
+    window.scrollTo(0, 0);
+    document.getElementById('event1').style.display = 'block';
+    document.getElementById('fadeEvent1').style.display = 'block';
+}
+
+function event1box_close() {
+    document.getElementById('event1').style.display = 'none';
+    document.getElementById('fadeEvent1').style.display = 'none';
+}
+
+
+//workshop_event2
+function event2box_open() {
+    window.scrollTo(0, 0);
+    document.getElementById('event2').style.display = 'block';
+    document.getElementById('fadeEvent2').style.display = 'block';
+}
+
+function event2box_close() {
+    document.getElementById('event2').style.display = 'none';
+    document.getElementById('fadeEvent2').style.display = 'none';
+}
+
+
+//workshop_event3
+function event3box_open() {
+    window.scrollTo(0, 0);
+    document.getElementById('event3').style.display = 'block';
+    document.getElementById('fadeEvent3').style.display = 'block';
+}
+
+function event3box_close() {
+    document.getElementById('event3').style.display = 'none';
+    document.getElementById('fadeEvent3').style.display = 'none';
+}
+
+
 //mailinglist
 function mailListbox_open() {
     window.scrollTo(0, 0);
