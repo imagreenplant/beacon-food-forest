@@ -2,6 +2,7 @@ log.setLevel("info");
 
 var gml, plant_map;
 var beacon_food_forest_location = new google.maps.LatLng(47.56845610052802, -122.31254031038299);
+var myloc;
 
 function gpsMarker(myloc) {
     if (navigator.geolocation) navigator.geolocation.getCurrentPosition(function(pos) {
@@ -21,8 +22,16 @@ function gpsMarkerToBeaconFoodForest(myloc) {
     });
 }
 
+function updateGPSMarker(position) {
+  if (position) {
+    var updated_location = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+    myloc.setPosition(updated_location);
+  }
+}
+
 var watcher = navigator.geolocation.watchPosition( function (position) {
     log.info("New navigator location: ",position.coords.latitude,",",position.coords.longitude);
+    updateGPSMarker(position);
 });
 
 function initialize() {
@@ -45,7 +54,7 @@ function initialize() {
     });
     gml.parse();
 
-    var myloc = new google.maps.Marker({
+    myloc = new google.maps.Marker({
         clickable: false,
         icon: new google.maps.MarkerImage('//maps.gstatic.com/mapfiles/mobile/mobileimgs2.png',
             new google.maps.Size(22, 22),
