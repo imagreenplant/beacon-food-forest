@@ -1,0 +1,47 @@
+<!-- Google Map Javascript API -->
+<!-- API Key: AIzaSyAsnOLu3eLbo60hkQNWo-3EEt102mOv99w -->
+<!DOCTYPE html>
+<html>
+
+<head>
+  <script src="js/jquery.js"></script>
+  <style type="text/css">
+    body {
+      height: 100%;
+    }
+
+    #map-canvas {}
+  </style>
+  <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+
+
+</head>
+
+<body>
+  <div class="main"></div>
+  <script type="text/javascript">
+    var watcher;
+
+    function logPosition(positionObj) {
+      console.log("New position:");
+      console.log(positionObj.coords.latitude);
+      console.log(positionObj.coords.longitude);
+      $('.main').append("<p>" + positionObj.coords.latitude + ", " + positionObj.coords.longitude + "</p>")
+    }
+
+
+    function error(err) {
+      console.warn('ERROR(' + err.code + '): ' + err.message);
+    }
+
+    options = {
+      enableHighAccuracy: true,
+      timeout: 5000,
+      maximumAge: 0
+    };
+
+    watcher = navigator.geolocation.watchPosition(logPosition, error, options)
+  </script>
+</body>
+
+</html>
