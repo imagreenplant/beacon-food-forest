@@ -52,6 +52,12 @@ function initialize() {
     center: beacon_food_forest_location,
     mapTypeId: google.maps.MapTypeId.SATELLITE,
     tilt: 0,
+    panControl: false,
+    zoomControl: false,
+    mapTypeControl: false,
+    scaleControl: false,
+    streetViewControl: false,
+    overviewMapControl: false,
   };
 
 
