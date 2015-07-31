@@ -23,7 +23,7 @@ function gpsMarkerToBeaconFoodForest(myloc) {
 }
 
 
-// GPS Watcher Start
+// ------------------- GPS Watcher Start ----------------------------------
 function updateGPSMarker(position) {
   if (position) {
     var updated_location = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
@@ -42,7 +42,7 @@ var watcherOptions = {
   maximumAge: 0
 };
 var watcher = navigator.geolocation.watchPosition(updateGPSMarker, GPSerror, watcherOptions);
-// GPS Watcher End
+// -------------------- GPS Watcher End ------------------------------------
 
 
 function initialize() {
@@ -57,7 +57,7 @@ function initialize() {
 
   plant_map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
   // gml = new GeoXml("gml", plant_map, "maps/features.kml", {
-  gml = new GeoXml("gml", plant_map, "maps/tree_list.kml", {
+  gml = new GeoXml("gml", plant_map, "maps/new_tree_icons.kml", {
     sidebarid: "the_side_bar",
     quiet: true, //Removes on-screen dialogs, puts in console.log
     // pointlabelclass: "point-label",  In documentation, but not functioning
@@ -72,6 +72,7 @@ function initialize() {
 
 
   //Scaling properly and dynamic SVG
+  // See: http://stackoverflow.com/questions/24413766/how-to-use-svg-markers-in-google-maps-api-v3
   var template = [
     '<?xml version="1.0"?>',
     '<svg width="26px" height="26px" viewBox="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg">',
