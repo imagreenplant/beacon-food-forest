@@ -4,65 +4,105 @@
 <html>
 
 <head>
-    <style type="text/css">
+  <style type="text/css">
     body {
-        height: 100%;
+      height: 100%;
     }
+
     #map-canvas {
-        position: absolute;
-        top: 0;
-        left: 0;
-        bottom: 0;
-        /*height: 100%;*/
-        width: 100%;
-        margin: 0;
-        padding: 0;
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      /*height: 100%;*/
+      width: 100%;
+      margin: 0;
+      padding: 0;
     }
+
     #the_side_bar {
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        width: 20%;
-        background-color: white;
-        opacity: 0.75;
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: 20%;
+      background-color: white;
+      opacity: 0.75;
     }
+
     .sidebar_button {
-        position: absolute;
-        top: 5px;
-        right: 5px;
-        background-color: gray;
-        width: 3em;
-        height: 3em;
-        border-radius: 2em;
+      position: absolute;
+      top: 5px;
+      right: 5px;
+      background-color: gray;
+      width: 3em;
+      height: 3em;
+      border-radius: 2em;
     }
+
     img[id^="gmlFB"] {
       width: 20px;
       height: 20px;
     }
-    </style>
-    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
-    <script src="js/jquery.js"></script>
+
+    input[id$="CB"] {
+      -webkit-appearance: none;
+      background-color: #fafafa;
+      border: 1px solid #cacece;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0px -15px 10px -12px rgba(0, 0, 0, 0.05);
+      padding: 9px;
+      border-radius: 3px;
+      display: inline-block;
+      position: relative;
+    }
+
+    input[id$="CB"]:active,
+    input[id$="CB"]:checked:active {
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0px 1px 3px rgba(0, 0, 0, 0.1);
+    }
+
+    input[id$="CB"]:checked {
+      background-color: #e9ecee;
+      border: 1px solid #adb8c0;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0px -15px 10px -12px rgba(0, 0, 0, 0.05), inset 15px 10px -12px rgba(255, 255, 255, 0.1);
+      color: #99a1a7;
+    }
+
+    input[id$="CB"]:checked:after {
+      content: '\2714';
+      font-size: 14px;
+      position: absolute;
+      top: 0px;
+      left: 3px;
+      color: #99a1a7;
+    }
+
+    #the_side_bar a:link {
+      
+    }
+  </style>
+  <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+  <script src="js/jquery.js"></script>
 </head>
 
 <body>
-    <div id="map-canvas"></div>
-    <div id="the_side_bar"></div>
-    <button class="sidebar_button">X</button>
-    <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/loglevel/1.3.0/loglevel.min.js"></script>
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAsnOLu3eLbo60hkQNWo-3EEt102mOv99w"></script>
-    <script type="text/javascript" src="js/geoxmlfull_v3.js"></script>
-    <script type="text/javascript" src="js/map.js"></script>
-    <script type="text/javascript">
-        function toggleSideBar () {
-            $("#the_side_bar").toggle();
-            log.info("Sidebar button clicked.");
-        }
+  <div id="map-canvas"></div>
+  <div id="the_side_bar"></div>
+  <button class="sidebar_button">X</button>
+  <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/loglevel/1.3.0/loglevel.min.js"></script>
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAsnOLu3eLbo60hkQNWo-3EEt102mOv99w"></script>
+  <script type="text/javascript" src="js/geoxmlfull_v3.js"></script>
+  <script type="text/javascript" src="js/map.js"></script>
+  <script type="text/javascript">
+    function toggleSideBar() {
+      $("#the_side_bar").toggle();
+      log.info("Sidebar button clicked.");
+    }
 
-        var $sidebutton = $('button');
-        $sidebutton.click(toggleSideBar);
-    </script>
+    var $sidebutton = $('button');
+    $sidebutton.click(toggleSideBar);
+  </script>
 </body>
 
 </html>
