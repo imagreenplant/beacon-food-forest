@@ -53,7 +53,10 @@ function initialize() {
     mapTypeId: google.maps.MapTypeId.SATELLITE,
     tilt: 0,
     panControl: false,
-    zoomControl: false,
+    zoomControl: true,
+    zoomControlOptions: {
+      style: google.maps.ZoomControlStyle.SMALL
+    },
     mapTypeControl: false,
     scaleControl: false,
     streetViewControl: false,

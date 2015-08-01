@@ -176,7 +176,7 @@ function GeoXml(myvar, map, url, opts) {
       getcapproxy = fixUrlEnd(getcapproxy);
     }
   }
-  this.publishdirectory = "http://www.dyasdesigns.com/tntmap/";
+  this.publishdirectory = "img/map/";
   topwin = top;
   try {
     topname = top.title;
@@ -192,7 +192,7 @@ function GeoXml(myvar, map, url, opts) {
   this.kmlicon = this.publishdirectory + "images/ge.png";
   this.docicon = this.publishdirectory + "images/ge.png";
   this.docclosedicon = this.publishdirectory + "images/geclosed.png";
-  this.foldericon = this.publishdirectory + "images/folder.png";
+  this.foldericon = this.publishdirectory + "basic-folder-icon.png";
   this.folderclosedicon = this.publishdirectory + "images/folderclosed.png";
   this.gmlicon = this.publishdirectory + "images/geo.gif";
   this.rssicon = this.publishdirectory + "images/rssb.png";
