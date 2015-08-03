@@ -1,5 +1,13 @@
 log.setLevel("info");
 
+function toggleSideBar() {
+  $("#the_side_bar").toggle();
+  log.info("Sidebar button clicked.");
+}
+
+var $sidebutton = $('button');
+$sidebutton.click(toggleSideBar);
+
 var gml, plant_map;
 var beacon_food_forest_location = new google.maps.LatLng(47.56845610052802, -122.31254031038299);
 var myloc;
