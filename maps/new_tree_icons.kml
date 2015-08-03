@@ -14,7 +14,7 @@
 	</StyleMap>
 	<Style id="sh_clipart-plum-6749">
 		<IconStyle>
-			<scale>0.583334</scale>
+			<scale>0.7</scale>
 			<Icon>
 				<href>http://www.i2clipart.com/cliparts/6/7/4/9/clipart-plum-6749.png</href>
 			</Icon>
@@ -35,26 +35,26 @@
 	<Style id="sh_apple-clipart">
 		<IconStyle>
 			<color>ff0002c1</color>
-			<scale>0.472727</scale>
+			<scale>0.7</scale>
 			<Icon>
 				<href>http://www.culinaryschools.org/clipart/fruit/apple-clipart.gif</href>
 			</Icon>
 		</IconStyle>
 		<LabelStyle>
-			<scale>0.8</scale>
+			<scale>0.7</scale>
 		</LabelStyle>
 		<ListStyle>
 		</ListStyle>
 	</Style>
 	<Style id="sn_apple-clipart">
 		<IconStyle>
-			<scale>0.4</scale>
+			<scale>0.7</scale>
 			<Icon>
 				<href>http://www.culinaryschools.org/clipart/fruit/apple-clipart.gif</href>
 			</Icon>
 		</IconStyle>
 		<LabelStyle>
-			<scale>0.8</scale>
+			<scale>0.7</scale>
 		</LabelStyle>
 		<ListStyle>
 		</ListStyle>
@@ -91,7 +91,7 @@
 	</StyleMap>
 	<Style id="sn_clipart-plum-6749">
 		<IconStyle>
-			<scale>0.5</scale>
+			<scale>0.7</scale>
 			<Icon>
 				<href>http://www.i2clipart.com/cliparts/6/7/4/9/clipart-plum-6749.png</href>
 			</Icon>
@@ -111,7 +111,7 @@
 	</StyleMap>
 	<Style id="sh_clipart-plum-67490">
 		<IconStyle>
-			<scale>0.583334</scale>
+			<scale>0.7</scale>
 			<Icon>
 				<href>http://www.i2clipart.com/cliparts/6/7/4/9/clipart-plum-6749.png</href>
 			</Icon>
@@ -121,13 +121,13 @@
 	</Style>
 	<Style id="sh_apple-clipart0">
 		<IconStyle>
-			<scale>0.472727</scale>
+			<scale>0.7</scale>
 			<Icon>
 				<href>http://www.culinaryschools.org/clipart/fruit/apple-clipart.gif</href>
 			</Icon>
 		</IconStyle>
 		<LabelStyle>
-			<scale>0.8</scale>
+			<scale>0.7</scale>
 		</LabelStyle>
 		<ListStyle>
 		</ListStyle>
@@ -135,33 +135,33 @@
 	<Style id="sn_apple-clipart0">
 		<IconStyle>
 			<color>ff0002c1</color>
-			<scale>0.4</scale>
+			<scale>0.7</scale>
 			<Icon>
 				<href>http://www.culinaryschools.org/clipart/fruit/apple-clipart.gif</href>
 			</Icon>
 		</IconStyle>
 		<LabelStyle>
-			<scale>0.8</scale>
+			<scale>0.7</scale>
 		</LabelStyle>
 		<ListStyle>
 		</ListStyle>
 	</Style>
 	<Style id="sn_pear_painting_with_illustrator_cs6_by_ayoub910-d5r8o1c">
 		<IconStyle>
-			<scale>0.4</scale>
+			<scale>0.7</scale>
 			<Icon>
 				<href>http://orig00.deviantart.net/fa1c/f/2013/012/5/3/pear_painting_with_illustrator_cs6_by_ayoub910-d5r8o1c.png</href>
 			</Icon>
 		</IconStyle>
 		<LabelStyle>
-			<scale>0.8</scale>
+			<scale>0.7</scale>
 		</LabelStyle>
 		<ListStyle>
 		</ListStyle>
 	</Style>
 	<Style id="sh_clipart-plum-67491">
 		<IconStyle>
-			<scale>0.590909</scale>
+			<scale>0.7</scale>
 			<Icon>
 				<href>http://www.i2clipart.com/cliparts/6/7/4/9/clipart-plum-6749.png</href>
 			</Icon>
@@ -181,7 +181,7 @@
 	</StyleMap>
 	<Style id="sn_clipart-plum-67490">
 		<IconStyle>
-			<scale>0.5</scale>
+			<scale>0.7</scale>
 			<Icon>
 				<href>http://www.i2clipart.com/cliparts/6/7/4/9/clipart-plum-6749.png</href>
 			</Icon>
@@ -191,7 +191,7 @@
 	</Style>
 	<Style id="sn_clipart-plum-67491">
 		<IconStyle>
-			<scale>0.5</scale>
+			<scale>0.7</scale>
 			<Icon>
 				<href>http://www.i2clipart.com/cliparts/6/7/4/9/clipart-plum-6749.png</href>
 			</Icon>
@@ -212,20 +212,20 @@
 	<Style id="sn_hazel-nut-icon">
 		<IconStyle>
 			<color>ff0063c1</color>
-			<scale>0.4</scale>
+			<scale>0.7</scale>
 			<Icon>
 				<href>http://icons.iconarchive.com/icons/robinweatherall/chocolate/256/hazel-nut-icon.png</href>
 			</Icon>
 		</IconStyle>
 		<LabelStyle>
-			<scale>0.8</scale>
+			<scale>0.7</scale>
 		</LabelStyle>
 		<ListStyle>
 		</ListStyle>
 	</Style>
 	<Style id="sh_clipart-plum-67492">
 		<IconStyle>
-			<scale>0.583334</scale>
+			<scale>0.7</scale>
 			<Icon>
 				<href>http://www.i2clipart.com/cliparts/6/7/4/9/clipart-plum-6749.png</href>
 			</Icon>
@@ -235,13 +235,13 @@
 	</Style>
 	<Style id="sh_pear_painting_with_illustrator_cs6_by_ayoub910-d5r8o1c">
 		<IconStyle>
-			<scale>0.472727</scale>
+			<scale>0.7</scale>
 			<Icon>
 				<href>http://orig00.deviantart.net/fa1c/f/2013/012/5/3/pear_painting_with_illustrator_cs6_by_ayoub910-d5r8o1c.png</href>
 			</Icon>
 		</IconStyle>
 		<LabelStyle>
-			<scale>0.8</scale>
+			<scale>0.7</scale>
 		</LabelStyle>
 		<ListStyle>
 		</ListStyle>
@@ -249,13 +249,13 @@
 	<Style id="sh_hazel-nut-icon">
 		<IconStyle>
 			<color>ff0063c1</color>
-			<scale>0.472727</scale>
+			<scale>0.7</scale>
 			<Icon>
 				<href>http://icons.iconarchive.com/icons/robinweatherall/chocolate/256/hazel-nut-icon.png</href>
 			</Icon>
 		</IconStyle>
 		<LabelStyle>
-			<scale>0.8</scale>
+			<scale>0.7</scale>
 		</LabelStyle>
 		<ListStyle>
 		</ListStyle>
@@ -263,13 +263,13 @@
 	<Style id="sh_apple-clipart1">
 		<IconStyle>
 			<color>ff0002c1</color>
-			<scale>0.472727</scale>
+			<scale>0.7</scale>
 			<Icon>
 				<href>http://www.culinaryschools.org/clipart/fruit/apple-clipart.gif</href>
 			</Icon>
 		</IconStyle>
 		<LabelStyle>
-			<scale>0.8</scale>
+			<scale>0.7</scale>
 		</LabelStyle>
 		<ListStyle>
 		</ListStyle>
@@ -287,13 +287,13 @@
 	<Style id="sn_apple-clipart1">
 		<IconStyle>
 			<color>ff0002c1</color>
-			<scale>0.4</scale>
+			<scale>0.7</scale>
 			<Icon>
 				<href>http://www.culinaryschools.org/clipart/fruit/apple-clipart.gif</href>
 			</Icon>
 		</IconStyle>
 		<LabelStyle>
-			<scale>0.8</scale>
+			<scale>0.7</scale>
 		</LabelStyle>
 		<ListStyle>
 		</ListStyle>
