@@ -1,5 +1,8 @@
-body {
-	height: 100%;
+html, body {
+    padding: 0;
+    /*width:100%;*/
+    /*overflow-x:hidden;*/
+	/*height: 100%;*/
 	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
 	font-weight: lighter;
 }
@@ -49,6 +52,7 @@ and (max-device-width : 480px) {
 	#the_side_bar {
 		width: 100%;
 		font-size: 2em;
+		display: none;
 	}
 }
 
