@@ -176,7 +176,7 @@ function GeoXml(myvar, map, url, opts) {
       getcapproxy = fixUrlEnd(getcapproxy);
     }
   }
-  this.publishdirectory = "http://www.dyasdesigns.com/tntmap/";
+  this.publishdirectory = "img/map/";
   topwin = top;
   try {
     topname = top.title;
@@ -192,7 +192,7 @@ function GeoXml(myvar, map, url, opts) {
   this.kmlicon = this.publishdirectory + "images/ge.png";
   this.docicon = this.publishdirectory + "images/ge.png";
   this.docclosedicon = this.publishdirectory + "images/geclosed.png";
-  this.foldericon = this.publishdirectory + "images/folder.png";
+  this.foldericon = this.publishdirectory + "basic-folder-icon.png";
   this.folderclosedicon = this.publishdirectory + "images/folderclosed.png";
   this.gmlicon = this.publishdirectory + "images/geo.gif";
   this.rssicon = this.publishdirectory + "images/rssb.png";
@@ -3997,15 +3997,21 @@ GeoXml.prototype.createFolder = function(idx, title, sbid, icon, desc, snippet, 
     desc = title;
   }
   desc = escape(desc);
+
+  // The following creates the html for the folders
   if (this.suppressFolders == true || suppressIt) {
     htm = '<span onclick="' + this.myvar + '.overlayman.zoomToFolder(' + idx + ');' + this.myvar + '.mb.showMess(\'' + desc + '\',3000);return false;" id=\"' + folderid + '\" style="' + disp + '"></span>';
   } else {
-    var htm = '<ul><input type="checkbox" id="' + this.myvar + '' + idx + 'FCB" style="vertical-align:middle" ';
+    var htm = '<ul>';
+    htm += '<div class="line-item">';
+    htm += '<input type="checkbox" id="' + this.myvar + '' + idx + 'FCB" style="vertical-align:middle" ';
     htm += checked;
     htm += 'onclick="' + this.myvar + '.toggleContents(' + idx + ',this.checked)">';
     htm += '&nbsp;<span title="' + snippet + '" id="' + this.myvar + 'TB' + idx + '" oncontextmenu=\"' + this.myvar + '.saveJSON(' + idx + ');\" onclick="' + this.myvar + '.toggleFolder(' + idx + ')" style=\"' + fw + '\">';
     htm += '<img id=\"' + this.myvar + 'FB' + idx + '\" style=\"vertical-align:text-top;padding:0;margin:0;height:"+this.sidebariconheight+"px;\" border=\"0\" src="' + icon + '" /></span>&nbsp;';
-    htm += '<a href="#" onclick="' + this.myvar + '.overlayman.zoomToFolder(' + idx + ');' + this.myvar + '.mb.showMess(\'' + desc + '\',3000);return false;">' + title + '</a><br><div id=\"' + folderid + '\" style="' + disp + '"></div></ul>';
+    htm += '<a href="#" onclick="' + this.myvar + '.overlayman.zoomToFolder(' + idx + ');' + this.myvar + '.mb.showMess(\'' + desc + '\',3000);return false;">' + title + '</a><br>'
+    htm += '</div>';
+    htm += '<div id=\"' + folderid + '\" style="' + disp + '"></div></ul>';
   }
   if (sb) {
     sb.innerHTML = sb.innerHTML + htm;
