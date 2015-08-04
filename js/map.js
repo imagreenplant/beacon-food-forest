@@ -8,6 +8,11 @@ function toggleSideBar() {
 var $sidebutton = $('button');
 $sidebutton.click(toggleSideBar);
 
+if (screen.width < 481) {
+	log.info("Event delegation added for clicking links in menu.");
+	$('#the_side_bar').on('click','a', toggleSideBar);
+}
+
 var gml, plant_map;
 var beacon_food_forest_location = new google.maps.LatLng(47.56845610052802, -122.31254031038299);
 var myloc;
@@ -79,7 +84,7 @@ function initialize() {
 		quiet: true, //Removes on-screen dialogs, puts in console.log
 		// pointlabelclass: "point-label",  In documentation, but not functioning
 		// polylabelclass: "poly-label",
-		suppressallfolders: false,
+		allfoldersopen: true, //Automatically open all folders
 	});
 	gml.parse();
 
