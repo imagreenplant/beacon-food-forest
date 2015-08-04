@@ -35,6 +35,7 @@ a:hover, a:active {
 	background-color: white;
 	opacity: 0.85;
 	overflow: scroll;
+	white-space: nowrap;
 }
 
 @media only screen
@@ -102,6 +103,14 @@ input[id$="CB"]:checked:after {
 	top: 0;
 	left: 3px;
 	color: #99a1a7;
+}
+
+li input[type="checkbox"] {
+	display: none;
+}
+
+li {
+	font-size: 0.7em;
 }
 
 #gml1FCB {

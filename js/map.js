@@ -71,7 +71,7 @@ function initialize() {
             style: google.maps.ZoomControlStyle.SMALL
         },
         // May be useful someday if we use an overlay as a map, instead of the satellite
-        // mapTypeControl: true,
+        mapTypeControl: false,
         // mapTypeControlOptions: {
         //     style: google.maps.MapTypeControlStyle.HORIZONTAL_BAR,
         //     position: google.maps.ControlPosition.RIGHT_BOTTOM
