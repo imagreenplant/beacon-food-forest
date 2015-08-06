@@ -1,3 +1,8 @@
+// Nice library for Google maps info overlays
+// http://google-maps-utility-library-v3.googlecode.com/svn/trunk/infobubble/examples/example.html?
+// and for on-map labels
+// http://google-maps-utility-library-v3.googlecode.com/svn/trunk/infobox/examples/infobox-label.html
+
 log.setLevel("info");
 
 function toggleSideBar() {
