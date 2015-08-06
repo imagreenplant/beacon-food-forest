@@ -1,3 +1,8 @@
+// Nice library for Google maps info overlays
+// http://google-maps-utility-library-v3.googlecode.com/svn/trunk/infobubble/examples/example.html?
+// and for on-map labels
+// http://google-maps-utility-library-v3.googlecode.com/svn/trunk/infobox/examples/infobox-label.html
+
 log.setLevel("info");
 
 function toggleSideBar() {
@@ -84,7 +89,7 @@ function initialize() {
 
     plant_map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
     // gml = new GeoXml("gml", plant_map, "maps/features.kml", {
-    gml = new GeoXml("gml", plant_map, "maps/new_tree_icons.kml", {
+    gml = new GeoXml("gml", plant_map, "maps/trees_with_desc_aug-5-2015.kml", {
         sidebarid: "the_side_bar",
         quiet: true, //Removes on-screen dialogs, puts in console.log
         // pointlabelclass: "point-label",  In documentation, but not functioning
