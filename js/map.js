@@ -7,7 +7,15 @@ log.setLevel("info");
 
 function toggleSideBar() {
     $("#the_side_bar").toggle();
+    $("button.close_button").toggle();
+    $("button.open_button").toggle();
+
     log.info("Sidebar button clicked.");
+}
+function hideSideBarButton() {
+    $("#the_side_bar").hide();
+    $(".sidebar_button").hide();
+    log.info("Sidebar button hidden.");
 }
 
 var $sidebutton = $('button');
