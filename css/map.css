@@ -23,7 +23,7 @@ a:active {
 }
 #map-canvas {
     position: absolute;
-    top: 0;
+    top: 3em;
     left: 0;
     bottom: 0;
     /*height: 100%;*/
@@ -53,7 +53,7 @@ a:active {
     left: 0;
     right: 0;
     height: 1.7em;
-    padding-left: 3em;
+    padding-left: 2em;
     padding-top: 0.3em;
     font-size: 1.5em;
     color: white;
@@ -62,7 +62,7 @@ a:active {
     z-index: 1;
 }
 
-#header a:active, #header a:link {
+#header a:active, #header a:link, #header a:visited {
     text-decoration: none;
     color: white;
 }
@@ -81,7 +81,7 @@ a:active {
 
 @media only screen and (max-device-width: 480px) {
     #map-canvas {
-        top: 2.6em;
+        top: 2.5em;
     }
 
     #the_side_bar {
@@ -90,11 +90,17 @@ a:active {
         display: none;
         border-radius: 0;
     }
+    #header {
+        font-size: 0.9em;
+        padding-left: 0.3em;
+        padding-top: 0.7em;
+        height: 2.1em;
+    }
 }
 
 .sidebar_button {
     position: absolute;
-    top: 5px;
+    top: 3px;
     right: 5px;
     background-color: white;
     height: 2em;
@@ -103,6 +109,7 @@ a:active {
     font-size: 1.4em;
     padding: 0;
     opacity: 0.85;
+    z-index: 3;
 }
 
 .sidebar_button h2 {
@@ -118,6 +125,8 @@ a:active {
 .open_button {
     display: none;
     width: 13.7em;
+    background-color: #0DAED3;
+    color: white;
 }
 
 /*Tablet*/
