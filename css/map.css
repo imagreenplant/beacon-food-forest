@@ -18,6 +18,9 @@ a:active {
     text-decoration: underline;
 }
 
+.bff-green {
+    color: #50B748;
+}
 #map-canvas {
     position: absolute;
     top: 0;
@@ -41,6 +44,32 @@ a:active {
     white-space: nowrap;
     font-size: 1.3em;
     border-radius: 1em;
+    z-index: 2;
+}
+
+#header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1.7em;
+    padding-left: 3em;
+    padding-top: 0.3em;
+    font-size: 1.5em;
+    color: white;
+    background-color: #4C301C;
+    opacity: 0.8;
+    z-index: 1;
+}
+
+#header a:active, #header a:link {
+    text-decoration: none;
+    color: white;
+}
+
+#header a:hover {
+    color: #0DAED3;
+    text-decoration: none;
 }
 
 @media only screen and (min-device-width: 481px) and (max-device-width: 768px) {
@@ -51,6 +80,10 @@ a:active {
 }
 
 @media only screen and (max-device-width: 480px) {
+    #map-canvas {
+        top: 2.6em;
+    }
+
     #the_side_bar {
         width: 100%;
         font-size: 2em;

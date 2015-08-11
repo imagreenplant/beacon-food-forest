@@ -81,7 +81,8 @@ function initialize() {
         panControl: false,
         zoomControl: true,
         zoomControlOptions: {
-            style: google.maps.ZoomControlStyle.SMALL
+            style: google.maps.ZoomControlStyle.SMALL,
+            position: google.maps.ControlPosition.LEFT_BOTTOM,
         },
         // May be useful someday if we use an overlay as a map, instead of the satellite
         mapTypeControl: false,
@@ -96,13 +97,13 @@ function initialize() {
 
 
     plant_map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
-    // gml = new GeoXml("gml", plant_map, "maps/features.kml", {
     gml = new GeoXml("gml", plant_map, "maps/trees_with_desc_aug-5-2015.kml", {
         sidebarid: "the_side_bar",
         quiet: true, //Removes on-screen dialogs, puts in console.log
         // pointlabelclass: "point-label",  In documentation, but not functioning
         // polylabelclass: "poly-label",
         allfoldersopen: true, //Automatically open all folders
+        iwheight: 250,  //Max height for info window popup
     });
     gml.parse();
 
