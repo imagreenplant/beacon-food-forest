@@ -4,6 +4,27 @@
 // http://google-maps-utility-library-v3.googlecode.com/svn/trunk/infobox/examples/infobox-label.html
 
 log.setLevel("info");
+var gml, plant_map;
+var beacon_food_forest_location = new google.maps.LatLng(47.56845610052802, -122.31254031038299);
+var myloc;
+
+var isMobile = {
+    Android: function() {
+        return (/Android/i).test(navigator.userAgent);
+    },
+    BlackBerry: function() {
+        return (/BlackBerry/i).test(navigator.userAgent);
+    },
+    iOS: function() {
+        return (/iPhone|iPad|iPod/i).test(navigator.userAgent);
+    },
+    Windows: function() {
+        return (/IEMobile/i).test(navigator.userAgent);
+    },
+    any: function() {
+        return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Windows());
+    }
+};
 
 function toggleSideBar() {
     $("#the_side_bar").toggle();
@@ -12,6 +33,7 @@ function toggleSideBar() {
 
     log.info("Sidebar button clicked.");
 }
+
 function hideSideBarButton() {
     $("#the_side_bar").hide();
     $(".sidebar_button").hide();
@@ -21,53 +43,42 @@ function hideSideBarButton() {
 var $sidebutton = $('button');
 $sidebutton.click(toggleSideBar);
 
-if (screen.width < 481) {
+if (screen.width < 601) {
     log.info("Event delegation added for clicking links in menu.");
     $('#the_side_bar').on('click', 'a', toggleSideBar);
 }
 
-var gml, plant_map;
-var beacon_food_forest_location = new google.maps.LatLng(47.56845610052802, -122.31254031038299);
-var myloc;
-
-function gpsMarker(myloc) {
-    if (navigator.geolocation) navigator.geolocation.getCurrentPosition(function(pos) {
-        var me = new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude);
-        myloc.setPosition(me);
-    }, function(error) {
-        // ...
-    });
-}
-
-function gpsMarkerToBeaconFoodForest(myloc) {
-    if (navigator.geolocation) navigator.geolocation.getCurrentPosition(function(pos) {
-        var me = new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude);
-        myloc.setPosition(me);
-    }, function(error) {
-        // ...
-    });
-}
-
-
 // ------------------- GPS Watcher Start ----------------------------------
-function updateGPSMarker(position) {
+function GPSwatcher() {
+    this.options = {
+        enableHighAccuracy: true,
+        timeout: 5000,
+        maximumAge: 0
+    };
+    this.updated_location = 0;
+}
+
+GPSwatcher.prototype.updateGPSMarker = function(position) {
     if (position) {
         var updated_location = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
         myloc.setPosition(updated_location);
         log.info("New navigator location set: ", position.coords.latitude, ",", position.coords.longitude);
+    } else {
+        this.GPSerror();
     }
-}
-
-function GPSerror(err) {
-    log.error("Unable to find GPS location.");
-}
-
-var watcherOptions = {
-    enableHighAccuracy: true,
-    timeout: 5000,
-    maximumAge: 0
 };
-var watcher = navigator.geolocation.watchPosition(updateGPSMarker, GPSerror, watcherOptions);
+
+GPSwatcher.prototype.GPSerror = function(err) {
+    log.error("Unable to find GPS location.");
+};
+
+if (isMobile.any()) {
+    log.info("Mobile device detected, turning on GPS indicator.");
+    var gpsWatch = new GPSwatcher();
+    var watcher = navigator.geolocation.watchPosition(gpsWatch.updateGPSMarker, gpsWatch.GPSerror, gpsWatch.options);
+} else {
+    log.info("Not a mobile device, turning off GPS indicator.");
+}
 // -------------------- GPS Watcher End ------------------------------------
 
 
@@ -81,14 +92,11 @@ function initialize() {
         panControl: false,
         zoomControl: true,
         zoomControlOptions: {
-            style: google.maps.ZoomControlStyle.SMALL
+            style: google.maps.ZoomControlStyle.SMALL,
+            position: google.maps.ControlPosition.LEFT_BOTTOM,
         },
         // May be useful someday if we use an overlay as a map, instead of the satellite
         mapTypeControl: false,
-        // mapTypeControlOptions: {
-        //     style: google.maps.MapTypeControlStyle.HORIZONTAL_BAR,
-        //     position: google.maps.ControlPosition.RIGHT_BOTTOM
-        // },
         scaleControl: false,
         streetViewControl: false,
         overviewMapControl: false,
@@ -96,13 +104,13 @@ function initialize() {
 
 
     plant_map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
-    // gml = new GeoXml("gml", plant_map, "maps/features.kml", {
     gml = new GeoXml("gml", plant_map, "maps/trees_with_desc_aug-5-2015.kml", {
         sidebarid: "the_side_bar",
         quiet: true, //Removes on-screen dialogs, puts in console.log
         // pointlabelclass: "point-label",  In documentation, but not functioning
         // polylabelclass: "poly-label",
         allfoldersopen: true, //Automatically open all folders
+        iwheight: 250, //Max height for info window popup
     });
     gml.parse();
 

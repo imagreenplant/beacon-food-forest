@@ -211,6 +211,7 @@ function GeoXml(myvar, map, url, opts) {
   this.iwwidth = this.opts.iwwidth || 400;
   this.maxiwwidth = this.opts.maxiwwidth || 0;
   this.iwheight = this.opts.iwheight || 0;
+  this.iwmaxheight = this.opts.iwmaxheight || 250;
   this.lastMarker = {};
   this.verySmall = 0.0000001;
   this.progress = 0;
@@ -2915,12 +2916,13 @@ GeoXml.prototype.handlePlacemarkGeometry = function(mark, geom, idx, depth, full
   }
   var iwheightstr;
   if (this.iwheight !== 0) {
-    iwheightstr = "height:" + this.iwheight + "px";
+    iwheightstr = "max-height:" + this.iwheight + "px";
+    console.log("iwheightstr: " + iwheightstr);
   }
   if (typeof desc == "undefined" || !desc || this.opts.makedescription) {
     var dc = that.makeDescription(mark, "");
 
-    desc = "<div id='currentpopup' style='overflow:auto;" + iwheightstr + "' >" + dc.desc + "</div> ";
+    desc = "<div id='currentpopup' class='infoPopup' style='overflow:auto;" + iwheightstr + "' >" + dc.desc + "</div> ";
     if (!name && dc.title) {
       name = dc.title;
       if ((name.length + depth) > this.maxtitlewidth) {
@@ -2929,7 +2931,7 @@ GeoXml.prototype.handlePlacemarkGeometry = function(mark, geom, idx, depth, full
     }
   } else {
     if (this.iwheight) {
-      desc = "<div id='currentpopup' style='overflow:auto;" + iwheightstr + "' >" + desc + "</div> ";
+      desc = "<div id='currentpopup' class='infoPopup' style='overflow:auto;" + iwheightstr + "' >" + desc + "</div> ";
     }
   }
 
