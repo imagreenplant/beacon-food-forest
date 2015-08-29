@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="32px" height="32px" viewBox="0 0 32 32" enable-background="new 0 0 32 32" xml:space="preserve">
+        <defs>
+            <radialGradient id="grad1" cx="0.65" cy="0.4" r="0.45" fx="0.75" fy="0.35">
+                <stop offset="0%" style="stop-color:rgb(255,255,255);stop-opacity:0" />
+                <stop offset="100%" style="stop-color:rgb(255,0,0);stop-opacity:1" />
+            </radialGradient>
+        </defs>
+        <switch>
+            <g>
+                <path fill="url(#grad1)" stroke="black" stroke-width="1" fill-rule="evenodd" clip-rule="evenodd" d="M26.86,6.283c-2.278-0.873-4.768-0.541-7.086-1.198
+			c0.143-2.119,1.226-4.217,3.73-4.168c0.302,0.017,0.554,0.11,0.859,0.17c0.694-0.071,0.606-1.18-0.096-1.078
+			c-0.285-0.008-0.543-0.017-0.878,0c-2.56,0.251-4.023,2.632-4.279,4.869c-0.066-0.024-0.131-0.044-0.2-0.069
+			c-2.066-0.853-3.871-2.603-6.041-3.174C6.237-0.26,1.858,6.513,0.446,12.631c-0.911,3.914-0.455,8.084,1.638,11.552
+			c1.04,1.712,2.343,3.344,4.008,4.499c1.292,0.894,2.886,0.837,4.351,1.237c1.426,0.384,2.436,1.665,3.876,1.937
+			c2.463,0.453,5.698-0.214,7.947-1.177c3.635-1.566,6.32-4.557,7.928-8.117C32.794,16.828,33.293,8.763,26.86,6.283z" />
+            </g>
+        </switch>
+    </svg>
