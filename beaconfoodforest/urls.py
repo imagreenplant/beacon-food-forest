@@ -16,10 +16,10 @@ Including another URLconf
 from django.conf.urls import include, url
 from django.contrib import admin
 # from education import views
-from home import views
+from base import views
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     # url(r'^lessons/', views.listLessons, name="lessons"),
-    url(r'^$', 'home.views.index', name="lessons"),
+    url(r'^$', 'base.views.index', name="base"),
 ]
