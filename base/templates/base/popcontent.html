@@ -1,4 +1,4 @@
-
+{% load staticfiles %}
 <!-- These are all the pop-up pages -->
 <!-- Mailing List -->
 <div id="mailList" class="center-popup">
@@ -39,7 +39,7 @@
 <div id="directions" class="center-popup">
     <div class="directions-content">
         <div class="float-right directions-img">
-            <img src="img/map.png">
+            <img src="{% static "base/img/map.png" %}">
         </div>
         <div>
             <h3 class="content-title">

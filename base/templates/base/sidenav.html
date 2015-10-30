@@ -1,4 +1,4 @@
-
+{% load staticfiles %}
 <!--
 Please follow the following for formatting any new sidebar elements.
 
@@ -151,19 +151,19 @@ End here with all tags closed appropriately.
     <div class="sponsor">
         <div class="side-logo">
             <a href="./index.html">
-                <img src="img/bff_botlogo.png" class="sponsorlh10" />
+                <img src="{% static "base/img/bff_botlogo.png" %}" class="sponsorlh10" />
             </a>
         </div>
         <div class="community-partners">
             <h2 class="sidetitle content-title">Community Partners</h2>
             <a href="http://www.centralcoop.coop/" target="blank">
-                <img src="img/coop.jpg" class="sponsorlh10">
+                <img src="{% static "base/img/coop.jpg" %}" class="sponsorlh10">
             </a>
         </div>
         <div>
             <h2 class="sidetitle content-title">Sponsored by</h2>
             <a href="http://www.seattle.gov/neighborhoods/" target="_blank">
-                <img src="img/neighborhoods-logo.jpg">
+                <img src="{% static "base/img/neighborhoods-logo.jpg" %}">
             </a>
         </div>
     </div>

@@ -21,5 +21,6 @@ from base import views
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     # url(r'^lessons/', views.listLessons, name="lessons"),
-    url(r'^$', 'base.views.index', name="base"),
+    # url(r'^$', 'base.views.index', name="base"),
+    url(r'^$', 'home.views.index', name="homepage"),
 ]
