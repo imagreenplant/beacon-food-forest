@@ -6,3 +6,4 @@ error_log
 leaf/*
 beacon-food-forest-main.sublime-project
 beacon-food-forest-main.sublime-workspace
+*.pyc
