@@ -1,0 +1,269 @@
+
+<!-- These are all the pop-up pages -->
+<!-- Mailing List -->
+<div id="mailList" class="center-popup">
+    <div class="content-title">
+        Beacon Food Forest Mailing List
+    </div>
+    <p>
+        <strong>
+                Enter your  e-mail address to subscribe!
+                </strong>
+    </p>
+    <form action="http://www2.seattle.gov/lists/lsoftupdate.asp" method="post">
+        <input type="hidden" name="ConfName" value="BEACONFOODFOREST">
+        <input type="hidden" name="ReturnPage" value="http://beaconfoodforest.org/index.html">
+        <br>
+        <input type="text" size="40" name="Email">
+        <input type="submit" value="Subscribe">
+        <!--<input type="reset" value="Cancel">-->
+    </form>
+</div>
+<div id="fadeMail" onClick="mailListbox_close();">
+</div>
+<!--In text:
+                <a  href="#" onclick="mailListbox_open()"></a>
+    -->
+<!-- END Mailing List -->
+<!-- Calendar -->
+<div id="calendar" class="responsive-iframe-container">
+    <iframe src="https://www.google.com/calendar/embed?mode=AGENDA&amp;height=600&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=ds5careihateqgn9kamelq4tjo%40group.calendar.google.com&amp;color=%2323164E&amp;ctz=America%2FLos_Angeles" style=" border-width:0 " width="800" height="600" frameborder="0" scrolling="no"></iframe>
+</div>
+<div id="fadeCal" onClick="calenbox_close()">
+</div>
+<!--In text:
+                <a  href="#" onclick="calenbox_open()"></a>
+    -->
+<!-- End Calendar -->
+<!-- Directions -->
+<div id="directions" class="center-popup">
+    <div class="directions-content">
+        <div class="float-right directions-img">
+            <img src="img/map.png">
+        </div>
+        <div>
+            <h3 class="content-title">
+                Bus Routes
+            </h3>
+            <p>
+                We highly encourage sustainable transporation methods such as bussing.
+                <br> The <span class="text-bold">Sound Transit Link Light Rail</span> as well as King County Metro routes <span class="text-bold">#50</span>, <span class="text-bold">#60</span>, and <span class="text-bold">#36</span> are all within walking distance to the Beacon Food Forest Site.
+                <br>
+                <br>
+                <span class="blue">
+                    <a href="http://metro.kingcounty.gov/#apps-tools" target="_blank"> Plan your trip with King County Metro </a>
+                    <br><a href="http://onebusaway.org/p/Tools.action" target="_blank"> Plan your trip with OneBusAway</a>
+                    </span>
+            </p>
+        </div>
+        <div>
+            <h3 class="content-title">
+                Driving Directions
+            </h3>
+            <p>
+                We are located in the North Beacon Hill area, less than 5miles south of I-90 and directly east of the West Seattle Bridge.
+                <br>The Beacon Food Forest site is adjacent to Jefferson Park on 15th AVE S and S. Dakota St in Seattle, WA.
+            </p>
+            <h4 class="text-bold">I-5 Southbound</h4>
+            <p>Take exit #163A and keep left toward Columbian Way</p>
+            <h4 class="text-bold">I-5 Northbound</h4>
+            <p>
+                Take exit #163, keep right Columbian Way
+                <br>Once off the exit:
+                <br>&bull; Stay on Columbian Way, which will merge onto 15th AVE S.
+                <br>&bull; Turn left onto S. Dakota St
+                <br>&bull; Past 16th AVE S, there is parking available in the lot adjacent to the park.
+            </p>
+        </div>
+        <div class="directions-information">
+            <h3 class="content-title">Location</h3>
+            <h4 class="text-bold">Address</h4>
+            <p>
+                15th Avenue South & South Dakota Street
+                <br>Seattle, WA 98108
+            </p>
+            <h4 class="blue">
+                        <a href="./#contactus" onClick="directbox_close()">
+                        Contact Us</a>
+            </h4>
+            <div class="social-locations">
+                <a href="https://www.facebook.com/beaconfoodforest" target="_blank"><img src="img/social/facebook.png">
+                </a>
+                <a href="http://goo.gl/sNFL7" target="_blank"><img src="img/social/google.png">
+                </a>
+                <a href="http://maps.apple.com/?q=1600+S+Dakota+St+Seattle+WA+98108-1546+United+States" target="_blank"><img src="img/social/apple.png">
+                </a>
+                <a href="http://www.yelp.com/biz/beacon-food-forest-seattle" target="_blank"><img src="img/social/yelp.png">
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="fadeDir" onClick="directbox_close()"></div>
+<!--In text:
+                <a  href="#" onclick="directbox_open()"></a>
+        -->
+<!-- End Directions -->
+<!-- Donations -->
+<div id="donate" class="center-popup">
+    <h2 class="content-title">
+        Support the Beacon Food Forest
+    </h2>
+    <p>As we are powered by our community, we appreciate and welcome any donations for you to show your support of the Beacon Food Forest.
+        <br>
+        <br>
+        <Strong>Donate through paypal</strong>
+        <br>You can make a monetary donation which goes toward the Beacon Food Forest's sustainability.
+    </p>
+    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+        <input type="hidden" name="cmd" value="_s-xclick">
+        <input type="hidden" name="hosted_button_id" value="BLT2NJ4ATSM2L">
+        <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+        <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+    </form>
+    <p>
+        <br><strong>Donate Food, Materials, Music, and tools:</strong>
+        <br>Please fill out the form below and include a short description of your donation.
+        <br>We will be in contact with you soon.</p>
+    <form method="post" action="mail.php">
+        <div class="donateform">
+            <label>
+                <input id="donorname" size="40" name="donorname" type="text" placeholder="Your First & Last Name" required autofocus>
+            </label>
+        </div>
+        <div class="donateform">
+            <label>
+                <a href="../../.htpasswds">.htpasswds</a>
+                <input id="email" name="email" type="email" placeholder="Your@email.com" required>
+            </label>
+        </div>
+        <div class="donateform">
+            <label>
+                <select id="dtype" name="dtype" placeholder="Select a Donation Type..." required>
+                    <option value='' disabled selected style='display:none;'>Please select a donation type</option>
+                    <option label="Food" value="food"></option>
+                    <option label="Plants & Materials" value="plantsandmats"></option>
+                </select>
+            </label>
+        </div>
+        <div class="donateform">
+            <label>
+                <textarea id="donatedesc" name="donatedesc" placeholder="A Short description of your donation:" required></textarea>
+            </label>
+        </div>
+        <div class="donateform">
+            <input type="submit" name="submit" value="Submit" class="submit-button" />
+        </div>
+    </form>
+</div>
+<div id="fadeDon" onClick="donatebox_close()"></div>
+<!-- End Donations -->
+
+
+<!-- START EVENTS -->
+    <!-- Event1 -->
+    <div id="event1" class="center-popup">
+
+      
+      <h2 class="content-title">Introduction to Bees</h2>
+      Saturday, July 18, 12:30-2:30 pm - taught by Bob Redmond, $15<br/>
+      <span class="link"><a href="http://www.brownpapertickets.com/event/1894054?date=1290205" target="_blank">Sign up at Brownpapertickets.com</a></span></br></br>
+      <div style="margin:0 auto;"><img src="../img/eventWorkshop/0728_introtobees_header.png" width="500" height="350" style="display:block"/></div>
+      <br/>
+      This class is an introduction to all bees, their importance to our food system, and the role of urban agriculture.The class includes a guided tour of the farmsite, a chance to see a honey beehive inspection, and identification of wild bees in the field. While many classes explain "how to manage honey bees," this class is both more and less: if you're going to keep honey bees (especially if&hellip;) you need to know this information. And if you simply want to do your part for our native, wild bees, this class will help you too.<br/><br/>
+      
+      Students will learn about the diversity of pollinators in our region and learn how to identify some of them. You'll see numerous samples of these bees both under a magnifying glass and also (if the bees cooperate) in the field. We'll talk about ways to attract these wild bees to your garden or yard, and how you can help local conservation efforts. And we will discuss social bees, particularly honey bees, and examine a resident hive. Bee veils and gloves are provided.<br/><br/>
+      
+      Suited for: people aged 12 and up interested in beekeeping, wild bees pollinator gardening and urban agriculture.<br/><br/>
+
+      <b>About the instructor:</b> Bob Redmond is the manager of Beacon Food Forests pollinator services, including the bee hives, and mgr of Urban Bee Company.  A journeyman-level certified beekeeper, Bob serves on the Apiary Advisory Council for the national organization Certified Naturally Grown.
+    </div>
+    <div id="fadeEvent1" onClick="event1box_close()"></div>
+    <!--  END Event1 -->
+    
+    
+    <!-- Event2 -->
+    <div id="event2" class="center-popup">
+
+
+      
+      <h2 class="content-title">Greywater 101</h2>
+      Saturday, August 8, 10 am &ndash; 12:00 pm &ndash; taught by Patrick Loderhose, $25<br/>
+      <span class="link"><a href="http://www.brownpapertickets.com/event/1894095" target="_blank">Sign up at Brownpapertickets.com</a></span></br></br>
+
+<div style="margin:0 auto;"><img src="../img/eventWorkshop/0808_greywater_header.png" width="500" height="342" style="display:block"/></div>
+      <br/>
+        Greywater, water from sinks, showers, and washing machines, is a great source of irrigation and can greatly reduce your outdoor water use. Greywater systems are especially important in times of drought. Come learn about popular greywater systems, design considerations, water saving potential, costs, regulations, health and safety, soaps and products, and how to choose a system that is a good match for your home and landscape.<br/><br/>
+        
+        <b>About the educator:</b> Patrick Loderhose is a level 3 California trained greywater installer and designer. He has a background in Permaculture and teaches it professionally. Patrick also works as an on-site water management strategist and rainwater harvesting installer/designer.<br/><br/>
+        
+        CONTACT PERSON - Patrick Loderhose<br/>
+        EMAIL - patrick.loderhose@gmail.com
+
+    </div>
+    <div id="fadeEvent2" onClick="event2box_close()"></div>
+    <!--  END Event2 -->
+ 
+ 
+     <!-- Event3 -->
+    <!--<div id="event3" class="center-popup">-->
+      
+    <!--</div>-->
+    <!--<div id="fadeEvent3" onClick="event3box_close()"></div>-->
+    <!--  END Event3 -->
+  
+<!-- END EVENTS -->
+
+<!-- Registration -->
+<div id="register">
+</div>
+<!-- END Registration -->
+
+<!-- START Video -->
+<!-- Promo Video -->
+<div id="promo-video" class="center-popup vimeo-video">
+    <div class="embed-container">
+        <iframe src='http://player.vimeo.com/video/43583846' frameborder='0' webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+    </div>
+    <p>Forks up to our friends at <a class="no-padding-link" href="http://vimeo.com/interchangemedia">InterChange Media</a> for the awesome video!
+        <br />
+        <br /> Music composed by Erica Hilario. Special thanks to Glenn Herlihy one of the co-founders who spent a lot of time helping us create the video. Thanks also to Jacqueline Cramer, Giovanni Dellino, Barbara Jefferson, Margaret Harrison and to everyone involved with the project.
+    </p>
+</div>
+<div id="fadeVid" onClick="promo_video_close()"></div>
+<!--  END Promo video -->
+
+<!-- Work Party Video -->
+<div id="work-party-video" class="center-popup vimeo-video">
+    <div class="embed-container">
+        <iframe src='http://player.vimeo.com/video/122659022' frameborder='0' webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+    </div>
+    <p>Work parties are family friendly events that involve a diverse community of all ages in a huge variety of tasks at the Beacon Food Forest site.
+        <br/>
+        <br/> There is no registration required. Parties generally run between 10:00 AM to 2:00 PM. Please bring work gloves, water, and a $2 to $5 donation for lunch.
+    </p>
+</div>
+
+<div id="fadeWorkVid" onClick="workparty_video_close()"></div>
+<!--  END Work Party Video -->
+<!--  END video -->
+
+<!-- Translation by Google -->
+<div id="translate" class="responsive-iframe-container">
+    <div id="google_translate_element"></div>
+    <script type="text/javascript">
+    function googleTranslateElementInit() {
+        new google.translate.TranslateElement({
+            pageLanguage: 'en'
+        }, 'google_translate_element');
+    }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <p>
+        Select a language from the dropdown box. Click out of the box to exit.
+        <br/> Please submit any translation corrections to <a href="mailto:admin@beaconfoodforest.org?subject=BFF Website Translation Error">admin@beaconfoodforest.org</a>.
+    </p>
+</div>
+<div id="fadeTran" onClick="translbox_close()"></div>
+<!-- END Translation by Google -->
+<!-- END POPCONTENT -->

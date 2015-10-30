@@ -1,0 +1,45 @@
+{% load staticfiles %}
+
+
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>
+        Beacon Food Forest : A Community Permaculture Project
+    </title>
+    <script type="text/javascript" src="js/easypop.js"></script>
+    <script src="js/jquery.js"></script>
+    <script src="includes/includes.js"></script>
+    <script src="includes/bffga.js"></script>
+    <script src="js/jquery.slicknav.js"></script>
+    <link rel="stylesheet" href="{% static "base/css/style.css" %}" type="text/css"  />
+    <link rel="stylesheet" href="{% static "base/css/slicknav.css" %}" type="text/css" />
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+
+    <!-- Google Translate Meta -->
+    <meta name="google-translate-customization" content="d146be5ef5f93bc-8a449acf17695ebb-gba1a2e4ad08a8c79-14"></meta>
+    <!--/Google Translate Meta -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+    <div id="popcontent">{% include "base/popcontent.html" %}</div>
+    <div id="main">
+        <div class="background-nut"></div>
+        <div id="headercontent">{% include "base/header.html" %}</div>
+        <div id="container">
+
+            <div id="indexcontent" class="main-content">{% block indexcontent %}{% endblock indexcontent%}</div>
+            <div class="right-column">
+                <div id="sidecontent">{% include "base/sidenav.html" %}</div>
+            </div>
+
+        </div>
+        <div id="footercontent">{% include "base/footer.html" %}</div>
+    </div>
+</body>
+
+</html>
