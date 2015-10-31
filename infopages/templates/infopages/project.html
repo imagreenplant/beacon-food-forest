@@ -1,4 +1,5 @@
 {% extends "base/index.html" %}
+{% load staticfiles %}
 
 {% block content %}
 <div class="content-div first-content-div">
@@ -20,14 +21,14 @@
     <h2 class="content-title">
             Phase I for Beacon Food Forest
         </h2>
-    <img class="single-content-image" src="./img/schema1.png">
+    <img class="single-content-image" src="{% static "infopages/img/schema1.png" %}">
 </div>
 <div class="content-div">
     <h2 class="content-title">
             Full 7 Acre Proposal
         </h2>
 
-    <img class="single-content-image" src="./img/schema2.png">
+    <img class="single-content-image" src="{% static "infopages/img/schema2.png" %}">
 </div>
 <div class="content-div">
     <h2 class="content-title">

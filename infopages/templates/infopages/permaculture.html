@@ -1,4 +1,5 @@
 {% extends "base/index.html" %}
+{% load staticfiles %}
 
 {% block content %}
 <div class="content-div first-content-div">
@@ -17,7 +18,7 @@
 
     <br/>
 
-    <img class="single-content-image" src="./img/bff_perma-01.jpg" />
+    <img class="single-content-image" src="{% static "infopages/img/bff_perma-01.jpg" %}" />
     <br/>
 </div>
 <div class="content-div perma-principles">
