@@ -1,11 +1,12 @@
 {% extends "base/index.html" %}
+{% load staticfiles %}
 
 {% block content %}
 <div id="content">
     <!-- imageBar -->
     <div class="imageBar">
-        <img class="regular" src="img/bff_map.png">
-        <img class="regular img-follow" src="img/bff_banner.png">
+        <img class="regular" src="{% static "home/img/bff_map.png" %}">
+        <img class="regular img-follow" src="{% static "home/img/bff_banner.png" %}">
     </div>
     <!-- imageBar -->
     <div class="content-div">      
