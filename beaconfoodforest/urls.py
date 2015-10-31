@@ -21,8 +21,8 @@ urlpatterns = [
     # url(r'^lessons/', views.listLessons, name="lessons"),
     # url(r'^$', 'base.views.index', name="base"),
     url(r'^$', 'home.views.index', name="homepage"),
-    url(r'^faq/$', 'infopages.views.faq', name="FAQ"),
+    url(r'^faq/$', 'infopages.views.faq', name="faq"),
     url(r'^project/$', 'infopages.views.project', name="project"),
     url(r'^permaculture/$', 'infopages.views.permaculture', name="permaculture"),
-    url(r'^how-we-started/$', 'infopages.views.howWeStarted', name="how we started"),
+    url(r'^how-we-started/$', 'infopages.views.howWeStarted', name="how-we-started"),
 ]
