@@ -1,4 +1,6 @@
-<script src="animate.js"></script>
+{% load staticfiles %}
+
+<script src="{% static "base/js/animate.js" %}"></script>
 
 
 <div class="top-text">
@@ -26,7 +28,7 @@
 
     <div class="banner-img">
         <a href="index.html">
-            <img src="img/bff_toplogo.png"> </a>
+            <img src="{% static "base/img/bff_toplogo.png" %}"> </a>
     </div>
 
     <div id="title">

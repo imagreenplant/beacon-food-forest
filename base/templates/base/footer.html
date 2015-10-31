@@ -1,4 +1,5 @@
-<script src="animate.js"></script>
+{% load staticfiles %}
+<script src="{% static "base/js/animate.js" %}"></script>
 <div id="footer">
     <div id="botnav">
         <a href="./index.html#getinvolved">Get Involved </a>
@@ -9,7 +10,7 @@
         <a href="#" onclick="directbox_open()">Get Directions</a>
     </div>
 
-    <p id="copyright">&copy; 2015 Beacon Food Forest. All rights reserved. Design by
+    <p id="copyright">&copy; {% now "Y" %} Beacon Food Forest. All rights reserved. Design by
         <span class="link">
             <a href="http://www.whitewindowstudios.com/" target="_blank">
 				White Window Studios.</a>

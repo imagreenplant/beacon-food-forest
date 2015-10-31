@@ -1,3 +1,5 @@
+{% load staticfiles %}
+
 /*
 Content
 #4C301C
@@ -694,8 +696,8 @@ body {
     top: 31px;
     z-index: -4;
 }
-.background-nut {
-    background: url("/img/nut.png") no-repeat scroll right top transparent;
+.background-nut { 
+    background: url("/static/base/img/nut.png") no-repeat scroll right top transparent;
     position: absolute;
     top: 30px;
     right: 0px;
@@ -752,7 +754,7 @@ body {
 
 
 #main {
-    background-image: url('/img/bg.png');
+    background-image: url('/static/base/img/bg.png');
     background-repeat: no-repeat;
     background-position: top right;
     width: 100%;
