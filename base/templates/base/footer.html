@@ -2,7 +2,7 @@
 <script src="{% static "base/js/animate.js" %}"></script>
 <div id="footer">
     <div id="botnav">
-        <a href="./index.html#getinvolved">Get Involved </a>
+        <a href="{% url 'homepage' %}#getinvolved">Get Involved </a>
         <a href="#" onclick="donatebox_open()">Donate</a>
         <a href="/recipes/">Recipes</a>
         <a href="{% url 'project' %}">Learn More</a>

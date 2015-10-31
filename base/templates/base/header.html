@@ -10,11 +10,11 @@
 <div id="header">
     <div class="nav">
         <ul id="menu">
-            <li><a href="index.html#getinvolved">Get Involved</a></li>
+            <li><a href="{% url 'homepage' %}#getinvolved">Get Involved</a></li>
             <li><a href="#" onclick="calenbox_open()">Calendar</a></li>
             <li><a href="/recipes/">Recipes</a></li>
             <li><a href="{% url 'faq' %}">Faq</a></li>
-            <li><a href="./index.html#contactus">Contact Us</a></li>
+            <li><a href="{% url 'homepage' %}#contactus">Contact Us</a></li>
             <li><a href="#" onclick="translbox_open()">Translate</a></li>
         </ul>
     </div>
@@ -27,7 +27,7 @@
     </script>
 
     <div class="banner-img">
-        <a href="index.html">
+        <a href="{% url 'homepage' %}">
             <img src="{% static "base/img/bff_toplogo.png" %}"> </a>
     </div>
 
