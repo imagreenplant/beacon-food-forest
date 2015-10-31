@@ -7,5 +7,5 @@ from django.template import RequestContext
  
 def index(request):
     # return render_to_response('home/index.html')
-    return render(request, 'base/index.html', {})
-    # return HttpResponse("Hi, you got there.")
+    # return render(request, 'base/index.html', {})
+    return render(request, 'home/home.html', {})
