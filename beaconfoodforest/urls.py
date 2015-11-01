@@ -15,14 +15,21 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
+from maps import urls as map_urls
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     # url(r'^lessons/', views.listLessons, name="lessons"),
-    # url(r'^$', 'base.views.index', name="base"),
+    
+    # Homepage
     url(r'^$', 'home.views.index', name="homepage"),
+    
+    # Info Sub-pages
     url(r'^faq/$', 'infopages.views.faq', name="faq"),
     url(r'^project/$', 'infopages.views.project', name="project"),
     url(r'^permaculture/$', 'infopages.views.permaculture', name="permaculture"),
     url(r'^how-we-started/$', 'infopages.views.howWeStarted', name="how-we-started"),
+
+    # Maps
+    url(r'^maps/', include(map_urls), name="maps"),
 ]

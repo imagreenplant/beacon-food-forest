@@ -40,7 +40,8 @@ INSTALLED_APPS = (
     'base',
     'education',
     'home',
-    'infopages'
+    'infopages',
+    'maps'
 )
 
 MIDDLEWARE_CLASSES = (
