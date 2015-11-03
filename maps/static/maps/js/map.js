@@ -104,7 +104,7 @@ function initialize() {
 
 
     plant_map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
-    gml = new GeoXml("gml", plant_map, "maps/trees_with_desc_aug-5-2015.kml", {
+    gml = new GeoXml("gml", plant_map, "http://beaconfoodforest.org/maps/trees_with_desc_aug-5-2015.kml", {
         sidebarid: "the_side_bar",
         quiet: true, //Removes on-screen dialogs, puts in console.log
         // pointlabelclass: "point-label",  In documentation, but not functioning
@@ -115,7 +115,7 @@ function initialize() {
     gml.parse();
 
     var gpsIcon = {
-        url: "img/gps.svg",
+        url: "static/maps/img/gps.svg",
         scale: 0.2,
     };
 
