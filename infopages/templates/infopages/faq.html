@@ -1,4 +1,5 @@
 {% extends "base/index.html" %}
+{% load staticfiles %}
 
 {% block content %}
 <div class="content-div first-content-div">
@@ -80,7 +81,7 @@
         <br>
         <br>
         <span class="blue">
-                <a href="/docs/SPU-DON_MOA_SIGNED_OCT_2012.pdf" target="_blank">Memorandum of Agreement - SPU &amp; DON: <br/>City of Seattle P-Patch Community Gardens Uses On SPU Property (2012)</a>
+                <a href="{% static "base/docs/SPU-DON_MOA_SIGNED_OCT_2012.pdf" %}" target="_blank">Memorandum of Agreement - SPU &amp; DON: <br/>City of Seattle P-Patch Community Gardens Uses On SPU Property (2012)</a>
             </span>
     </p>
 
