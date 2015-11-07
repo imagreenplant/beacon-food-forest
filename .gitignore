@@ -8,3 +8,4 @@ beacon-food-forest-main.sublime-project
 beacon-food-forest-main.sublime-workspace
 *.pyc
 static-collector
+beaconfoodforest/settings_local.py
