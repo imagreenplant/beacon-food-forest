@@ -116,6 +116,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
+STATIC_URL = 'http://beaconfoodforest.org/s/'
 # This the place locally where static files will be collected for transfer.
 STATIC_ROOT = '/home3/beaconf2/public_html/s'
 
