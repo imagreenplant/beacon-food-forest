@@ -1,4 +1,7 @@
 
 # Use PHP54 Single php.ini as default
 AddHandler application/x-httpd-php54s .php
-
+AddHandler fcgid-script .fcgi
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.*)$ beaconfoodforest.fcgi/$1 [QSA,L]
