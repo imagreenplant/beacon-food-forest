@@ -15,7 +15,6 @@ import os
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.8/howto/deployment/checklist/
 
@@ -23,9 +22,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'i3zc+lymkle=d00x1l4d$w2mp7jidk%x^tb*wlmh2h%ee8o^y6'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
+print "Preparing Production config, setting DEBUG to False"
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    '.beaconfoodforest.org',  # Allow domain and subdomains
+]
 
 
 # Application definition
@@ -84,13 +86,13 @@ DATABASES = {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': 'beacondb',
     },
-    'mysql': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME' : "beacon_food_forest",
-        'USER': 'mlapora',
-        'PASSWORD': 'greens',
-        'HOST': '127.0.0.1',
-    },
+    # 'mysql': {
+    #     'ENGINE': 'django.db.backends.mysql',
+    #     'NAME' : "beacon_food_forest",
+    #     'USER': 'mlapora',
+    #     'PASSWORD': 'greens',
+    #     'HOST': '127.0.0.1',
+    # },
     # 'postgres': {
     #     'ENGINE': 'django.db.backends.postgresql_psycopg2',
     #     'NAME' : "beacon_food_forest",
@@ -105,13 +107,9 @@ DATABASES = {
 # https://docs.djangoproject.com/en/1.8/topics/i18n/
 
 LANGUAGE_CODE = 'en-us'
-
 TIME_ZONE = 'UTC'
-
 USE_I18N = True
-
 USE_L10N = True
-
 USE_TZ = True
 
 
@@ -119,3 +117,12 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
 STATIC_URL = '/static/'
+# This the place locally where static files will be collected for transfer.
+STATIC_ROOT = '/home3/beaconf2/public_html/s'
+
+# Import local settings per environment in settings_local.py
+try:
+    from settings_local import *
+except:
+    print "settings_local not found, proceeding"
+    pass
