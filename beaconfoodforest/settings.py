@@ -75,12 +75,20 @@ TEMPLATES = [
     },
 ]
 
+
+# Going to try in-memory cacheing on server.  The site isn't terribly big so going to see
+# if we can get away with it in production.  Note that Bluehost could end up killing the 
+# Django processes if memory gets too big.  This is probably the fastest solution we have
+# since we can't use Memcached... because of long running processes.  Next step would be 
+# Database cacheing.
+
 CACHES = {
     'default': {
-        'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
-        'LOCATION': 'unix:/home3/beaconf2/install/tmp/memcached.sock',
+        'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
     }
 }
+
+
 
 WSGI_APPLICATION = 'beaconfoodforest.wsgi.application'
 
