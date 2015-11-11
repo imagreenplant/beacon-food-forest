@@ -75,6 +75,13 @@ TEMPLATES = [
     },
 ]
 
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
+        'LOCATION': 'unix:/home3/beaconf2/install/tmp/memcached.sock',
+    }
+}
+
 WSGI_APPLICATION = 'beaconfoodforest.wsgi.application'
 
 
