@@ -176,7 +176,7 @@ function GeoXml(myvar, map, url, opts) {
       getcapproxy = fixUrlEnd(getcapproxy);
     }
   }
-  this.publishdirectory = "../img/";
+  this.publishdirectory = "/s/maps/img/";
   topwin = top;
   try {
     topname = top.title;
