@@ -64,7 +64,6 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [],
-        'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
@@ -90,7 +89,7 @@ LOGGING = {
         'file': {
             'level': 'DEBUG',
             'class': 'logging.FileHandler',
-            'filename': '/home3/beaconf2/django-projects/bff-django-error.log',
+            'filename': '../bff-django-error.log',
         },
     },
     'formatters': {
@@ -168,8 +167,8 @@ STATIC_URL = 'http://beaconfoodforest.org/s/'
 STATIC_ROOT = '/home3/beaconf2/public_html/s'
 
 # Import local settings per environment in settings_local.py
-try:
-    from settings_local import *
-except:
-    print "settings_local not found, proceeding"
-    pass
+# try:
+#     from settings_local import *
+# except:
+#     print "settings_local not found, proceeding"
+#     pass
