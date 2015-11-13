@@ -15,6 +15,7 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
+from django.views.generic.base import RedirectView
 from maps import urls as map_urls
 
 urlpatterns = [
@@ -29,6 +30,12 @@ urlpatterns = [
     url(r'^project/$', 'infopages.views.project', name="project"),
     url(r'^permaculture/$', 'infopages.views.permaculture', name="permaculture"),
     url(r'^how-we-started/$', 'infopages.views.howWeStarted', name="how-we-started"),
+
+    # Redirects from old pages to retain SEO juice
+    url(r'^faq.html$', RedirectView.as_view(permanent=True, pattern_name="homepage" )),
+    url(r'^project.html$', RedirectView.as_view(permanent=True, pattern_name="project" )),
+    url(r'^permaculture.html$', RedirectView.as_view(permanent=True, pattern_name="permaculture" )),
+    url(r'^howwestarted.html$', RedirectView.as_view(permanent=True, pattern_name="how-we-started" )),
 
     # Maps
     url(r'^maps/', include(map_urls), name="maps"),
