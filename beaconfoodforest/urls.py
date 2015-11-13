@@ -16,6 +16,7 @@ Including another URLconf
 from django.conf.urls import include, url
 from django.contrib import admin
 from django.views.generic.base import RedirectView
+from django.shortcuts import render_to_response
 from maps import urls as map_urls
 
 urlpatterns = [
@@ -39,4 +40,7 @@ urlpatterns = [
 
     # Maps
     url(r'^maps/', include(map_urls), name="maps"),
+
+    # Other
+    url(r'^robots.txt', 'base.views.robots')
 ]
