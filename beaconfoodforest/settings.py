@@ -82,6 +82,31 @@ TEMPLATES = [
     },
 ]
 
+# Adding Logging.  This should be set to "WARNING" or "ERROR" for some time after we've deployed.
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'file': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename': '/home3/beaconf2/django-projects/bff-django-error.log',
+        },
+    },
+    'formatters': {
+        'verbose': {
+            'format': '%(levelname)s %(asctime)s %(module)s %(process)d %(thread)d %(message)s'
+        },
+    },
+    'loggers': {
+        'django.request': {
+            'handlers': ['file'],
+            'level': 'DEBUG',
+            'propagate': True,
+        },
+    },
+}
+
 
 # Going to try in-memory cacheing on server.  The site isn't terribly big so going to see
 # if we can get away with it in production.  Note that Bluehost could end up killing the 
