@@ -1,7 +1,7 @@
 <?php
 
 $EmailFrom = "Beacon Food Forest Donations";
-$EmailTo = "donate@beaconfoodforest.org";
+$EmailTo = "donate@thelaporas.com";
 $dName = Trim(stripslashes($_POST['donorname'])); 
 $dEmail = Trim(stripslashes($_POST['email'])); 
 $dType = Trim(stripslashes($_POST['dtype'])); 
