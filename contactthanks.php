@@ -16,7 +16,7 @@
 			 You will be redirected very shortly.
 			 </p>
 			 
-		<meta http-equiv="refresh" content="1; url=index.html">
+		<meta http-equiv="refresh" content="1; url=/">
 	</div>
 
 </body>
