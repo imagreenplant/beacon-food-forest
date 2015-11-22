@@ -1,1 +1,1 @@
-ssh beaconf2@beaconfoodforest.org '~/django-projects/beacon-food-forest-main/scripts/deploy-local.sh'
+ssh beaconf2@beaconfoodforest.org '~/django-projects/beacon-food-forest-main/scripts/deploy-on-local-server.sh'
