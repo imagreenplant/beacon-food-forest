@@ -4,6 +4,8 @@
 # 2) A static files directory at beaconfoodforest.org/s/
 # 3) The use of beaconfoodforest.org/includes/ for extra php execution files
 # 4) The passthrough to beaconfoodforest.org/recipes for the recipes blog
+#
+# THIS FILE BELONGS IN the public_html directory
 ########################################################
 
 
