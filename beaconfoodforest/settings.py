@@ -165,9 +165,9 @@ STATIC_URL = 'http://beaconfoodforest.org/s/'
 # This the place locally where static files will be collected for transfer.
 STATIC_ROOT = '/home3/beaconf2/public_html/s'
 
-# Import local settings per environment in settings_local.py
-# try:
-#     from settings_local import *
-# except:
-#     print "settings_local not found, proceeding"
-#     pass
+#Import local settings per environment in settings_local.py
+try:
+    from settings_local import *
+except:
+    print "settings_local not found, proceeding"
+    pass
