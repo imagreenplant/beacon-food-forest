@@ -33,7 +33,7 @@ urlpatterns = [
     url(r'^how-we-started/$', 'infopages.views.howWeStarted', name="how-we-started"),
 
     # Redirects from old pages to retain SEO juice
-    url(r'^faq.html$', RedirectView.as_view(permanent=True, pattern_name="homepage" )),
+    url(r'^faq.html$', RedirectView.as_view(permanent=True, pattern_name="faq" )),
     url(r'^project.html$', RedirectView.as_view(permanent=True, pattern_name="project" )),
     url(r'^permaculture.html$', RedirectView.as_view(permanent=True, pattern_name="permaculture" )),
     url(r'^howwestarted.html$', RedirectView.as_view(permanent=True, pattern_name="how-we-started" )),
