@@ -24,25 +24,23 @@ AddHandler application/x-httpd-php54s .php
 AddHandler fcgid-script .fcgi
 
 
-
+#########################################################
 # BlueHost.com 
 # These lines will create rewrite requests from beaconfoodforest.org (root) to the /django subdirectory where the .fcgi will be stored
-# If the request's domain is www.beaconfoodforest.org or beaconfoodforest.org
+#-------------------------------------------------------
+
+# IF the request's domain is www.beaconfoodforest.org or beaconfoodforest.org
 RewriteCond %{HTTP_HOST} ^(www.)?beaconfoodforest.org$ 
-# AND If the URI path component does NOT start with /beaconfoodforest.org/
+# AND If the URI path component does NOT start with /django/
 RewriteCond %{REQUEST_URI} !^/django/ 
-# f is for files, d for directories.  If the REQUEST is not for files or directories
+# f is for files, d for directories(removed).  IF the REQUEST is not for files or directories
 RewriteCond %{REQUEST_FILENAME} !-f 
 #RewriteCond %{REQUEST_FILENAME} !-d 
-# Then rewrite ALL requests like beaconfoodforest.org/whatever to the subdirectory /beaconfoodforest.org/whatever
-RewriteRule ^(.*)$ django/beaconfoodforest.fcgi/$1
+# THEN rewrite ALL requests like beaconfoodforest.org/whatever to be handled by the fcgi file under the django directory
+# The QSA tag makes sure url parameters are passed through
+RewriteRule ^(.*)$ django/beaconfoodforest.fcgi/$1 [QSA]
+
 # Setup a matching condition again if the request's domain is www.beaconfoodforest.org or beaconfoodforest.org
 RewriteCond %{HTTP_HOST} ^(www.)?beaconfoodforest.org$ 
-# Then if it already matches beaconfoodforest.org/index.html, then just route there without following any more rules (prevents a loop)
+# Then if it already matches beaconfoodforest.org/, then just route there without following any more rules (prevents a loop)
 RewriteRule ^(/)?$ django/beaconfoodforest.fcgi [L]
-
-
-
-#RewriteCond %{REQUEST_FILENAME} !-f
-# Every filename gets routed to the project's fcgi file
-#RewriteRule ^(.*)$ beaconfoodforest.fcgi/$1 [QSA,L]
