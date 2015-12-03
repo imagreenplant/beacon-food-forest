@@ -176,7 +176,7 @@ function GeoXml(myvar, map, url, opts) {
       getcapproxy = fixUrlEnd(getcapproxy);
     }
   }
-  this.publishdirectory = "/s/maps/img/";
+  this.publishdirectory = STATIC_URL + "/maps/img/";
   topwin = top;
   try {
     topname = top.title;
@@ -380,6 +380,15 @@ GeoXml.prototype.createMarkerJSON = function(item, idx) {
   } else {
     that.createMarker(point, item.title, unescape(item.description), null, idx, style, item.visibility, item.id, item.href, item.snip);
   }
+};
+
+GeoXml.prototype.refitStaticUrl = function(href) {
+  // This is a custom function that will allow to replace the static url location of the marker icons --mlapora
+  var static_url = STATIC_URL;
+  var segmented_string = href.split('/');
+  var end_filename = static_url + 'maps/img/' + segmented_string[segmented_string.length - 1];
+
+  return end_filename
 };
 
 GeoXml.prototype.createMarker = function(point, name, desc, styleid, idx, instyle, visible, kml_id, markerurl, snip) {
@@ -821,7 +830,7 @@ GeoXml.prototype.createMarker = function(point, name, desc, styleid, idx, instyl
   if (this.opts.sidebarid) {
     var folderid = this.myvar + "_folder" + idx;
     var n = this.overlayman.markers.length;
-    var blob = "&nbsp;<img style=\"vertical-align:text-top;padding:0;margin:0;height:" + this.sidebariconheight + "px;\"  border=\"0\" src=\"" + href + "\">&nbsp;";
+    var blob = "&nbsp;<img style=\"vertical-align:text-top;padding:0;margin:0;height:" + this.sidebariconheight + "px;\"  border=\"0\" src=\"" + this.refitStaticUrl(href) + "\">&nbsp;";
     if (this.sidebarsnippet) {
       var desc2 = GeoXml.stripHTML(desc);
       desc2 = desc2.substring(0, 40);
@@ -3186,7 +3195,10 @@ GeoXml.prototype.handleStyle = function(style, sid, currstyle) {
   //tempstyle.url = currstyle.url;
 
   if (icons.length > 0) {
-    href = this.getText(icons[0].getElementsByTagName("href")[0]);
+    // This is the stock function
+    //    href = this.getText(icons[0].getElementsByTagName("href")[0]);
+    // But I'm overwriting with this one to force icons to the static url within django
+    href = this.refitStaticUrl(this.getText(icons[0].getElementsByTagName("href")[0]));
     if (currstyle) {
       href = currstyle.url;
     }
@@ -4010,7 +4022,7 @@ GeoXml.prototype.createFolder = function(idx, title, sbid, icon, desc, snippet, 
     htm += checked;
     htm += 'onclick="' + this.myvar + '.toggleContents(' + idx + ',this.checked)">';
     htm += '&nbsp;<span title="' + snippet + '" id="' + this.myvar + 'TB' + idx + '" oncontextmenu=\"' + this.myvar + '.saveJSON(' + idx + ');\" onclick="' + this.myvar + '.toggleFolder(' + idx + ')" style=\"' + fw + '\">';
-    htm += '<img id=\"' + this.myvar + 'FB' + idx + '\" style=\"vertical-align:text-top;padding:0;margin:0;height:"+this.sidebariconheight+"px;\" border=\"0\" src="' + icon + '" /></span>&nbsp;';
+    htm += '<img id=\"' + this.myvar + 'FB' + idx + '\" style=\"vertical-align:text-top;padding:0;margin:0;height:"+this.sidebariconheight+"px;\" border=\"0\" src="' + this.refitStaticUrl(icon) + '" /></span>&nbsp;';
     htm += '<a href="#" onclick="' + this.myvar + '.overlayman.zoomToFolder(' + idx + ');' + this.myvar + '.mb.showMess(\'' + desc + '\',3000);return false;">' + title + '</a><br>'
     htm += '</div>';
     htm += '<div id=\"' + folderid + '\" style="' + disp + '"></div></ul>';
