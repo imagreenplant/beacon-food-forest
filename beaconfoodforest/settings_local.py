@@ -10,5 +10,7 @@ ALLOWED_HOSTS = [
     '*',  # Allow all domains
 ]
 
-STATIC_URL = '/local-static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'local-static')
+STATIC_URL = '/static/'
+# STATIC_ROOT = os.path.join(BASE_DIR, 'local-static')
+
+STATIC_ROOT = None
