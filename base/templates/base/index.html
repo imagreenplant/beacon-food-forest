@@ -1,22 +1,14 @@
 {% load staticfiles %}
-
-
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-
     <title>
         Beacon Food Forest : A Community Permaculture Project
     </title>
-    <script type="text/javascript" src="{% static "base/js/easypop.js" %}"></script>
-    <script src="{% static "base/js/jquery.js" %}"></script>
-    <script src="{% static "base/js/bffga.js" %}"></script>
-    <script src="{% static "base/js/jquery.slicknav.js" %}"></script>
-    <link rel="stylesheet" href="{% static "base/css/style.css" %}" type="text/css"  />
-    <link rel="stylesheet" href="{% static "base/css/slicknav.css" %}" type="text/css" />
-    <link rel="shortcut icon" href="{% static "base/img/favicon.ico" %}" type="image/x-icon" />
-
+    <link rel="stylesheet" href="{% static " base/css/style.css " %}" type="text/css" />
+    <link rel="stylesheet" href="{% static " base/css/slicknav.css " %}" type="text/css" />
+    <link rel="shortcut icon" href="{% static " base/img/favicon.ico " %}" type="image/x-icon" />
     <!-- Google Translate Meta -->
     <meta name="google-translate-customization" content="d146be5ef5f93bc-8a449acf17695ebb-gba1a2e4ad08a8c79-14">
     <!--/Google Translate Meta -->
@@ -30,15 +22,17 @@
         <div class="background-nut"></div>
         <div id="headercontent">{% include "base/header.html" %}</div>
         <div id="container">
-
             <div id="indexcontent" class="main-content">{% block content %}{% endblock content%}</div>
             <div class="right-column">
                 <div id="sidecontent">{% include "base/sidenav.html" %}</div>
             </div>
-
         </div>
         <div id="footercontent">{% include "base/footer.html" %}</div>
     </div>
+    <script type="text/javascript" src="{% static " base/js/easypop.js " %}"></script>
+    <script src="{% static " base/js/jquery.js " %}"></script>
+    <script src="{% static " base/js/bffga.js " %}"></script>
+    <script src="{% static " base/js/jquery.slicknav.js " %}"></script>
 </body>
 
 </html>
