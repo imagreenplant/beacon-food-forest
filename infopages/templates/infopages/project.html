@@ -1,0 +1,136 @@
+{% extends "base/index.html" %}
+{% load staticfiles %}
+
+{% block content %}
+<div class="content-div first-content-div">
+    <h2 class="content-title">
+	About The Project
+	</h2>
+    <p>
+        The Beacon Food Forest (BFF) started in 2009 as a result of a permaculture design course final project. To pass the course four students selected the BFF's actual site and created a dream design which demonstrated all the design elements we had learned in the course. The best tools to come out of this final project were a full size landscape design drawing, which we used to present our concept to the community and Seattle City agencies, along with the language to support this design. The schematic designs below held a lot of leverage. The design, drawn by a certified Landscape Architect, fit the actual topography of the site and had massive community support and input.
+    </p>
+    <p>
+        As volunteers we are doing our best to both build a public food forest and offer help to others who are thinking of building a food forest. If you find this advice helpful please consider a donation.
+        <br/>
+        <br/> As of May 2013 we are continuing to work on the hardscaping, water supply and plant bed building as well as ongoing community engagement. We plan on planting the understory dwarf trees, shrubs and perennials in the fall of 2013 and open our P-Patch beds by late winter 2014.
+        <br/>
+        <br/>
+    </p>
+</div>
+<div class="content-div">
+    <h2 class="content-title">
+            Phase I for Beacon Food Forest
+        </h2>
+    <img class="single-content-image" src="{% static "infopages/img/schema1.png" %}">
+</div>
+<div class="content-div">
+    <h2 class="content-title">
+            Full 7 Acre Proposal
+        </h2>
+
+    <img class="single-content-image" src="{% static "infopages/img/schema2.png" %}">
+</div>
+<div class="content-div">
+    <h2 class="content-title">
+        Our Plan
+    </h2>
+    <p>
+        The Beacon Food Forest values renewable resources and services while following Permaculture Principles (PCP).  Read more about our plan: <span class="blue"><a href="{% url 'how-we-started' %}">How We Got Started</a>.</span>
+    </p>
+    <br/>
+
+    <table class="perma-table" BORDER="1px" RULES=ALL FRAME=VOID>
+
+        <tr>
+            <th>
+                <span class="sidetitle">Steps:</span>
+            </th>
+            <th>
+                <span class="sidetitle">Permaculture Principles:</span>
+            </th>
+        </tr>
+        <tr>
+            <td>
+                Step 1: Find the land.
+            </td>
+            <td>
+                Observe and Interact.
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Step 2: Find a core group of dedicated believers.
+            </td>
+            <td>
+                Integrate rather than segregate.
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Step 3: Introduce the BFF Concept to the Community.
+            </td>
+            <td>
+                Use and value diversity.
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Step 4: Create a relationship with the landlord and begin negotiations.
+
+            </td>
+            <td>
+                Use and value renewable resources and services.
+                <br/>Apply self regulation and accept feedback.
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Step 5: Create leverage.
+            </td>
+            <td>
+                Creatively use and respond to change.
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Step 6 : Continuous Outreach and Community Engagement.
+            </td>
+            <td>
+                Use edges and value the marginal.
+            </td>
+        </tr>
+    </table>
+    <br/>
+    <p>
+</div>
+<div class="content-div">
+
+
+    <span class="text-bold">
+Learn more</a>
+<span class="link">
+			<br/> <a href="http://www.seattle.gov/neighborhoods/ppatch/" target="_blank">
+					Seattle P-Patch Community Gardens
+					</a>
+					
+			<br/> <a href="http://www.edibleforestgardens.com/" target="_blank">
+					Edible Forest Gardens
+					</a>
+					
+			<br/> <a href="https://www.scribd.com/doc/2029243/West-Coast-Food-Forestry" target="_blank">
+					West Coast Food Forestry
+					</a>
+					
+			<br/> <a href="http://www.permaculturenow.com/" target="_blank">
+					Permaculture Now!
+					</a>
+					
+			<br/> <a href="http://permaculturenews.org/" target="_blank">
+					The Permaculture Research Institute
+					</a>
+		</span>
+
+
+    </p>
+</div>
+{% endblock content %}

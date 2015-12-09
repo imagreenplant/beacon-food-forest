@@ -1,0 +1,20 @@
+{% load staticfiles %}
+<script src="{% static "base/js/animate.js" %}"></script>
+<div id="footer">
+    <div id="botnav">
+        <a href="{% url 'homepage' %}#getinvolved">Get Involved </a>
+        <a href="#" onclick="donatebox_open()">Donate</a>
+        <a href="/recipes/">Recipes</a>
+        <a href="{% url 'project' %}">Learn More</a>
+        <a href="#" onclick="mailListbox_open()">Join Our Mailing List</a>
+        <a href="#" onclick="directbox_open()">Get Directions</a>
+    </div>
+
+    <p id="copyright">&copy; {% now "Y" %} Beacon Food Forest. All rights reserved. Design by
+        <span class="link">
+            <a href="http://www.whitewindowstudios.com/" target="_blank">White Window Studios.</a>
+        </span>
+    </p>
+    <br>
+</div>
+<!-- DIV FOOTER -->
