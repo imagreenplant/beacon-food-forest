@@ -524,11 +524,11 @@ div#directions p {
     top: 5%;
     height: 88%;
     max-width: 600px;
-    max-height: 580px;
+    max-height: 630px;
     width: 90%;
     background: #FFF;
     z-index: 1002;
-    overflow: scroll;
+    overflow: auto;
     padding: 15px 15px 0px 15px;
     border: 10px #50B748 solid;
 }
