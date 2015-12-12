@@ -42,5 +42,6 @@ urlpatterns = [
     url(r'^maps/', include(map_urls), name="maps"),
 
     # Other
-    url(r'^robots.txt', 'base.views.robots')
+    url(r'^robots.txt', 'base.views.robots'),
+    url(r'^debug/$', 'base.views.debuginfo')
 ]
