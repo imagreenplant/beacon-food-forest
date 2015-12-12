@@ -150,7 +150,7 @@ USE_TZ = True
 
 ENVIRONMENTS = {
     'local':{
-        'STATIC_ROOT': None
+        'STATIC_ROOT': None,
         'ALLOWED_HOSTS': ['*',],  # Allow all domains
         'DEBUG': True,
         'STATIC_URL':'/static/',
@@ -162,7 +162,7 @@ ENVIRONMENTS = {
         'STATIC_ROOT': '/home3/beaconf2/public_html/s', # This the place on the live server where static files will be collected for delivery.
         'ALLOWED_HOSTS': ['.beaconfoodforest.org',], # Allows domain and subdomains
         'DEBUG': False,
-        'STATIC_URL':'http://beaconfoodforest.org/s/'
+        'STATIC_URL':'http://beaconfoodforest.org/s/',
         'CACHES': { 'default': {'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',} },
     },
 }
