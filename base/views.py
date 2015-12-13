@@ -15,4 +15,5 @@ def debuginfo(request):
 	]
 
 	content = "\n".join(content)
+
 	return HttpResponse(content, content_type='text/plain')
