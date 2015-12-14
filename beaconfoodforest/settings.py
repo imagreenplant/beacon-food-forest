@@ -24,6 +24,7 @@ try:
     ENVIRONMENT = os.environ['DJANGO_ENVIRONMENT']
 except KeyError:
     ENVIRONMENT = "local"
+    print "Environment not found, setting to local."
 
 # SECURITY WARNING: keep the secret key used in production secret!
 try: 
@@ -157,6 +158,11 @@ ENVIRONMENTS = {
         'CACHES': { 'default': {'BACKEND': 'django.core.cache.backends.dummy.DummyCache',} },
     },
     'testing':{
+        'STATIC_ROOT': '/home3/beaconf2/public_html/s-test', # This the place on the live test server where static files will be collected for delivery.
+        'ALLOWED_HOSTS': ['*',],
+        'DEBUG': False,
+        'STATIC_URL':'http://beaconfoodforest.org/s-test/',
+        'CACHES': { 'default': {'BACKEND': 'django.core.cache.backends.dummy.DummyCache',} },
     },
     'production':{
         'STATIC_ROOT': '/home3/beaconf2/public_html/s', # This the place on the live server where static files will be collected for delivery.
