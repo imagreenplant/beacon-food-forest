@@ -1,6 +1,7 @@
 from django.shortcuts import render_to_response
 from django.http import HttpResponse
 from beaconfoodforest import settings
+from django.core.mail import send_mail
 
 def robots(request):
 	return render_to_response('base/robots.txt')
@@ -18,3 +19,13 @@ def debuginfo(request):
 	content = "\n".join(content)
 
 	return HttpResponse(content, content_type='text/plain')
+
+def donation_mail_notify(request):
+
+	send_subject = "Subject here"
+	send_from = "sender@beaconfoodforest.org"
+	send_to = ["matt@lapora.org"]
+	send_message = "from DJANGO project: message here alsdkfjasldfjalsdfj asldfj l asldfj alsdfj alskdfj sldkjf"
+
+	#send_mail("Subject", "message asldkfjas dlaksjf alskdjfasldkfj ", "sender@beaconfoodforest.org", ['bff@thelaporas.com','matt@lapora.org'], fail_silently=False)
+	send_mail(send_subject, send_message, send_from, send_to, fail_silently=False)

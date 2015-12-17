@@ -180,6 +180,13 @@ DATABASES = {
 }
 
 
+# Email settings
+EMAIL_HOST = 'mail.beaconfoodforest.org'
+EMAIL_PORT = 465
+EMAIL_HOST_USER = 'sender@beaconfoodforest.org'  
+EMAIL_HOST_PASSWORD = 'l.$R5=Fh"@U()d'
+EMAIL_USE_SSL = True
+
 # Internationalization
 # https://docs.djangoproject.com/en/1.8/topics/i18n/
 LANGUAGE_CODE = 'en-us'
