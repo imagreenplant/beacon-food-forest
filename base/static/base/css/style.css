@@ -524,7 +524,7 @@ div#directions p {
     top: 5%;
     height: 88%;
     max-width: 600px;
-    max-height: 630px;
+    max-height: 470px;
     width: 90%;
     background: #FFF;
     z-index: 1002;
@@ -569,6 +569,42 @@ div#donate h2.content-title {
 .donateform a {
     display: none;
 }
+
+.donate-help {
+    border: 1px dashed;
+    padding: 12px;
+    margin: 15px 0 5px 0;
+    color: rgb(42, 0, 155);
+
+}
+.donate-help p{
+    margin: 0px;
+}
+.donate-help strong {
+    color: #FF4040;
+}
+@media screen and (max-width: 650px) {
+    .donate-help {
+        font-size: smaller;
+    }
+    .donate-help img {
+        width: 340px;
+    }
+}
+@media screen and (max-width: 450px) {
+    #donate {
+        font-size: smaller;
+    }
+    .donate-help {
+        font-size: smaller;
+        border: none;
+        padding: 0;
+    }
+    .donate-help img {
+        width: 250px;
+    }
+}
+
 
 /*Donate Form End*/
 
@@ -738,7 +774,7 @@ body {
     display:none;
 }
 
-@media screen and (max-width: 890px) {
+@media screen and (max-width: 990px) {
     /* #menu is the original menu */
     #menu {
         display:none;
