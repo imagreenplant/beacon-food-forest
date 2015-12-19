@@ -10,6 +10,10 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.8/ref/settings/
 """
 
+try:
+    import psycopg2
+except ImportError:
+    print "Please install the PostGresSQL lib:  pip install psycopg2"
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.8/howto/deployment/checklist/
@@ -19,12 +23,26 @@ https://docs.djangoproject.com/en/1.8/ref/settings/
 import os
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+import socket
+print("Machine hostname is %s, this will determine the environment setting." % socket.gethostname())
 
-try:
-    ENVIRONMENT = os.environ['DJANGO_ENVIRONMENT']
-except KeyError:
+if socket.gethostname() == "opal.local":
     ENVIRONMENT = "local"
-    print "Environment not found, setting to local."
+elif socket.gethostname().find("bluehost") > -1 and BASE_DIR.find("test") > -1:
+    ENVIRONMENT = "testing"
+elif socket.gethostname().find("bluehost") > -1:
+    ENVIRONMENT = "production"
+else:
+    ENVIRONMENT = "local"
+
+
+print "ENVIRONMENT is set to %s" % ENVIRONMENT
+
+# try:
+#     ENVIRONMENT = os.environ['DJANGO_ENVIRONMENT']
+# except KeyError:
+#     ENVIRONMENT = "local"
+#     print "Environment not found, setting to local."
 
 # SECURITY WARNING: keep the secret key used in production secret!
 try: 
@@ -36,7 +54,6 @@ except KeyError:
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
-
 
 # Application definition
 INSTALLED_APPS = (
@@ -159,7 +176,7 @@ ENVIRONMENTS = {
     },
     'testing':{
         'STATIC_ROOT': '/home3/beaconf2/public_html/s-test', # This the place on the live test server where static files will be collected for delivery.
-        'ALLOWED_HOSTS': ['*',],
+        'ALLOWED_HOSTS': ['.beaconfoodforest.org',],
         'DEBUG': False,
         'STATIC_URL':'http://beaconfoodforest.org/s-test/',
         'CACHES': { 'default': {'BACKEND': 'django.core.cache.backends.dummy.DummyCache',} },
