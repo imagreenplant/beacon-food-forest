@@ -79,7 +79,7 @@
 	</Style>
 	<Style id="sn_hazel-nut-icon">
 		<IconStyle>
-			<scale>0.8</scale>
+			<scale>0.75</scale>
 			<Icon>
 				<href>nut.svg</href>
 			</Icon>
@@ -365,7 +365,7 @@
 	</Style>
 	<Style id="sn_pear_painting_with_illustrator_cs6_by_ayoub910-d5r8o1c">
 		<IconStyle>
-			<scale>0.7</scale>
+			<scale>0.9</scale>
 			<Icon>
 				<href>pear.svg</href>
 			</Icon>
