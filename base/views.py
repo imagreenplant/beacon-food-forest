@@ -3,6 +3,8 @@ from django.http import HttpResponse
 from beaconfoodforest import settings
 from django.core.mail import send_mail
 
+print "Entered base views"
+
 def robots(request):
 	return render_to_response('base/robots.txt')
 
