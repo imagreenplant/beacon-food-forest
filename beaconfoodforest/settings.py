@@ -10,28 +10,46 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.8/ref/settings/
 """
 
-# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-import os
-
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+try:
+    import psycopg2
+except ImportError:
+    print "Please install the PostGresSQL lib:  pip install psycopg2"
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.8/howto/deployment/checklist/
 
+
+# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+import os
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+import socket
+print("Machine hostname is %s, this will determine the environment setting." % socket.gethostname())
+
+if socket.gethostname() == "opal.local":
+    ENVIRONMENT = "local"
+elif socket.gethostname().find("bluehost") > -1 and BASE_DIR.find("test") > -1:
+    ENVIRONMENT = "testing"
+elif socket.gethostname().find("bluehost") > -1:
+    ENVIRONMENT = "production"
+else:
+    ENVIRONMENT = "local"
+
+print "ENVIRONMENT is set to %s" % ENVIRONMENT
+
+
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'i3zc+lymkle=d00x1l4d$w2mp7jidk%x^tb*wlmh2h%ee8o^y6'
+try: 
+    os.environ['DJANGO_KEY']
+    print "Local key exists"
+except KeyError:
+    SECRET_KEY = 'i3zc+lymkle=d00x1l4d$w2mp7jidk%x^tb*wlmh2h%ee8o^y6'
+    print "No local key exists, using ",SECRET_KEY
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
-print "Preparing Production config, setting DEBUG to False"
-
-ALLOWED_HOSTS = [
-    '.beaconfoodforest.org',  # Allow domain and subdomains
-]
-
 
 # Application definition
-
 INSTALLED_APPS = (
     'django.contrib.admin',
     'django.contrib.auth',
@@ -45,7 +63,6 @@ INSTALLED_APPS = (
     'infopages',
     'maps'
 )
-
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -106,21 +123,6 @@ TEMPLATES = [
 #     },
 # }
 
-
-# Going to try in-memory cacheing on server.  The site isn't terribly big so going to see
-# if we can get away with it in production.  Note that Bluehost could end up killing the 
-# Django processes if memory gets too big.  This is probably the fastest solution we have
-# since we can't use Memcached... because of long running processes.  Next step would be 
-# Database cacheing.
-
-CACHES = {
-    'default': {
-        'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
-    }
-}
-
-
-
 WSGI_APPLICATION = 'beaconfoodforest.wsgi.application'
 
 
@@ -151,7 +153,6 @@ DATABASES = {
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.8/topics/i18n/
-
 LANGUAGE_CODE = 'en-us'
 TIME_ZONE = 'UTC'
 USE_I18N = True
@@ -159,16 +160,52 @@ USE_L10N = True
 USE_TZ = True
 
 
+ENVIRONMENTS = {
+    'local':{
+        'STATIC_ROOT': None,
+        'ALLOWED_HOSTS': ['*',],  # Allow all domains
+        'DEBUG': True,
+        'STATIC_URL':'/static/',
+        'CACHES': { 'default': {'BACKEND': 'django.core.cache.backends.dummy.DummyCache',} },
+    },
+    'testing':{
+        'STATIC_ROOT': '/home3/beaconf2/public_html/s-test', # This the place on the live test server where static files will be collected for delivery.
+        'ALLOWED_HOSTS': ['.beaconfoodforest.org',],
+        'DEBUG': False,
+        'STATIC_URL':'http://beaconfoodforest.org/s-test/',
+        'CACHES': { 'default': {'BACKEND': 'django.core.cache.backends.dummy.DummyCache',} },
+    },
+    'production':{
+        'STATIC_ROOT': '/home3/beaconf2/public_html/s', # This the place on the live server where static files will be collected for delivery.
+        'ALLOWED_HOSTS': ['.beaconfoodforest.org',], # Allows domain and subdomains
+        'DEBUG': False,
+        'STATIC_URL':'http://beaconfoodforest.org/s/',
+        'CACHES': { 'default': {'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',} },
+    },
+}
+
+
+# =====================================
+#    Environment specific settings
+# =====================================
+DEBUG = ENVIRONMENTS[ENVIRONMENT]['DEBUG']
+ALLOWED_HOSTS = ENVIRONMENTS[ENVIRONMENT]['ALLOWED_HOSTS']
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
+STATIC_ROOT = ENVIRONMENTS[ENVIRONMENT]['STATIC_ROOT']
+STATIC_URL = ENVIRONMENTS[ENVIRONMENT]['STATIC_URL']
 
-STATIC_URL = 'http://beaconfoodforest.org/s/'
-# This the place locally where static files will be collected for transfer.
-STATIC_ROOT = '/home3/beaconf2/public_html/s'
+# Going to try in-memory cacheing on server.  The site isn't terribly big so going to see
+# if we can get away with it in production.  Note that Bluehost could end up killing the 
+# Django processes if memory gets too big.  This is probably the fastest solution we have
+# since we can't use Memcached... because of long running processes.  Next step would be 
+# Database cacheing.
+CACHES = ENVIRONMENTS[ENVIRONMENT]['CACHES']
 
-#Import local settings per environment in settings_local.py
-try:
-    from settings_local import *
-except:
-    print "settings_local not found, proceeding"
-    pass
+
+
+if DEBUG:
+    print "============================================"
+    print "           Alert, DEBUG is ON"
+    print "============================================"
