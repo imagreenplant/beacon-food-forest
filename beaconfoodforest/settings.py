@@ -35,14 +35,8 @@ elif socket.gethostname().find("bluehost") > -1:
 else:
     ENVIRONMENT = "local"
 
-
 print "ENVIRONMENT is set to %s" % ENVIRONMENT
 
-# try:
-#     ENVIRONMENT = os.environ['DJANGO_ENVIRONMENT']
-# except KeyError:
-#     ENVIRONMENT = "local"
-#     print "Environment not found, setting to local."
 
 # SECURITY WARNING: keep the secret key used in production secret!
 try: 
