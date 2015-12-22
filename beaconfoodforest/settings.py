@@ -40,7 +40,7 @@ print "ENVIRONMENT is set to %s" % ENVIRONMENT
 
 # SECURITY WARNING: keep the secret key used in production secret!
 try: 
-    os.environ['DJANGO_KEY']
+    SECRET_KEY = os.environ['DJANGO_KEY']
     print "Local key exists"
 except KeyError:
     SECRET_KEY = 'i3zc+lymkle=d00x1l4d$w2mp7jidk%x^tb*wlmh2h%ee8o^y6'
