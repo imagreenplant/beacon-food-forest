@@ -1,0 +1,1 @@
+ssh beaconf2@beaconfoodforest.org '~/django-projects/test/beacon-food-forest-main/scripts/TESTING-deploy-on-local-server.sh'
