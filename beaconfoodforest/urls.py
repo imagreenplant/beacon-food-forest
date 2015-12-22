@@ -45,3 +45,10 @@ urlpatterns = [
     url(r'^robots.txt', 'base.views.robots'),
     url(r'^debug/$', 'base.views.debuginfo')
 ]
+
+from django.conf import settings
+from django.contrib.staticfiles.views import serve as serve_static
+from django.views.decorators.cache import never_cache
+
+if settings.DEBUG:
+    urlpatterns.append( url(r'^static/(?P<path>.*)$', never_cache(serve_static)) )
