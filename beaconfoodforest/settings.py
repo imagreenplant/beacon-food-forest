@@ -130,24 +130,21 @@ WSGI_APPLICATION = 'beaconfoodforest.wsgi.application'
 # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': 'beacondb',
+    'production': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME' : "beaconf2_django_main",
+        'USER': 'beaconf2_django_user',
+        'PASSWORD': 'V4ADbu{UwWV,@o^lSL',
+        'HOST': '66.147.244.132',
     },
-    # 'mysql': {
-    #     'ENGINE': 'django.db.backends.mysql',
-    #     'NAME' : "beacon_food_forest",
-    #     'USER': 'mlapora',
-    #     'PASSWORD': 'greens',
-    #     'HOST': '127.0.0.1',
-    # },
-    # 'postgres': {
-    #     'ENGINE': 'django.db.backends.postgresql_psycopg2',
-    #     'NAME' : "beacon_food_forest",
-    #     'USER': 'mlapora',
-    #     'PASSWORD': 'greens',
-    #     'HOST': '127.0.0.1',
-    # }
+    # This is the default testing database
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME' : "beaconf2_django_testing",
+        'USER': 'beaconf2_tester',
+        'PASSWORD': 'tester123',
+        'HOST': '66.147.244.132',
+    }
 }
 
 
