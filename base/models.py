@@ -9,7 +9,7 @@ class ExternalNewsArticle(models.Model):
         verbose_name_plural = "ExternalNewsArticles"
 
     def __str__(self):
-        return self.external_url
+        return ": ".join([self.external_publisher,self.news_slug, self.pub_date.strftime('%b %d,%Y')])
 
     external_publisher = models.CharField(max_length=100, blank=False)
     news_slug = models.CharField(max_length=500, blank=True)
