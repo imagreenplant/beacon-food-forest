@@ -158,6 +158,24 @@ DATABASES = {
         'USER': 'beaconf2_tester',
         'PASSWORD': 'tester123',
         'HOST': '66.147.244.132',
+    },
+    'local': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME' : "beaconf2_django_testing",
+        'USER': 'beaconf2_tester',
+        'PASSWORD': 'tester123',
+        'HOST': '66.147.244.132',
+    },
+    'testing': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME' : "beaconf2_django_testing",
+        'USER': 'beaconf2_tester',
+        'PASSWORD': 'tester123',
+        'HOST': 'localhost',
+    },
+    'lite':{
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
 
@@ -178,6 +196,7 @@ ENVIRONMENTS = {
         'DEBUG': True,
         'STATIC_URL':'/static/',
         'CACHES': { 'default': {'BACKEND': 'django.core.cache.backends.dummy.DummyCache',} },
+        'DATABASE':'local',
     },
     'testing':{
         'STATIC_ROOT': '/home3/beaconf2/public_html/s-test', # This the place on the live test server where static files will be collected for delivery.
@@ -185,6 +204,7 @@ ENVIRONMENTS = {
         'DEBUG': False,
         'STATIC_URL':'http://beaconfoodforest.org/s-test/',
         'CACHES': { 'default': {'BACKEND': 'django.core.cache.backends.dummy.DummyCache',} },
+        'DATABASE':'testing',
     },
     'production':{
         'STATIC_ROOT': '/home3/beaconf2/public_html/s', # This the place on the live server where static files will be collected for delivery.
@@ -192,6 +212,7 @@ ENVIRONMENTS = {
         'DEBUG': False,
         'STATIC_URL':'http://beaconfoodforest.org/s/',
         'CACHES': { 'default': {'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',} },
+        'DATABASE':'production',
     },
 }
 
@@ -213,6 +234,7 @@ STATIC_URL = ENVIRONMENTS[ENVIRONMENT]['STATIC_URL']
 # since we can't use Memcached... because of long running processes.  Next step would be 
 # Database cacheing.
 CACHES = ENVIRONMENTS[ENVIRONMENT]['CACHES']
+DATABASES['default'] = DATABASES[ ENVIRONMENTS[ENVIRONMENT]['DATABASE'] ]
 
 
 

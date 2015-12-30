@@ -12,6 +12,7 @@ def debuginfo(request):
 		"Static root is %s" % settings.STATIC_ROOT,
 		"Static url is %s" % settings.STATIC_URL,
 		"Cache type is %s" % settings.CACHES['default']['BACKEND'],
+		"Database engine is %s" % settings.DATABASES['default']['ENGINE']
 	]
 
 	content = "\n".join(content)
