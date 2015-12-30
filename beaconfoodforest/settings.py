@@ -51,17 +51,30 @@ DEBUG = False
 
 # Application definition
 INSTALLED_APPS = (
+    # Bootstrap design for admin interface
     'django_admin_bootstrapped',
+
+    # Default django apps, mostly for admin site
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+
+    # Staticfiles app for serving static files in different environments
     'django.contrib.staticfiles',
+
+    # The base of the site, header, footer, sidebar
     'base',
     'education',
+
+    # The home page -- this might be combined with info pages
     'home',
+
+    # Subpages for the site, like FAQ, permaculture info, etc
     'infopages',
+
+    # The maps app for trees etc
     'maps'
 )
 MIDDLEWARE_CLASSES = (
