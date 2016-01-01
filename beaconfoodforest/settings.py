@@ -51,16 +51,30 @@ DEBUG = False
 
 # Application definition
 INSTALLED_APPS = (
+    # Bootstrap design for admin interface
+    'django_admin_bootstrapped',
+
+    # Default django apps, mostly for admin site
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+
+    # Staticfiles app for serving static files in different environments
     'django.contrib.staticfiles',
+
+    # The base of the site, header, footer, sidebar
     'base',
     'education',
+
+    # The home page -- this might be combined with info pages
     'home',
+
+    # Subpages for the site, like FAQ, permaculture info, etc
     'infopages',
+
+    # The maps app for trees etc
     'maps'
 )
 MIDDLEWARE_CLASSES = (
@@ -130,24 +144,39 @@ WSGI_APPLICATION = 'beaconfoodforest.wsgi.application'
 # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': 'beacondb',
+    'production': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME' : "beaconf2_django_main",
+        'USER': 'beaconf2_django_user',
+        'PASSWORD': 'V4ADbu{UwWV,@o^lSL',
+        'HOST': '66.147.244.132',
     },
-    # 'mysql': {
-    #     'ENGINE': 'django.db.backends.mysql',
-    #     'NAME' : "beacon_food_forest",
-    #     'USER': 'mlapora',
-    #     'PASSWORD': 'greens',
-    #     'HOST': '127.0.0.1',
-    # },
-    # 'postgres': {
-    #     'ENGINE': 'django.db.backends.postgresql_psycopg2',
-    #     'NAME' : "beacon_food_forest",
-    #     'USER': 'mlapora',
-    #     'PASSWORD': 'greens',
-    #     'HOST': '127.0.0.1',
-    # }
+    # This is the default testing database
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME' : "beaconf2_django_testing",
+        'USER': 'beaconf2_tester',
+        'PASSWORD': 'tester123',
+        'HOST': '66.147.244.132',
+    },
+    'local': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME' : "beaconf2_django_testing",
+        'USER': 'beaconf2_tester',
+        'PASSWORD': 'tester123',
+        'HOST': '66.147.244.132',
+    },
+    'testing': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME' : "beaconf2_django_testing",
+        'USER': 'beaconf2_tester',
+        'PASSWORD': 'tester123',
+        'HOST': 'localhost',
+    },
+    'lite':{
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    }
 }
 
 
@@ -167,6 +196,7 @@ ENVIRONMENTS = {
         'DEBUG': True,
         'STATIC_URL':'/static/',
         'CACHES': { 'default': {'BACKEND': 'django.core.cache.backends.dummy.DummyCache',} },
+        'DATABASE':'local',
     },
     'testing':{
         'STATIC_ROOT': '/home3/beaconf2/public_html/s-test', # This the place on the live test server where static files will be collected for delivery.
@@ -174,6 +204,7 @@ ENVIRONMENTS = {
         'DEBUG': False,
         'STATIC_URL':'http://beaconfoodforest.org/s-test/',
         'CACHES': { 'default': {'BACKEND': 'django.core.cache.backends.dummy.DummyCache',} },
+        'DATABASE':'testing',
     },
     'production':{
         'STATIC_ROOT': '/home3/beaconf2/public_html/s', # This the place on the live server where static files will be collected for delivery.
@@ -181,6 +212,7 @@ ENVIRONMENTS = {
         'DEBUG': False,
         'STATIC_URL':'http://beaconfoodforest.org/s/',
         'CACHES': { 'default': {'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',} },
+        'DATABASE':'production',
     },
 }
 
@@ -202,6 +234,7 @@ STATIC_URL = ENVIRONMENTS[ENVIRONMENT]['STATIC_URL']
 # since we can't use Memcached... because of long running processes.  Next step would be 
 # Database cacheing.
 CACHES = ENVIRONMENTS[ENVIRONMENT]['CACHES']
+DATABASES['default'] = DATABASES[ ENVIRONMENTS[ENVIRONMENT]['DATABASE'] ]
 
 
 

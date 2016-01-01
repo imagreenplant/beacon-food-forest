@@ -1,4 +1,5 @@
 {% load staticfiles %}
+{% load news_articles %}
 
 <!--
 Please follow the following for formatting any new sidebar elements.
@@ -43,47 +44,8 @@ End here with all tags closed appropriately.
 -->
 
 <div id="sidenav">
-
     <!-- Begin TranslateThis Button -->
-
-    <!-- News -->
-    <div class="sideblock">
-        <h2 class="sidetitle content-title">
-            In The News
-        </h2>
-
-        <ul class="side-ul">
-            <li>
-                Grist: The Real Sharing Economy
-                <br>March 13, 2015
-                <span class="link">
-                <br/>
-                <a href="http://grist.org/food/these-urban-farmers-want-to-feed-the-whole-neighborhood-for-free/" target="_blank">
-                    These urban farmers want to feed the whole neighborhood for free</a>
-                </span>
-            </li>
-            <li>
-                CityStream
-                <br>October 30,2014
-                <span class="link">
-                <br/>
-                <a href="http://www.seattlechannel.org/CityStream/segments?videoid=x29838" target="_blank">
-                    So what exactly is a Food Forest?</a>
-                </span>
-            </li>
-            <li>
-                Architizer
-                <br>June 18, 2014
-                <span class="link">
-                <br/>
-                <a href="http://architizer.com/blog/america-grows-its-first-food-forest-in-seattle/" target="_blank">
-                    America Grows Its First Food Forest in Seattle</a>
-                </span>
-            </li>
-        </ul>
-    </div>
-    <!-- /News -->
-
+    {% show_recent_articles %}
    <!-- Workshops -->
     <div class="sideblock">
         <h2 class="sidetitle content-title">

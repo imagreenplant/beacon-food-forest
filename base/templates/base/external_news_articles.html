@@ -1,0 +1,23 @@
+<!-- News -->
+<div class="sideblock">
+    <h2 class="sidetitle content-title">In The News</h2>
+    <ul class="side-ul">
+    	{% if recent_articles %}
+	        {% for recent_article in recent_articles %}
+	        <li>
+	            {{ recent_article.external_publisher }}
+	            <br>{{ recent_article.pub_date }}
+	            <span class="link">
+	                <br/>
+	                <a href="{{ recent_article.external_url }}" target="_blank">
+	                    {{ recent_article.news_slug }}
+	                </a>
+	                </span>
+	        </li>
+	        {% endfor %}
+	    {% else %}
+	    	<p class="no-content">No recent articles in the news</p>
+	    {% endif %}
+    </ul>
+</div>
+<!-- /News -->

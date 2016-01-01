@@ -50,5 +50,7 @@ from django.conf import settings
 from django.contrib.staticfiles.views import serve as serve_static
 from django.views.decorators.cache import never_cache
 
+admin.site.site_header = 'Beacon Food Forest Admin'
+
 if settings.DEBUG:
     urlpatterns.append( url(r'^static/(?P<path>.*)$', never_cache(serve_static)) )
