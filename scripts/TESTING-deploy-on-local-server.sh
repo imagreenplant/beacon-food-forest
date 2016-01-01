@@ -6,4 +6,6 @@ git checkout $1
 git rebase
 echo "============ Collecting new static files =============="
 python manage.py collectstatic --noinput
+echo "============ Migrating database schema =============="
+python manage.py migrate
 echo "============ Finished Deployment =============="
