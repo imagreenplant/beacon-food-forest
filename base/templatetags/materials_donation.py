@@ -1,11 +1,13 @@
 from django import template
 from base.forms import MaterialsDonationForm
 
-print "Entered base templatetags"
-
 register = template.Library()
-@register.inclusion_tag('material_donation.html')
+
+@register.inclusion_tag('base/donate.html')
+def money_donation_instructions():
+    return {}
+
+@register.inclusion_tag('base/material_donation.html')
 def materials_donation_form():
     form = MaterialsDonationForm()
-    print form
-    return {'donation_form': form, "tester":"three asldfkj asldfkj asldfkj asldfkjasldfkjasldfkjasldfkj asldfkj asldfkj"}
+    return {'donation_form': form}

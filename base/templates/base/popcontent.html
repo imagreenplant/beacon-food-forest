@@ -1,4 +1,6 @@
 {% load staticfiles %}
+{% load materials_donation %}
+
 <!-- These are all the pop-up pages -->
 <!-- Mailing List -->
 <div id="mailList" class="center-popup">
@@ -19,7 +21,7 @@
         <!--<input type="reset" value="Cancel">-->
     </form>
 </div>
-<div id="fadeMail" onClick="mailListbox_close();">
+<div class="fade" onClick="mailListbox_close();">
 </div>
 <!--In text:
                 <a  href="#" onclick="mailListbox_open()"></a>
@@ -29,7 +31,7 @@
 <div id="calendar" class="responsive-iframe-container">
     <iframe src="https://www.google.com/calendar/embed?mode=AGENDA&amp;height=600&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=ds5careihateqgn9kamelq4tjo%40group.calendar.google.com&amp;color=%2323164E&amp;ctz=America%2FLos_Angeles" style=" border-width:0 " width="800" height="600"></iframe>
 </div>
-<div id="fadeCal" onClick="calenbox_close()">
+<div class="fade" onClick="calenbox_close()">
 </div>
 <!--In text:
                 <a  href="#" onclick="calenbox_open()"></a>
@@ -97,14 +99,16 @@
         </div>
     </div>
 </div>
-<div id="fadeDir" onClick="directbox_close()"></div>
+<div class="fade" onClick="directbox_close()"></div>
 <!--In text:
                 <a  href="#" onclick="directbox_open()"></a>
         -->
 <!-- End Directions -->
 
 <!-- Donations -->
-{% include "base/donate.html" %}
+{% money_donation_instructions %}
+
+{% materials_donation_form %}
 <!-- End Donations -->
 
 <!-- START EVENTS -->
@@ -124,7 +128,7 @@
 
       <b>About the instructor:</b> Bob Redmond is the manager of Beacon Food Forests pollinator services, including the bee hives, and mgr of Urban Bee Company.  A journeyman-level certified beekeeper, Bob serves on the Apiary Advisory Council for the national organization Certified Naturally Grown.
     </div>
-    <div id="fadeEvent1" onClick="event1box_close()"></div>
+    <div class="fade" onClick="event1box_close()"></div>
     <!--  END Event1 -->
     
     
@@ -145,7 +149,7 @@
         EMAIL - patrick.loderhose@gmail.com
 
     </div>
-    <div id="fadeEvent2" onClick="event2box_close()"></div>
+    <div class="fade" onClick="event2box_close()"></div>
     <!--  END Event2 -->
  
  
@@ -153,7 +157,7 @@
     <!--<div id="event3" class="center-popup">-->
       
     <!--</div>-->
-    <!--<div id="fadeEvent3" onClick="event3box_close()"></div>-->
+    <!--<div class="fade" onClick="event3box_close()"></div>-->
     <!--  END Event3 -->
   
 <!-- END EVENTS -->
@@ -174,7 +178,7 @@
         <br /> Music composed by Erica Hilario. Special thanks to Glenn Herlihy one of the co-founders who spent a lot of time helping us create the video. Thanks also to Jacqueline Cramer, Giovanni Dellino, Barbara Jefferson, Margaret Harrison and to everyone involved with the project.
     </p>
 </div>
-<div id="fadeVid" onClick="promo_video_close()"></div>
+<div class="fade" onClick="promo_video_close()"></div>
 <!--  END Promo video -->
 
 <!-- Work Party Video -->
@@ -188,7 +192,7 @@
     </p>
 </div>
 
-<div id="fadeWorkVid" onClick="workparty_video_close()"></div>
+<div class="fade" onClick="workparty_video_close()"></div>
 <!--  END Work Party Video -->
 <!--  END video -->
 
@@ -208,6 +212,6 @@
         <br/> Please submit any translation corrections to <a href="mailto:admin@beaconfoodforest.org?subject=BFF%20Website%20Translation%20Error">admin@beaconfoodforest.org</a>.
     </p>
 </div>
-<div id="fadeTran" onClick="translbox_close()"></div>
+<div class="fade" onClick="translbox_close()"></div>
 <!-- END Translation by Google -->
 <!-- END POPCONTENT -->
