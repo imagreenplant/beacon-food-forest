@@ -1,5 +1,6 @@
 {% load staticfiles %}
 {% load news_articles %}
+{% load work_parties %}
 
 <!--
 Please follow the following for formatting any new sidebar elements.
@@ -67,17 +68,8 @@ End here with all tags closed appropriately.
         
     </div>
     <!-- /Workshops -->
-  
-    <!-- Work Parties -->
-    <div class="sideblock">
-        <h2 class="sidetitle content-title">Work Parties</h2>
-        <ul class="side-ul">
-            <li>Jan 16th, 2015<br/>10am-2pm</li>
-            <li>Feb 20th, 2015<br/>10am-2pm</li>
-            <li>Mar 19th, 2015<br/>10am-2pm</li>
-        </ul>
-    </div>
-    <!-- /Work Parties -->
+
+    {% show_current_work_parties %}
     
     <div class="sideblock">
       <h2 class="sidetitle content-title">
