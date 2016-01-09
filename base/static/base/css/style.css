@@ -524,7 +524,7 @@ div#directions p {
     top: 5%;
     height: 88%;
     max-width: 600px;
-    max-height: 470px;
+    max-height: 570px;
     width: 90%;
     background: #FFF;
     z-index: 1002;
@@ -582,6 +582,12 @@ div#donate h2.content-title {
 }
 .donate-help strong {
     color: #FF4040;
+}
+.donate-help-image {
+    margin-top: 15px;
+}
+.fit-width {
+    width: 100%;
 }
 @media screen and (max-width: 650px) {
     .donate-help {
