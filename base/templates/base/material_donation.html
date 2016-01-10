@@ -1,11 +1,39 @@
-<!-- blah -->
+<p>
+    <br/><strong>Donate Food, Materials, Music, and tools:</strong>
+    <br/>Please fill out the form below and include a short description of your donation.
+    <br/>We will be in contact with you soon.
+</p>
+
+{{ donation_form }}
+
+<!-- 
     <form method="post" action="/includes/mail.php">
         <div class="donateform">
             <label>
                 <input id="donorname" size="40" name="donorname" type="text" placeholder="Your First &amp; Last Name" required autofocus>
             </label>
         </div>
-<p>{{ tester }}</p>
+        <div class="donateform">
+            <label>
+                <input id="email" name="email" type="email" placeholder="Your@email.com" required>
+            </label>
+        </div>
+        <div class="donateform">
+            <label>
+                <select id="dtype" name="dtype" required>
+                    <option value='' disabled selected style='display:none;'>Please select a donation type</option>
+                    <option label="Food" value="food"></option>
+                    <option label="Plants &amp; Materials" value="plantsandmats"></option>
+                </select>
+            </label>
+        </div>
+        <div class="donateform">
+            <label>
+                <textarea id="donatedesc" name="donatedesc" placeholder="A Short description of your donation:" required></textarea>
+            </label>
+        </div>
+        <div class="donateform">
+            <input type="submit" name="submit" value="Submit" class="submit-button" />
+        </div>
     </form>
-<!-- blah -->
-<div id="fade" onClick="donatebox_close()"></div>
+-->
