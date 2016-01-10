@@ -107,6 +107,7 @@ TEMPLATES = [
                 'django.template.loaders.filesystem.Loader',
                 'django.template.loaders.app_directories.Loader',
             ]),
+                
         ],
         },
     },
@@ -204,6 +205,7 @@ ENVIRONMENTS = {
         'STATIC_URL':'/static/',
         'CACHES': { 'default': {'BACKEND': 'django.core.cache.backends.dummy.DummyCache',} },
         'DATABASE':'local',
+        'TEMPLATE_LOADERS':['django.template.loaders.filesystem.Loader','django.template.loaders.app_directories.Loader',],
     },
     'testing':{
         'STATIC_ROOT': '/home3/beaconf2/public_html/s-test', # This the place on the live test server where static files will be collected for delivery.
@@ -212,6 +214,7 @@ ENVIRONMENTS = {
         'STATIC_URL':'http://beaconfoodforest.org/s-test/',
         'CACHES': { 'default': {'BACKEND': 'django.core.cache.backends.dummy.DummyCache',} },
         'DATABASE':'testing',
+        'TEMPLATE_LOADERS':['django.template.loaders.filesystem.Loader','django.template.loaders.app_directories.Loader',],
     },
     'production':{
         'STATIC_ROOT': '/home3/beaconf2/public_html/s', # This the place on the live server where static files will be collected for delivery.
@@ -220,6 +223,12 @@ ENVIRONMENTS = {
         'STATIC_URL':'http://beaconfoodforest.org/s/',
         'CACHES': { 'default': {'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',} },
         'DATABASE':'production',
+        'TEMPLATE_LOADERS':[('django.template.loaders.cached.Loader', 
+            [
+            'django.template.loaders.filesystem.Loader',
+            'django.template.loaders.app_directories.Loader',
+            ]),
+        ],
     },
 }
 
@@ -234,6 +243,9 @@ ALLOWED_HOSTS = ENVIRONMENTS[ENVIRONMENT]['ALLOWED_HOSTS']
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 STATIC_ROOT = ENVIRONMENTS[ENVIRONMENT]['STATIC_ROOT']
 STATIC_URL = ENVIRONMENTS[ENVIRONMENT]['STATIC_URL']
+
+# Added this line to remove annoying template cacheing when developing
+TEMPLATES[0]['OPTIONS']['loaders'] = ENVIRONMENTS[ENVIRONMENT]['TEMPLATE_LOADERS']
 
 # Going to try in-memory cacheing on server.  The site isn't terribly big so going to see
 # if we can get away with it in production.  Note that Bluehost could end up killing the 
