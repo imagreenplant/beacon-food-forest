@@ -31,9 +31,10 @@ def send_donation_notification(donor_data):
 	message_data = [
 		"Donor: %s" % donor_data['your_name'],
 		"Email: %s" % donor_data['your_email'],
-		"\n",
 		"Type: %s" % donor_data['donation_type'],
-		"Description: %s" % donor_data['donation_description'],
+		"Description:",
+		"\n",
+		donor_data['donation_description']
 		]
 
 	send_message = "\n".join(message_data)
