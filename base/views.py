@@ -39,7 +39,6 @@ def send_donation_notification(donor_data):
 
 	send_message = "\n".join(message_data)
 
-	# send_mail("Subject", "message asldkfjas dlaksjf alskdjfasldkfj ", "sender@beaconfoodforest.org", ['bff@thelaporas.com','matt@lapora.org'], fail_silently=False)
 	send_mail(send_subject, send_message, send_from, send_to, fail_silently=False)
 
 
