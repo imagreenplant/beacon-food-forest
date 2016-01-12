@@ -1,7 +1,8 @@
 from django.shortcuts import render_to_response
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from beaconfoodforest import settings
 from django.core.mail import send_mail
+from base.forms import MaterialsDonationForm
 
 print "Entered base views"
 
@@ -23,12 +24,34 @@ def debuginfo(request):
 
 	return HttpResponse(content, content_type='text/plain')
 
-def donation_mail_notify(request):
-
-	send_subject = "Subject here"
+def send_donation_notification(donor_data):
+	send_subject = " ".join([donor_data['donation_type'], " donation from ", donor_data['your_name']])
 	send_from = "sender@beaconfoodforest.org"
 	send_to = ["matt@lapora.org"]
-	send_message = "from DJANGO project: message here alsdkfjasldfjalsdfj asldfj l asldfj alsdfj alskdfj sldkjf"
+	message_data = [
+		"Donor: %s" % donor_data['your_name'],
+		"Email: %s" % donor_data['your_email'],
+		"\n",
+		"Type: %s" % donor_data['donation_type'],
+		"Description: %s" % donor_data['donation_description'],
+		]
 
-	#send_mail("Subject", "message asldkfjas dlaksjf alskdjfasldkfj ", "sender@beaconfoodforest.org", ['bff@thelaporas.com','matt@lapora.org'], fail_silently=False)
+	send_message = "\n".join(message_data)
+
+	# send_mail("Subject", "message asldkfjas dlaksjf alskdjfasldkfj ", "sender@beaconfoodforest.org", ['bff@thelaporas.com','matt@lapora.org'], fail_silently=False)
 	send_mail(send_subject, send_message, send_from, send_to, fail_silently=False)
+
+
+
+def material_donation_notify(request):
+	if request.method == 'POST':
+		form = MaterialsDonationForm(request.POST)
+		if form.is_valid():
+			send_donation_notification(form.cleaned_data)
+			return HttpResponseRedirect('/thanks/')
+	else:
+		return HttpResponseRedirect('/')
+
+def donation_thanks(request):
+	return HttpResponseRedirect('/')
+

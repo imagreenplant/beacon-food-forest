@@ -32,6 +32,10 @@ urlpatterns = [
     url(r'^permaculture/$', 'infopages.views.permaculture', name="permaculture"),
     url(r'^how-we-started/$', 'infopages.views.howWeStarted', name="how-we-started"),
 
+    # Forms
+    url(r'^material_donation_notify/$', 'base.views.material_donation_notify', ),
+    url(r'^thanks/$', 'base.views.donation_thanks', ),
+
     # Redirects from old pages to retain SEO juice
     url(r'^faq.html$', RedirectView.as_view(permanent=True, pattern_name="faq" )),
     url(r'^project.html$', RedirectView.as_view(permanent=True, pattern_name="project" )),
