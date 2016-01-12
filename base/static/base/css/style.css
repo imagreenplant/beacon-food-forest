@@ -411,14 +411,15 @@ div#directions p {
     height: 88%;
     max-height: 570px;
     width: 90%;
+    overflow: scroll;
 }
 #materials-donation {
-    height: 88%;
-    max-height: 490px;
+    height: 94%;
+    max-height: 435px;
     width: 90%;
 }
 #materials-donation form{
-    margin-top: 30px;
+    margin-top: 10px;
 }
 .donateform {
     display: none;
@@ -491,7 +492,7 @@ div#directions p {
     }
 }
 @media screen and (max-width: 450px) {
-    #donate {
+    #donate, #materials-donation {
         font-size: smaller;
     }
     .donate-help {
