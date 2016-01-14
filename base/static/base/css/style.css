@@ -149,6 +149,20 @@ q:after {
     margin: 1em 0 1em 0;
     font-weight: normal;
 }
+.thank-you-splash h2 {
+    font-size: 400%;
+    margin-left: 5%;
+}
+.thank-you-splash p {
+    margin-left: 10%;
+    margin-right: 15%;
+}
+.thank-you-splash .notification {
+    font-size: 80%;
+    font-style: italic;
+    margin-top: 10%;
+    color: blue;
+}
 .text-bold {
     font-weight: bold;
     color: #4C301C;
@@ -1161,5 +1175,8 @@ span.blue a {
     }
     #footer-content {
       display:table-footer-group !important;
+    }
+    .thank-you-splash h2 {
+        font-size: 200%;
     }
 }

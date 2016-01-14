@@ -1,7 +1,9 @@
 from django.shortcuts import render_to_response
 from django.http import HttpResponse, HttpResponseRedirect
-from beaconfoodforest import settings
 from django.core.mail import send_mail
+from django.template import RequestContext
+
+from beaconfoodforest import settings
 from base.forms import MaterialsDonationForm
 
 print "Entered base views"
@@ -52,6 +54,6 @@ def material_donation_notify(request):
 	else:
 		return HttpResponseRedirect('/')
 
-def donation_thanks(request):
-	return HttpResponseRedirect('/')
+def material_donation_thanks(request):
+	return render_to_response('base/material_donation_thanks.html',{},context_instance = RequestContext(request))
 
