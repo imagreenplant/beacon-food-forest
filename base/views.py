@@ -29,7 +29,7 @@ def debuginfo(request):
 def send_donation_notification(donor_data):
 	send_subject = " ".join([donor_data['donation_type'], " donation from ", donor_data['your_name']])
 	send_from = "sender@beaconfoodforest.org"
-	send_to = ["matt@lapora.org"]
+	send_to = ["donate@beaconfoodforest.org"]
 	message_data = [
 		"Donor: %s" % donor_data['your_name'],
 		"Email: %s" % donor_data['your_email'],
@@ -40,9 +40,7 @@ def send_donation_notification(donor_data):
 		]
 
 	send_message = "\n".join(message_data)
-
 	send_mail(send_subject, send_message, send_from, send_to, fail_silently=False)
-
 
 
 def material_donation_notify(request):
