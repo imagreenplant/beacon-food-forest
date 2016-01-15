@@ -1,0 +1,21 @@
+{% extends "base/index.html" %} 
+{# {% load staticfiles %}  #}
+{% block content %}
+<div id="content" onload="timer=setTimeout(function(){ window.location='http://beaconfoodforest.org';}, 3000)">
+    <div class="content-div first-content-div thank-you-splash">
+        <h2 class="content-title">
+            Thank you for your donation!  
+        </h2>
+        <p>
+            Please come by and enjoy the site sometime.
+        </p>
+        <p class="notification">
+        	<i>You will be redirected to the main site in a few seconds</i>
+    	</p>
+        <script type="text/javascript">
+        	// Redirect to main page after 5 seconds
+			setTimeout(function(){ window.location='/';}, 5000)
+        </script>
+    </div>
+</div>
+{% endblock content %}

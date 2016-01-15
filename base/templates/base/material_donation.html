@@ -1,0 +1,9 @@
+<h2 class="content-title">Donate Food, Materials, Music, and Tools</h2>
+<p>Please fill out the form below and include a short description of your donation.  We will be in contact with you soon.
+</p>
+
+<form action="/material_donation_notify/" method="post">
+    {% csrf_token %}
+    {{ donation_form }}
+    <input type="submit" value="Submit" class="submit-button"/>
+</form>

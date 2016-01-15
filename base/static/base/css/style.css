@@ -149,6 +149,20 @@ q:after {
     margin: 1em 0 1em 0;
     font-weight: normal;
 }
+.thank-you-splash h2 {
+    font-size: 400%;
+    margin-left: 5%;
+}
+.thank-you-splash p {
+    margin-left: 10%;
+    margin-right: 15%;
+}
+.thank-you-splash .notification {
+    font-size: 80%;
+    font-style: italic;
+    margin-top: 10%;
+    color: blue;
+}
 .text-bold {
     font-weight: bold;
     color: #4C301C;
@@ -245,35 +259,8 @@ a, .nav a:link, .nav a:visited, .nav a:hover, .nav a:active {
     padding: 0px 0 0 0;
 }
 /* //////   END - Global text styles ////// */
-/* Fade for popUps */
 
-#fadeMail {
-    display: none;
-    position: fixed;
-    top: 0%;
-    left: 0%;
-    width: 100%;
-    height: 100%;
-    background-color: black;
-    z-index: 1001;
-    -moz-opacity: 0.8;
-    opacity: .80;
-    filter: alpha(opacity=80);
-}
-#fadeCal {
-    display: none;
-    position: fixed;
-    top: 0%;
-    left: 0%;
-    width: 100%;
-    height: 100%;
-    background-color: black;
-    z-index: 1001;
-    -moz-opacity: 0.8;
-    opacity: .80;
-    filter: alpha(opacity=80);
-}
-#fadeDon {
+#fade {
     display: none;
     position: fixed;
     top: 0%;
@@ -287,114 +274,9 @@ a, .nav a:link, .nav a:visited, .nav a:hover, .nav a:active {
     filter: alpha(opacity=80);
 }
 
-#fadeDir {
-    display: none;
-    position: fixed;
-    top: 0%;
-    left: 0%;
-    width: 100%;
-    height: 100%;
-    background-color: black;
-    z-index: 1001;
-    -moz-opacity: 0.8;
-    opacity: .80;
-    filter: alpha(opacity=80);
-}
-#fadeEvent1 {
-    display: none;
-    position: fixed;
-    top: 0%;
-    left: 0%;
-    width: 100%;
-    height: 100%;
-    background-color: black;
-    z-index: 1001;
-    -moz-opacity: 0.8;
-    opacity: .80;
-    filter: alpha(opacity=80);
-}
-#fadeEvent2 {
-    display: none;
-    position: fixed;
-    top: 0%;
-    left: 0%;
-    width: 100%;
-    height: 100%;
-    background-color: black;
-    z-index: 1001;
-    -moz-opacity: 0.8;
-    opacity: .80;
-    filter: alpha(opacity=80);
-}
-#fadeEvent3 {
-    display: none;
-    position: fixed;
-    top: 0%;
-    left: 0%;
-    width: 100%;
-    height: 100%;
-    background-color: black;
-    z-index: 1001;
-    -moz-opacity: 0.8;
-    opacity: .80;
-    filter: alpha(opacity=80);
-}
-#fadeTran {
-    display: none;
-    position: fixed;
-    top: 0%;
-    left: 0%;
-    width: 100%;
-    height: 100%;
-    background-color: black;
-    z-index: 1001;
-    -moz-opacity: 0.8;
-    opacity: .80;
-    filter: alpha(opacity=80);
-}
-#fadeReg {
-    display: none;
-    position: fixed;
-    top: 0%;
-    left: 0%;
-    width: 100%;
-    height: 100%;
-    background-color: black;
-    z-index: 1001;
-    -moz-opacity: 0.8;
-    opacity: .80;
-    filter: alpha(opacity=80);
-}
-#fadeVid {
-    display: none;
-    position: fixed;
-    top: 0%;
-    left: 0%;
-    width: 100%;
-    height: 100%;
-    background-color: black;
-    z-index: 1001;
-    -moz-opacity: 0.8;
-    opacity: .80;
-    filter: alpha(opacity=80);
-}
-#fadeWorkVid {
-    display: none;
-    position: fixed;
-    top: 0%;
-    left: 0%;
-    width: 100%;
-    height: 100%;
-    background-color: black;
-    z-index: 1001;
-    -moz-opacity: 0.8;
-    opacity: .80;
-    filter: alpha(opacity=80);
-}
-/* END Fade for popUps */
 /* Actual pop ups */
 
-.center-popup {
+/*.center-popup {
     /* IE 9 */
 
     -webkit-transform: translate(-50%, -50%);
@@ -408,7 +290,7 @@ a, .nav a:link, .nav a:visited, .nav a:hover, .nav a:active {
     -webkit-transform: translate(-50%, 0%);
             -ms-transform: translate(-50%, 0%);
         transform: translate(-50%, 0%);
-}
+}*/
 input[type=text] {
     width: 65%;
 }
@@ -491,49 +373,78 @@ div#directions p {
 }
 /*End Directions popup*/
 
-#calendar {
-    display: none;
-}
 /*For responsive Calendar*/
-
 .responsive-iframe-container {
     background: #FFF;
     z-index: 1002;
     position: fixed;
-    top: 7%;
-    left: 7%;
-    bottom: 30%;
-    right: 7%;
     overflow: hidden;
     border: 10px #50B748 solid;
 }
+
 .responsive-iframe-container iframe, .vresponsive-iframe-container object, .vresponsive-iframe-container embed {
+    width: 100%;
+    height: 97%;
+}
+
+/*.responsive-iframe-container iframe, .vresponsive-iframe-container object, .vresponsive-iframe-container embed {
     position: fixed;
     top: 9%;
     left: 9%;
     width: 82%;
     height: 59.5%;
-}
+}*/
 /*End responsive calendar*/
 
+/*Controls the placement of the popups for donations, mailing list, etc*/
+.center-popup {
+    /* IE 9 */
+    -webkit-transform: translate(-50%, -50%);
+    /* Chrome, Safari, Opera */
+    -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+    left: 50%;
+    -webkit-transform: translate(-50%, 0%);
+            -ms-transform: translate(-50%, 0%);
+        transform: translate(-50%, 0%);
+}
+
+#calendar {
+    display: none;
+    top: 10%;
+    padding-top: 1%;
+    padding-left: 1%;
+    padding-right: 1%;
+    height: 88%;
+    max-height: 650px;
+    width: 90%;
+}
 
 /*Donate Form Begin*/
 #donate {
+    height: 88%;
+    max-height: 570px;
+    width: 90%;
+    overflow: scroll;
+}
+#materials-donation {
+    height: 94%;
+    max-height: 435px;
+    width: 90%;
+}
+#materials-donation form{
+    margin-top: 10px;
+}
+.donateform {
     display: none;
     position: fixed;
     top: 5%;
-    height: 88%;
     max-width: 600px;
-    max-height: 570px;
-    width: 90%;
     background: #FFF;
     z-index: 1002;
     overflow: auto;
     padding: 15px 15px 0px 15px;
     border: 10px #50B748 solid;
-}
-.donateform {
-    display: block;
 }
 .donateform label {
     color: #4C301C;
@@ -563,11 +474,8 @@ div#directions p {
     resize: none;
     padding: 4px;
 }
-div#donate h2.content-title {
+.donateform h2.content-title {
     margin-top: 0;
-}
-.donateform a {
-    display: none;
 }
 
 .donate-help {
@@ -598,7 +506,7 @@ div#donate h2.content-title {
     }
 }
 @media screen and (max-width: 450px) {
-    #donate {
+    #donate, #materials-donation {
         font-size: smaller;
     }
     .donate-help {
@@ -668,21 +576,6 @@ a.no-padding-link {
 }
 /*End Vimeo Video*/
 
-#register {
-    display: none;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    width: 650px;
-    height: 500px;
-    margin-left: -100px;
-    margin-top: -100px;
-    background: #FFF;
-    z-index: 1002;
-    overflow: visible;
-    padding: 15px 5px 0px 20px;
-    border: 10px #50B748 solid;
-}
 #translate {
     display: none;
     top: 15%;
@@ -1282,5 +1175,8 @@ span.blue a {
     }
     #footer-content {
       display:table-footer-group !important;
+    }
+    .thank-you-splash h2 {
+        font-size: 200%;
     }
 }
