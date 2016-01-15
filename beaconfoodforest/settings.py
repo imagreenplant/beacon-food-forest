@@ -75,7 +75,10 @@ INSTALLED_APPS = (
     'infopages',
 
     # The maps app for trees etc
-    'maps'
+    'maps',
+
+    # Helper apps for design -- probably don't need in production
+    'django.contrib.webdesign',
 )
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',

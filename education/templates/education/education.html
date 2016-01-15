@@ -1,0 +1,60 @@
+{% extends "base/index.html" %} 
+{% load staticfiles %}
+{% load webdesign %} 
+{% block content %}
+<div class="content-ext">
+    <div class="content-div first-content-div">
+        <h2 class="content-title">
+            Permaculture Education Collective
+        </h2>
+        <p>
+            {% lorem 3 p %}
+        </p>
+    </div>
+    <div class="content-div">
+        <h2 class="content-title">
+            Stewardship program
+        </h2>
+        <p>
+            {% lorem 3 p %}
+        </p>
+        <div class="block-items block-items-text">
+            <p>
+                <span class="blue"><a href="{% url 'homepage' %}">Home</a></span>
+            </p>
+            <p>
+                <span class="blue"><a href="{% url 'homepage' %}">Home</a></span>
+            </p>
+            <p>
+                <span class="blue"><a href="{% url 'homepage' %}">Home</a></span>
+            </p>
+            <p>
+                <span class="blue"><a href="{% url 'homepage' %}">Home</a></span>
+            </p>
+        </div>
+    </div>
+    <div class="content-div">
+        <a id="getinvolved"></a>
+        <h2 class="content-title">
+            {% lorem 4 w %}
+        </h2>
+        <p>
+            {% lorem 3 p %}
+        </p>
+        <div class="block-items block-items-text">
+            <p>
+                <span class="blue"><a href="{% url 'homepage' %}">Home</a></span>
+            </p>
+            <p>
+                <span class="blue"><a href="{% url 'homepage' %}">Home</a></span>
+            </p>
+            <p>
+                <span class="blue"><a href="{% url 'homepage' %}">Home</a></span>
+            </p>
+            <p>
+                <span class="blue"><a href="{% url 'homepage' %}">Home</a></span>
+            </p>
+        </div>
+    </div>
+</div>
+{% endblock content %}
