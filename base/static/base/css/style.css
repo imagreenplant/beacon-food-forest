@@ -799,7 +799,7 @@ h2.subtitle-text {
     z-index: 3;
     min-height: 1950px;
 }
-#content-ext {
+.content-ext {
     height: auto;
     float: left;
     z-index: 3;

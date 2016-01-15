@@ -90,6 +90,8 @@ INSTALLED_APPS = (
 
     # To protect forms with Captcha
     'captcha',
+    # Helper apps for design -- probably don't need in production
+    'django.contrib.webdesign',
 )
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
