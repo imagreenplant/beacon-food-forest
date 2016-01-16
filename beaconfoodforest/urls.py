@@ -21,6 +21,7 @@ from maps import urls as map_urls
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^markdown/', include( 'django_markdown.urls')),
     # url(r'^lessons/', views.listLessons, name="lessons"),
     
     # Homepage
