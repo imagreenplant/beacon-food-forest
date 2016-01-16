@@ -1,4 +1,5 @@
 from django.db import models
+from django_markdown.models import MarkdownField
 import django.utils.timezone as timezone
 import datetime
 
@@ -28,3 +29,23 @@ class WorkPartyEvent(models.Model):
     work_party_date = models.DateField(auto_now=False, auto_now_add=False, blank=False, default=timezone.now, help_text="The date the article was originally published")
     work_party_time_start = models.TimeField(auto_now=False, auto_now_add=False, blank=False, default=datetime.time(10), help_text="The time that the work party starts")
     work_party_time_end = models.TimeField(auto_now=False, auto_now_add=False, blank=False, default=datetime.time(14), help_text="The time that the work party ends") 
+
+class Announcement(models.Model):
+
+    class Meta:
+        verbose_name = "Announcement"
+        verbose_name_plural = "Announcements"
+
+    def __str__(self):
+        # return self.announcement_publish_date.strftime('%b %d,%Y')
+        return ": ".join([self.announcement_publish_date.strftime('%b %d,%Y'),self.announcement_slug,]) 
+        
+    def is_active_announcement(self):
+        return self.announcement_publish_date <= datetime.date.today() and self.announcement_expire_date >= datetime.date.today()
+
+    announcement_publish_date = models.DateField(auto_now=False, auto_now_add=False, blank=False, default=timezone.now, help_text="The date this announcement should go live")
+    announcement_expire_date = models.DateField(auto_now=False, auto_now_add=False, blank=False, default=timezone.now, help_text="The date this announcement should expire")
+    announcement_publish_override = models.BooleanField(blank=False, default=True, help_text="(Optional) Override for turning announcement On/off.")
+    announcement_content = MarkdownField(blank=True, help_text="(Optional) Larger content block for announcement")
+    announcement_link = models.URLField(blank=True, help_text="(Optional) A pertinent url for the announcement")
+    announcement_slug = models.CharField(max_length=500, blank=True, help_text="A short description of announcement")

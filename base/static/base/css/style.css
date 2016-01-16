@@ -824,6 +824,8 @@ h2.subtitle-text {
     vertical-align: top;
 }
 
+
+
 /*Permaculture Principles table*/
 .perma-table {
     height: auto;
@@ -977,11 +979,51 @@ span.blue a {
 .imageBar img {
     width: 100%;
 }
+
+/* Announcements (+markdown) */
+.announcement {
+    border: 3px dotted #4C301C;
+    padding: 13px 20px 8px 20px;
+    background-color: #E1FFDF;
+    border-radius: 5px 40px 5px 40px;
+    margin: 0 18em 1em 0;
+}
+.announcement h2 {
+    margin: 0;
+    color: #4C301C;
+}
+.announcement p,ol {
+    margin-left: 30px;
+}
+.markdown img {
+    float: right;
+    max-height: 200px;
+}
+.announcement .published-date {
+    font-size: 60%;
+    color: gray;
+    float: right;
+}
+.announcement .more-info-link a{
+    text-transform: lowercase;
+    font-weight: normal;
+    float: left;
+    font-size: 80%;
+    color: gray;
+}
+.float-clear-left {
+    clear: left;
+}
+
+/*End Announcements*/
 /*First major breakpoint where hazelnut image reduces in size*/
 
 @media only screen and (min-width: 950px) {
     .first-content-div {
         margin-right: 14em;
+    }
+    .announcement {
+        margin-right: 16em;
     }
 }
 @media only screen and (max-width: 949px) {
@@ -1014,15 +1056,21 @@ span.blue a {
         margin-right: 100px;
     }
 }
+@media only screen and (max-width: 900px) {
+    .imageBar {
+        display: none;
+    }
+    .announcement {
+        margin-right: 3em;
+    }
+
+}
 @media only screen and (max-width: 800px) {
     .background-nut {
         display: none;
     }
 }
 @media only screen and (max-width: 750px) {
-    .imageBar {
-        display: none;
-    }
     .main-content {
         margin-right: 0px;
         padding-right: 0px;
@@ -1167,7 +1215,7 @@ span.blue a {
         height: 199px;
     }
     .content-div {
-        margin: 0 10px 2em 0;
+        margin: 0 10px 1em 0;
     }
     #contact-info p {
         text-align: center;
