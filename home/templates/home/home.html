@@ -15,7 +15,9 @@
                 <div class="markdown">
                     {{ announcement.announcement_content|parse_markdown }}
                 </div>
-                <p class="more-info-link"><a href="{{announcement.announcement_link}}">More Info</a></p>
+                {% if announcement.announcement_link %}
+                    <p class="more-info-link"><a href="{{announcement.announcement_link}}">More Info</a></p>
+                {% endif %}
                 <p class="published-date">Published on {{announcement.announcement_publish_date}}</p>
                 <div class="float-clear-left"></div>
             </div>

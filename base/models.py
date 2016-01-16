@@ -48,4 +48,4 @@ class Announcement(models.Model):
     announcement_publish_override = models.BooleanField(blank=False, default=True, help_text="(Optional) Override for turning announcement On/off.")
     announcement_content = MarkdownField(blank=True, help_text="(Optional) Larger content block for announcement")
     announcement_link = models.URLField(blank=True, help_text="(Optional) A pertinent url for the announcement")
-    announcement_slug = models.CharField(max_length=500, blank=False, help_text="A short description of announcement")
+    announcement_slug = models.CharField(max_length=500, blank=True, help_text="A short description of announcement")
