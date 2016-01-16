@@ -15,6 +15,13 @@ try:
 except ImportError:
     print "Please install the PostGresSQL lib:  pip install psycopg2"
 
+# Added libs
+# pip install django-markdown
+# pip install psycopg2
+# pip install markdown
+# pip install django-admin-bootstrapped
+
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.8/howto/deployment/checklist/
 
@@ -70,6 +77,9 @@ INSTALLED_APPS = (
 
     # The home page -- this might be combined with info pages
     'home',
+
+    # Added markdown capability for announcements
+    'django_markdown',
 
     # Subpages for the site, like FAQ, permaculture info, etc
     'infopages',
