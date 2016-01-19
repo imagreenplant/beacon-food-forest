@@ -49,3 +49,17 @@ class Announcement(models.Model):
     announcement_content = MarkdownField(blank=True, help_text="(Optional) Larger content block for announcement")
     announcement_link = models.URLField(blank=True, help_text="(Optional) A pertinent url for the announcement")
     announcement_slug = models.CharField(max_length=500, blank=True, help_text="A short description of announcement")
+
+class VolunteerContact(models.Model):
+    volunteer_name = models.CharField(max_length=200, blank=False, help_text="Volunteer's name, like 'Glenn Herlihy'")
+    volunteer_title_blurb = models.CharField(max_length=200, blank=True, help_text="Volunteer's title, like 'co-founder'")
+    volunteer_email = models.EmailField(max_length=254)
+    volunteer_is_active = models.BooleanField(blank=False, default=True, help_text="Is volunteer active? Unchecked turns off volunteer.")
+    volunteer_sort_order = models.IntegerField(blank=False, default=1, help_text="A higher number means that person will be listed first.")
+
+    class Meta:
+        verbose_name = "VolunteerContact"
+        verbose_name_plural = "VolunteerContacts"
+
+    def __str__(self):
+        return ": ".join([self.volunteer_name,self.volunteer_email,]) 

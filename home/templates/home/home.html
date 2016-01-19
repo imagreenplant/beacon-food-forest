@@ -1,6 +1,7 @@
 {% extends "base/index.html" %} 
 {% load staticfiles %} 
 {% load custom_markdown %}
+{% load volunteer_contacts %}
 {% block content %}
 <div id="content">
     <div class="imageBar">
@@ -208,64 +209,7 @@
     </div>
     <div id="contact" class="section-div">
         <h2 class="content-title">Contact Us</h2>
-        <div class="block-items" id="contact-info">
-            <p>
-                Jacqueline Cramer
-                <br/>Co-founder, Site Management, Education
-                <span class="link">
-                        <br/><a href="mailto:j.cramer@beaconfoodforest.org">j.cramer@beaconfoodforest.org</a>
-                    </span>
-            </p>
-            <p>
-                Glenn Herlihy
-                <br/>Co-founder, Site Management, Media Relations
-                <span class="link">
-                        <br/><a href="mailto:g.herlihy@beaconfoodforest.org">g.herlihy@beaconfoodforest.org</a>
-                    </span>
-            </p>
-            <p>
-                Melanie Coerver
-                <br/>Administration
-                <span class="link">
-                        <br/><a href="mailto:m.coerver@beaconfoodforest.org">m.coerver@beaconfoodforest.org</a>
-                    </span>
-            </p>
-            <p>
-                Jim Irby
-                <br/>Volunteer Coordinator
-                <span class="link">
-                        <br/><a href="mailto:j.irby@beaconfoodforest.org">j.irby@beaconfoodforest.org</a>
-                    </span>
-            </p>
-            <p>
-                Julie Haack
-                <br/>Arts and Culture
-                <span class="link">
-                        <br/><a href="mailto:j.haack@beaconfoodforest.org">j.haack@beaconfoodforest.org</a>
-                    </span>
-            </p>
-            <p>
-                Jill DelSordi
-                <br/>Creative &amp; Web Coordinator
-                <span class="link">
-                        <br/><a href="mailto:j.delsordi@beaconfoodforest.org">j.delsordi@beaconfoodforest.org</a>
-                    </span>
-            </p>
-            <p>
-                Melody Wainscott
-                <br/>Media Coordinator
-                <span class="link">
-                        <br/><a href="mailto:m.wainscott@beaconfoodforest.org">m.wainscott@beaconfoodforest.org</a>
-                    </span>
-            </p>
-            <p>
-                Ellen Booth
-                <br/>Tour Coordinator
-                <span class="link">
-                        <br/><a href='m&#97;ilto&#58;ell&#37;&#54;5&#110;&#46;&#98;&#37;6&#70;o&#116;&#104;%40b%65a%63o&#110;f&#111;&#111;df%6F&#114;e%73t&#46;&#111;%72g'>&#101;&#108;le&#110;&#46;boo&#116;&#104;&#64;b&#101;ac&#111;nf&#111;od&#102;&#111;r&#101;s&#116;&#46;org</a>
-                    </span>
-            </p>
-        </div>
+        {{ show_contact_us }}
     </div>
 </div>
 {% endblock content %}

@@ -1,0 +1,16 @@
+<!-- Contact-Us -->
+<div class="block-items" id="contact-info">
+	{% if not volunteer_contacts %}
+		<p> if is true </p>
+    	{% for contact in volunteer_contacts %}
+		    <p>{{contact.volunteer_name}}
+		        <br/>{{contact.volunteer_title_blurb}}
+		        <br/>
+		        <span class="link">
+		        	<a href="mailto:{{contact.volunteer_email}}">{{contact.volunteer_email}}</a>
+				</span>
+		    </p>
+    	{% endfor %}
+    {% endif %}
+</div>
+<!-- /Contact-Us -->
