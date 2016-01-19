@@ -15,7 +15,7 @@ def parse_markdown(value):
         markdown.markdown(
             force_unicode(value),
             # extensions,
-            safe_mode=True,
+            safe_mode=False,
             enable_attributes=False
         )
     )
