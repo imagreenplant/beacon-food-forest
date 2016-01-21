@@ -1,4 +1,5 @@
 from django import forms  
+from captcha.fields import CaptchaField
 
 DONATION_CHOICES = (("food","Food"),("plants","Plants and Materials"),("other","Other"))
 
@@ -10,3 +11,4 @@ class MaterialsDonationForm(forms.Form):
     donation_description = forms.CharField(label='Donation Type', max_length=2000, required=True, 
     	widget=forms.Textarea(attrs={'required': 'required', 'placeholder': 'A short description of your donation:',
     		'rows':'4'}))
+    donation_captcha = CaptchaField()

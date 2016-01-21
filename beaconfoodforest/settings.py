@@ -20,6 +20,7 @@ except ImportError:
 # pip install psycopg2
 # pip install markdown
 # pip install django-admin-bootstrapped
+# pip install django-simple-captcha
 
 
 # Quick-start development settings - unsuitable for production
@@ -85,7 +86,10 @@ INSTALLED_APPS = (
     'infopages',
 
     # The maps app for trees etc
-    'maps'
+    'maps',
+
+    # To protect forms with Captcha
+    'captcha',
 )
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
