@@ -51,7 +51,9 @@ urlpatterns = [
 
     # Other
     url(r'^robots.txt', 'base.views.robots'),
-    url(r'^debug/$', 'base.views.debuginfo')
+    url(r'^debug/$', 'base.views.debuginfo'),
+    url(r'^captcha/', include('captcha.urls'),
+)
 ]
 
 from django.conf import settings
