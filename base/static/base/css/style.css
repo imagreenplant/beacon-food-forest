@@ -429,12 +429,20 @@ div#directions p {
 }
 #materials-donation {
     height: 94%;
-    max-height: 435px;
+    max-height: 535px;
     width: 90%;
+    max-width: 460px;
+    overflow: scroll;
 }
 #materials-donation form{
     margin-top: 10px;
 }
+#materials-donation form img.captcha{
+    display: block;
+    float:right;
+    margin-bottom: 5px;
+}
+
 .donateform {
     display: none;
     position: fixed;
