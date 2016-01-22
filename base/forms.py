@@ -8,7 +8,8 @@ class MaterialsDonationForm(forms.Form):
     	widget=forms.TextInput(attrs={'autofocus': '', 'required': 'required', 'placeholder': 'Your name'}))
     your_email = forms.EmailField(label='Email', required=True)
     donation_type = forms.ChoiceField(label="Please Select a Donation Type", required=True, choices=DONATION_CHOICES )
+    donation_captcha = CaptchaField(label='Please type in the letters you see on the right:')
     donation_description = forms.CharField(label='Donation Type', max_length=2000, required=True, 
     	widget=forms.Textarea(attrs={'required': 'required', 'placeholder': 'A short description of your donation:',
     		'rows':'4'}))
-    donation_captcha = CaptchaField()
+    

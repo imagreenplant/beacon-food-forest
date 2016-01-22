@@ -225,6 +225,7 @@ ENVIRONMENTS = {
         'CACHES': { 'default': {'BACKEND': 'django.core.cache.backends.dummy.DummyCache',} },
         'DATABASE':'lite',
         'TEMPLATE_LOADERS':['django.template.loaders.filesystem.Loader','django.template.loaders.app_directories.Loader',],
+        'DONATE_EMAIL':'matt@lapora.org',
     },
     'testing':{
         'STATIC_ROOT': '/home3/beaconf2/public_html/s-test', # This the place on the live test server where static files will be collected for delivery.
@@ -236,6 +237,7 @@ ENVIRONMENTS = {
         'MEDIA_ROOT': '/home3/beaconf2/public_html/m-test',
         'MEDIA_URL': 'http://beaconfoodforest.org/m-test/',
         'TEMPLATE_LOADERS':['django.template.loaders.filesystem.Loader','django.template.loaders.app_directories.Loader',],
+        'DONATE_EMAIL':'matt@lapora.org',
     },
     'production':{
         'STATIC_ROOT': '/home3/beaconf2/public_html/s', # This the place on the live server where static files will be collected for delivery.
@@ -252,6 +254,7 @@ ENVIRONMENTS = {
             'django.template.loaders.app_directories.Loader',
             ]),
         ],
+        'DONATE_EMAIL':'donate@beaconfoodforest.org',
     },
 }
 
@@ -283,6 +286,8 @@ CACHES = ENVIRONMENTS[ENVIRONMENT]['CACHES']
 
 DATABASES['default'] = DATABASES[ ENVIRONMENTS[ENVIRONMENT]['DATABASE'] ]
 
+# For testing
+DONATE_EMAIL = ENVIRONMENTS[ENVIRONMENT]['DONATE_EMAIL']
 
 
 if DEBUG:

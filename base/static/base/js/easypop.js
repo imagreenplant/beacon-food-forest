@@ -13,3 +13,9 @@ function center_popup_close() {
 
     document.getElementById('fade').style.display = 'none';
 }
+
+function center_popup_onload() {
+	if(window.location.hash === '#materials-donation'){
+		center_popup_open('materials-donation');
+	}
+}
