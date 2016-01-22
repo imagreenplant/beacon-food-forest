@@ -34,4 +34,3 @@ function center_popup_onload(popup_id) {
 // Allows a link to the page to use a hashtag to load windows such as the donation window
 // e.g. http://beaconfoodforest.org#donate
 document.addEventListener("DOMContentLoaded", center_popup_onload(window.location.hash.substring(1)));
-
