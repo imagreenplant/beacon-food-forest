@@ -1,7 +1,6 @@
 <!-- Contact-Us -->
 <div class="block-items" id="contact-info">
-	{% if not volunteer_contacts %}
-		<p> if is true </p>
+	{% if volunteer_contacts %}
     	{% for contact in volunteer_contacts %}
 		    <p>{{contact.volunteer_name}}
 		        <br/>{{contact.volunteer_title_blurb}}
