@@ -210,6 +210,13 @@ USE_I18N = True
 USE_L10N = True
 USE_TZ = True
 
+# Captcha settings
+CAPTCHA_CHALLENGE_FUNCT = 'captcha.helpers.math_challenge'
+CAPTCHA_NOISE_FUNCTIONS = ()
+CAPTCHA_LETTER_ROTATION = None
+CAPTCHA_TEXT_FIELD_TEMPLATE = 'base/captcha_field_override.html'
+
+
 
 ENVIRONMENTS = {
     'local':{
@@ -273,7 +280,7 @@ CACHES = ENVIRONMENTS[ENVIRONMENT]['CACHES']
 
 DATABASES['default'] = DATABASES[ ENVIRONMENTS[ENVIRONMENT]['DATABASE'] ]
 
-# For testing
+# For material donation page
 DONATE_EMAIL = ENVIRONMENTS[ENVIRONMENT]['DONATE_EMAIL']
 
 
