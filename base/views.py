@@ -50,8 +50,10 @@ def material_donation_notify(request):
 		if form.is_valid():
 			send_donation_notification(form.cleaned_data)
 			return HttpResponseRedirect('/thanks/')
+		else:
+			return HttpResponseRedirect('/#materials-donation')
 	else:
-		return HttpResponseRedirect('/')
+		return HttpResponseRedirect('/#materials-donation')
 
 def material_donation_thanks(request):
 	return render_to_response('base/material_donation_thanks.html',{},context_instance = RequestContext(request))
