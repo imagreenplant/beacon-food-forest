@@ -430,18 +430,27 @@ div#directions p {
 }
 #materials-donation {
     height: 94%;
-    max-height: 535px;
+    max-height: 520px;
     width: 90%;
-    max-width: 460px;
+    max-width: 500px;
     overflow: scroll;
 }
 #materials-donation form{
     margin-top: 10px;
 }
-#materials-donation form img.captcha{
+#materials-donation label{
+    margin: 0 0 3px 0;
     display: block;
-    float:right;
-    margin-bottom: 5px;
+}
+#materials-donation img {
+    display: block;
+    float: left;
+}
+#materials-donation #id_donation_description {
+    margin: 0 0 10px 0;
+}
+#materials-donation #id_donation_captcha_1 {
+    height: 25px;
 }
 
 .donateform {
@@ -459,13 +468,17 @@ div#directions p {
     color: #4C301C;
     font-family: "helvetica";
 }
-.donateform input, .donateform select {
+.donateform input.full-width {
     width: 100%;
+}
+.donateform input, .donateform select {
     height: 30px;
     margin: 0px 0px 5px 0px;
     padding: 0 0 0 5px;
     color: #4C301C;
     font-family: "helvetica";
+    vertical-align: inherit;
+    border: 1px dotted #333333;
 }
 .donateform label select {
     width: 100%;
@@ -486,6 +499,11 @@ div#directions p {
 .donateform h2.content-title {
     margin-top: 0;
 }
+.donateform .submit-button {
+    width: 100%;
+    font-size: 100%;
+}
+
 
 .donate-help {
     border: 1px dashed;
