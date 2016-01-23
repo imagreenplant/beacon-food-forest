@@ -20,6 +20,7 @@ except ImportError:
 # pip install psycopg2
 # pip install markdown
 # pip install django-admin-bootstrapped
+# pip install django-simple-captcha
 
 
 # Quick-start development settings - unsuitable for production
@@ -85,7 +86,10 @@ INSTALLED_APPS = (
     'infopages',
 
     # The maps app for trees etc
-    'maps'
+    'maps',
+
+    # To protect forms with Captcha
+    'captcha',
 )
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -206,6 +210,13 @@ USE_I18N = True
 USE_L10N = True
 USE_TZ = True
 
+# Captcha settings
+CAPTCHA_CHALLENGE_FUNCT = 'captcha.helpers.math_challenge'
+CAPTCHA_NOISE_FUNCTIONS = ()
+CAPTCHA_LETTER_ROTATION = None
+CAPTCHA_TEXT_FIELD_TEMPLATE = 'base/captcha_field_override.html'
+
+
 
 ENVIRONMENTS = {
     'local':{
@@ -216,6 +227,7 @@ ENVIRONMENTS = {
         'CACHES': { 'default': {'BACKEND': 'django.core.cache.backends.dummy.DummyCache',} },
         'DATABASE':'local',
         'TEMPLATE_LOADERS':['django.template.loaders.filesystem.Loader','django.template.loaders.app_directories.Loader',],
+        'DONATE_EMAIL':'matt@lapora.org',
     },
     'testing':{
         'STATIC_ROOT': '/home3/beaconf2/public_html/s-test', # This the place on the live test server where static files will be collected for delivery.
@@ -225,6 +237,7 @@ ENVIRONMENTS = {
         'CACHES': { 'default': {'BACKEND': 'django.core.cache.backends.dummy.DummyCache',} },
         'DATABASE':'testing',
         'TEMPLATE_LOADERS':['django.template.loaders.filesystem.Loader','django.template.loaders.app_directories.Loader',],
+        'DONATE_EMAIL':'matt@lapora.org',
     },
     'production':{
         'STATIC_ROOT': '/home3/beaconf2/public_html/s', # This the place on the live server where static files will be collected for delivery.
@@ -239,6 +252,7 @@ ENVIRONMENTS = {
             'django.template.loaders.app_directories.Loader',
             ]),
         ],
+        'DONATE_EMAIL':'donate@beaconfoodforest.org',
     },
 }
 
@@ -266,6 +280,8 @@ CACHES = ENVIRONMENTS[ENVIRONMENT]['CACHES']
 
 DATABASES['default'] = DATABASES[ ENVIRONMENTS[ENVIRONMENT]['DATABASE'] ]
 
+# For material donation page
+DONATE_EMAIL = ENVIRONMENTS[ENVIRONMENT]['DONATE_EMAIL']
 
 
 if DEBUG:

@@ -13,3 +13,25 @@ function center_popup_close() {
 
     document.getElementById('fade').style.display = 'none';
 }
+
+function center_popup_onload(popup_id) {
+	// List of valid hash/anchors that will pop a popup
+	var valid_popup_list = [
+		'materials-donation',
+		'donate',
+		'mailList',
+		'directions',
+		'calendar',
+		'translate',
+		'promo-video',
+		'work-party-video',
+		];
+
+    if(valid_popup_list.includes(popup_id)){
+    	center_popup_open(popup_id);
+    }
+}
+// Allows a link to the page to use a hashtag to load windows such as the donation window
+// e.g. http://beaconfoodforest.org#donate
+document.addEventListener("DOMContentLoaded", center_popup_onload(window.location.hash.substring(1)));
+
