@@ -16,8 +16,8 @@ Including another URLconf
 from django.conf.urls import include, url
 from django.contrib import admin
 from django.views.generic.base import RedirectView
-from django.shortcuts import render_to_response
 from maps import urls as map_urls
+from education import urls as education_urls
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
@@ -32,7 +32,6 @@ urlpatterns = [
     url(r'^project/$', 'infopages.views.project', name="project"),
     url(r'^permaculture/$', 'infopages.views.permaculture', name="permaculture"),
     url(r'^how-we-started/$', 'infopages.views.howWeStarted', name="how-we-started"),
-    url(r'^education/$', 'education.views.index', name="education-hub"),
 
     # Forms
     url(r'^material_donation_notify/$', 'base.views.material_donation_notify', ),
@@ -46,6 +45,9 @@ urlpatterns = [
 
     # Maps
     url(r'^maps/', include(map_urls), name="maps"),
+
+    # Maps
+    url(r'^education/', include(education_urls), name="education"),
 
     # Other
     url(r'^robots.txt', 'base.views.robots'),
