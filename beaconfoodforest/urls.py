@@ -32,7 +32,6 @@ urlpatterns = [
     url(r'^project/$', 'infopages.views.project', name="project"),
     url(r'^permaculture/$', 'infopages.views.permaculture', name="permaculture"),
     url(r'^how-we-started/$', 'infopages.views.howWeStarted', name="how-we-started"),
-    url(r'^education/$', 'education.views.index', name="education-hub"),
 
     # Forms
     url(r'^material_donation_notify/$', 'base.views.material_donation_notify', ),
