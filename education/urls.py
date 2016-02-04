@@ -3,7 +3,8 @@ from django.conf.urls import include, url
 
 urlpatterns = [
     url(r'^$', 'education.views.index', name="education-hub"),
-    url(r'^class/$', 'education.views.index', name="class-page"),
-    # url(r'^current-classes/$', 'views.index', name="current-classes"),
-    # url(r'^all-classes/$', 'views.index', name="all-classes"),
+    # url(r'^classes/current/$', 'education.views.index', name="current-classes"),
+    # url(r'^classes/all/$', 'education.views.index', name="all-classes"),
+    url(r'^classes/(.*)/$', 'education.views.class_detail', name="class-detail"),
+    
 ]

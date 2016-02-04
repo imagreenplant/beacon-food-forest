@@ -1,20 +1,24 @@
 from django.db import models
-from django.utils import timezone
+from django_markdown.models import MarkdownField
+import django.utils.timezone as timezone
+import datetime
 
-class Lesson(models.Model):
-	lesson_title = models.CharField('class title', max_length=200, blank=False)
+class ClassEvent(models.Model):
+	title = models.CharField('class title', max_length=200, blank=False)
 	publish_date = models.DateTimeField('date to publicize', default=timezone.now)
+	expire_date = models.DateTimeField('date to publicize', default=timezone.now)
 	event_date = models.DateField('date class is held', blank=False)
 	event_start_time = models.TimeField('time class starts', blank=True)
 	event_end_time = models.TimeField('time class ends', blank=True)
-	lesson_link = models.URLField("link to class", blank=True)
-	lesson_description = models.TextField("class description", blank=True)
-	lesson_image = models.ImageField("optional class image", blank=True)
-	lesson_location = models.CharField("text of location", max_length=300, default="S. Dakota Street and 16th Avenue South")
-	lesson_location_link = models.URLField("map service link to class", default="https://goo.gl/maps/fpdzyHy5kjr")
+	ticket_link = models.URLField("link to tickets", blank=True)
+	class_description = MarkdownField(blank=True, help_text="Description")
+	class_primary_image = models.ImageField("optional class image", blank=True)
+	class_location = models.CharField("text of location", max_length=300, default="S. Dakota Street and 16th Avenue South")
+	class_location_link = models.URLField("map service link to class", default="https://goo.gl/maps/fpdzyHy5kjr")
+	class_slug_url = models.CharField(max_length=500, blank=True, help_text="An url friendly short description")
 
 	# Note: must use Python3 for __str__ to work
 	def __str__(self):
-		return self.lesson_title
+		return self.title
 
 

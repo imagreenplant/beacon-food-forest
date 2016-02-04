@@ -1,32 +1,9 @@
 {% load staticfiles %}
-{% load news_articles %}
-{% load work_parties %}
+{% load news_articles current_classes work_parties %}
 
 <div id="sidenav">
-    <!-- Begin TranslateThis Button -->
     {% show_recent_articles %}
-   <!-- Workshops -->
-    <div class="sideblock">
-        <h2 class="sidetitle content-title">
-            Permaculture Education <br/>Collective Workshops
-        </h2>
-
-        <ul class="side-ul">
-            <!-- <li>
-                <span class="blue">None scheduled at this time</span><br/>
-            </li> -->
-            <li>
-                <span class="blue"><a href="http://www.brownpapertickets.com/event/2488533" target="_top" class="link">
-                  Brew Your Own<br/>Kombucha 
-                </a></span><br/>
-                February 6th, 2016<br/>
-                3:00pm - 6:00pm
-            </li>
-        </ul>
-        
-    </div>
-    <!-- /Workshops -->
-
+    {% show_current_classes %}
     {% show_current_work_parties %}
     
     <div class="sideblock">
