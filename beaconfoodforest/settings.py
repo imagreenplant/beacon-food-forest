@@ -226,8 +226,10 @@ ENVIRONMENTS = {
         'ALLOWED_HOSTS': ['*',],  # Allow all domains
         'DEBUG': True,
         'STATIC_URL':'/static/',
+        'MEDIA_ROOT':'/Users/mlapora/media',
+        'MEDIA_URL':'/media/',
         'CACHES': { 'default': {'BACKEND': 'django.core.cache.backends.dummy.DummyCache',} },
-        'DATABASE':'local',
+        'DATABASE':'lite',
         'TEMPLATE_LOADERS':['django.template.loaders.filesystem.Loader','django.template.loaders.app_directories.Loader',],
         'DONATE_EMAIL':'matt@lapora.org',
     },
@@ -238,6 +240,8 @@ ENVIRONMENTS = {
         'STATIC_URL':'http://beaconfoodforest.org/s-test/',
         'CACHES': { 'default': {'BACKEND': 'django.core.cache.backends.dummy.DummyCache',} },
         'DATABASE':'testing',
+        'MEDIA_ROOT': '/home3/beaconf2/public_html/m-test',
+        'MEDIA_URL': 'http://beaconfoodforest.org/m-test/',
         'TEMPLATE_LOADERS':['django.template.loaders.filesystem.Loader','django.template.loaders.app_directories.Loader',],
         'DONATE_EMAIL':'matt@lapora.org',
     },
@@ -248,6 +252,8 @@ ENVIRONMENTS = {
         'STATIC_URL':'http://beaconfoodforest.org/s/',
         'CACHES': { 'default': {'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',} },
         'DATABASE':'production',
+        'MEDIA_ROOT': '/home3/beaconf2/public_html/media',
+        'MEDIA_URL': 'http://beaconfoodforest.org/media/',
         'TEMPLATE_LOADERS':[('django.template.loaders.cached.Loader', 
             [
             'django.template.loaders.filesystem.Loader',
@@ -269,6 +275,10 @@ ALLOWED_HOSTS = ENVIRONMENTS[ENVIRONMENT]['ALLOWED_HOSTS']
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 STATIC_ROOT = ENVIRONMENTS[ENVIRONMENT]['STATIC_ROOT']
 STATIC_URL = ENVIRONMENTS[ENVIRONMENT]['STATIC_URL']
+
+# Media uploads https://docs.djangoproject.com/en/1.9/topics/files/
+MEDIA_ROOT = ENVIRONMENTS[ENVIRONMENT]['MEDIA_ROOT']
+MEDIA_URL = ENVIRONMENTS[ENVIRONMENT]['MEDIA_URL']
 
 # Added this line to remove annoying template cacheing when developing
 TEMPLATES[0]['OPTIONS']['loaders'] = ENVIRONMENTS[ENVIRONMENT]['TEMPLATE_LOADERS']
