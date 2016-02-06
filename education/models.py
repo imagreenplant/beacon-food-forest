@@ -5,8 +5,8 @@ import datetime
 
 class ClassEvent(models.Model):
 	title = models.CharField('class title', max_length=200, blank=False)
-	publish_date = models.DateTimeField('date to publicize posting', blank=False, default=timezone.now)
-	expire_date = models.DateTimeField('date to expire posting', blank=False, default=timezone.now)
+	publish_date = models.DateField('date to publicize posting', blank=False, default=timezone.now)
+	expire_date = models.DateField('date to expire posting', blank=False, default=timezone.now)
 	event_date = models.DateField('date class is held', blank=False)
 	event_start_time = models.TimeField('time class starts', blank=True)
 	event_end_time = models.TimeField('time class ends', blank=True)
