@@ -15,7 +15,7 @@ class ClassEvent(models.Model):
 	class_primary_image = models.ImageField("optional class image", blank=True)
 	class_location = models.CharField("text of location", max_length=300, blank=True, default="S. Dakota Street and 16th Avenue South")
 	class_location_link = models.URLField("map service link to class", blank=True, default="https://goo.gl/maps/fpdzyHy5kjr")
-	class_slug_url = models.CharField(max_length=500, blank=False, unique=True, help_text="An url friendly short description.  Must be unique to each event e.g brew-your-own-kombucha-feb-2015.")
+	class_slug_url = models.SlugField(blank=False, unique=True, help_text="An url friendly short description.  Must be unique to each event e.g brew-your-own-kombucha-feb-2015.")
 
 	# Note: must use Python3 for __str__ to work
 	def __str__(self):

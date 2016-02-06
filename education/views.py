@@ -1,4 +1,4 @@
-from django.shortcuts import render_to_response
+from django.shortcuts import render_to_response, get_object_or_404
 from django.template import RequestContext
 from .models import ClassEvent
 import datetime
@@ -7,14 +7,16 @@ import datetime
 def index(request):
     return render_to_response('education/education.html',{},context_instance = RequestContext(request))
 
-def class_detail(request,class_slug):
+def class_detail(request,slug):
 	# if class_slug in classes
 	# 	show class page
 	# else:
 	# 	redirect to list of all classes
 
-	class_event = ClassEvent.objects.get(id=1)
-	return render_to_response('education/class_detail.html',{'class':class_event},context_instance = RequestContext(request))
+	# class_event = ClassEvent.objects.get(id=1)
+    class_event = get_object_or_404(ClassEvent, class_slug_url=slug)
+    return render_to_response('education/class_detail.html', {'class':class_event},context_instance = RequestContext(request))
+	# return render_to_response('education/class_detail.html',{'class':class_event},context_instance = RequestContext(request))
 
 def past_classes(request):
 	# if class_slug in classes
