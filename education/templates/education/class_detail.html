@@ -4,15 +4,24 @@
 {% block content %}
 <div id="content">
     {% if class %}
-        <h2>{{ class.title}}</h2>
         <div id="class-primary-image">
         </div>
-        <div class="class-text-content">
-            <p>Date: {{ class.event_date }}</p>
-            <p>From {{ class.event_start_time }} until {{ class.event_end_time }}</p>
-            <p>Find tickets here: {{ class.ticket_link }}</p>
+        <div class="class-listing">
+            <h2>{{ class.title}}</h2>
+            <p>Date: <strong>{{ class.event_date }}</strong> <i>From {{ class.event_start_time }} until {{ class.event_end_time }}</i></p>
+            <p><span class="blue"><a href="{{ class.ticket_link }}">Get tickets</a></span> </p>
             <p class="description">Description: {{ class.class_description|parse_markdown }}</p>
-            <p>Location: <a href="{{ class.class_location_link }}">{{ class.class_location }}</a></p>
+            {% if class.class_location %}
+                <p>Location: 
+                    {% if class.class_location_link %}
+                        <span class="blue"><a href="{{ class.class_location_link }}">
+                    {% endif %}
+                    {{ class.class_location }}
+                    {% if class.class_location_link %}
+                        </a></span>
+                    {% endif %}
+                </p>
+            {% endif %}
         </div>
     {% endif %}
 

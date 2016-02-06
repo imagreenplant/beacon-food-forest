@@ -8,7 +8,7 @@
     	{% if current_classes %}
 	        {% for class in current_classes %}
 	        <li>
-                <span class="blue"><a href="{{ class.ticket_link }}" target="_top" class="link">
+                <span class="blue"><a href="{% url 'class-detail' class.class_slug_url %}" target="_top" class="link">
                   {{class.title}} 
                 </a></span><br>
                 {{class.event_date}}<br>
