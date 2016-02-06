@@ -1,0 +1,21 @@
+{% extends "base/index.html" %} 
+{% load staticfiles %}
+
+{% block content %}
+<div class="content-ext">
+    <div class="content-div">
+        <a id="getinvolved"></a>
+        <h2 class="content-title">
+            Want to teach a class?
+        </h2>
+        <p>
+            Do you want to teach a class in permaculture at the BEacon Food Forest?  here are the details:  [insert criteria, process, and expectation text that are attached here in separate docs]  and email: cramerjacqueline99@gmail.com
+        </p>
+        <div class="block-items block-items-text">
+            <p>
+                <span class="blue"><a href="{% url 'homepage' %}">Home</a></span>
+            </p>
+        </div>
+    </div>
+</div>
+{% endblock content %}

@@ -142,6 +142,7 @@ q:after {
 .float-right {
     float: right;
 }
+
 .content-title {
     font-size: 150%;
     color: #A5978D;
@@ -817,6 +818,9 @@ h2.subtitle-text {
 .content-div {
     margin: 0 30px 2em 0;
 }
+.content-div ol li, .content-div ul li {
+    margin: 0.45em 1em 0.45em 4em;
+}
 #contact-info p {
     width: 260px;
     height: auto;
@@ -1016,6 +1020,19 @@ span.blue a {
 }
 
 /*End Announcements*/
+h2.asset-page {
+    font-size: 300%;
+    color: #A5978D;
+    margin-left: 300px;
+}
+/*Start Education*/
+.class-listing {
+    background-color: #D2ECCA;
+    margin: 20px 50px 20px 20px;
+    padding: 20px 70px 20px 20px;
+}
+/*End Education*/
+
 /*First major breakpoint where hazelnut image reduces in size*/
 
 @media only screen and (min-width: 950px) {

@@ -62,3 +62,5 @@ admin.site.site_header = 'Beacon Food Forest Admin'
 
 if settings.DEBUG:
     urlpatterns.append( url(r'^static/(?P<path>.*)$', never_cache(serve_static)) )
+    urlpatterns.append( url(r'^media/(?P<path>.*)$', 'django.views.static.serve', {
+        'document_root': settings.MEDIA_ROOT}))
