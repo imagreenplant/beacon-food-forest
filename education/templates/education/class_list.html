@@ -1,0 +1,24 @@
+{% extends "base/index.html" %} 
+{% load staticfiles %} 
+{% load custom_markdown %}
+{% block content %}
+<div id="content">
+    <h2 class="asset-page">{{ title }}</h2>
+    {% if classes %}
+        {% for class in classes %}
+            <div class="class-listing">        
+                <a href="http://example.com"><h3>{{ class.title}}</h3></a>
+                <div id="class-primary-image">
+                </div>
+                <div class="class-text-content">
+                    <p>Date: {{ class.event_date }}   From {{ class.event_start_time }} until {{ class.event_end_time }}</p>
+                    <p>Tickets: {{ class.ticket_link }}</p>
+                    <p class="description">Description: {{ class.class_description|parse_markdown }}</p>
+                    <p>Location: <a href="{{ class.class_location_link }}">{{ class.class_location }}</a></p>
+                </div>
+            </div>
+        {% endfor %}
+    {% endif %}
+
+</div>
+{% endblock content %}

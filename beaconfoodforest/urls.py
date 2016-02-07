@@ -16,8 +16,8 @@ Including another URLconf
 from django.conf.urls import include, url
 from django.contrib import admin
 from django.views.generic.base import RedirectView
-from django.shortcuts import render_to_response
 from maps import urls as map_urls
+from education import urls as education_urls
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
@@ -46,6 +46,9 @@ urlpatterns = [
     # Maps
     url(r'^maps/', include(map_urls), name="maps"),
 
+    # Maps
+    url(r'^education/', include(education_urls), name="education"),
+
     # Other
     url(r'^robots.txt', 'base.views.robots'),
     url(r'^debug/$', 'base.views.debuginfo'),
@@ -61,3 +64,5 @@ admin.site.site_header = 'Beacon Food Forest Admin'
 
 if settings.DEBUG:
     urlpatterns.append( url(r'^static/(?P<path>.*)$', never_cache(serve_static)) )
+    urlpatterns.append( url(r'^media/(?P<path>.*)$', 'django.views.static.serve', {
+        'document_root': settings.MEDIA_ROOT}))
