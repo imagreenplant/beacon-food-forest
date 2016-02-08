@@ -1,74 +1,9 @@
 {% load staticfiles %}
-{% load news_articles %}
-{% load work_parties %}
-
-<!--
-Please follow the following for formatting any new sidebar elements.
-
-
-This tag opens a new item on the side. Start here.
-<div class="sideblock">
-
-  # Here is an example of header for a new section
-  <h2 class="sidetitle content-title">
-    #Section Title#
-  </h2>
-  
-  # Here are examples for formatting content to be included in a section
-  <ul class="side-ul">
-    
-     
-    <li>
-      <h2 class="sidetitle content-title">
-        Highlighted workshop or featured event
-      </h2>
-    </li>
-    
-    
-    
-    <li>
-      Some text. About some <br/>
-      Cool permaculture things.
-    </li>
-    
-    
-    
-    <li>
-      It can also contain <br/>
-      <span class="link"><a href="#">a link about earth</a>.
-    </li>
-    
-  </ul>
-</div>
-End here with all tags closed appropriately.
-
--->
+{% load news_articles current_classes work_parties %}
 
 <div id="sidenav">
-    <!-- Begin TranslateThis Button -->
     {% show_recent_articles %}
-   <!-- Workshops -->
-    <div class="sideblock">
-        <h2 class="sidetitle content-title">
-            Permaculture Education <br/>Collective Workshops
-        </h2>
-
-        <ul class="side-ul">
-            <!-- <li>
-                <span class="blue">None scheduled at this time</span><br/>
-            </li> -->
-            <li>
-                <span class="blue"><a href="http://www.brownpapertickets.com/event/2488533" target="_top" class="link">
-                  Brew Your Own<br/>Kombucha 
-                </a></span><br/>
-                February 6th, 2016<br/>
-                3:00pm - 6:00pm
-            </li>
-        </ul>
-        
-    </div>
-    <!-- /Workshops -->
-
+    {% show_current_classes %}
     {% show_current_work_parties %}
     
     <div class="sideblock">

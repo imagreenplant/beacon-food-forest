@@ -1,0 +1,42 @@
+{% extends "base/index.html" %} 
+{% load staticfiles %}
+
+{% block content %}
+<div class="content-ext">
+    <div class="content-div first-content-div">
+        <a id="getinvolved"></a>
+        <h2 class="content-title">
+            CRITERIA FOR PROPOSING A WORKSHOP
+        </h2>
+        <h3>
+            Instructor Criteria
+        </h3>
+        <p>
+            <ul>
+                <li>Volunteers of the friends of Beacon Food Forest
+                    <ul>
+                        <li>An Instructor  who is prepared and knowledgeable in a topic, and has demonstrated knowledge and communication skills to the BFF team</li>
+                        <li>A new instructor whose abilities and knowledge are unknown to the PEC team, and who is willing to conduct a sample workshop at a BFF work party to demonstrate their knowledge and abilities.</li>
+                    </ul>
+                </li>
+                <li>People who have contributed to the permaculture knowledge bank and will contribute to BFF growth and management</li>
+            </ul>
+        </p>
+        <h3>Workshop Topic Criteria</h3>
+        <p>
+            <ul>
+                <li>permaculture-related topics</li>
+                <li>topics which meet the mission of the BFF</li>
+            </ul>
+        </p>
+        <div class="block-items block-items-text">
+            <p>
+                <span class="blue"><a href="{% url 'teacher-expectations' %}">Continue to Expectations</a></span>
+            </p>
+            <p>
+                <span class="blue"><a href="{% url 'education-hub' %}">Back to Education Home</a></span>
+            </p>
+        </div>
+    </div>
+</div>
+{% endblock content %}

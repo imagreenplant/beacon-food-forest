@@ -1,0 +1,26 @@
+<!-- Classes -->
+<div class="sideblock">
+    <h2 class="sidetitle content-title">
+    	Permaculture Education <br>Collective Workshops
+    </h2>
+
+    <ul class="side-ul">
+    	{% if current_classes %}
+	        {% for class in current_classes %}
+	        <li>
+                <span class="blue"><a href="{% url 'class-detail' class.class_slug_url %}" target="_top" class="link">
+                  {{class.title}} 
+                </a></span><br>
+                {{class.event_date}}<br>
+                {{class.event_start_time}} - {{class.event_end_time}}
+            </li>
+	        {% endfor %}
+	    {% else %}
+	    	<span class="blue">None scheduled at this time</span><br/>
+	    {% endif %}
+    </ul>
+</div>
+<!-- /News -->
+
+
+            

@@ -1,0 +1,60 @@
+{% extends "base/index.html" %} 
+{% load staticfiles %}
+
+{% block content %}
+<div class="content-ext">
+    <div class="content-div first-content-div">
+        <h2 class="content-title">
+            Permaculture Education Collective
+        </h2>
+        <p>
+            In 2015, the Beacon Food Forest began a program to hold classes both on and off-site in order to further
+            the understanding of food forest principles as well topics that further the mission of the Beacon Food Forest.  <a href="{% url 'current-classes'%}">Here</a> you'll find a selection of current classes, as well as a list of <a href="{% url 'past-classes'%}">past classes</a> brought to you by the team at the Beacon Food Forest.
+        </p>
+        <div class="block-items block-items-text">
+            <p>
+                <span class="blue"><a href="{% url 'current-classes'%}">Current Class Offerings</a></span>
+            </p>
+            <p>
+                <span class="blue"><a href="{% url 'past-classes'%}">Previously Held Classes</a></span>
+            </p>
+        </div>
+    </div>
+    <div class="content-div">
+        <h2 class="content-title">
+            Stewardship program
+        </h2>
+        <p>If you dream of gaining the knowledge, skills and hands-on experience for growing food forests, this is the class for you.</p>
+        <p>Taught by locally active permaculture educators and practitioners, we will help you understand the interconnected systems that make food forests healthy and productive, as well give you plenty of time to spend with other like-minded people.</p>
+        <p>There will be three sessions of classroom time to introduce you to forest gardening methods. We will also spend time at the Beacon Food Forest to learn by experience, and then you'll participate as a leader in community work parties. We will be following a Chinese Proverb's wise words: "Tell me and I forget, teach me and I may remember, involve me and I will learn."</p>
+        <p>You must be able to participate in all classes. The dates are: 
+            <ul>
+                <li>Saturday - March 26 from 10am to 3pm </li>
+                <li>Saturday - April 30 from 10am to 3pm </li>
+                <li>Sunday - May 15 from 10am to 3pm</li>
+            </ul>
+        </p>
+        <p>This educational experience is provided by the Beacon Food Forest with a grant from King Conservation District.
+        </p>
+        <div class="block-items block-items-text">
+            <p>
+                <span class="blue"><a href="http://goo.gl/forms/KtPSYgtDL0">APPLY HERE</a></span>
+            </p>
+        </div>
+    </div>
+    <div class="content-div">
+        <a id="getinvolved"></a>
+        <h2 class="content-title">
+            Want to teach a class?
+        </h2>
+        <p>
+            Do you want to teach a class in permaculture at the Beacon Food Forest?  Start <a href="{% url 'teacher-criteria' %}">here</a>.
+        </p>
+        <div class="block-items block-items-text">
+            <p>
+                <span class="blue"><a href="{% url 'teacher-criteria' %}">TEACH YOUR OWN CLASS</a></span>
+            </p>
+        </div>
+    </div>
+</div>
+{% endblock content %}
