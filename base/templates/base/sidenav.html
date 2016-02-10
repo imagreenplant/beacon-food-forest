@@ -1,30 +1,11 @@
 {% load staticfiles %}
-{% load news_articles current_classes work_parties %}
+{% load news_articles current_classes work_parties downloads_tag %}
 
 <div id="sidenav">
     {% show_current_classes %}
     {% show_current_work_parties %}
     {% show_recent_articles %}
-
-    <div class="sideblock">
-      <h2 class="sidetitle content-title">
-        Downloads
-      </h2>
-    
-      <ul class="side-ul">
-        <li>
-            <span class="link"><a href="{% static "base/docs/bff-plan.jpg" %}" target="_blank" class="hoverZoomLink"><u>7 Acre Proposal</u></a></span>
-        </li>
-        
-        <li>
-            <span class="link"><a href="{% static "base/docs/BFF-phase1-plantings-lower.jpg" %}" target="_blank" class="hoverZoomLink"><u>Lower Plant Map</u></a></span>
-        </li>
-        
-        <li>
-            <span class="link"><a href="{% static "base/docs/2014-Beacon-Food-Forest-Annual-Report.pdf" %}" target="_blank"><u>2014 Annual Report</u></a></span>
-        </li>
-      </ul>
-    </div>
+    {% show_published_downloads %}
 
     <div class="sponsor">
         <div class="side-logo">
