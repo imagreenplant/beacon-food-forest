@@ -1,0 +1,25 @@
+<!-- Contact-Us -->
+<div class="block-items" id="contact-info">
+	{% if volunteer_contacts %}
+    	{% for contact in volunteer_contacts %}
+		    <p class="volunteer">{{contact.volunteer_name}}
+		        <br/>{{contact.volunteer_title_blurb}}
+		        <br/>
+		        <span class="link">
+		        	<a href="mailto:{{contact.volunteer_email}}">{{contact.volunteer_email}}</a>
+				</span>
+		    </p>
+			<script type="application/ld+json">
+				{
+				  "@context": "http://schema.org",
+				  "@type": "Person",
+				  "name": "{{contact.volunteer_name}}",
+				  "jobTitle": "{{contact.volunteer_title_blurb}}",
+				  "affiliation": "Beacon Food Forest",
+				  "email": "{{contact.volunteer_email}}",
+				}
+			</script>
+    	{% endfor %}
+    {% endif %}
+</div>
+<!-- /Contact-Us -->
