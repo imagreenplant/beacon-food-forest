@@ -63,3 +63,12 @@ class VolunteerContact(models.Model):
 
     def __str__(self):
         return ": ".join([self.volunteer_name,self.volunteer_email,]) 
+
+class Download(models.Model):
+    download_file = models.FileField(upload_to="downloads/",max_length=200, help_text='Upload file here')
+    publish_to_frontpage = models.BooleanField(blank=False, default=False, help_text='Should this show on the front page in the downloads list?')
+    display_name = models.CharField(max_length=100, blank=False, default="", help_text="A short descriptive display name")
+    file_description = models.CharField(max_length=500, blank=True, help_text="Optional description field (rarely used)")
+
+    def __str__(self):
+        return self.display_name
