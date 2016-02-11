@@ -5,5 +5,5 @@ register = template.Library()
 
 @register.inclusion_tag('base/downloads.html')
 def show_published_downloads():
-	downloads = Download.objects.all()
+	downloads = Download.objects.filter(publish_to_frontpage=True)
 	return {'downloads':downloads}

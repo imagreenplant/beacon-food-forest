@@ -1,15 +1,16 @@
 <!-- Downloads -->
+{% if downloads %}
 <div class="sideblock">
     <h2 class="sidetitle content-title">Downloads</h2>
     <ul class="side-ul">
-    	{% if downloads %}
+    	
     		{% for download in downloads %}
         		<li><span class="blue"><a href="{{ download.download_file }}">{{ download.display_name }}</a></span></li>
         	{% endfor %}
-	    {% else %}
-	    	<!-- No downloads available -->
-	    {% endif %}
-
+	    
     </ul>
 </div>
+{% else %}
+    <!-- No downloads available -->
+{% endif %}
 <!-- /Downloads -->

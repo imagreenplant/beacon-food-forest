@@ -52,6 +52,7 @@ urlpatterns = [
     # Other
     url(r'^robots.txt', 'base.views.robots'),
     url(r'^debug/$', 'base.views.debuginfo'),
+    url(r'^debug/files/$', 'base.views.debugfiles'),
     url(r'^captcha/', include('captcha.urls'),
 )
 ]

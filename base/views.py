@@ -5,6 +5,7 @@ from django.template import RequestContext
 
 from beaconfoodforest import settings
 from base.forms import MaterialsDonationForm
+from base.models import Download
 
 print "Entered base views"
 
@@ -25,6 +26,12 @@ def debuginfo(request):
 	content = "\n".join(content)
 
 	return HttpResponse(content, content_type='text/plain')
+
+def debugfiles(request):
+	all_files = []
+	[all_files.append(file.download_file.url) for file in Download.objects.all()]
+	file_content = "\n".join(all_files)
+	return HttpResponse(file_content, content_type='text/plain')
 
 def send_donation_notification(donor_data):
 	send_subject = " ".join([donor_data['donation_type'], " donation from ", donor_data['your_name']])
