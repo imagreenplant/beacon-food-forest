@@ -5,7 +5,7 @@
     <ul class="side-ul">
     	
     		{% for download in downloads %}
-        		<li><span class="blue"><a href="{{ download.download_file }}">{{ download.display_name }}</a></span></li>
+        		<li><span class="blue"><a href="{{ download.download_file.url }}">{{ download.display_name }}</a></span></li>
         	{% endfor %}
 	    
     </ul>
