@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django_markdown.admin import MarkdownModelAdmin
-from .models import ExternalNewsArticle, WorkPartyEvent, Announcement
+from .models import ExternalNewsArticle, WorkPartyEvent, Announcement, VolunteerContact, Download
 
 @admin.register(ExternalNewsArticle)
 class ExternalNewsArticleAdmin(admin.ModelAdmin):
@@ -14,4 +14,10 @@ class WorkPartyEventAdmin(admin.ModelAdmin):
 class AnnouncementAdmin(MarkdownModelAdmin):
 	list_display = ('announcement_publish_date', 'announcement_slug',)	
 
+@admin.register(VolunteerContact)
+class VolunteerAdmin(admin.ModelAdmin):
+	list_display = ('volunteer_name', 'volunteer_email', 'volunteer_is_active',)
 
+@admin.register(Download)
+class DownloadAdmin(admin.ModelAdmin):
+	list_display = ('display_name', 'download_file', 'publish_to_frontpage',)	
