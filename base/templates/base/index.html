@@ -23,12 +23,7 @@
     <div id="main">
         <div class="background-nut"></div>
         <div id="headercontent">{% include "base/header.html" %}</div>
-        <div id="container">
-            <div id="indexcontent" class="main-content">{% block content %}{% endblock content%}</div>
-            <div class="right-column">
-                <div id="sidecontent">{% include "base/sidenav.html" %}</div>
-            </div>
-        </div>
+        {% block content %}{% endblock content%}
         <div id="footercontent">{% include "base/footer.html" %}</div>
     </div>
     
