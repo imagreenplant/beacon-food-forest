@@ -1,0 +1,9 @@
+{% extends "base/index.html" %} 
+{% block content %}
+    <div id="container">
+        <div id="indexcontent" class="main-content">{% block education-content %}{% endblock education-content %}</div>
+        <div class="right-column">
+            <div id="sidecontent">{% include "education/education-sidenav.html" %}</div>
+        </div>
+    </div>
+{% endblock content %}
