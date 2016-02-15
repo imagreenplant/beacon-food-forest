@@ -780,7 +780,7 @@ h2.subtitle-text {
     min-height: 1500px;
 }
 .education-container {
-    min-height: initial;
+    min-height: 37em;
 }
 /* Front page content (left) */
 
