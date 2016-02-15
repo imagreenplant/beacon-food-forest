@@ -15,6 +15,29 @@
                     <p class="description">Description: {{ class.class_description|parse_markdown }}</p>
                     <p>Location: <a href="{{ class.class_location_link }}">{{ class.class_location }}</a></p>
                 </div>
+                {# https://developers.google.com/structured-data/rich-snippets/events #}
+                {# https://schema.org/Event #}
+                {# https://schema.org/EducationEvent #}
+                <script type="application/ld+json">
+                    {
+                      "@context": "http://schema.org",
+                      "@type": "EducationEvent",
+                      "name": "Class: {{ class.title }}",
+                      "startDate" : "{{ class.event_date|date:"c"}}",
+                      "url" : "{{ request.build_absolute_uri }}",
+                      "location" : {
+                        "@type" : "Place",
+                        "name" : "{{ class.class_location }}",
+                        "address" : "{{ class.class_location }}"
+                      },
+                      "offers" : {
+                        "@type" : "Offer",
+                        "price":"{{ class.price }}",
+                        "priceCurrency":"USD",
+                        "url":"{{ class.ticket_link }}"
+                      }
+                    }
+                </script>
             </div>
         {% endfor %}
     {% endif %}
