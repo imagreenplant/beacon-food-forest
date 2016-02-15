@@ -204,7 +204,7 @@ a, .nav a:link, .nav a:visited, .nav a:hover, .nav a:active {
 }
 /*  Normal & Underlined */
 
-#container .link a, #container .link a:link, #container .link a:visited, #container .link a:hover, #container .link a:active {
+.container .link a, .container .link a:link, .container .link a:visited, .container .link a:hover, .container .link a:active {
     color: #4C301C;
     font-size: 100%;
     font-weight: normal;
@@ -222,7 +222,7 @@ a, .nav a:link, .nav a:visited, .nav a:hover, .nav a:active {
 }
 /*  Bold & Underline */
 
-#container .heavy a, #container .heavy a:link, #container .heavy a:visited, #container .heavy a:hover, #container .heavy a:active {
+.container .heavy a, .container .heavy a:link, .container .heavy a:visited, .container .heavy a:hover, .container .heavy a:active {
     color: #4C301C;
     font-size: 100%;
     font-weight: bold;
@@ -232,7 +232,7 @@ a, .nav a:link, .nav a:visited, .nav a:hover, .nav a:active {
 }
 /* Bold & Blue */
 
-#container .blue a, #container .blue a:link, #container .blue a:visited, #container .blue a:hover, #container .blue a:active {
+.container .blue a, .container .blue a:link, .container .blue a:visited, .container .blue a:hover, .container .blue a:active {
     color: #0DAED3;
     font-size: 100%;
     font-weight: bold;
@@ -772,12 +772,15 @@ h2.subtitle-text {
 /*
 ////// This holds the content, the images, and the sidebar */
 
-#container {
+.container {
     width: 100%;
     margin: 33px 0 0 0;
     z-index: -5;
     position: relative;
     min-height: 1500px;
+}
+.education-container {
+    min-height: initial;
 }
 /* Front page content (left) */
 
@@ -1208,7 +1211,7 @@ h2.asset-page {
         text-align: center;
         padding: 15px;
     }
-    #container {
+    .container {
         position: relative;
     }
     .top-text {
@@ -1233,7 +1236,7 @@ h2.asset-page {
         bottom: 0px;
         position: absolute;
     }
-    #container {
+    .container {
         margin: 0;
     }
     .main-content {
