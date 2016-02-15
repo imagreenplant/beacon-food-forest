@@ -1,8 +1,7 @@
-{% extends "base/index.html" %} 
+{% extends "education/education-page-content.html" %} 
 {% load staticfiles %} 
 {% load custom_markdown %}
-{% block content %}
-<div id="content">
+{% block education-content %}
     <h2 class="asset-page">{{ title }}</h2>
     {% if classes %}
         {% for class in classes %}
@@ -19,6 +18,4 @@
             </div>
         {% endfor %}
     {% endif %}
-
-</div>
-{% endblock content %}
+{% endblock education-content %}
