@@ -13,7 +13,7 @@ https://docs.djangoproject.com/en/1.8/ref/settings/
 try:
     import psycopg2
 except ImportError:
-    print "Please install the PostGresSQL lib:  pip install psycopg2"
+    print("Please install the PostGresSQL lib:  pip install psycopg2")
 
 # Added libs
 # pip install django-markdown
@@ -43,16 +43,16 @@ elif socket.gethostname().find("bluehost") > -1:
 else:
     ENVIRONMENT = "local"
 
-print "ENVIRONMENT is set to %s" % ENVIRONMENT
+print("ENVIRONMENT is set to %s" % ENVIRONMENT)
 
 
 # SECURITY WARNING: keep the secret key used in production secret!
 try: 
     SECRET_KEY = os.environ['DJANGO_KEY']
-    print "Local key exists"
+    print("Local key exists")
 except KeyError:
     SECRET_KEY = 'i3zc+lymkle=d00x1l4d$w2mp7jidk%x^tb*wlmh2h%ee8o^y6'
-    print "No local key exists, using ",SECRET_KEY
+    print("No local key exists, using ",SECRET_KEY)
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
@@ -297,8 +297,8 @@ DONATE_EMAIL = ENVIRONMENTS[ENVIRONMENT]['DONATE_EMAIL']
 
 
 if DEBUG:
-    print "============================================"
-    print "           Alert, DEBUG is ON"
-    print "============================================"
+    print("============================================")
+    print("           Alert, DEBUG is ON")
+    print("============================================")
 else:
-    print "++++++++++++++++ DEBUG is OFF ++++++++++++++++++"
+    print("++++++++++++++++ DEBUG is OFF ++++++++++++++++++")
