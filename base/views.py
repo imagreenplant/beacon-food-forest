@@ -7,7 +7,7 @@ from beaconfoodforest import settings
 from base.forms import MaterialsDonationForm
 from base.models import Download
 
-print "Entered base views"
+import sys
 
 def robots(request):
 	return render_to_response('base/robots.txt')
@@ -15,6 +15,7 @@ def robots(request):
 def debuginfo(request):
 	content = [
 		"Environment is set to %s" % settings.ENVIRONMENT,
+		"Python version is %s" % sys.version,
 		"Debug is set to %s" % settings.DEBUG,
 		"Static root is %s" % settings.STATIC_ROOT,
 		"Static url is %s" % settings.STATIC_URL,
@@ -37,7 +38,7 @@ def send_donation_notification(donor_data):
 	send_subject = " ".join([donor_data['donation_type'], " donation from ", donor_data['your_name']])
 	send_from = "sender@beaconfoodforest.org"
 	send_to = [settings.DONATE_EMAIL]
-	print settings.DONATE_EMAIL
+
 	message_data = [
 		"Donor: %s" % donor_data['your_name'],
 		"Email: %s" % donor_data['your_email'],
