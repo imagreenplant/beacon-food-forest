@@ -11,7 +11,7 @@ class Plant(models.Model):
 		verbose_name_plural = "plants"
 
 	def __str__(self):
-		pass
+		return self.name
 
 	friendly_name = models.CharField(max_length=100, blank=True, help_text="(Optional) A friendly plant name, like 'Charlie the Apple Tree'")
 	friendly_name_author = models.CharField(max_length=100, blank=True, help_text="(Optional) The author of the friendly plant name")
@@ -41,7 +41,7 @@ class MaintenanceEvent(models.Model):
 		verbose_name_plural = "maintenance events"
 
 	def __str__(self):
-		pass
+		return " ".join(date,actor)
 		
 	description = models.TextField(blank=False, help_text="A description of what happened to the plant")
 	date = models.DateField(default=timezone.now, blank=False, help_text="The date of the maintenance.  If you \
@@ -56,7 +56,7 @@ class Harvest(models.Model):
 		verbose_name_plural = "harvest events"
 
 	def __str__(self):
-		pass
+		return " ".join(date,actor,amount_lbs)
 
 	date = models.DateField(default=timezone.now, blank=False, help_text="The date of the harvest.  If you \
 		don't know, just estimate.")
