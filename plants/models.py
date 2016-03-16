@@ -30,6 +30,9 @@ class Plant(models.Model):
 		declares dead but maintains info for historical purposes.")
 	published = models.BooleanField(blank=False, default=True, help_text="If you want to remove \
 		the plant from being listed on the site, then uncheck this.")
+	friendly_location = models.CharField(max_length=200, blank=True, help_text="(Optional) Description of location")
+	gps_latitude = models.DecimalField(max_digits=9, decimal_places=7, blank=True, default=0.00,help_text='(Optional) GPS latitude')
+	gps_longitude = models.DecimalField(max_digits=9, decimal_places=7, blank=True, default=0.00,help_text='(Optional) GPS longitude')
 
 class MaintenanceEvent(models.Model):
 	"""An object that keeps track of maintenance events on plants"""
