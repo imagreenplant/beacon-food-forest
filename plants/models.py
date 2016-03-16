@@ -3,10 +3,15 @@ from django_markdown.models import MarkdownField
 import django.utils.timezone as timezone
 import datetime
 
-class Plant(object):
+class Plant(models.Model):
 	"""Represents a single plant"""
-	def __init__(self):
-		super(Plant, self).__init__()
+
+	class Meta:
+		verbose_name = "plant"
+		verbose_name_plural = "plants"
+
+	def __str__(self):
+		pass
 
 	friendly_name = models.CharField(max_length=100, blank=True, help_text="(Optional) A friendly plant name, like 'Charlie the Apple Tree'")
 	friendly_name_author = models.CharField(max_length=100, blank=True, help_text="(Optional) The author of the friendly plant name")
@@ -21,28 +26,40 @@ class Plant(object):
 		Must be unique to each plant e.g julies-quince")
 	last_modified = models.DateTimeField(auto_now=True, auto_now_add=False)
 	created = models.DateTimeField(auto_now=False, auto_now_add=True)
+	alive = models.BooleanField(blank=False, default=True, help_text="Is plant alive? Unchecked \
+		declares dead but maintains info for historical purposes.")
+	published = models.BooleanField(blank=False, default=True, help_text="If you want to remove \
+		the plant from being listed on the site, then uncheck this.")
 
-class MaintenanceEvent(object):
+class MaintenanceEvent(models.Model):
 	"""An object that keeps track of maintenance events on plants"""
-	def __init__(self):
-		super(Maintenance, self).__init__()
+	class Meta:
+		verbose_name = "maintenance event"
+		verbose_name_plural = "maintenance events"
+
+	def __str__(self):
+		pass
 		
 	description = models.TextField(blank=False, help_text="A description of what happened to the plant")
 	date = models.DateField(default=timezone.now, blank=False, help_text="The date of the maintenance.  If you \
 		don't know, just estimate.")
-	actor = models.CharField(blank=True, help_text="(Optional) Who did the maintenance?")
-	plant_affected = models.ForeignKey(Plant)
+	actor = models.CharField(max_length=100, blank=True, help_text="(Optional) Who did the maintenance?")
+	plant_affected = models.ForeignKey(Plant,on_delete=models.CASCADE)
 
-class Harvest(object):
+class Harvest(models.Model):
 	"""Harvest Event"""
-	def __init__(self):
-		super(Harvest, self).__init__()
+	class Meta:
+		verbose_name = "harvest event"
+		verbose_name_plural = "harvest events"
+
+	def __str__(self):
+		pass
 
 	date = models.DateField(default=timezone.now, blank=False, help_text="The date of the harvest.  If you \
 		don't know, just estimate.")
 	amount_lbs = models.DecimalField(max_digits=10, decimal_places=2, help_text='Estimated lbs of harvest')
 	description = models.CharField(max_length=500, blank=True, help_text='(Optional) Additional description of the harvest.')
-	actor = models.CharField(blank=True, help_text="(Optional) Who did the maintenance?")
-	plant_affected = models.ForeignKey(Plant)
+	actor = models.CharField(max_length=100, blank=True, help_text="(Optional) Who did the maintenance?")
+	plant_affected = models.ForeignKey(Plant,on_delete=models.CASCADE)
 	
 		
