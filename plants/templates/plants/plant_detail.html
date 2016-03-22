@@ -1,7 +1,7 @@
-{% extends "base/main-page-content.html" %} 
+{% extends "base/asset_page.html" %} 
 {% load staticfiles %} 
 {% load custom_markdown %}
-{% block content %}
+{% block asset-content %}
     {% if plant %}
         <div id="class-primary-image">
         </div>
@@ -19,4 +19,4 @@
             </div>
         </div>
     {% endif %}
-{% endblock content %}
+{% endblock asset-content %}
