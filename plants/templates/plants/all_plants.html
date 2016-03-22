@@ -1,0 +1,17 @@
+{% extends "base/main-page-content.html" %} 
+{% load staticfiles %} 
+{% load custom_markdown %}
+{% block content %}
+    <h2 class="asset-page">{{ title }}</h2>
+    {% if plants %}
+        {% for plant in plants %}
+            <div class="plant-listing">        
+                <a href="http://example.com"><h3>{{ plant.name}}</h3></a>
+                <div class="plant-text-content">
+                    <p>Site Code: {{ plant.site_code }}</p>
+                    <p>Latin Name: {{ plant.latin_name }}</p>
+                </div>
+            </div>
+        {% endfor %}
+    {% endif %}
+{% endblock content %}

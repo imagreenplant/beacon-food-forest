@@ -1,0 +1,22 @@
+{% extends "base/main-page-content.html" %} 
+{% load staticfiles %} 
+{% load custom_markdown %}
+{% block content %}
+    {% if plant %}
+        <div id="class-primary-image">
+        </div>
+        <div class="plant-listing">        
+            <a href="{% url "plants-detail" plant.site_code %}"><h3>{{ plant.name}}</h3></a>
+            <div id="primary-image">
+              {{ plant.primary_picture }}
+            </div>
+            <div class="plant-text-content">
+                <p>Site Code: {{ plant.site_code }}</p>
+                <p>Latin Name: {{ plant.latin_name }}</p>
+                <p>Friendly Name: {{ plant.friendly_name }} by {{ plant.friendly_name_author }}</p>
+                <p>{{ plant.text|parse_markdown}}</p>
+                <p>Location: TBD</p>
+            </div>
+        </div>
+    {% endif %}
+{% endblock content %}

@@ -3,6 +3,20 @@ from django_markdown.models import MarkdownField
 import django.utils.timezone as timezone
 import datetime
 
+class Location(models.Model):
+
+	class Meta:
+		verbose_name = "Location"
+		verbose_name_plural = "Locations"
+
+	def __str__(self):
+		return self.friendly_location
+
+	gps_latitude = models.DecimalField(max_digits=10, decimal_places=7, blank=True, default=0.00,help_text='(Optional) GPS latitude')
+	gps_longitude = models.DecimalField(max_digits=10, decimal_places=7, blank=True, default=0.00,help_text='(Optional) GPS longitude')
+	friendly_location = models.CharField(max_length=200, blank=True, help_text="(Optional) Description of location")
+	greater_area = models.CharField(max_length=200, blank=True, help_text="(Optional) Description of area like Phase2 Upper")
+
 class Plant(models.Model):
 	"""Represents a single plant"""
 
@@ -30,39 +44,41 @@ class Plant(models.Model):
 		declares dead but maintains info for historical purposes.")
 	published = models.BooleanField(blank=False, default=True, help_text="If you want to remove \
 		the plant from being listed on the site, then uncheck this.")
-	friendly_location = models.CharField(max_length=200, blank=True, help_text="(Optional) Description of location")
-	gps_latitude = models.DecimalField(max_digits=9, decimal_places=7, blank=True, default=0.00,help_text='(Optional) GPS latitude')
-	gps_longitude = models.DecimalField(max_digits=9, decimal_places=7, blank=True, default=0.00,help_text='(Optional) GPS longitude')
+	location = models.ForeignKey(Location,on_delete=models.CASCADE, blank=True, default='', help_text='Assign a location (made separately)')
 
-class MaintenanceEvent(models.Model):
-	"""An object that keeps track of maintenance events on plants"""
-	class Meta:
-		verbose_name = "maintenance event"
-		verbose_name_plural = "maintenance events"
 
-	def __str__(self):
-		return " ".join(date,actor)
+
+# Saving this for another day.  We may not want this.
+
+# class MaintenanceEvent(models.Model):
+# 	"""An object that keeps track of maintenance events on plants"""
+# 	class Meta:
+# 		verbose_name = "maintenance event"
+# 		verbose_name_plural = "maintenance events"
+
+# 	def __str__(self):
+# 		return " ".join(date,actor)
 		
-	description = models.TextField(blank=False, help_text="A description of what happened to the plant")
-	date = models.DateField(default=timezone.now, blank=False, help_text="The date of the maintenance.  If you \
-		don't know, just estimate.")
-	actor = models.CharField(max_length=100, blank=True, help_text="(Optional) Who did the maintenance?")
-	plant_affected = models.ForeignKey(Plant,on_delete=models.CASCADE)
+# 	description = models.TextField(blank=False, help_text="A description of what happened to the plant")
+# 	date = models.DateField(default=timezone.now, blank=False, help_text="The date of the maintenance.  If you \
+# 		don't know, just estimate.")
+# 	actor = models.CharField(max_length=100, blank=True, help_text="(Optional) Who did the maintenance?")
+# 	plant_affected = models.ForeignKey(Plant,on_delete=models.CASCADE)
 
-class Harvest(models.Model):
-	"""Harvest Event"""
-	class Meta:
-		verbose_name = "harvest event"
-		verbose_name_plural = "harvest events"
+# class Harvest(models.Model):
+# 	"""Harvest Event"""
+# 	class Meta:
+# 		verbose_name = "harvest event"
+# 		verbose_name_plural = "harvest events"
 
-	def __str__(self):
-		return " ".join(date,actor,amount_lbs)
+# 	def __str__(self):
+# 		return " ".join(date,actor,amount_lbs)
 
-	date = models.DateField(default=timezone.now, blank=False, help_text="The date of the harvest.  If you \
-		don't know, just estimate.")
-	amount_lbs = models.DecimalField(max_digits=10, decimal_places=2, help_text='Estimated lbs of harvest')
-	description = models.CharField(max_length=500, blank=True, help_text='(Optional) Additional description of the harvest.')
-	actor = models.CharField(max_length=100, blank=True, help_text="(Optional) Who did the maintenance?")
-	plant_affected = models.ForeignKey(Plant,on_delete=models.CASCADE)
+# 	date = models.DateField(default=timezone.now, blank=False, help_text="The date of the harvest.  If you \
+# 		don't know, just estimate.")
+# 	amount_lbs = models.DecimalField(max_digits=10, decimal_places=2, help_text='Estimated lbs of harvest')
+# 	description = models.CharField(max_length=500, blank=True, help_text='(Optional) Additional description of the harvest.')
+# 	actor = models.CharField(max_length=100, blank=True, help_text="(Optional) Who did the maintenance?")
+# 	plant_affected = models.ForeignKey(Plant,on_delete=models.CASCADE)
 	
 		
