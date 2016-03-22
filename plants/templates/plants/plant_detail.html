@@ -5,8 +5,12 @@
     {% if plant %}
         <div id="class-primary-image">
         </div>
-        <div class="plant-listing">        
-            <a href="{% url "plants-detail" plant.site_code %}"><h3>{{ plant.name}}</h3></a>
+        <div class="plant-listing">
+            {% if plant.url_slug %}
+                <a href="{% url "plants-detail" plant.url_slug %}"><h3>{{ plant.name}}</h3></a>  
+            {% else %}
+                <a href="{% url "plants-detail" plant.site_code %}"><h3>{{ plant.name}}</h3></a>          
+            {% endif %}        
             <div id="primary-image">
               {{ plant.primary_picture }}
             </div>
