@@ -5,8 +5,10 @@ from .models import Plant
 from django.core.exceptions import ObjectDoesNotExist
 
 def index(request):
+	plants = Plant.objects.all()
 	page_title = "All Plants at the Beacon Food Forest"
-	return render_to_response('plants/all_plants.html',{'title':page_title},context_instance = RequestContext(request))
+	return render_to_response('plants/all_plants.html',{'title':page_title,'plants':plants}, \
+		context_instance = RequestContext(request))
 
 def detail(request,id):
 	try:
