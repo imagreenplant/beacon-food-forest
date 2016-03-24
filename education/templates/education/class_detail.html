@@ -1,7 +1,7 @@
-{% extends "education/education-page-content.html" %} 
+{% extends "base/app-page-content.html" %} 
 {% load staticfiles %} 
 {% load custom_markdown %}
-{% block education-content %}
+{% block app-content %}
     {% if class %}
         <div id="class-primary-image">
         </div>
@@ -43,4 +43,7 @@
             </script>
         </div>
     {% endif %}
-{% endblock education-content %}
+{% endblock app-content %}
+{% block app-sidenav %}
+  {% include "education/education-sidenav.html" %}
+{% endblock app-sidenav %}

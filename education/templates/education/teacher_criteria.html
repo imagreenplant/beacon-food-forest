@@ -1,9 +1,8 @@
-{% extends "education/education-page-content.html" %} 
+{% extends "base/app-page-content.html" %} 
 {% load staticfiles %}
 
-{% block education-content %}
-<div class="content-ext">
-    <div class="content-div first-content-div">
+{% block app-content %}
+    <div class="content-div">
         <a id="getinvolved"></a>
         <h2 class="content-title">
             CRITERIA FOR PROPOSING A WORKSHOP
@@ -38,5 +37,7 @@
             </p>
         </div>
     </div>
-</div>
-{% endblock education-content %}
+{% endblock app-content %}
+{% block app-sidenav %}
+  {% include "education/education-sidenav.html" %}
+{% endblock app-sidenav %}
