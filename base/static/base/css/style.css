@@ -1065,6 +1065,14 @@ h2.asset-page {
 }
 /*End Education*/
 
+/*Start Plants*/
+.plant-detail-map {
+    float: right;
+    clear: right;
+    margin: 20px 0 20px 20px;
+}
+/*End Plants*/
+
 /*First major breakpoint where hazelnut image reduces in size*/
 
 @media only screen and (min-width: 950px) {
