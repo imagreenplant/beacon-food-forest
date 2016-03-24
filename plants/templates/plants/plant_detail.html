@@ -1,16 +1,16 @@
-{% extends "base/asset_page.html" %} 
+{% extends "base/app-page-content.html" %} 
 {% load staticfiles %} 
 {% load custom_markdown %}
-{% block asset-content %}
+{% block app-content %}
     {% if plant %}
-        <div id="class-primary-image">
-        </div>
-        <div class="plant-listing">
-            {% if plant.url_slug %}
-                <a href="{% url "plants-detail" plant.url_slug %}"><h3>{{ plant.name}}</h3></a>  
-            {% else %}
-                <a href="{% url "plants-detail" plant.site_code %}"><h3>{{ plant.name}}</h3></a>          
-            {% endif %}        
+        <div class="content-div">
+            <h2 class="content-title">
+                {% if plant.url_slug %}
+                    <a href="{% url "plants-detail" plant.url_slug %}">{{ plant.name}}</a>  
+                {% else %}
+                    <a href="{% url "plants-detail" plant.site_code %}">{{ plant.name}}</a>          
+                {% endif %}
+            </h2>        
             <div id="primary-image">
               {{ plant.primary_picture }}
             </div>
@@ -18,9 +18,11 @@
                 <p>Site Code: {{ plant.site_code }}</p>
                 <p>Latin Name: {{ plant.latin_name }}</p>
                 <p>Friendly Name: {{ plant.friendly_name }} by {{ plant.friendly_name_author }}</p>
+                {% if plant.location and plant.location.friendly_location %}
+                    <p>Location: {{ plant.location.friendly_location}}</p>
+                {% endif %}
                 <p>{{ plant.text|parse_markdown}}</p>
-                <p>Location: TBD</p>
             </div>
         </div>
     {% endif %}
-{% endblock asset-content %}
+{% endblock app-content %}
