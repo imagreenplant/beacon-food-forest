@@ -38,9 +38,3 @@ def teacher_expectations(request):
     
 def teacher_proposal(request):
 	return render_to_response('education/teacher_proposal.html',{},context_instance = RequestContext(request))
-
-def teacher_expectations(request):
-	return render_to_response('education/teacher_expectations.html',{},context_instance = RequestContext(request))
-    
-def teacher_proposal(request):
-	return render_to_response('education/teacher_proposal.html',{},context_instance = RequestContext(request))
