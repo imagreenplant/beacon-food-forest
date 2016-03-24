@@ -1087,6 +1087,10 @@ h2.asset-page {
     .background-nut {
         background-size: 20em;
     }
+    .spacer-div {
+        width: 130px;
+        height: 80px;
+    }
     .right-column {
         top: 80px;
     }
@@ -1123,7 +1127,7 @@ h2.asset-page {
 
 }
 @media only screen and (max-width: 800px) {
-    .background-nut {
+    .background-nut, .spacer-div {
         display: none;
     }
 }
