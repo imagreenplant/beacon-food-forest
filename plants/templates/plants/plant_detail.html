@@ -22,6 +22,9 @@
                     <p>Location: {{ plant.location.friendly_location}}</p>
                 {% endif %}
                 <p>{{ plant.text|parse_markdown}}</p>
+                {% if plant.location and plant.location.gps_latitude and plant.location.gps_longitude %}
+                    <img src="http://maps.googleapis.com/maps/api/staticmap?center={{plant.location.gps_latitude}},{{plant.location.gps_longitude}}&zoom=18&size=300x600&maptype=satellite&markers=color%3aorange%7Clabel%3aA%7C{{plant.location.gps_latitude}},{{plant.location.gps_longitude}}&sensor=true">
+                {% endif %}
             </div>
         </div>
     {% endif %}
