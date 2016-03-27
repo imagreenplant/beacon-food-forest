@@ -1058,7 +1058,7 @@ h2.asset-page {
     margin-left: 300px;
 }
 /*Start Education*/
-.class-listing {
+.app-listing {
     background-color: #D2ECCA;
     margin: 20px 50px 20px 20px;
     padding: 20px 70px 20px 20px;
@@ -1070,6 +1070,10 @@ h2.asset-page {
     float: right;
     clear: right;
     margin: 20px 0 20px 20px;
+}
+    /*Force small listing to extend the whole width*/
+.short-app-listing {
+    width: 100%;
 }
 /*End Plants*/
 

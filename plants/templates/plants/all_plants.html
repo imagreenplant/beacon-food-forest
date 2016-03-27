@@ -1,17 +1,19 @@
-{% extends "base/main-page-content.html" %} 
+{% extends "base/app-page-content.html" %} 
 {% load staticfiles %} 
 {% load custom_markdown %}
-{% block content %}
-    <h2 class="asset-page">{{ title }}</h2>
+{% block app-content %}
     {% if plants %}
         {% for plant in plants %}
-            <div class="plant-listing">        
-                <a href="http://example.com"><h3>{{ plant.name}}</h3></a>
-                <div class="plant-text-content">
-                    <p>Site Code: {{ plant.site_code }}</p>
-                    <p>Latin Name: {{ plant.latin_name }}</p>
-                </div>
+            <div class="app-listing">
+                <p><span class="blue">
+                    {% if plant.url_slug %}
+                        <a href="{% url "plants-detail" plant.url_slug %}">{{ plant.name}}</a>  
+                    {% else %}
+                        <a href="{% url "plants-detail" plant.site_code %}">{{ plant.name}}</a>          
+                    {% endif %}
+                    Latin: {{ plant.latin_name }}, Site Code: {{ plant.site_code }}
+                </span></p>
             </div>
         {% endfor %}
     {% endif %}
-{% endblock content %}
+{% endblock app-content %}
