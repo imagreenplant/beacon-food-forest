@@ -15,5 +15,12 @@ def detail(request,id):
 		plant = Plant.objects.get(url_slug=id)
 	except ObjectDoesNotExist:
 		plant = get_object_or_404(Plant, site_code=id)
-	return render_to_response('plants/plant_detail.html', {'plant':plant}, context_instance = RequestContext(request))
+
+	if plant.url_slug:
+		plant_url = plant.url_slug
+	else:
+		plant_url = plant.site_code
+
+	return render_to_response('plants/plant_detail.html', {'plant':plant, 'plant_url':plant_url},\
+		context_instance = RequestContext(request))
 	
