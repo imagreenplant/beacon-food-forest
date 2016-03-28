@@ -2,6 +2,8 @@
 {% load staticfiles %} 
 {% load custom_markdown %}
 
+{% block app-title %}{{ plant.name}} ({{ plant.site_code }}) Plant Page{% endblock app-title %}
+
 {% block app-canonical %}
 <link rel="canonical" href="http://beaconfoodforest.org{% url "plants-detail" plant_url %}" />
 {% endblock app-canonical %}
@@ -10,7 +12,7 @@
     {% if plant %}
         <div class="content-div">
             <h2 class="content-title">
-                <a href="{% url "plants-detail" plant_url %}">{{ plant.name}}</a>  
+                <a href="{% url "plants-detail" plant_url %}">{{ plant.name}} ({{ plant.site_code }})</a>  
             </h2>        
             <div id="primary-image">
               {{ plant.primary_picture }}
@@ -19,14 +21,21 @@
                 {% if plant.location and plant.location.gps_latitude and plant.location.gps_longitude %}
                     <img class="plant-detail-map" src="http://maps.googleapis.com/maps/api/staticmap?center=47.5684410,-122.3127390&zoom=18&size=300x600&maptype=hybrid&markers=color%3aorange%7Clabel%3aA%7C{{plant.location.gps_latitude}},{{plant.location.gps_longitude}}&sensor=true">
                 {% endif %}
-                <p>Site Code: {{ plant.site_code }}</p>
-                <p>Latin Name: {{ plant.latin_name }}</p>
-                <p>Friendly Name: {{ plant.friendly_name }} by {{ plant.friendly_name_author }}</p>
+                
+                {% if plant.friendly_name %}
+                <p>Also called {{ plant.friendly_name }} by {{ plant.friendly_name_author }}</p>
+                {% endif %}
+                {% if plant.latin_name %}
+                <p>Latin: <i>{{ plant.latin_name }}</i></p>
+                {% endif %}
+                
                 {% if plant.location and plant.location.friendly_location %}
                     <p>Location: {{ plant.location.friendly_location}}</p>
                 {% endif %}
                 <p>{{ plant.text|parse_markdown}}</p>
 
+                {# https://developers.google.com/chart/infographics/docs/qr_codes#overview #}
+                <p><img src="https://chart.googleapis.com/chart?cht=qr&chs=200x200&chld=Q&chl=http%3A%2F%2Fbeaconfoodforest.org{% url "plants-detail" plant_url as purl %}{{ purl|urlencode }}"></p>
             </div>
         </div>
     {% endif %}
