@@ -50,11 +50,11 @@ urlpatterns = [
     url(r'^education/', include(education_urls), name="education"),
 
     # Other
+    url(r'^google4d7d768ede13abd5\.html', 'base.views.google_verify'),
     url(r'^robots.txt', 'base.views.robots'),
     url(r'^debug/$', 'base.views.debuginfo'),
     url(r'^debug/files/$', 'base.views.debugfiles'),
-    url(r'^captcha/', include('captcha.urls'),
-)
+    url(r'^captcha/', include('captcha.urls')),
 ]
 
 from django.conf import settings

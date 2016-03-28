@@ -12,6 +12,9 @@ import sys
 def robots(request):
 	return render_to_response('base/robots.txt')
 
+def google_verify(request):
+	return render_to_response('base/google4d7d768ede13abd5.html')
+
 def debuginfo(request):
 	content = [
 		"Environment is set to %s" % settings.ENVIRONMENT,
