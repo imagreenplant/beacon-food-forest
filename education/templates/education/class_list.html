@@ -2,7 +2,7 @@
 {% load staticfiles %} 
 {% load custom_markdown %}
 {% block app-content %}
-    <h2 class="asset-page">{{ title }}</h2>
+    <h2 class="asset-page">{% block app-title %}{{ title }}{% endblock app-title %}</h2>
     {% if classes %}
         {% for class in classes %}
             <div class="app-listing">        

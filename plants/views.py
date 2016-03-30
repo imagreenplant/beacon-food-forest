@@ -4,9 +4,19 @@ from django.template import RequestContext
 from .models import Plant
 from django.core.exceptions import ObjectDoesNotExist
 
+def getCanonicalPlantUrl(plant_obj):
+	if plant_obj.url_slug:
+		return plant_obj.url_slug
+	else:
+		return plant_obj.site_code
+
 def index(request):
 	plants = Plant.objects.all()
-	page_title = "All Plants at the Beacon Food Forest"
+	page_title = "All Plants"
+
+	for plant in plants:
+		plant.canonical = getCanonicalPlantUrl(plant)
+
 	return render_to_response('plants/all_plants.html',{'title':page_title,'plants':plants}, \
 		context_instance = RequestContext(request))
 
@@ -16,11 +26,6 @@ def detail(request,id):
 	except ObjectDoesNotExist:
 		plant = get_object_or_404(Plant, site_code=id)
 
-	if plant.url_slug:
-		plant_url = plant.url_slug
-	else:
-		plant_url = plant.site_code
-
-	return render_to_response('plants/plant_detail.html', {'plant':plant, 'plant_url':plant_url},\
+	return render_to_response('plants/plant_detail.html', {'plant':plant, 'plant_url':getCanonicalPlantUrl(plant)},\
 		context_instance = RequestContext(request))
 	
