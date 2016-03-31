@@ -5,15 +5,15 @@
 {% block app-content %}
     <h2 class="asset-page">{% block app-title %}{{ title }}{% endblock app-title %}</h2>
     {% if plants %}
+        <ol class="plant-listing">
         {% for plant in plants %}
-            <div class="plant-listing">
-                <p><span class="blue"><a href="{% url "plants-detail" plant.canonical %}">{{ plant.name }} ({{ plant.site_code }})</a>
+                <li><span class="blue"><a href="{% url "plants-detail" plant.canonical %}">{{ plant.name }} ({{ plant.site_code }})</a>
                 </span>
                 {% if plant.location.friendly_location %}
                     near the {{ plant.location.friendly_location }}
                 {% endif %}
-                </p>
-            </div>
+                </li>
         {% endfor %}
+        </ol>
     {% endif %}
 {% endblock app-content %}

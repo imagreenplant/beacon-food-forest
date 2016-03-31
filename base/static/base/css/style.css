@@ -167,7 +167,7 @@ q:after {
     background-image: none;
 }
 .app #botnav {
-    margin: 0 -9px 0 -26px;
+    margin: 0 0 0 0;
     border-right: none;
 }
 
@@ -1050,7 +1050,7 @@ span.blue a {
     margin: 0;
     color: #4C301C;
 }
-.announcement p,ol {
+.announcement p, .announcement ol {
     margin-left: 30px;
 }
 .markdown img {
@@ -1077,7 +1077,7 @@ span.blue a {
 h2.asset-page {
     font-size: 300%;
     color: #A5978D;
-    margin-left: 300px;
+    margin: 0 0 0.3em 1em;
 }
 /*Start Education*/
 .app-listing {
@@ -1096,10 +1096,15 @@ h2.asset-page {
 }
 /*Force small listing to extend the whole width*/
 .plant-listing {
+    list-style-type: none;
+    font-size: 0.8em;
+    max-width: 35em;
 }
-.plant-listing p {
-    margin-top:0.2em;
-
+.plant-listing li {
+    padding: 0.1em;
+}
+.plant-listing li:nth-child(even){
+    background-color: rgba(78, 22, 0, 0.22);
 }
 
 .lfloat {
@@ -1178,6 +1183,10 @@ h2.asset-page {
     }
     .app-content {
         padding: 1em 2em 0 2em;
+    }
+    h2.asset-page {
+        font-size: 2em;
+        margin-left: 1em;
     }
 
     /*Move right Column to bottom*/
