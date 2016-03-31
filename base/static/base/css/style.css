@@ -163,6 +163,13 @@ q:after {
     width: 380px;
     height: 230px;
 }
+#main.app {
+    background-image: none;
+}
+.app #botnav {
+    margin: 0 -9px 0 -26px;
+    border-right: none;
+}
 
 .thank-you-splash h2 {
     font-size: 400%;
