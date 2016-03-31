@@ -150,10 +150,20 @@ q:after {
     margin: 1em 0 1em 0;
     font-weight: normal;
 }
+
+/*App pages (education, plants etc)*/
 .app-asset-title {
     font-size: 2em;
     margin-top: 0.3em;
 }
+.app-content {
+    padding: 1em 4em 0 4em;
+}
+.app-content .spacer-div {
+    width: 380px;
+    height: 230px;
+}
+
 .thank-you-splash h2 {
     font-size: 400%;
     margin-left: 5%;
@@ -1071,9 +1081,8 @@ h2.asset-page {
 /*End Education*/
 
 /*Start Plants*/
-.plant-detail-map {
-    float: right;
-    margin: 20px 0 20px 20px;
+.plant-image {
+    margin: 1em;
 }
 .plant-content {}
 .plant-text-content {
@@ -1160,6 +1169,9 @@ h2.asset-page {
     .app-asset-title {
         font-size: 1.3em;
     }
+    .app-content {
+        padding: 1em 2em 0 2em;
+    }
 
     /*Move right Column to bottom*/
     .right-column {
@@ -1216,7 +1228,7 @@ h2.asset-page {
     }
     
     #footercontent {
-      display:table-footer-group !important;
+      display:table-footer-group;
     }
 }
 @media only screen and (max-width: 750px) and (min-width: 561px) {
@@ -1304,9 +1316,13 @@ h2.asset-page {
         width: 100%;
     }
     #footer-content {
-      display:table-footer-group !important;
+      display:table-footer-group;
     }
     .thank-you-splash h2 {
         font-size: 200%;
+    }
+
+    .app-content {
+        padding: 1em 1em 0 1em;
     }
 }

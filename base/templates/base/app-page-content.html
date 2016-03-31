@@ -4,14 +4,9 @@
 
 {% block content %}
     <div class="container shortpage-container">
-        <div id="indexcontent" class="main-content">
-        	<div id="content">
-        		<div class="spacer-div"></div>
-				{% block app-content %}{% endblock app-content %}
-			</div>
-        </div>
-        <div class="right-column">
-            <div id="sidecontent">{% block app-sidenav %}{% endblock app-sidenav %}</div>
+        <div class="app-content">
+    		<div class="spacer-div"></div>
+			{% block app-content %}{% endblock app-content %}
         </div>
     </div>
 {% endblock content %}
