@@ -88,6 +88,9 @@ INSTALLED_APPS = (
     # The maps app for trees etc
     'maps',
 
+    # The plants app for tracking individual plants
+    'plants',
+
     # Helper apps for design -- probably don't need in production
     'django.contrib.webdesign',
     # To protect forms with Captcha

@@ -150,6 +150,27 @@ q:after {
     margin: 1em 0 1em 0;
     font-weight: normal;
 }
+
+/*App pages (education, plants etc)*/
+.app-asset-title {
+    font-size: 2em;
+    margin-top: 0.3em;
+}
+.app-content {
+    padding: 1em 4em 0 4em;
+}
+.app-content .spacer-div {
+    width: 380px;
+    height: 230px;
+}
+#main.app {
+    background-image: none;
+}
+.app #botnav {
+    margin: 0 0 0 0;
+    border-right: none;
+}
+
 .thank-you-splash h2 {
     font-size: 400%;
     margin-left: 5%;
@@ -779,9 +800,15 @@ h2.subtitle-text {
     position: relative;
     min-height: 1500px;
 }
-.education-container {
+.shortpage-container {
     min-height: 37em;
 }
+.spacer-div {
+    float:right;
+    width: 220px;
+    height: 210px;
+}
+
 /* Front page content (left) */
 
 .main-content {
@@ -801,12 +828,10 @@ h2.subtitle-text {
     height: auto;
     float: left;
     z-index: 3;
-    min-height: 1950px;
+    width: 100%;
 }
-.content-ext {
-    height: auto;
-    float: left;
-    z-index: 3;
+.long-content {
+    min-height: 1950px;
 }
 .shorttext {
     width: 460px;
@@ -1025,7 +1050,7 @@ span.blue a {
     margin: 0;
     color: #4C301C;
 }
-.announcement p,ol {
+.announcement p, .announcement ol {
     margin-left: 30px;
 }
 .markdown img {
@@ -1052,15 +1077,40 @@ span.blue a {
 h2.asset-page {
     font-size: 300%;
     color: #A5978D;
-    margin-left: 300px;
+    margin: 0 0 0.3em 1em;
 }
 /*Start Education*/
-.class-listing {
+.app-listing {
     background-color: #D2ECCA;
     margin: 20px 50px 20px 20px;
     padding: 20px 70px 20px 20px;
 }
 /*End Education*/
+
+/*Start Plants*/
+.plant-image {
+    margin: 1em;
+}
+.plant-content {}
+.plant-text-content {
+}
+/*Force small listing to extend the whole width*/
+.plant-listing {
+    list-style-type: none;
+    font-size: 0.8em;
+    max-width: 35em;
+}
+.plant-listing li {
+    padding: 0.1em;
+}
+.plant-listing li:nth-child(even){
+    background-color: rgba(78, 22, 0, 0.22);
+}
+
+.lfloat {
+    float: left;
+}
+/*End Plants*/
 
 /*First major breakpoint where hazelnut image reduces in size*/
 
@@ -1075,6 +1125,10 @@ h2.asset-page {
 @media only screen and (max-width: 949px) {
     .background-nut {
         background-size: 20em;
+    }
+    .spacer-div {
+        width: 130px;
+        height: 80px;
     }
     .right-column {
         top: 80px;
@@ -1112,7 +1166,7 @@ h2.asset-page {
 
 }
 @media only screen and (max-width: 800px) {
-    .background-nut {
+    .background-nut, .spacer-div {
         display: none;
     }
 }
@@ -1123,6 +1177,16 @@ h2.asset-page {
     }
     #main {
         background-image: none;
+    }
+    .app-asset-title {
+        font-size: 1.3em;
+    }
+    .app-content {
+        padding: 1em 2em 0 2em;
+    }
+    h2.asset-page {
+        font-size: 2em;
+        margin-left: 1em;
     }
 
     /*Move right Column to bottom*/
@@ -1179,9 +1243,6 @@ h2.asset-page {
         font-size: 1em;
     }
     
-    #footercontent {
-      display:table-footer-group !important;
-    }
 }
 @media only screen and (max-width: 750px) and (min-width: 561px) {
     .sidetitle {
@@ -1268,9 +1329,13 @@ h2.asset-page {
         width: 100%;
     }
     #footer-content {
-      display:table-footer-group !important;
+      display:table-footer-group;
     }
     .thank-you-splash h2 {
         font-size: 200%;
+    }
+
+    .app-content {
+        padding: 1em 1em 0 1em;
     }
 }
