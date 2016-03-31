@@ -1227,9 +1227,6 @@ h2.asset-page {
         font-size: 1em;
     }
     
-    #footercontent {
-      display:table-footer-group;
-    }
 }
 @media only screen and (max-width: 750px) and (min-width: 561px) {
     .sidetitle {
