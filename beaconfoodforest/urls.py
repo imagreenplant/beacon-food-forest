@@ -18,6 +18,7 @@ from django.contrib import admin
 from django.views.generic.base import RedirectView
 from maps import urls as map_urls
 from education import urls as education_urls
+from plants import urls as plant_urls
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
@@ -46,8 +47,11 @@ urlpatterns = [
     # Maps
     url(r'^maps/', include(map_urls), name="maps"),
 
-    # Maps
+    # Education
     url(r'^education/', include(education_urls), name="education"),
+
+    # Plants
+    url(r'^plants/', include(plant_urls), name="plants"),
 
     # Other
     url(r'^google4d7d768ede13abd5\.html', 'base.views.google_verify'),

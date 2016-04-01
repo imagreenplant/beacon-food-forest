@@ -1,5 +1,4 @@
 from django.conf.urls import include, url
-# import beaconfoodforest.urls
 
 urlpatterns = [
     url(r'^$', 'education.views.index', name="education-hub"),

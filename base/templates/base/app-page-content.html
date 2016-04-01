@@ -1,0 +1,12 @@
+{% extends "base/index.html" %} 
+{% block title %}{% block app-title %}{% endblock app-title %}{% endblock title %}
+{% block canonical %}{% block app-canonical %}{% endblock app-canonical %}{% endblock canonical %}
+{% block sub-page-class %}app{% endblock sub-page-class %}
+{% block content %}
+    <div class="container shortpage-container">
+        <div class="app-content">
+    		<div class="spacer-div"></div>
+			{% block app-content %}{% endblock app-content %}
+        </div>
+    </div>
+{% endblock content %}

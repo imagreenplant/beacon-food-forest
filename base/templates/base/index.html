@@ -4,11 +4,12 @@
 
 <head>
     <title>
-        Beacon Food Forest : A Community Permaculture Project
+        Beacon Food Forest: {% block title %}A Community Permaculture Project{% endblock title%}
     </title>
     <link rel="stylesheet" href="{% static "base/css/style.css" %}" type="text/css" />
     <link rel="stylesheet" href="{% static "base/css/slicknav.css" %}" type="text/css" />
     <link rel="shortcut icon" href="{% static "base/img/favicon.ico" %}" type="image/x-icon" />
+    {% block canonical %}{% endblock canonical %}
     <!-- Google Translate Meta -->
     <meta name="google-translate-customization" content="d146be5ef5f93bc-8a449acf17695ebb-gba1a2e4ad08a8c79-14">
     <!--/Google Translate Meta -->
@@ -20,7 +21,7 @@
 
 <body>
     <div id="popcontent">{% include "base/popcontent.html" %}</div>
-    <div id="main">
+    <div id="main" class="{% block sub-page-class %}{% endblock sub-page-class %}">
         <div class="background-nut"></div>
         <div id="headercontent">{% include "base/header.html" %}</div>
         {% block content %}{% endblock content%}
