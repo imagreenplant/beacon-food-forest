@@ -3,4 +3,5 @@ from . import views
 
 urlpatterns = [
     url(r'^trees/$', views.trees , name="trees"),
+    url(r'^phase2/$', views.phase2 , name="phase2"),
 ]
