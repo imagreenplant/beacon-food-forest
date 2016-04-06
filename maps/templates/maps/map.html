@@ -7,7 +7,7 @@
 <head>
   <link rel="stylesheet" type="text/css" href="{% static "maps/css/map.css" %}">
   <!-- <meta name="viewport" content="width=device-width, initial-scale=2, target-densityDpi=low-dpi, user-scalable=no"> -->
-  <meta name="viewport" content="width=device-width, initial-scale=1 ">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta charset="UTF-8">
   <script language="javascript">var STATIC_URL = "{{ STATIC_URL }}";</script>
   <script src="{% static "base/js/jquery.js" %}"></script>
@@ -23,7 +23,7 @@
   <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
   <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAsnOLu3eLbo60hkQNWo-3EEt102mOv99w"></script>
   <script type="text/javascript" src="{% static "maps/js/geoxmlfull_v3.js" %}"></script>
-  <script type="text/javascript" src="{% static "maps/js/map.js" %}"></script>
+  {% block map-js %}<script type="text/javascript" src="{% static "maps/js/map.js" %}"></script>{% endblock map-js %}
 </body>
 
 </html>
