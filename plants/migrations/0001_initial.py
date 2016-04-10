@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
-from django.db import models, migrations
+from django.db import migrations, models
 import django_markdown.models
 
 
@@ -11,18 +11,6 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
-        migrations.CreateModel(
-            name='Coordinates',
-            fields=[
-                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
-                ('latitude', models.DecimalField(default=0.0, help_text=b'(Required) GPS latitude', max_digits=10, decimal_places=7)),
-                ('longitude', models.DecimalField(default=0.0, help_text=b'(Required) GPS longitude', max_digits=10, decimal_places=7)),
-            ],
-            options={
-                'verbose_name': 'Coordinates',
-                'verbose_name_plural': 'Coordinates',
-            },
-        ),
         migrations.CreateModel(
             name='Location',
             fields=[
@@ -47,14 +35,13 @@ class Migration(migrations.Migration):
                 ('name', models.CharField(help_text=b'Common Name (required)', max_length=150)),
                 ('text', django_markdown.models.MarkdownField(help_text=b'(Optional) Descriptive text for plant (put anything here)', blank=True)),
                 ('primary_picture', models.ImageField(help_text=b'(Optional) primary image', upload_to=b'', blank=True)),
-                ('year_planted', models.IntegerField(help_text=b'(Optional) Year planted at Beacon Food forest.  Use -1 for unknown.', null=True, blank=True)),
-                ('site_code', models.CharField(help_text=b'(Required) A unique        code for plant, comprised of year planted + sequential number of plant.  e.g. 1501 (2015,first plant)', unique=True, max_length=20)),
-                ('url_slug', models.SlugField(help_text=b'(Optional) An url friendly short description.        Must be unique to each plant e.g julies-quince', unique=True, blank=True)),
+                ('year_planted', models.IntegerField(help_text=b'(Optional) Year planted at Beacon Food forest.  Use -1 for unknown.', blank=True)),
+                ('site_code', models.CharField(help_text=b'(Required) A unique \t\tcode for plant, comprised of year planted + sequential number of plant.  e.g. 1501 (2015,first plant)', unique=True, max_length=20)),
+                ('url_slug', models.SlugField(help_text=b'(Optional) An url friendly short description. \t\tMust be unique to each plant e.g julies-quince', unique=True, blank=True)),
                 ('last_modified', models.DateTimeField(auto_now=True)),
                 ('created', models.DateTimeField(auto_now_add=True)),
-                ('alive', models.BooleanField(default=True, help_text=b'Is plant alive? Unchecked        declares dead but maintains info for historical purposes.')),
-                ('published', models.BooleanField(default=True, help_text=b'If you want to remove        the plant from being listed on the site, then uncheck this.')),
-                ('coordinates', models.ForeignKey(default=b'', blank=True, to='plants.Coordinates', help_text=b'Exact gps coordinates of location of plant')),
+                ('alive', models.BooleanField(default=True, help_text=b'Is plant alive? Unchecked \t\tdeclares dead but maintains info for historical purposes.')),
+                ('published', models.BooleanField(default=True, help_text=b'If you want to remove \t\tthe plant from being listed on the site, then uncheck this.')),
                 ('location', models.ForeignKey(default=b'', blank=True, to='plants.Location', help_text=b'Assign a location (made separately)')),
             ],
             options={
