@@ -28,14 +28,18 @@
                     {% endif %}
                     
                     {% if plant.location and plant.location.friendly_location %}
-                        <p>Location: {{ plant.location.friendly_location}}</p>
+                        <p>Location: {{ plant.location.friendly_location}}
+                        {% if plant.location.greater_area %}
+                            in {{ plant.location.greater_area }}
+                        {% endif %}
+                        </p>
                     {% endif %}
                     <p>{{ plant.text|parse_markdown}}</p>
                 </div>
 
-                {% if plant.location and plant.location.gps_latitude and plant.location.gps_longitude %}
+                {% if plant.coordinates %}
                 <div class="plant-image lfloat">
-                    <img src="http://maps.googleapis.com/maps/api/staticmap?center=47.5679410,-122.3127390&zoom=18&size=250x300&maptype=hybrid&markers=color%3aorange%7Clabel%3aA%7C{{plant.location.gps_latitude}},{{plant.location.gps_longitude}}&sensor=true">
+                    <img src="http://maps.googleapis.com/maps/api/staticmap?center=47.5679410,-122.3127390&zoom=18&size=250x300&maptype=hybrid&markers=color%3ared%7C{{plant.coordinates.latitude}},{{plant.coordinates.longitude}}&sensor=true">
                 </div>
                 {% endif %}
 

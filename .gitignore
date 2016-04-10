@@ -12,3 +12,5 @@ local-static
 beaconfoodforest/settings_local.py
 key
 db.sqlite3
+beacondb
+
