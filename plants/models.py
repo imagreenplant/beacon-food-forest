@@ -65,8 +65,8 @@ class Plant(models.Model):
        declares dead but maintains info for historical purposes.")
     published = models.BooleanField(blank=False, default=True, help_text="If you want to remove \
        the plant from being listed on the site, then uncheck this.")
-    location = models.ForeignKey(Location,on_delete=models.CASCADE, blank=True, default='', help_text='Assign a location (made separately)')
-    coordinates = models.ForeignKey(Coordinates,on_delete=models.CASCADE, blank=True, default='', help_text='Exact gps coordinates of location of plant')
+    location = models.ForeignKey(Location,on_delete=models.CASCADE, blank=True, null=True, help_text='Assign a location (made separately)')
+    coordinates = models.ForeignKey(Coordinates,on_delete=models.CASCADE, blank=True, null=True, help_text='Exact gps coordinates of location of plant')
 
 
 # Saving this for another day.  We may not want this.
