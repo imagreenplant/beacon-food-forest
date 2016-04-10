@@ -5,7 +5,8 @@ from plants.models import Plant, Location, Coordinates
 
 @admin.register(Plant)
 class PlantAdmin(MarkdownModelAdmin):
-	list_display = ('name', 'site_code', 'alive')
+	list_display = ('name', 'site_code', 'alive',)
+	save_as = True
 
 @admin.register(Location)
 class LocationAdmin(MarkdownModelAdmin):
