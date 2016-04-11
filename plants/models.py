@@ -49,7 +49,6 @@ class Plant(models.Model):
         super(Plant, self).save(*args, **kwargs)
 
     friendly_name = models.CharField(max_length=100, blank=True, help_text="(Optional) A friendly plant name, like 'Charlie the Apple Tree'")
-    friendly_name_author = models.CharField(max_length=100, blank=True, help_text="(Optional) The author of the friendly plant name")
     latin_name = models.CharField(max_length=150, blank=True, help_text="(Optional) Latin name")
     name = models.CharField(max_length=150, blank=False, help_text="Common Name (required)")
     text = MarkdownField(blank=True, help_text="(Optional) Descriptive text for plant (put anything here)")
