@@ -46,6 +46,12 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 nav ul {
     list-style: none;
 }
+
+/*Bootstrap Override*/
+h1,h2 {
+    font-weight: bold;
+}
+
 a {
     margin: 0;
     padding: 0;
@@ -169,6 +175,17 @@ q:after {
 .app #botnav {
     margin: 0 0 0 0;
     border-right: none;
+}
+
+/*Reduce size of nut image on list pages*/
+.app .background-nut {
+    background-size: 20em;
+}
+.app .spacer-div {
+    display: none;
+}
+.app table>tbody>tr>td {
+    padding: 1px 2px 1px 2px;
 }
 
 .thank-you-splash h2 {

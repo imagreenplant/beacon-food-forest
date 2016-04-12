@@ -105,7 +105,7 @@ function initialize() {
 
 
     plant_map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
-    gml = new GeoXml("gml", plant_map, "maps/phases.kml", {
+    gml = new GeoXml("gml", plant_map, STATIC_URL + "maps/kml/phase2a.kml", {
         sidebarid: "the_side_bar",
         quiet: true, //Removes on-screen dialogs, puts in console.log
         // pointlabelclass: "point-label",  In documentation, but not functioning
