@@ -3,7 +3,8 @@
 {% load custom_markdown %}
 {% block app-content %}
     {% if class %}
-        <div id="class-primary-image">
+        <div class="pull-right">
+          <img src="/media/{{class.class_primary_image}}">
         </div>
         <div class="app-listing">
             <h2>{{ class.title}}</h2>
