@@ -14,6 +14,7 @@ class ClassEvent(models.Model):
         if not self.class_slug_url:
             self.class_slug_url = slugify.slugify("-".join([self.title,self.event_date.strftime("%B-%d-%Y")]))[:50]
         try:
+            # Bug in django requires this statement to catch IntegrityError
             with transaction.atomic():
                 super(ClassEvent, self).save(*args, **kwargs)
         except IntegrityError:
@@ -25,8 +26,8 @@ class ClassEvent(models.Model):
     publish_date = models.DateField('date to publicize posting', blank=False, default=timezone.now, help_text='(Required) The date that you want to publish the class on the website')
     expire_date = models.DateField('date to expire posting', blank=False, default=timezone.now, help_text='(Required) The date that you want to unpublish the class on the website')
     event_date = models.DateField('date class is held', blank=False, help_text='(Required) The date of the event')
-    event_start_time = models.TimeField('time class starts', blank=True, help_text='(Required) The starting time of the class')
-    event_end_time = models.TimeField('time class ends', blank=True, help_text='(Required) The end time of the class')
+    event_start_time = models.TimeField('time class starts', blank=True, default=datetime.time(10, 0, 0), help_text='(Required) The starting time of the class')
+    event_end_time = models.TimeField('time class ends', blank=True, default=datetime.time(14, 0, 0), help_text='(Required) The end time of the class')
     ticket_link = models.URLField("link to tickets", blank=True, help_text='(Optional) An url link where to get tickets')
     class_description = MarkdownField(blank=True, help_text="(Optional) Desciption of class (can be long) with formatting")
     class_primary_image = models.ImageField("optional class image", blank=True, help_text='(Optional) Primary image for the class')
