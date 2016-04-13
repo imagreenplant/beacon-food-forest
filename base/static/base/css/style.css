@@ -51,6 +51,12 @@ nav ul {
 h1,h2 {
     font-weight: bold;
 }
+.btn-primary {
+    background-color: #0DAED3;
+    font-weight: 900;
+}
+
+
 
 a {
     margin: 0;
@@ -202,6 +208,56 @@ q:after {
   right: 0;
   background: linear-gradient(to top, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0));
 }
+
+/*Taken from Zurb event blocks*/
+.event {
+  position: absolute;
+  bottom: 0;
+  padding: 1rem;
+  z-index: 20;
+  display: table; 
+  color: white;
+}
+.event-date {
+  width: 5rem;
+  margin: 0 auto 1rem;
+  /*display: table-cell;*/
+  /*width: auto; */}
+  .event-date .event-month {
+    margin: 0;
+    background: #eee;
+    padding: 0.2rem 0;
+    text-align: center; 
+    font-size: 1.5rem;
+    }
+  .event-date .event-day {
+    margin: 0;
+    border: 2px solid #eee;
+    text-align: center;
+    font-size: 2rem; 
+    color: white;}
+
+.event-desc {
+  padding: 0 0 0 0.7rem;
+  text-align: left;
+  display: table-cell;
+  vertical-align: top; }
+  .event-desc .event-desc-header {
+    margin: 0.5rem 0;
+    padding: 0;
+    font-size: 1.3rem;  }
+  .event-desc .event-desc-detail {
+    margin: 0 0 0.25rem;
+    padding: 0; }
+  .event-desc .event-desc-time {
+    font-weight: bold; }
+  .event-desc .rsvp.button {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    margin: 0; }
+}
+
+
 
 /*Reduce size of nut image on list pages*/
 .app .background-nut {
