@@ -162,9 +162,9 @@ q:after {
     font-size: 2em;
     margin-top: 0.3em;
 }
-.app-content {
+/*.app-content {
     padding: 1em 4em 0 4em;
-}
+}*/
 .app-content .spacer-div {
     width: 380px;
     height: 230px;
@@ -175,6 +175,32 @@ q:after {
 .app #botnav {
     margin: 0 0 0 0;
     border-right: none;
+}
+.crop {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+}
+.crop img {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%,-50%);
+      -ms-transform: translate(-50%,-50%);
+          transform: translate(-50%,-50%); 
+    width: 100%;  
+}
+.crop:after {
+  content: " ";
+  z-index: 10;
+  display: block;
+  position: absolute;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0));
 }
 
 /*Reduce size of nut image on list pages*/
@@ -1096,13 +1122,6 @@ h2.asset-page {
     color: #A5978D;
     margin: 0 0 0.3em 1em;
 }
-/*Start Education*/
-.app-listing {
-    background-color: #D2ECCA;
-    margin: 20px 50px 20px 20px;
-    padding: 20px 70px 20px 20px;
-}
-/*End Education*/
 
 /*Start Plants*/
 .plant-image {
