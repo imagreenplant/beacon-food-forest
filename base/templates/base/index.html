@@ -33,7 +33,7 @@
 
 <body>
     <div id="popcontent">{% include "base/popcontent.html" %}</div>
-    <div id="main" class="{% block sub-page-class %}{% endblock sub-page-class %}">
+    <div id="main" class="{% block sub-page-class %}home{% endblock sub-page-class %}">
         <div class="background-nut"></div>
         <div id="headercontent">{% include "base/header.html" %}</div>
         {% block content %}{% endblock content%}

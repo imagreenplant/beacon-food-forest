@@ -259,16 +259,6 @@ q:after {
 
 
 
-/*Reduce size of nut image on list pages*/
-.app .background-nut {
-    background-size: 20em;
-}
-.app .spacer-div {
-    display: none;
-}
-.app table>tbody>tr>td {
-    padding: 1px 2px 1px 2px;
-}
 
 .thank-you-splash h2 {
     font-size: 400%;
@@ -784,6 +774,17 @@ body {
     width: 500px;
     height: 600px;
 }
+/*Reduce size of nut image on list pages*/
+.app .background-nut {
+    background-size: 20em;
+}
+.app .spacer-div {
+    display: none;
+}
+.app table>tbody>tr>td {
+    padding: 1px 2px 1px 2px;
+}
+
 .banner-img {
     width: 155px;
     height: 255px;
