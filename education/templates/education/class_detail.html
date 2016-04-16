@@ -4,18 +4,23 @@
 {% block app-content %}
     {% if class %}
         <div class="app-listing container-fluid">
-          <div class="crop"> 
-            <img src="/media/{{class.class_primary_image}}">
-                    <div class="event">
-            <div class="event-date">
-                <p class="event-month">{{ class.event_date|date:"M" }}</p>
-                <p class="event-day">{{ class.event_date|date:"j" }}</p>
+          <div class="crop">
+            {% if class.class_primary_image %}
+              <img src="/media/{{class.class_primary_image}}" alt="{{class.title}} photo">
+            {% else %}
+              <img src="{% static "education/img/education_default.jpg" %}" alt="Education event default image">  
+            {% endif %} 
+            
+            <div class="event">
+              <div class="event-date">
+                  <p class="event-month">{{ class.event_date|date:"M" }}</p>
+                  <p class="event-day">{{ class.event_date|date:"j" }}</p>
+              </div>
+              <div class="event-desc">
+                <h2 class="event-desc-header">{{class.title}}</h2>
+                <a class="rsvp btn btn-primary" href="{{ class.ticket_link }}" role="button">Get Tickets</a>
+              </div>
             </div>
-            <div class="event-desc">
-              <h2 class="event-desc-header">{{class.title}}</h2>
-              <a class="rsvp btn btn-primary" href="{{ class.ticket_link }}" role="button">Get Tickets</a>
-            </div>
-          </div>
           </div>
 
 
