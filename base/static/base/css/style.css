@@ -168,9 +168,6 @@ q:after {
     font-size: 2em;
     margin-top: 0.3em;
 }
-/*.app-content {
-    padding: 1em 4em 0 4em;
-}*/
 .app-content .spacer-div {
     width: 380px;
     height: 230px;
@@ -246,10 +243,14 @@ q:after {
         padding: 0.3em;
         margin: 0; 
         font-size: inherit;}
-    }
 
-
-
+/*IMage grid styles*/
+.image-grid .crop {
+    height: 150px;
+}
+.image-grid .event {
+    font-size: 0.8em;
+}
 
 .thank-you-splash h2 {
     font-size: 400%;
@@ -1265,9 +1266,6 @@ h2.asset-page {
     .app-asset-title {
         font-size: 1.3em;
     }
-    .app-content {
-        padding: 1em 2em 0 2em;
-    }
     h2.asset-page {
         font-size: 2em;
         margin-left: 1em;
@@ -1418,15 +1416,14 @@ h2.asset-page {
     .thank-you-splash h2 {
         font-size: 200%;
     }
-
-    .app-content {
-        padding: 1em 1em 0 1em;
-    }
     .crop {
         height: 150px;
     }
     .event {
         padding: 1em 1em 0 1em;
+        font-size: 0.6em;
+    }
+    .image-grid .event {
         font-size: 0.6em;
     }
 }
