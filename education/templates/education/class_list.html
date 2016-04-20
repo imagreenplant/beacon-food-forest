@@ -4,7 +4,6 @@
 {% block app-content %}
     <h2 class="asset-page">{% block app-title %}{{ title }}{% endblock app-title %}</h2>
     {% if classes %}
-    <div class="image-grid">
         {% for class in classes %}
         <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 image-grid">
 
@@ -30,7 +29,6 @@
         </div>
         {% endfor %}
     {% endif %}
-    </div>
 {% endblock app-content %}
 {% block app-sidenav %}
   {% include "education/education-sidenav.html" %}
