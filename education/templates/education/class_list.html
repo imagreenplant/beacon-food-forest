@@ -5,40 +5,28 @@
     <h2 class="asset-page">{% block app-title %}{{ title }}{% endblock app-title %}</h2>
     {% if classes %}
         {% for class in classes %}
-            <div class="app-listing">        
-                <a href="{% url 'class-detail' class.class_slug_url %}"><h3>{{ class.title}}</h3></a>
-                <div id="class-primary-image">
+        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 image-grid">
+
+            <div class="crop">
+              <a href="{% url 'class-detail' class.class_slug_url  %}"><span class="image-grid-link"></span></a>
+              {% if class.class_primary_image %}
+                <img src="/media/{{class.class_primary_image}}" alt="{{class.title}} photo">
+              {% else %}
+                <img src="{% static "education/img/education_default.jpg" %}" alt="Education event default image">  
+              {% endif %} 
+              <div class="event">
+                <div class="event-date">
+                    <p class="event-month">{{ class.event_date|date:"M" }}</p>
+                    <p class="event-day">{{ class.event_date|date:"j" }}</p>
                 </div>
-                <div class="class-text-content">
-                    <p>Date: {{ class.event_date }}   From {{ class.event_start_time }} until {{ class.event_end_time }}</p>
-                    <p>Tickets: {{ class.ticket_link }}</p>
-                    <p class="description">{{ class.class_description|parse_markdown }}</p>
-                    <p>Location: <a href="{{ class.class_location_link }}">{{ class.class_location }}</a></p>
+                <div class="event-desc">
+                  <h2 class="event-desc-header">{{class.title}}</h2>
+                  <a class="rsvp btn btn-primary" href="{{ class.ticket_link }}" role="button">Get Tickets</a>
                 </div>
-                {# https://developers.google.com/structured-data/rich-snippets/events #}
-                {# https://schema.org/Event #}
-                {# https://schema.org/EducationEvent #}
-                <script type="application/ld+json">
-                    {
-                      "@context": "http://schema.org",
-                      "@type": "EducationEvent",
-                      "name": "Class: {{ class.title }}",
-                      "startDate" : "{{ class.event_date|date:"c"}}",
-                      "url" : "{{ request.build_absolute_uri }}",
-                      "location" : {
-                        "@type" : "Place",
-                        "name" : "{{ class.class_location }}",
-                        "address" : "{{ class.class_location }}"
-                      },
-                      "offers" : {
-                        "@type" : "Offer",
-                        "price":"{{ class.price }}",
-                        "priceCurrency":"USD",
-                        "url":"{{ class.ticket_link }}"
-                      }
-                    }
-                </script>
+              </div>
             </div>
+          
+        </div>
         {% endfor %}
     {% endif %}
 {% endblock app-content %}

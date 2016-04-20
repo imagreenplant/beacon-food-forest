@@ -168,9 +168,6 @@ q:after {
     font-size: 2em;
     margin-top: 0.3em;
 }
-/*.app-content {
-    padding: 1em 4em 0 4em;
-}*/
 .app-content .spacer-div {
     width: 380px;
     height: 230px;
@@ -208,6 +205,15 @@ q:after {
   right: 0;
   background: linear-gradient(to top, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0));
 }
+.image-grid-link {
+    position:absolute; 
+  width:100%;
+  height:100%;
+  top:0;
+  left: 0;
+
+  z-index: 30;
+}
 
 /*Taken from Zurb/Foundation event blocks for Education */
 .event {
@@ -218,6 +224,10 @@ q:after {
   display: table; 
   color: white;
   font-size: 1em;}
+    .event a {
+        text-transform: none;
+        color: inherit;
+    }
     .event-date {
       width: 6em;
       margin: 0 auto 1em;}
@@ -241,15 +251,22 @@ q:after {
       .event-desc .event-desc-header {
         margin: 0.5em 0;
         padding: 0;
-        font-size: 1.3em;  }
+        font-size: 1.3em;
+        color: white;  }
       .event-desc .rsvp.btn {
         padding: 0.3em;
         margin: 0; 
-        font-size: inherit;}
-    }
+        font-size: inherit;
+        text-transform: uppercase;
+        z-index: 40;}
 
-
-
+/*IMage grid styles*/
+.image-grid {
+    margin-bottom: 30px;}
+    .image-grid .crop {
+        height: 150px;}
+    .image-grid .event {
+        font-size: 0.8em;}
 
 .thank-you-splash h2 {
     font-size: 400%;
@@ -1265,9 +1282,6 @@ h2.asset-page {
     .app-asset-title {
         font-size: 1.3em;
     }
-    .app-content {
-        padding: 1em 2em 0 2em;
-    }
     h2.asset-page {
         font-size: 2em;
         margin-left: 1em;
@@ -1418,15 +1432,14 @@ h2.asset-page {
     .thank-you-splash h2 {
         font-size: 200%;
     }
-
-    .app-content {
-        padding: 1em 1em 0 1em;
-    }
     .crop {
         height: 150px;
     }
     .event {
         padding: 1em 1em 0 1em;
+        font-size: 0.6em;
+    }
+    .image-grid .event {
         font-size: 0.6em;
     }
 }
