@@ -7,24 +7,26 @@
     <div class="image-grid">
         {% for class in classes %}
         <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 image-grid">
-          <div class="crop">
-            {% if class.class_primary_image %}
-              <img src="/media/{{class.class_primary_image}}" alt="{{class.title}} photo">
-            {% else %}
-              <img src="{% static "education/img/education_default.jpg" %}" alt="Education event default image">  
-            {% endif %} 
-            
-            <div class="event">
-              <div class="event-date">
-                  <p class="event-month">{{ class.event_date|date:"M" }}</p>
-                  <p class="event-day">{{ class.event_date|date:"j" }}</p>
-              </div>
-              <div class="event-desc">
-                <h2 class="event-desc-header">{{class.title}}</h2>
-                <a class="rsvp btn btn-primary" href="{{ class.ticket_link }}" role="button">Get Tickets</a>
+
+            <div class="crop">
+              <a href="{% url 'class-detail' class.class_slug_url  %}"><span class="image-grid-link"></span></a>
+              {% if class.class_primary_image %}
+                <img src="/media/{{class.class_primary_image}}" alt="{{class.title}} photo">
+              {% else %}
+                <img src="{% static "education/img/education_default.jpg" %}" alt="Education event default image">  
+              {% endif %} 
+              <div class="event">
+                <div class="event-date">
+                    <p class="event-month">{{ class.event_date|date:"M" }}</p>
+                    <p class="event-day">{{ class.event_date|date:"j" }}</p>
+                </div>
+                <div class="event-desc">
+                  <h2 class="event-desc-header">{{class.title}}</h2>
+                  <a class="rsvp btn btn-primary" href="{{ class.ticket_link }}" role="button">Get Tickets</a>
+                </div>
               </div>
             </div>
-          </div>
+          
         </div>
         {% endfor %}
     {% endif %}
