@@ -261,12 +261,12 @@ q:after {
         z-index: 40;}
 
 /*IMage grid styles*/
-.image-grid .crop {
-    height: 150px;
-}
-.image-grid .event {
-    font-size: 0.8em;
-}
+.image-grid {
+    margin-bottom: 30px;}
+    .image-grid .crop {
+        height: 150px;}
+    .image-grid .event {
+        font-size: 0.8em;}
 
 .thank-you-splash h2 {
     font-size: 400%;
