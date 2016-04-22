@@ -1,11 +1,8 @@
 {% extends "infopages/infopage-content.html" %}
 {% load staticfiles %}
-
 {% block info-content %}
 <div class="content-div">
-    <h2 class="content-title">
-        About Permaculture
-    </h2>
+    <h2 class="content-title">{% block info-title %}About Permaculture{% endblock info-title %}</h2>
 
     <p>
         Permaculture is an approach to designing human settlements and perennial agricultural systems that mimics the relationships found in natural ecologies. It was first developed in the early 1960s and then theoretically developed by Australians Bill Mollison and David Holmgren and their associates during the 1970s in a series of publications. &mdash; wikipedia.org
