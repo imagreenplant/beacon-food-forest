@@ -244,7 +244,8 @@ q:after {
         font-size: 2em; 
         color: white;}
     .event-desc {
-        padding: 0 0 0 0.7em;
+        padding: 0 0 0.7em 0.7em;
+        margin: 0 0 1em 0;
         text-align: left;
         display: table-cell;
         vertical-align: top; }
@@ -253,6 +254,9 @@ q:after {
         padding: 0;
         font-size: 1.3em;
         color: white;  }
+      .event-desc.event-listpage{
+        vertical-align: bottom;
+      }
       .event-desc .rsvp.btn {
         padding: 0.3em;
         margin: 0; 
