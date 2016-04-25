@@ -53,6 +53,9 @@ urlpatterns = [
     # Plants
     url(r'^plants/', include(plant_urls), name="plants"),
 
+    # Announcements
+    url(r'^announcement/(?P<slug>[\w-]+)/$', 'base.views.announcement' , name="announcement-detail"),
+
     # Other
     url(r'^google4d7d768ede13abd5\.html', 'base.views.google_verify'),
     url(r'^robots.txt', 'base.views.robots'),

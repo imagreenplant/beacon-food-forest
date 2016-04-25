@@ -49,6 +49,9 @@ class Announcement(models.Model):
     announcement_content = MarkdownField(blank=True, help_text="(Optional) Larger content block for announcement")
     announcement_link = models.URLField(blank=True, help_text="(Optional) A pertinent url for the announcement")
     announcement_slug = models.CharField(max_length=500, blank=True, help_text="A short description of announcement")
+    headline = models.CharField('The short headline for the announcement', max_length=200, blank=False, help_text='(Required) The short headline of the announcement')
+    primary_image = models.ImageField("Optional announcement background image", blank=True, help_text='(Optional) Background image for announcement')
+
 
 class VolunteerContact(models.Model):
     volunteer_name = models.CharField(max_length=200, blank=False, help_text="Volunteer's name, like 'Glenn Herlihy'")
