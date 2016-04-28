@@ -844,7 +844,27 @@ body {
     }
 }
 /*END Navigation menu*/
-
+/*Social links*/
+.social-desktop {
+    float: right;
+    margin-top: 0.6em;
+}
+.social-desktop a {
+    color: white;
+    font-size: 2.2em;
+    margin-right: 0.2em;
+}
+.social-mobile {
+    color: #4C301C;
+    font-size: 1.7em;
+    display: none;
+    margin-right: 0.3em;
+}
+.social-mobile a {
+    display: block;
+    margin-left: 0.2em;
+}
+/*End Social links*/
 
 #main {
     background-image: url('../../base/img/bg.png');
@@ -1343,6 +1363,12 @@ h2.asset-page {
     }
     #sidenav {
         font-size: 1em;
+    }
+    .social-desktop {
+        display: none;
+    }
+    .social-mobile {
+        display: block;
     }
     
 }
