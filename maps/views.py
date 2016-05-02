@@ -8,7 +8,10 @@ def trees(request):
 def phase2(request):
 	return render(request, 'maps/phase2.html', {}, context_instance=RequestContext(request))
 
+def test(request):
+	return render(request, 'maps/kmap.html', {}, context_instance=RequestContext(request))
+
 def kml_map(request,slug):
 	kmap = get_object_or_404(KmlMap, slug=slug)
-    return render_to_response('maps/kmap.html', {'kml':kml},context_instance = RequestContext(request))
+	return render_to_response('maps/kmap.html', {'kml':kmap}, context_instance = RequestContext(request))
 	
