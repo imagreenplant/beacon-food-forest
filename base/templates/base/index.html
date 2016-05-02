@@ -19,7 +19,9 @@
 
 
     <link rel="stylesheet" href="{% static "base/css/style.css" %}" type="text/css" />
+    {% block add-css %}{% endblock add-css %}
     <link rel="stylesheet" href="{% static "base/css/slicknav.css" %}" type="text/css" />
+
     <link rel="shortcut icon" href="{% static "base/img/favicon.ico" %}" type="image/x-icon" />
     
     {% block canonical %}{% endblock canonical %}

@@ -13,5 +13,5 @@ def test(request):
 
 def kml_map(request,slug):
 	kmap = get_object_or_404(KmlMap, slug=slug)
-	return render_to_response('maps/kmap.html', {'kml':kmap}, context_instance = RequestContext(request))
+	return render_to_response('maps/kmap.html', {'kml':kmap}, context_instance=RequestContext(request))
 	
