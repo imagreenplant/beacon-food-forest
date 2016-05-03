@@ -1,3 +1,25 @@
+
+/*
+#header {
+    font-size: 1.5em;
+    color: white;
+    background-color: #4C301C;
+    opacity: 0.8;
+    z-index: 1;
+    font-weight: lighter;
+}*/
+
+.map a:active, .map a:link, .map a:visited {
+    text-decoration: none;
+    text-transform: none;
+    font-weight: normal;
+}
+
+.map a:hover {
+    color: #0DAED3;
+}
+
+
 .bff-green {
     color: #50B748;
 }
