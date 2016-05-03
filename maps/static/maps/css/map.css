@@ -9,13 +9,13 @@
     font-weight: lighter;
 }*/
 
-.map a:active, .map a:link, .map a:visited {
+.map .container a:active, .map .container a:link, .map .container a:visited {
     text-decoration: none;
     text-transform: none;
     font-weight: normal;
 }
 
-.map a:hover {
+.map .container a:hover {
     color: #0DAED3;
 }
 
@@ -169,11 +169,11 @@ input[id$="CB"]:checked:after {
     color: #99a1a7;
 }
 
-li input[type="checkbox"] {
+.map .container li input[type="checkbox"] {
     display: none;
 }
 
-li {
+.map .container li {
     font-size: 0.7em;
 }
 
@@ -186,11 +186,6 @@ li {
     margin-left: 3%;
     list-style-type: none;
 }
-
-
-/*#gml_folder1 ul {
-	margin-left: 10%;
-}*/
 
 div[id^="gml_folder"] {
     margin-left: 5%;
