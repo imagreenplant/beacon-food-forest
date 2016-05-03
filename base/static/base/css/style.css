@@ -783,12 +783,17 @@ body {
     position: absolute;
     top: 30px;
     right: 0px;
-    width: 500px;
-    height: 600px;
+    width: 26.4em;
+    height: 461px;
+    font-size: 100%;
+    background-size: 27.7em;
 }
 /*Reduce size of nut image on list pages*/
 .app .background-nut {
-    background-size: 20em;
+    font-size: 72%;
+}
+.app.map .background-nut {
+    font-size: 50%;
 }
 .app .spacer-div {
     display: none;
@@ -928,7 +933,7 @@ h2.subtitle-text {
 .container {
     width: 100%;
     margin: 33px 0 0 0;
-    z-index: -5;
+    z-index: 10;
     position: relative;
     min-height: 1500px;
 }
