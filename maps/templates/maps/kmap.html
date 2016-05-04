@@ -1,12 +1,24 @@
 {% extends "base/app-page-content.html" %} 
 {% load staticfiles %}
+
 {% block add-css %}
 	<link rel="stylesheet" type="text/css" href="{% static "maps/css/map.css" %}">
 {% endblock add-css %}
-{% block app-title %}Maps{% endblock app-title %}
+
+{% block app-title %}Maps
+	{% if kml.name %}
+		| {{kml.name}}
+	{% endif %}
+{% endblock app-title %}
+
 {% block sub-page-class %}app map{% endblock sub-page-class %}
 {% block app-content %}
-	<script language="javascript">var STATIC_URL = "{{ STATIC_URL }}";</script>
+	<script language="javascript">
+		// provides map javascript with location to grab fruit icon files
+		var STATIC_URL = "{{ STATIC_URL }}";
+		// provides map javascript the location of the kml file to parse
+		var KML_FILE = "{{kml.kml.url}}";	
+	</script>
 	<div id="map-canvas"></div>
 	<div id="the_side_bar"></div>
 	<button class="btn btn-primary sidebar-button open_button"><i class="fa fa-list" aria-hidden="true"></i> LIST</button>

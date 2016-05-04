@@ -104,7 +104,8 @@ function initialize() {
 
 
     plant_map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
-    gml = new GeoXml("gml", plant_map, STATIC_URL + "maps/kml/trees.kml", {
+    // Note that the KML_FILE comes from the map page template, and is inserted as a global variable
+    gml = new GeoXml("gml", plant_map, KML_FILE, {
         sidebarid: "the_side_bar",
         quiet: true, //Removes on-screen dialogs, puts in console.log
         // pointlabelclass: "point-label",  In documentation, but not functioning
@@ -137,10 +138,6 @@ function initialize() {
 
     myloc = new google.maps.Marker({
         clickable: false,
-        // icon: new google.maps.MarkerImage('//maps.gstatic.com/mapfiles/mobile/mobileimgs2.png',
-        //     new google.maps.Size(22, 22),
-        //     new google.maps.Point(0, 18),
-        //     new google.maps.Point(11, 11)),
         shadow: null,
         icon: gpsIcon2,
         zIndex: 999,
