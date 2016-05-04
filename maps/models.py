@@ -8,5 +8,5 @@ class KmlMap(models.Model):
     slug = models.SlugField(unique=True, blank=False, help_text="Unique url-friendly text to locate map e.g maps/<here>/ where here is 'fruits' etc")
 
     def __str__(self):
-        return self.display_name
+        return self.name
 
