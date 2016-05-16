@@ -15,6 +15,7 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
+from django.contrib.sitemaps.views import sitemap
 from django.views.generic.base import RedirectView
 from maps import urls as map_urls
 from education import urls as education_urls
@@ -59,6 +60,7 @@ urlpatterns = [
     url(r'^debug/$', 'base.views.debuginfo'),
     url(r'^debug/files/$', 'base.views.debugfiles'),
     url(r'^captcha/', include('captcha.urls')),
+    url(r'^sitemap\.xml$', sitemap, {'sitemaps': sitemaps},name='django.contrib.sitemaps.views.sitemap'),
 ]
 
 from django.conf import settings
