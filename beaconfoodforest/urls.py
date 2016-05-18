@@ -23,10 +23,12 @@ from django.views.generic.base import RedirectView
 from django.contrib.sitemaps.views import sitemap
 from base.sitemaps import StaticViewSitemap
 from plants.sitemaps import PlantSitemap
+from education.sitemaps import ClassEventSitemap
 
 sitemaps = {
     'static': StaticViewSitemap,
     'plants': PlantSitemap,
+    'education': ClassEventSitemap,
 }
 
 
