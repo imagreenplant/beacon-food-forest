@@ -24,11 +24,13 @@ from django.contrib.sitemaps.views import sitemap
 from base.sitemaps import StaticViewSitemap
 from plants.sitemaps import PlantSitemap
 from education.sitemaps import ClassEventSitemap
+from maps.sitemaps import KmlMapSitemap
 
 sitemaps = {
     'static': StaticViewSitemap,
     'plants': PlantSitemap,
     'education': ClassEventSitemap,
+    'maps': KmlMapSitemap,
 }
 
 
