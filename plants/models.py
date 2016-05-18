@@ -3,6 +3,7 @@ from django_markdown.models import MarkdownField
 from django.utils import text as slugify
 import django.utils.timezone as timezone
 import datetime
+from django.core.urlresolvers import reverse
 
 class Location(models.Model):
 
@@ -47,6 +48,9 @@ class Plant(models.Model):
             else:
                 self.url_slug = self.site_code
         super(Plant, self).save(*args, **kwargs)
+
+    def get_absolute_url(self):
+        return reverse('plants-detail', args=[str(self.site_code)])
 
     friendly_name = models.CharField(max_length=100, blank=True, help_text="(Optional) A friendly plant name, like 'Charlie the Apple Tree'")
     latin_name = models.CharField(max_length=150, blank=True, help_text="(Optional) Latin name")

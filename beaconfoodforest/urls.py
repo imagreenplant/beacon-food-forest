@@ -15,11 +15,27 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
-from django.contrib.sitemaps.views import sitemap
+
+# Redirects from old site pages
 from django.views.generic.base import RedirectView
+
+# Sitemaps
+from django.contrib.sitemaps.views import sitemap
+from base.sitemaps import StaticViewSitemap
+from plants.sitemaps import PlantSitemap
+
+sitemaps = {
+    'static': StaticViewSitemap,
+    'plants': PlantSitemap,
+}
+
+
+# Apps
 from maps import urls as map_urls
 from education import urls as education_urls
 from plants import urls as plant_urls
+
+
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
