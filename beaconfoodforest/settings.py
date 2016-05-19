@@ -72,6 +72,9 @@ INSTALLED_APPS = (
     # Staticfiles app for serving static files in different environments
     'django.contrib.staticfiles',
 
+    # Creates a sitemap
+    'django.contrib.sitemaps',
+
     # The base of the site, header, footer, sidebar
     'base',
     'education',
