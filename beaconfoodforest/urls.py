@@ -22,15 +22,18 @@ from django.views.generic.base import RedirectView
 # Sitemaps
 from django.contrib.sitemaps.views import sitemap
 from base.sitemaps import StaticViewSitemap
-from plants.sitemaps import PlantSitemap
-from education.sitemaps import ClassEventSitemap
+from plants.sitemaps import PlantSitemap, PlantStaticSitemap
+from education.sitemaps import ClassEventSitemap, EducationSitemap
 from maps.sitemaps import KmlMapSitemap
 
 sitemaps = {
     'static': StaticViewSitemap,
     'plants': PlantSitemap,
-    'education': ClassEventSitemap,
+    'plants-static': PlantStaticSitemap,
+    'education-static': EducationSitemap,
+    'classes': ClassEventSitemap,
     'maps': KmlMapSitemap,
+
 }
 
 
