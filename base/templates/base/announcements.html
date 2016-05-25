@@ -1,6 +1,13 @@
 {% load custom_markdown %}
 
 {% if announcements %}
+    {% if announcements.workParties %}
+        {% for workparty in announcements.workParties %}
+            <div class="content-div announcement first-content-div">
+                <h2 class="content-title">Upcoming Work Party! {{workparty.work_party_date}}</h2>
+            </div>
+        {% endfor %}
+    {% endif %}
     {% for announcement in announcements.dynamic %}
         {% if announcement.announcement_publish_override %}
         <div class="content-div announcement first-content-div">

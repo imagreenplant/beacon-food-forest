@@ -5,8 +5,10 @@ from base.models import ExternalNewsArticle, WorkPartyEvent, Announcement
 register = template.Library()
 
 def getUpcomingWorkParties():
-	# Returns any work parties coming up within n recency_days
-	return None
+	display_delta = datetime.datetime.now() + datetime.timedelta(days=5)
+	work_parties = WorkPartyEvent.objects.filter(work_party_date__lte=display_delta)\
+		.filter(work_party_date__gte=datetime.date.today())
+	return work_parties
 
 def getNewClasses():
 	# Returns any classes newly published within n recency_days
