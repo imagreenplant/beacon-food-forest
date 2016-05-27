@@ -4,7 +4,7 @@
 {% if announcements %}
     {% if announcements.workParties %}
         {% for workparty in announcements.workParties %}
-            <div class="image-grid content-div announcement first-content-div">
+            <div class="announce announcement ann-red first-content-div">
                 <div class="crop">
                     <img src="{% static "base/img/workparty_default_web.jpg" %}" alt="Education event default image">  
                   <div class="event">
@@ -13,7 +13,7 @@
                         <p class="event-day">{{ workparty.work_party_date|date:"j" }}</p>
                     </div>
                     <div class="event-desc event-listpage">
-                      <h2 class="event-desc-header">Work Party coming up!</h2>
+                      <h2 class="event-desc-header">[Event] Work Party coming up!</h2>
                     </div>
                   </div>
                 </div>
@@ -22,7 +22,7 @@
     {% endif %}
     {% if announcements.newClasses %}
         {% for newClass in announcements.newClasses %}
-            <div class="image-grid content-div announcement first-content-div">
+            <div class="announce announcement ann-blue first-content-div">
                 <div class="crop">
                   <a href="{% url 'class-detail' newClass.class_slug_url  %}"><span class="image-grid-link"></span></a>
                   {% if newClass.class_primary_image %}
@@ -45,7 +45,7 @@
     {% endif %}
     {% if announcements.upcomingClasses %}
         {% for upcomingClass in announcements.upcomingClasses %}
-            <div class="image-grid content-div announcement first-content-div">
+            <div class="announce announcement ann-green first-content-div">
                 <div class="crop">
                   <a href="{% url 'class-detail' upcomingClass.class_slug_url  %}"><span class="image-grid-link"></span></a>
                   {% if upcomingClass.class_primary_image %}
@@ -68,7 +68,7 @@
     {% endif %}
     {% for announcement in announcements.dynamic %}
         {% if announcement.announcement_publish_override %}
-        <div class="content-div announcement first-content-div">
+        <div class="content-div announcement announcement-dynamic first-content-div">
             <h2 class="content-title">{{announcement.announcement_slug}}</h2>
             <div class="markdown">
                 {{ announcement.announcement_content|parse_markdown }}

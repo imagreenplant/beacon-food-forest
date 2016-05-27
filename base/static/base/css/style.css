@@ -272,6 +272,26 @@ q:after {
     .image-grid .event {
         font-size: 0.8em;}
 
+.announce {
+    margin-bottom: 5px;
+    border: 2px solid;
+    border-left: 8px solid;}
+    .announce .crop {
+        height: 90px;}
+    .announce .event {
+        font-size: 0.8em;}
+
+.ann-red {
+    border-color: #EE3A43;
+}
+.ann-blue {
+    border-color: #0DAED3;
+
+}
+.ann-green {
+    border-color: #50B748;
+}
+
 .thank-you-splash h2 {
     font-size: 400%;
     margin-left: 5%;
@@ -1175,12 +1195,12 @@ span.blue a {
 }
 
 /* Announcements (+markdown) */
-.announcement {
-    /*border: 3px dotted #4C301C;*/
-    /*padding: 13px 20px 8px 20px;*/
-    /*background-color: #E1FFDF;*/
-    /*border-radius: 5px 40px 5px 40px;*/
-    /*margin: 0 18em 1em 0;*/
+.announcement-dynamic {
+    border: 3px dotted #4C301C;
+    padding: 13px 20px 8px 20px;
+    background-color: #E1FFDF;
+    border-radius: 5px 40px 5px 40px;
+    margin: 0 18em 1em 0;
 }
 .announcement h2 {
     margin: 0;
@@ -1289,10 +1309,6 @@ h2.asset-page {
     .imageBar {
         display: none;
     }
-    .announcement {
-        margin-right: 3em;
-    }
-
 }
 @media only screen and (max-width: 800px) {
     .background-nut, .spacer-div {
