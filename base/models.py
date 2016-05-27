@@ -31,6 +31,10 @@ class WorkPartyEvent(models.Model):
         return self.work_party_date - n_days <= datetime.date.today()  \
             and self.work_party_date >= datetime.date.today()
 
+    def days_away(self):
+        away = self.work_party_date - datetime.date.today()
+        return away.days
+
     work_party_date = models.DateField(auto_now=False, auto_now_add=False, blank=False, default=timezone.now, help_text="The date the article was originally published")
     work_party_time_start = models.TimeField(auto_now=False, auto_now_add=False, blank=False, default=datetime.time(10), help_text="The time that the work party starts")
     work_party_time_end = models.TimeField(auto_now=False, auto_now_add=False, blank=False, default=datetime.time(14), help_text="The time that the work party ends") 

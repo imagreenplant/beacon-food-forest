@@ -32,6 +32,10 @@ class ClassEvent(models.Model):
     def get_absolute_url(self):
         return reverse('class-detail', args=[str(self.get_canonical_url_path())])
 
+    def days_away(self):
+        away = self.event_date - datetime.date.today()
+        return away.days
+
     title = models.CharField('The short title of the class', max_length=200, blank=False, help_text='(Required) The short title of the class')
     publish_date = models.DateField('date to publicize posting', blank=False, default=timezone.now, help_text='(Required) The date that you want to publish the class on the website')
     expire_date = models.DateField('date to expire posting', blank=False, default=timezone.now, help_text='(Required) The date that you want to unpublish the class on the website')

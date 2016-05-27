@@ -13,7 +13,30 @@
                         <p class="event-day">{{ workparty.work_party_date|date:"j" }}</p>
                     </div>
                     <div class="event-desc event-listpage">
-                      <h2 class="event-desc-header">[Event] Work Party coming up!</h2>
+                      <h2 class="event-desc-header">[Event] Work Party coming up in {{workparty.days_away}} day{{ workparty.days_away|pluralize:"s" }}!</h2>
+                    </div>
+                  </div>
+                </div>
+            </div>
+        {% endfor %}
+    {% endif %}
+    {% if announcements.upcomingClasses %}
+        {% for upcomingClass in announcements.upcomingClasses %}
+            <div class="announce announcement ann-green first-content-div">
+                <div class="crop">
+                  <a href="{% url 'class-detail' upcomingClass.class_slug_url  %}"><span class="image-grid-link"></span></a>
+                  {% if upcomingClass.class_primary_image %}
+                    <img src="/media/{{upcomingClass.class_primary_image}}" alt="{{upcomingClass.title}} photo">
+                  {% else %}
+                    <img src="{% static "education/img/education_default.jpg" %}" alt="Education event default image">  
+                  {% endif %} 
+                  <div class="event">
+                    <div class="event-date">
+                        <p class="event-month">{{ upcomingClass.event_date|date:"M" }}</p>
+                        <p class="event-day">{{ upcomingClass.event_date|date:"j" }}</p>
+                    </div>
+                    <div class="event-desc event-listpage">
+                      <h2 class="event-desc-header">[Class] {{upcomingClass.title}} coming up in {{upcomingClass.days_away}} day{{ upcomingClass.days_away|pluralize:"s" }}!</h2>
                     </div>
                   </div>
                 </div>
@@ -37,29 +60,6 @@
                     </div>
                     <div class="event-desc event-listpage">
                       <h2 class="event-desc-header">[Class] {{newClass.title}} announced!</h2>
-                    </div>
-                  </div>
-                </div>
-            </div>
-        {% endfor %}
-    {% endif %}
-    {% if announcements.upcomingClasses %}
-        {% for upcomingClass in announcements.upcomingClasses %}
-            <div class="announce announcement ann-green first-content-div">
-                <div class="crop">
-                  <a href="{% url 'class-detail' upcomingClass.class_slug_url  %}"><span class="image-grid-link"></span></a>
-                  {% if upcomingClass.class_primary_image %}
-                    <img src="/media/{{upcomingClass.class_primary_image}}" alt="{{upcomingClass.title}} photo">
-                  {% else %}
-                    <img src="{% static "education/img/education_default.jpg" %}" alt="Education event default image">  
-                  {% endif %} 
-                  <div class="event">
-                    <div class="event-date">
-                        <p class="event-month">{{ upcomingClass.event_date|date:"M" }}</p>
-                        <p class="event-day">{{ upcomingClass.event_date|date:"j" }}</p>
-                    </div>
-                    <div class="event-desc event-listpage">
-                      <h2 class="event-desc-header">[Class] {{upcomingClass.title}} coming up soon!</h2>
                     </div>
                   </div>
                 </div>
