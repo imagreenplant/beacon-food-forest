@@ -1,24 +1,68 @@
 {% load custom_markdown %}
+{% load staticfiles %}
 
 {% if announcements %}
     {% if announcements.workParties %}
         {% for workparty in announcements.workParties %}
-            <div class="content-div announcement first-content-div">
-                <h2 class="content-title">Upcoming Work Party! {{workparty.work_party_date}}</h2>
+            <div class="image-grid content-div announcement first-content-div">
+                <div class="crop">
+                    <img src="{% static "base/img/workparty_default_web.jpg" %}" alt="Education event default image">  
+                  <div class="event">
+                    <div class="event-date">
+                        <p class="event-month">{{ workparty.work_party_date|date:"M" }}</p>
+                        <p class="event-day">{{ workparty.work_party_date|date:"j" }}</p>
+                    </div>
+                    <div class="event-desc event-listpage">
+                      <h2 class="event-desc-header">Work Party coming up!</h2>
+                    </div>
+                  </div>
+                </div>
             </div>
         {% endfor %}
     {% endif %}
     {% if announcements.newClasses %}
         {% for newClass in announcements.newClasses %}
-            <div class="content-div announcement first-content-div">
-                <h2 class="content-title">New Class! </h2>
+            <div class="image-grid content-div announcement first-content-div">
+                <div class="crop">
+                  <a href="{% url 'class-detail' newClass.class_slug_url  %}"><span class="image-grid-link"></span></a>
+                  {% if newClass.class_primary_image %}
+                    <img src="/media/{{newClass.class_primary_image}}" alt="{{newClass.title}} photo">
+                  {% else %}
+                    <img src="{% static "education/img/education_default.jpg" %}" alt="Education event default image">  
+                  {% endif %} 
+                  <div class="event">
+                    <div class="event-date">
+                        <p class="event-month">{{ newClass.event_date|date:"M" }}</p>
+                        <p class="event-day">{{ newClass.event_date|date:"j" }}</p>
+                    </div>
+                    <div class="event-desc event-listpage">
+                      <h2 class="event-desc-header">[Class] {{newClass.title}} announced!</h2>
+                    </div>
+                  </div>
+                </div>
             </div>
         {% endfor %}
     {% endif %}
     {% if announcements.upcomingClasses %}
         {% for upcomingClass in announcements.upcomingClasses %}
-            <div class="content-div announcement first-content-div">
-                <h2 class="content-title">Upcoming Class! </h2>
+            <div class="image-grid content-div announcement first-content-div">
+                <div class="crop">
+                  <a href="{% url 'class-detail' upcomingClass.class_slug_url  %}"><span class="image-grid-link"></span></a>
+                  {% if upcomingClass.class_primary_image %}
+                    <img src="/media/{{upcomingClass.class_primary_image}}" alt="{{upcomingClass.title}} photo">
+                  {% else %}
+                    <img src="{% static "education/img/education_default.jpg" %}" alt="Education event default image">  
+                  {% endif %} 
+                  <div class="event">
+                    <div class="event-date">
+                        <p class="event-month">{{ upcomingClass.event_date|date:"M" }}</p>
+                        <p class="event-day">{{ upcomingClass.event_date|date:"j" }}</p>
+                    </div>
+                    <div class="event-desc event-listpage">
+                      <h2 class="event-desc-header">[Class] {{upcomingClass.title}} coming up soon!</h2>
+                    </div>
+                  </div>
+                </div>
             </div>
         {% endfor %}
     {% endif %}

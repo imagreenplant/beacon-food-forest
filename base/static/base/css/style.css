@@ -1176,11 +1176,11 @@ span.blue a {
 
 /* Announcements (+markdown) */
 .announcement {
-    border: 3px dotted #4C301C;
-    padding: 13px 20px 8px 20px;
-    background-color: #E1FFDF;
-    border-radius: 5px 40px 5px 40px;
-    margin: 0 18em 1em 0;
+    /*border: 3px dotted #4C301C;*/
+    /*padding: 13px 20px 8px 20px;*/
+    /*background-color: #E1FFDF;*/
+    /*border-radius: 5px 40px 5px 40px;*/
+    /*margin: 0 18em 1em 0;*/
 }
 .announcement h2 {
     margin: 0;
