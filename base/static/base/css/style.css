@@ -1165,11 +1165,10 @@ span.blue a {
 }
 .imageBar {
     float: right;
-    /*display: inline-block;*/
-    display: none;
+    display: inline-block;
     max-width: 220px;
     width: 27%;
-    margin: 240px 0 40px 50px;
+    margin: 240px 0 40px 0;
 }
 .imageBar img {
     width: 100%;
