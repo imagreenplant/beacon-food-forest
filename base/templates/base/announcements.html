@@ -68,7 +68,7 @@
     {% endif %}
     {% for announcement in announcements.dynamic %}
         {% if announcement.announcement_publish_override %}
-        <div class="content-div announcement announcement-dynamic first-content-div">
+        <div class="content-div announcement announce ann-brown ann-text">
             <h2 class="content-title">{{announcement.announcement_slug}}</h2>
             <div class="markdown">
                 {{ announcement.announcement_content|parse_markdown }}
