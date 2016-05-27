@@ -8,6 +8,20 @@
             </div>
         {% endfor %}
     {% endif %}
+    {% if announcements.newClasses %}
+        {% for newClass in announcements.newClasses %}
+            <div class="content-div announcement first-content-div">
+                <h2 class="content-title">New Class! </h2>
+            </div>
+        {% endfor %}
+    {% endif %}
+    {% if announcements.upcomingClasses %}
+        {% for upcomingClass in announcements.upcomingClasses %}
+            <div class="content-div announcement first-content-div">
+                <h2 class="content-title">Upcoming Class! </h2>
+            </div>
+        {% endfor %}
+    {% endif %}
     {% for announcement in announcements.dynamic %}
         {% if announcement.announcement_publish_override %}
         <div class="content-div announcement first-content-div">
