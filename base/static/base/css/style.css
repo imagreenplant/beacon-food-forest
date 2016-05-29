@@ -1175,13 +1175,10 @@ span.blue a {
 }
 
 /* Announcements (+markdown) */
-.ann-text {
-    padding: 13px 20px 8px 20px;
-    background-color: #FFFFFF;
-}
+.ann-text {}
 .ann-text h2 {
     margin: 0;
-    color: #4C301C;
+    color: white;
 }
 .ann-text p, .ann-text ol {
     margin-left: 30px;
@@ -1190,9 +1187,12 @@ span.blue a {
     float: right;
     max-height: 200px;
 }
+.markdown p {
+    color: white;
+}
 .ann-text .published-date {
     font-size: 60%;
-    color: gray;
+    color: white;
     float: right;
 }
 .ann-text .more-info-link a{
@@ -1200,7 +1200,7 @@ span.blue a {
     font-weight: normal;
     float: left;
     font-size: 80%;
-    color: gray;
+    color: white;
 }
 .float-clear-left {
     clear: left;
