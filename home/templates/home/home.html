@@ -2,28 +2,13 @@
 {% load staticfiles %} 
 {% load custom_markdown %}
 {% load volunteer_contacts %}
+{% load announcements %}
 {% block main-content %}
     <div class="imageBar">
         <img class="regular" src="{% static "home/img/bff_map.png" %}" alt="Beacon Food Forest schematic">
         <img class="regular img-follow" src="{% static "home/img/bff_banner.png" %}" alt="Food Foresters">
     </div>
-    {% if announcements %}
-        {% for announcement in announcements %}
-            {% if announcement.announcement_publish_override %}
-            <div class="content-div announcement first-content-div">
-                <h2 class="content-title">{{announcement.announcement_slug}}</h2>
-                <div class="markdown">
-                    {{ announcement.announcement_content|parse_markdown }}
-                </div>
-                {% if announcement.announcement_link %}
-                    <p class="more-info-link"><a href="{{announcement.announcement_link}}">More Info</a></p>
-                {% endif %}
-                <p class="published-date">Published on {{announcement.announcement_publish_date}}</p>
-                <div class="float-clear-left"></div>
-            </div>
-            {% endif %}
-        {% endfor %}
-    {% endif %}
+    {% show_all_announcements %}
     <div class="content-div">
         <h2 class="content-title">
             Welcome
