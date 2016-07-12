@@ -786,7 +786,6 @@ body {
     height: 461px;
     font-size: 100%;
     background-size: 27.7em;
-    z-index: 11;
 }
 /*Reduce size of nut image on list pages*/
 .app .background-nut {
