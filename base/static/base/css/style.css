@@ -258,7 +258,6 @@ q:after {
         vertical-align: bottom;
       }
       .event-desc .rsvp.btn {
-        padding: 0.3em;
         margin: 0; 
         font-size: inherit;
         text-transform: uppercase;
@@ -787,6 +786,7 @@ body {
     height: 461px;
     font-size: 100%;
     background-size: 27.7em;
+    z-index: 11;
 }
 /*Reduce size of nut image on list pages*/
 .app .background-nut {
@@ -1490,5 +1490,8 @@ h2.asset-page {
     }
     .image-grid .event {
         font-size: 0.6em;
+    }
+    .event-desc .rsvp.btn {
+        padding: 0.4em;
     }
 }
