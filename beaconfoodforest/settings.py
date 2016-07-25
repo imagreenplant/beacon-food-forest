@@ -219,7 +219,8 @@ CAPTCHA_NOISE_FUNCTIONS = ()
 CAPTCHA_LETTER_ROTATION = None
 CAPTCHA_TEXT_FIELD_TEMPLATE = 'base/captcha_field_override.html'
 
-
+# Taggit Settings
+TAGGIT_CASE_INSENSITIVE = True
 
 ENVIRONMENTS = {
     'local':{
