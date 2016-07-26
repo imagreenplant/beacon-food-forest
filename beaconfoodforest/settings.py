@@ -15,14 +15,6 @@ try:
 except ImportError:
     print("Please install the PostGresSQL lib:  pip install psycopg2")
 
-# Added libs
-# pip install django-markdown
-# pip install psycopg2
-# pip install markdown
-# pip install django-admin-bootstrapped
-# pip install django-simple-captcha
-
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.8/howto/deployment/checklist/
 
@@ -98,6 +90,9 @@ INSTALLED_APPS = (
     'django.contrib.webdesign',
     # To protect forms with Captcha
     'captcha',
+
+    # Adding a tagging library for plant models
+    'taggit',
 )
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -224,7 +219,8 @@ CAPTCHA_NOISE_FUNCTIONS = ()
 CAPTCHA_LETTER_ROTATION = None
 CAPTCHA_TEXT_FIELD_TEMPLATE = 'base/captcha_field_override.html'
 
-
+# Taggit Settings
+TAGGIT_CASE_INSENSITIVE = True
 
 ENVIRONMENTS = {
     'local':{

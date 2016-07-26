@@ -4,6 +4,7 @@ from django.utils import text as slugify
 import django.utils.timezone as timezone
 import datetime
 from django.core.urlresolvers import reverse
+from taggit.managers import TaggableManager
 
 class Location(models.Model):
 
@@ -52,6 +53,9 @@ class Plant(models.Model):
     def get_absolute_url(self):
         return reverse('plants-detail', args=[str(self.site_code)])
 
+    # Adds tags via django-taggit library --> "taggit"
+    tags = TaggableManager()
+
     friendly_name = models.CharField(max_length=100, blank=True, help_text="(Optional) A friendly plant name, like 'Charlie the Apple Tree'")
     latin_name = models.CharField(max_length=150, blank=True, help_text="(Optional) Latin name")
     name = models.CharField(max_length=150, blank=False, help_text="Common Name (required)")
@@ -70,7 +74,6 @@ class Plant(models.Model):
        the plant from being listed on the site, then uncheck this.")
     location = models.ForeignKey(Location,on_delete=models.CASCADE, blank=True, null=True, help_text='Assign a location (made separately)')
     coordinates = models.ForeignKey(Coordinates,on_delete=models.CASCADE, blank=True, null=True, help_text='Exact gps coordinates of location of plant')
-
 
 # Saving this for another day.  We may not want this.
 
