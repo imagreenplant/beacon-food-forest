@@ -6,7 +6,7 @@ class KmlMap(models.Model):
         return self.name
 
     def get_absolute_url(self):
-        return reverse('kml_map', args=[str(self.slug)])
+        return reverse('kml-map', args=[str(self.slug)])
 
     kml = models.FileField(upload_to="kml/",max_length=200, help_text='Upload file here')
     active = models.BooleanField(blank=False, default=True, help_text='Should this entry be live on the site?')

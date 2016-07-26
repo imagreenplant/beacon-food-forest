@@ -32,6 +32,32 @@ class Coordinates(models.Model):
     latitude = models.DecimalField(max_digits=10, decimal_places=7, blank=False, default=0.00,help_text='(Required) GPS latitude')
     longitude = models.DecimalField(max_digits=10, decimal_places=7, blank=False, default=0.00,help_text='(Required) GPS longitude')
 
+class MapCategory(models.Model):
+
+    class Meta:
+        verbose_name = "Map Folder Category"
+        verbose_name_plural = "Map Folder Category"
+
+    def __str__(self):
+        return self.category
+
+    category = models.CharField(max_length=100, blank=True, help_text="(Optional) On map, main folder to categorize \
+        this plant, e.g. Trees, Shrubs, Herbals.  If left blank, will not be displayed on map.  More folders can be \
+        added in admin interface.")
+
+class MapSubCategory(models.Model):
+
+    class Meta:
+        verbose_name = "Map Subfolder Category"
+        verbose_name_plural = "Map Subfolder Category"
+
+    def __str__(self):
+        return self.category
+
+    subcategory = models.CharField(max_length=100, blank=True, help_text="(Optional) On map, subfolder to categorize \
+        this plant, e.g. under trees, we would have -- Apples, Nuts, etc.  If left blank, will not be displayed on \
+        map.  More subfolders can be added")
+
 class Plant(models.Model):
     """Represents a single plant"""
 
@@ -72,8 +98,20 @@ class Plant(models.Model):
        declares dead but maintains info for historical purposes.")
     published = models.BooleanField(blank=False, default=True, help_text="If you want to remove \
        the plant from being listed on the site, then uncheck this.")
-    location = models.ForeignKey(Location,on_delete=models.CASCADE, blank=True, null=True, help_text='Assign a location (made separately)')
-    coordinates = models.ForeignKey(Coordinates,on_delete=models.CASCADE, blank=True, null=True, help_text='Exact gps coordinates of location of plant')
+
+    # Specific to map
+    map_folder = models.ForeignKey(MapCategory,on_delete=models.CASCADE, blank=True, null=True, \
+        help_text="(Optional) On map, main folder to categorize this plant, e.g. Trees, Shrubs, \
+        Herbals.  If left blank, will not be displayed on map.  More folders can be added\
+        in admin interface.")
+    map_subfolder = models.ForeignKey(MapSubCategory,on_delete=models.CASCADE, blank=True, null=True, \
+        help_text="(Optional) On map, subfolder to categorize this plant, e.g. under trees, \
+        we would have -- Apples, Nuts, etc.  If left blank, will not be displayed on map.  \
+        More subfolders can be added in admin interface.")
+    location = models.ForeignKey(Location,on_delete=models.CASCADE, blank=True, null=True, \
+        help_text='Assign a location (made separately)')
+    coordinates = models.ForeignKey(Coordinates,on_delete=models.CASCADE, blank=True, null=True, \
+        help_text='Exact gps coordinates of location of plant')
 
 # Saving this for another day.  We may not want this.
 
