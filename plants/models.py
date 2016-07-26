@@ -52,7 +52,7 @@ class MapSubCategory(models.Model):
         verbose_name_plural = "Map Subfolder Category"
 
     def __str__(self):
-        return self.category
+        return self.subcategory
 
     subcategory = models.CharField(max_length=100, blank=True, help_text="(Optional) On map, subfolder to categorize \
         this plant, e.g. under trees, we would have -- Apples, Nuts, etc.  If left blank, will not be displayed on \
@@ -100,11 +100,11 @@ class Plant(models.Model):
        the plant from being listed on the site, then uncheck this.")
 
     # Specific to map
-    map_folder = models.ForeignKey(MapCategory,on_delete=models.CASCADE, blank=True, null=True, \
+    category = models.ForeignKey(MapCategory,on_delete=models.CASCADE, blank=True, null=True, \
         help_text="(Optional) On map, main folder to categorize this plant, e.g. Trees, Shrubs, \
         Herbals.  If left blank, will not be displayed on map.  More folders can be added\
         in admin interface.")
-    map_subfolder = models.ForeignKey(MapSubCategory,on_delete=models.CASCADE, blank=True, null=True, \
+    subcategory = models.ForeignKey(MapSubCategory,on_delete=models.CASCADE, blank=True, null=True, \
         help_text="(Optional) On map, subfolder to categorize this plant, e.g. under trees, \
         we would have -- Apples, Nuts, etc.  If left blank, will not be displayed on map.  \
         More subfolders can be added in admin interface.")
