@@ -17,6 +17,12 @@
 	</script>
 	<div id="map-canvas"></div>
 	<div id="the_side_bar">
+		<ul>
+			{% for plant in plants %}
+				<li>{{ plant.name }}</li>
+			{% endfor %}
+		</ul>
+		<!--
 	    <ul>
 	        <div class="line-item">
 	            <input type="checkbox" id="gml1FCB" style="vertical-align:middle" checked="" onclick="gml.toggleContents(1,this.checked)">&nbsp;<span title="" id="gmlTB1" oncontextmenu="gml.saveJSON(1);" onclick="gml.toggleFolder(1)" style="font-weight:normal"><img id="gmlFB1" style="vertical-align:text-top;padding:0;margin:0;height:" +this.sidebariconheight+"px;"="" border="0" src="/static/maps/img/basic-folder-icon.png"></span>&nbsp;<a href="#" onclick="gml.overlayman.zoomToFolder(1);gml.mb.showMess('Plants',3000);return false;">Plants</a>
@@ -136,8 +142,8 @@
 	                </div>
 	            </ul>
 	        </div>
-	    </ul>
-</div>
+	    </ul>-->
+	</div>
 	<button class="btn btn-primary sidebar-button open_button"><i class="fa fa-list" aria-hidden="true"></i> LIST</button>
 	<button class="btn btn-secondary sidebar-button close_button"><i class="fa fa-close" aria-hidden="true"></i></button>
 {% endblock app-content %}
