@@ -202,5 +202,11 @@ input.checkbox:checked:after {
     left: 3px;
     color: #99a1a7;
 }
+img.plant-icon {
+    vertical-align:text-top;
+    padding:0;
+    margin:0;
+    height:16px;
+}
 
 /***************************** END Custom BFF Category Map ************************/

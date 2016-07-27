@@ -25,9 +25,15 @@
 	                </div>
 					<div class="subfolder subcategory line-item">
 						<li id="gmlsb0" onmouseout="google.maps.event.trigger(gml.overlayman.markers[0],'mouseout');" onmouseover="google.maps.event.trigger(gml.overlayman.markers[0],'mouseover');" class="inView">
-	                                <input id="gml0CB" type="checkbox" style="vertical-align:middle" checked="" onclick="gml.showHide(0,this.checked)"><a href="#" onclick="google.maps.event.trigger(gml.overlayman.markers[0],'click');return false;">&nbsp;<img style="vertical-align:text-top;padding:0;margin:0;height:16px;" border="0" src="/static/maps/img/nut.svg">&nbsp;&nbsp;Heart Nut</a></li>
+	                        <input id="gml0CB" type="checkbox" style="vertical-align:middle" checked="" onclick="gml.showHide(0,this.checked)"><a href="#" onclick="google.maps.event.trigger(gml.overlayman.markers[0],'click');return false;">&nbsp;<img style="vertical-align:text-top;padding:0;margin:0;height:16px;" border="0" src="/static/maps/img/nut.svg">&nbsp;&nbsp;Heart Nut</a></li>
 						{% for plant in plants %}
-							<li>{{ plant.name }}</li>
+							<li id="gmlsb0" onmouseout="google.maps.event.trigger(gml.overlayman.markers[0],'mouseout');" onmouseover="google.maps.event.trigger(gml.overlayman.markers[0],'mouseover');" class="inView">
+	                        	<input id="gml0CB" type="checkbox" style="vertical-align:middle" checked="" onclick="gml.showHide(0,this.checked)">
+	                        	<a href="#" onclick="google.maps.event.trigger(gml.overlayman.markers[0],'click');return false;">&nbsp;
+	                        		<img class="plant-icon" src="/static/maps/img/nut.svg">
+	                        		{{ plant.name }}
+	                        	</a>
+	                        </li>
 						{% endfor %}
 					</div>
 				</ul>
