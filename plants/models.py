@@ -44,6 +44,8 @@ class MapCategory(models.Model):
     category = models.CharField(max_length=100, blank=True, help_text="(Optional) On map, main folder to categorize \
         this plant, e.g. Trees, Shrubs, Herbals.  If left blank, will not be displayed on map.  More folders can be \
         added in admin interface.")
+    icon = models.ImageField("category icon", blank=True, help_text='Primary icon for category.  Please use \
+        svg format for optimum performance.')
 
 class MapSubCategory(models.Model):
 
@@ -57,6 +59,8 @@ class MapSubCategory(models.Model):
     subcategory = models.CharField(max_length=100, blank=True, help_text="(Optional) On map, subfolder to categorize \
         this plant, e.g. under trees, we would have -- Apples, Nuts, etc.  If left blank, will not be displayed on \
         map.  More subfolders can be added")
+    icon = models.ImageField("subcategory icon", blank=True, help_text='Primary icon for subcategory.  Please use \
+        svg format for optimum performance.')
 
 class Plant(models.Model):
     """Represents a single plant"""
