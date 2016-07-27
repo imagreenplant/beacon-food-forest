@@ -22,7 +22,7 @@
     margin: 0;
     padding: 0;
 }
-
+/***************************** Start Overlay button and sidebar ***************************************/
 #the_side_bar {
     position: absolute;
     top: 0;
@@ -118,7 +118,8 @@
     	font-weight: 100;
     }
 }
-
+/***************************** END Overlay button ***************************************/
+/***************************** Start GeoXml KML ***************************************/
 img[id^="gmlFB"] {
     width: 1.2em;
     height: 1.1em;
