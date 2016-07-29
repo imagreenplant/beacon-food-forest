@@ -12,7 +12,7 @@
 {% block app-content %}
 	<div id="map-canvas"></div>
 	<script type="text/javascript">
-		var markers = {};
+		var markers = [];
 
 		function addMarker(location, code) {
 	        var marker = new google.maps.Marker({
@@ -21,23 +21,30 @@
 	        });
 	        markers.push(marker);
 	      }
-		// for category in categories
-		// for subcat in subcats
-		var plants = {
-			{% for plant in plants  %}
-			"{{plant.site_code}}":{
-				'coordinates': { lat:{{plant.coordinates.latitude}}, lng:{{plant.coordinates.longitude}} },
-				'name': '{{plant.name}}',
-			},
-			{% endfor %}
-		};
-		console.log("adding " + plants);
 
-		for (var i = 0; i < plants.length; i++) {
-			console.log(plants[i]);
-		};
-		// addMarker(plant_coordinates,{{plant.site_code}})
-		console.log("markers = " + markers);
+		function initMap () {
+			var beaconFoodForest = new google.maps.LatLng(47.56845610052802, -122.31254031038299);
+
+	        map = new google.maps.Map(document.getElementById('map-canvas'), {
+	          zoom: 12,
+	          center: beaconFoodForest,
+	          mapTypeId: 'terrain'
+	        });
+
+			var plants = {
+			{% for plant in plants  %}
+				"{{plant.site_code}}":{
+					'coordinates': { lat:{{plant.coordinates.latitude}}, lng:{{plant.coordinates.longitude}} },
+					'name': '{{plant.name}}',
+				},
+			{% endfor %}
+			};
+
+			for(var plant in plants){
+				addMarker(plants[plant]['coordinates'],plant)
+			}
+		}
+
 	</script>
 	<div id="the_side_bar">
 		<ul>
@@ -132,5 +139,4 @@
 {% block add-to-footer %}
 	<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/loglevel/1.3.0/loglevel.min.js"></script>
 	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAsnOLu3eLbo60hkQNWo-3EEt102mOv99w&callback=initMap"></script>
-	<script type="text/javascript" src="{% static "maps/js/map.js" %}"></script>
 {% endblock add-to-footer %}
