@@ -1,0 +1,92 @@
+{% load custom_markdown %}
+{% load staticfiles %}
+
+{% if announcements %}
+    {% if announcements.workParties %}
+        {% for workparty in announcements.workParties %}
+            <div class="announce announcement ann-red">
+                <div class="crop">
+                    <img src="{% static "base/img/workparty_default_web.jpg" %}" alt="Education event default image">  
+                  <div class="event">
+                    <div class="event-date">
+                        <p class="event-month">{{ workparty.work_party_date|date:"M" }}</p>
+                        <p class="event-day">{{ workparty.work_party_date|date:"j" }}</p>
+                    </div>
+                    <div class="event-desc event-listpage">
+                      <h2 class="event-desc-header">[Event] Work Party coming up in {{workparty.days_away}} day{{ workparty.days_away|pluralize:"s" }}!</h2>
+                    </div>
+                  </div>
+                </div>
+            </div>
+        {% endfor %}
+    {% endif %}
+    {% if announcements.upcomingClasses %}
+        {% for upcomingClass in announcements.upcomingClasses %}
+            <div class="announce announcement ann-green">
+                <div class="crop">
+                  <a href="{% url 'class-detail' upcomingClass.class_slug_url  %}"><span class="image-grid-link"></span></a>
+                  {% if upcomingClass.class_primary_image %}
+                    <img src="/media/{{upcomingClass.class_primary_image}}" alt="{{upcomingClass.title}} photo">
+                  {% else %}
+                    <img src="{% static "education/img/education_default.jpg" %}" alt="Education event default image">  
+                  {% endif %} 
+                  <div class="event">
+                    <div class="event-date">
+                        <p class="event-month">{{ upcomingClass.event_date|date:"M" }}</p>
+                        <p class="event-day">{{ upcomingClass.event_date|date:"j" }}</p>
+                    </div>
+                    <div class="event-desc event-listpage">
+                      <h2 class="event-desc-header">[Class] {{upcomingClass.title}} coming up in {{upcomingClass.days_away}} day{{ upcomingClass.days_away|pluralize:"s" }}!</h2>
+                    </div>
+                  </div>
+                </div>
+            </div>
+        {% endfor %}
+    {% endif %}
+    {% if announcements.newClasses %}
+        {% for newClass in announcements.newClasses %}
+            <div class="announce announcement ann-blue">
+                <div class="crop">
+                  <a href="{% url 'class-detail' newClass.class_slug_url  %}"><span class="image-grid-link"></span></a>
+                  {% if newClass.class_primary_image %}
+                    <img src="/media/{{newClass.class_primary_image}}" alt="{{newClass.title}} photo">
+                  {% else %}
+                    <img src="{% static "education/img/education_default.jpg" %}" alt=" event default image">  
+                  {% endif %} 
+                  <div class="event">
+                    <div class="event-date">
+                        <p class="event-month">{{ newClass.event_date|date:"M" }}</p>
+                        <p class="event-day">{{ newClass.event_date|date:"j" }}</p>
+                    </div>
+                    <div class="event-desc event-listpage">
+                      <h2 class="event-desc-header">[Class] {{newClass.title}} announced!</h2>
+                    </div>
+                  </div>
+                </div>
+            </div>
+        {% endfor %}
+    {% endif %}
+    <!-- The below can be removed when markdown announcments are reactivated -->
+    {% for announcement in announcements.dynamic %}
+        {% if announcement.announcement_publish_override %}
+        <div class="announcement announce ann-brown ann-text">
+          <div class="crop">
+            <h2 class="content-title">{{announcement.announcement_slug}}</h2>
+            <a href="http://example.com"><span class="image-grid-link"></span></a>
+                    <img src="{% static "base/img/announce_image_default.jpg" %}" alt="Announcement default image">  
+            <div class="event">
+              <div class="markdown">
+                  {{ announcement.announcement_content|parse_markdown }}
+              </div>
+              {% if announcement.announcement_link %}
+                  <p class="more-info-link"><a href="{{announcement.announcement_link}}">More Info</a></p>
+              {% endif %}
+              <p class="published-date">Published on {{announcement.announcement_publish_date}}</p>
+              <div class="float-clear-left"></div>
+            </div>
+          </div>
+        </div>
+        {% endif %}
+    {% endfor %}
+    <!--+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+{% endif %}

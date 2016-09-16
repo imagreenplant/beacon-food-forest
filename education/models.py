@@ -2,6 +2,7 @@ from django.db import models, IntegrityError, transaction
 from django_markdown.models import MarkdownField
 import django.utils.timezone as timezone
 from django.utils import text as slugify
+from django.core.urlresolvers import reverse
 from decimal import Decimal
 import datetime
 import random
@@ -21,6 +22,19 @@ class ClassEvent(models.Model):
             self.class_slug_url = slugify.slugify("-".join([self.title,self.event_date.strftime("%B-%d-%Y"),\
                 str(random.randrange(0,100))]))[:50]
             super(ClassEvent, self).save(*args, **kwargs)
+
+    def get_canonical_url_path(self):
+        try:
+            return self.class_slug_url
+        except:
+            print("Unable to find slug url for class with name: %s" % self.title)
+
+    def get_absolute_url(self):
+        return reverse('class-detail', args=[str(self.get_canonical_url_path())])
+
+    def days_away(self):
+        away = self.event_date - datetime.date.today()
+        return away.days
 
     title = models.CharField('The short title of the class', max_length=200, blank=False, help_text='(Required) The short title of the class')
     publish_date = models.DateField('date to publicize posting', blank=False, default=timezone.now, help_text='(Required) The date that you want to publish the class on the website')

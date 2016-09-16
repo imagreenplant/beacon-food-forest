@@ -1,32 +1,23 @@
-html,
-body {
-    padding: 0;
-    /*width:100%;*/
-    /*overflow-x:hidden;*/
-    /*height: 100%;*/
-    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-    font-weight: lighter;
-}
 
-a:link,
-a:visited {
+.map .container a:active, .map .container a:link, .map .container a:visited {
     text-decoration: none;
+    text-transform: none;
+    font-weight: normal;
 }
 
-a:hover,
-a:active {
-    text-decoration: underline;
+.map .container a:hover {
+    color: #0DAED3;
 }
+
 
 .bff-green {
     color: #50B748;
 }
 #map-canvas {
     position: absolute;
-    top: 3em;
+    top: 0;
     left: 0;
     bottom: 0;
-    /*height: 100%;*/
     width: 100%;
     margin: 0;
     padding: 0;
@@ -47,29 +38,10 @@ a:active {
     z-index: 2;
 }
 
-#header {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 1.7em;
-    padding-left: 2em;
-    padding-top: 0.3em;
-    font-size: 1.5em;
-    color: white;
-    background-color: #4C301C;
-    opacity: 0.8;
-    z-index: 1;
-}
-
-#header a:active, #header a:link, #header a:visited {
-    text-decoration: none;
-    color: white;
-}
-
-#header a:hover {
-    color: #0DAED3;
-    text-decoration: none;
+#the_side_bar ul {
+    padding: 0;
+    margin-left: 3%;
+    list-style-type: none;
 }
 
 @media only screen and (min-device-width: 481px) and (max-device-width: 768px) {
@@ -80,9 +52,6 @@ a:active {
 }
 
 @media only screen and (max-device-width: 480px) {
-    #map-canvas {
-        top: 2.5em;
-    }
 
     #the_side_bar {
         width: 100%;
@@ -90,41 +59,30 @@ a:active {
         display: none;
         border-radius: 0;
     }
-    #header {
-        font-size: 0.9em;
-        padding-left: 0.3em;
-        padding-top: 0.7em;
-        height: 2.1em;
-    }
 }
 
-.sidebar_button {
+.sidebar-button {
     position: absolute;
     top: 3px;
     right: 5px;
-    background-color: white;
     height: 2em;
     border-radius: 2em;
-    text-transform: uppercase;
-    font-size: 1.4em;
-    padding: 0;
+    font-size: 1.6em;
     opacity: 0.85;
     z-index: 3;
-}
-
-.sidebar_button h2 {
-    margin: 0 0 2px 0;
-    font-weight: 300;
 }
 
 .close_button {
     display: block;
     width: 2em;
 }
+.close_button:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+}
 
 .open_button {
     display: none;
-    width: 13.7em;
+    width: 20%;
     background-color: #0DAED3;
     color: white;
 }
@@ -198,11 +156,11 @@ input[id$="CB"]:checked:after {
     color: #99a1a7;
 }
 
-li input[type="checkbox"] {
+.map .container li input[type="checkbox"] {
     display: none;
 }
 
-li {
+.map .container li {
     font-size: 0.7em;
 }
 
@@ -210,16 +168,7 @@ li {
     display: none;
 }
 
-#the_side_bar ul {
-    padding: 0;
-    margin-left: 3%;
-    list-style-type: none;
-}
 
-
-/*#gml_folder1 ul {
-	margin-left: 10%;
-}*/
 
 div[id^="gml_folder"] {
     margin-left: 5%;

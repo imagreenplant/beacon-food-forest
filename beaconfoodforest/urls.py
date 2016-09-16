@@ -15,10 +15,34 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
+
+# Redirects from old site pages
 from django.views.generic.base import RedirectView
+
+# Sitemaps
+from django.contrib.sitemaps.views import sitemap
+from base.sitemaps import StaticViewSitemap
+from plants.sitemaps import PlantSitemap, PlantStaticSitemap
+from education.sitemaps import ClassEventSitemap, EducationSitemap
+from maps.sitemaps import KmlMapSitemap
+
+sitemaps = {
+    'static': StaticViewSitemap,
+    'plants': PlantSitemap,
+    'plants-static': PlantStaticSitemap,
+    'education-static': EducationSitemap,
+    'classes': ClassEventSitemap,
+    'maps': KmlMapSitemap,
+
+}
+
+
+# Apps
 from maps import urls as map_urls
 from education import urls as education_urls
 from plants import urls as plant_urls
+
+
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
@@ -62,6 +86,7 @@ urlpatterns = [
     url(r'^debug/$', 'base.views.debuginfo'),
     url(r'^debug/files/$', 'base.views.debugfiles'),
     url(r'^captcha/', include('captcha.urls')),
+    url(r'^sitemap\.xml$', sitemap, {'sitemaps': sitemaps},name='django.contrib.sitemaps.views.sitemap'),
 ]
 
 from django.conf import settings
