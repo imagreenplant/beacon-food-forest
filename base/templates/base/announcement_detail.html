@@ -8,13 +8,15 @@
           <div class="crop">
             {% if announcement.primary_image %}
               <img src="/media/{{announcement.primary_image}}" alt="{{announcement.headline}} photo">
+            {% else %}
+              <img src="{% static "education/img/education_default.jpg" %}" alt="Education event default image"> 
             {% endif %} 
             
             <div class="event">
               {% if announcement.headline %}
               <div class="event-desc">
-                <h2 class="event-desc-header">{{announcement.title}}</h2>
-                <a class="rsvp btn btn-primary" href="{% url 'announcement-detail' announcement.announcement_slug %}" role="button">See More</a>
+                <h2 class="event-desc-header">{{announcement.headline}}</h2>
+                <a class="rsvp btn btn-primary" href="{{ announcement.link }}" role="button">See More</a>
               </div>
               {% endif %}
             </div>
@@ -42,8 +44,8 @@
                 {
                   "@context": "http://schema.org",
                   "@type": "EducationEvent",
-                  "name": "Class: {{ class.title }}",
-                  "startDate" : "{{ class.event_date|date:"c"}}",
+                  "name": "Class: {{ announcement.headline }}",
+                  "startDate" : "{{ announcement.event_date|date:"c"}}",
                   "url" : "{{ request.build_absolute_uri }}",
                   "location" : {
                     "@type" : "Place",

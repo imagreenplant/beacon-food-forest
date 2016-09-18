@@ -67,20 +67,25 @@ class Announcement(models.Model):
     def is_active_announcement(self):
         return self.announcement_publish_date <= datetime.date.today() and self.announcement_expire_date >= datetime.date.today()
 
-    announcement_publish_date = models.DateField(
+    publish_date = models.DateField(
         auto_now=False, auto_now_add=False, blank=False,
         default=timezone.now, help_text="The date this announcement should go live")
-    announcement_expire_date = models.DateField(
+    expire_date = models.DateField(
         auto_now=False, auto_now_add=False, blank=False,
         default=timezone.now, help_text="The date this announcement should expire")
-    announcement_publish_override = models.BooleanField(
+    event_date = models.DateField(
+        auto_now=False, auto_now_add=False, blank=True,
+        default=timezone.now, help_text="""
+        (Optional) If there is a date associated with this announcement, then put it here
+        """)
+    override = models.BooleanField(
         blank=False, default=True,
         help_text="(Optional) Override for turning announcement On/off.")
-    announcement_content = MarkdownField(
+    content = MarkdownField(
         blank=True, help_text="(Optional) Larger content block for announcement")
-    announcement_link = models.URLField(
+    link = models.URLField(
         blank=True, help_text="(Optional) A pertinent url for the announcement")
-    announcement_slug = models.CharField(
+    slug = models.CharField(
         max_length=500, blank=True, help_text="A short description of announcement")
     headline = models.CharField(
         'The short headline for the announcement', max_length=200, blank=False,

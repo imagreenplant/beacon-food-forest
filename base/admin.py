@@ -12,7 +12,7 @@ class WorkPartyEventAdmin(admin.ModelAdmin):
 
 @admin.register(Announcement)
 class AnnouncementAdmin(MarkdownModelAdmin):
-	list_display = ('announcement_publish_date', 'announcement_slug',)	
+	list_display = ('publish_date', 'slug',)	
 
 @admin.register(VolunteerContact)
 class VolunteerAdmin(admin.ModelAdmin):

@@ -70,7 +70,7 @@ def material_donation_thanks(request):
 	return render_to_response('base/material_donation_thanks.html',{},context_instance = RequestContext(request))
 
 def announcement(request,slug):
-	announcement = get_object_or_404(Announcement, announcement_slug=slug)
+	announcement = get_object_or_404(Announcement, slug=slug)
 	return render_to_response('base/announcement_detail.html', {'announcement':announcement},\
 		context_instance = RequestContext(request))
 
