@@ -12,7 +12,8 @@ class WorkPartyEventAdmin(admin.ModelAdmin):
 
 @admin.register(Announcement)
 class AnnouncementAdmin(MarkdownModelAdmin):
-	list_display = ('publish_date', 'slug',)	
+	list_display = ('publish_date', 'slug',)
+	fields = ('headline','publish_date','expire_date','event_date','content','primary_image','link','override','slug')
 
 @admin.register(VolunteerContact)
 class VolunteerAdmin(admin.ModelAdmin):
