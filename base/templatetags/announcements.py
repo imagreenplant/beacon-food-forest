@@ -41,7 +41,7 @@ def gatherAnnouncements():
 		'workParties':getUpcomingWorkParties(),
 		'newClasses':getNewClasses(),
 		'upcomingClasses':getUpcomingClasses(),
-		'articles':getRecentArticles(),
+		# 'articles':getRecentArticles(),
 		'dynamic':getDynamicAnnouncements(),
 	}
 	return announcements
