@@ -13,10 +13,18 @@
             {% endif %} 
             
             <div class="event">
+              {% if announcement.event_date %}
+              <div class="event-date">
+                  <p class="event-month">{{ announcement.event_date|date:"M" }}</p>
+                  <p class="event-day">{{ announcement.event_date|date:"j" }}</p>
+              </div>
+              {% endif %}
               {% if announcement.headline %}
               <div class="event-desc">
                 <h2 class="event-desc-header">{{announcement.headline}}</h2>
-                <a class="rsvp btn btn-primary" href="{{ announcement.link }}" role="button">See More</a>
+                {% if announcement.link %}
+                  <a class="rsvp btn btn-primary" href="{{ announcement.link }}" role="button">See More</a>
+                {% endif %}
               </div>
               {% endif %}
             </div>
