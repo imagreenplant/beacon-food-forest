@@ -62,7 +62,7 @@ class Announcement(models.Model):
 
     def __str__(self):
         # return self.announcement_publish_date.strftime('%b %d,%Y')
-        return ": ".join([self.announcement_publish_date.strftime('%b %d,%Y'), self.announcement_slug, ])
+        return ": ".join([self.publish_date.strftime('%b %d,%Y'), self.slug, ])
 
     def is_active_announcement(self):
         return self.announcement_publish_date <= datetime.date.today() and self.announcement_expire_date >= datetime.date.today()
