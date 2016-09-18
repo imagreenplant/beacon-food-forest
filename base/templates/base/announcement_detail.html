@@ -39,21 +39,10 @@
             <script type="application/ld+json">
                 {
                   "@context": "http://schema.org",
-                  "@type": "EducationEvent",
-                  "name": "Class: {{ announcement.headline }}",
+                  "@type": "Event",
+                  "name": "{{ announcement.headline }}",
                   "startDate" : "{{ announcement.event_date|date:"c"}}",
                   "url" : "{{ request.build_absolute_uri }}",
-                  "location" : {
-                    "@type" : "Place",
-                    "name" : "{{ class.class_location }}",
-                    "address" : "{{ class.class_location }}"
-                  },
-                  "offers" : {
-                    "@type" : "Offer",
-                    "price":"{{ class.price }}",
-                    "priceCurrency":"USD",
-                    "url":"{{ class.ticket_link }}"
-                  }
                 }
             </script>
             </div>
