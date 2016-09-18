@@ -24,19 +24,7 @@
 
 
           <div>
-            <p><i>From {{ class.event_start_time }} until {{ class.event_end_time }}</i></p>
-            <p class="description">{{ class.class_description|parse_markdown }}</p>
-            {% if class.class_location %}
-                <p>Location: 
-                    {% if class.class_location_link %}
-                        <span class="blue"><a href="{{ class.class_location_link }}">
-                    {% endif %}
-                    {{ class.class_location }}
-                    {% if class.class_location_link %}
-                        </a></span>
-                    {% endif %}
-                </p>
-            {% endif %}
+            <p class="description">{{ announcement.content|parse_markdown }}</p>
             {# https://developers.google.com/structured-data/rich-snippets/events #}
             {# https://schema.org/Event #}
             {# https://schema.org/EducationEvent #}
