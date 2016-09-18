@@ -74,7 +74,7 @@ class Announcement(models.Model):
         auto_now=False, auto_now_add=False, blank=False,
         default=timezone.now, help_text="The date this announcement should expire")
     event_date = models.DateField(
-        auto_now=False, auto_now_add=False, blank=True,
+        auto_now=False, auto_now_add=False, blank=True, null=True,
         default=None, help_text="""
         (Optional) If there is a date associated with this announcement, then put it here
         """)
