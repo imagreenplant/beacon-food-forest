@@ -68,20 +68,20 @@
     {% endif %}
     <!-- The below can be removed when markdown announcments are reactivated -->
     {% for announcement in announcements.dynamic %}
-        {% if announcement.announcement_publish_override %}
+        {% if announcement.override %}
         <div class="announcement announce ann-brown ann-text">
           <div class="crop">
-            <h2 class="content-title">{{announcement.announcement_slug}}</h2>
+            <h2 class="content-title">{{announcement.slug}}</h2>
             <a href="http://example.com"><span class="image-grid-link"></span></a>
                     <img src="{% static "base/img/announce_image_default.jpg" %}" alt="Announcement default image">  
             <div class="event">
               <div class="markdown">
-                  {{ announcement.announcement_content|parse_markdown }}
+                  {{ announcement.content|parse_markdown }}
               </div>
-              {% if announcement.announcement_link %}
-                  <p class="more-info-link"><a href="{{announcement.announcement_link}}">More Info</a></p>
+              {% if announcement.link %}
+                  <p class="more-info-link"><a href="{{announcement.link}}">More Info</a></p>
               {% endif %}
-              <p class="published-date">Published on {{announcement.announcement_publish_date}}</p>
+              <p class="published-date">Published on {{announcement.publish_date}}</p>
               <div class="float-clear-left"></div>
             </div>
           </div>

@@ -61,11 +61,10 @@ class Announcement(models.Model):
         verbose_name_plural = "Announcements"
 
     def __str__(self):
-        # return self.announcement_publish_date.strftime('%b %d,%Y')
         return ": ".join([self.publish_date.strftime('%b %d,%Y'), self.slug, ])
 
     def is_active_announcement(self):
-        return self.announcement_publish_date <= datetime.date.today() and self.announcement_expire_date >= datetime.date.today()
+        return self.publish_date <= datetime.date.today() and self.expire_date >= datetime.date.today()
 
     publish_date = models.DateField(
         auto_now=False, auto_now_add=False, blank=False,
@@ -80,7 +79,7 @@ class Announcement(models.Model):
         """)
     override = models.BooleanField(
         blank=False, default=True,
-        help_text="(Optional) Override for turning announcement On/off.")
+        help_text="(Optional) Override. If box is unchecked, announcement will immediately turn off.")
     content = MarkdownField(
         blank=True, help_text="(Optional) Larger content block for announcement")
     link = models.URLField(
