@@ -41,8 +41,18 @@
                   "@context": "http://schema.org",
                   "@type": "Event",
                   "name": "{{ announcement.headline }}",
-                  "startDate" : "{{ announcement.event_date|date:"c"}}",
+                  {% if announcement.event_date %}
+                    "startDate" : "{{ announcement.event_date|date:"c"}}",
+                  {% endif %}
                   "url" : "{{ request.build_absolute_uri }}",
+                  {% if announcement.description %}
+                    "description" : "{{ announcement.content|parse_markdown }}",  
+                  {% endif %}
+                  {% if announcement.primary_image %}
+                    "image" : "/media/{{announcement.primary_image}}",
+                  {% else %}
+                    "image" : "{% static "base/img/trumpet.jpg" %}",
+                  {% endif %}
                 }
             </script>
             </div>
