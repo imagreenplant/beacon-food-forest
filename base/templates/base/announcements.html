@@ -74,14 +74,16 @@
             <a href="{% url 'announcement-detail' announcement.slug  %}"><span class="image-grid-link"></span></a>
                     <img src="{% static "base/img/announce_image_default.jpg" %}" alt="Announcement default image">  
             <div class="event">
-              <div class="event-desc event-listpage">
-                      <h2 class="event-desc-header">{{announcement.headline}}</h2>
-                    </div>
-              {% if announcement.link %}
-                  <p class="more-info-link"><a href="{{announcement.link}}">More Info</a></p>
+              {% if announcement.event_date %}
+                <div class="event-date">
+                  <p class="event-month">{{ announcement.event_date|date:"M" }}</p>
+                  <p class="event-day">{{ announcement.event_date|date:"j" }}</p>
+                </div>
               {% endif %}
-              <p class="published-date">Published on {{announcement.publish_date}}</p>
-              <div class="float-clear-left"></div>
+              <div class="event-desc event-listpage">
+                <h2 class="event-desc-header">{{announcement.headline}}</h2>
+              </div>
+              {# <p class="published-date">Published on {{announcement.publish_date}}</p> #}
             </div>
           </div>
         </div>
