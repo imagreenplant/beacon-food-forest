@@ -1,11 +1,11 @@
-from django.shortcuts import render_to_response
+from django.shortcuts import render_to_response, get_object_or_404
 from django.http import HttpResponse, HttpResponseRedirect
 from django.core.mail import send_mail
 from django.template import RequestContext
 
 from beaconfoodforest import settings
 from base.forms import MaterialsDonationForm
-from base.models import Download
+from base.models import Download, Announcement
 
 import sys
 
@@ -68,4 +68,9 @@ def material_donation_notify(request):
 
 def material_donation_thanks(request):
 	return render_to_response('base/material_donation_thanks.html',{},context_instance = RequestContext(request))
+
+def announcement(request,slug):
+	announcement = get_object_or_404(Announcement, slug=slug)
+	return render_to_response('base/announcement_detail.html', {'announcement':announcement},\
+		context_instance = RequestContext(request))
 

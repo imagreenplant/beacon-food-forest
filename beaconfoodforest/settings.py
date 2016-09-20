@@ -208,7 +208,7 @@ EMAIL_USE_SSL = True
 # Internationalization
 # https://docs.djangoproject.com/en/1.8/topics/i18n/
 LANGUAGE_CODE = 'en-us'
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'America/Los_Angeles'
 USE_I18N = True
 USE_L10N = True
 USE_TZ = True
@@ -238,7 +238,7 @@ ENVIRONMENTS = {
     'testing':{
         'STATIC_ROOT': '/home3/beaconf2/public_html/s-test', # This the place on the live test server where static files will be collected for delivery.
         'ALLOWED_HOSTS': ['.beaconfoodforest.org',],
-        'DEBUG': False,
+        'DEBUG': True,
         'STATIC_URL':'http://beaconfoodforest.org/s-test/',
         'CACHES': { 'default': {'BACKEND': 'django.core.cache.backends.dummy.DummyCache',} },
         'DATABASE':'testing',

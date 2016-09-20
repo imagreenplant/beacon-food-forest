@@ -68,21 +68,22 @@
     {% endif %}
     <!-- The below can be removed when markdown announcments are reactivated -->
     {% for announcement in announcements.dynamic %}
-        {% if announcement.announcement_publish_override %}
+        {% if announcement.override %}
         <div class="announcement announce ann-brown ann-text">
           <div class="crop">
-            <h2 class="content-title">{{announcement.announcement_slug}}</h2>
-            <a href="http://example.com"><span class="image-grid-link"></span></a>
+            <a href="{% url 'announcement-detail' announcement.slug  %}"><span class="image-grid-link"></span></a>
                     <img src="{% static "base/img/announce_image_default.jpg" %}" alt="Announcement default image">  
             <div class="event">
-              <div class="markdown">
-                  {{ announcement.announcement_content|parse_markdown }}
-              </div>
-              {% if announcement.announcement_link %}
-                  <p class="more-info-link"><a href="{{announcement.announcement_link}}">More Info</a></p>
+              {% if announcement.event_date %}
+                <div class="event-date">
+                  <p class="event-month">{{ announcement.event_date|date:"M" }}</p>
+                  <p class="event-day">{{ announcement.event_date|date:"j" }}</p>
+                </div>
               {% endif %}
-              <p class="published-date">Published on {{announcement.announcement_publish_date}}</p>
-              <div class="float-clear-left"></div>
+              <div class="event-desc event-listpage">
+                <h2 class="event-desc-header">{{announcement.headline}}</h2>
+              </div>
+              {# <p class="published-date">Published on {{announcement.publish_date}}</p> #}
             </div>
           </div>
         </div>
