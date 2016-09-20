@@ -37,7 +37,7 @@ def getRecentArticles():
 
 def getDynamicAnnouncements():
     # Returns any annoucements published in database for current time
-    dynamic = Announcement.objects.filter(publish_date__lt=datetime.date.today()) \
+    dynamic = Announcement.objects.filter(publish_date__lte=datetime.date.today()) \
     	.filter(expire_date__gt=datetime.date.today()) \
     	.order_by('publish_date')[:10]
     return dynamic
