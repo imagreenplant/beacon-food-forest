@@ -24,7 +24,8 @@ import os
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 import socket
-print("Machine hostname is %s, this will determine the environment setting." % socket.gethostname())
+print("Machine hostname is %s, this will determine the environment setting." %
+      socket.gethostname())
 
 if socket.gethostname() == "opal.local":
     ENVIRONMENT = "local"
@@ -39,12 +40,12 @@ print("ENVIRONMENT is set to %s" % ENVIRONMENT)
 
 
 # SECURITY WARNING: keep the secret key used in production secret!
-try: 
+try:
     SECRET_KEY = os.environ['DJANGO_KEY']
     print("Local key exists")
 except KeyError:
     SECRET_KEY = 'i3zc+lymkle=d00x1l4d$w2mp7jidk%x^tb*wlmh2h%ee8o^y6'
-    print("No local key exists, using ",SECRET_KEY)
+    print("No local key exists, using ", SECRET_KEY)
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
@@ -121,11 +122,11 @@ TEMPLATES = [
             ],
             'loaders': [
                 ('django.template.loaders.cached.Loader', [
-                'django.template.loaders.filesystem.Loader',
-                'django.template.loaders.app_directories.Loader',
-            ]),
-                
-        ],
+                    'django.template.loaders.filesystem.Loader',
+                    'django.template.loaders.app_directories.Loader',
+                ]),
+
+            ],
         },
     },
 ]
@@ -164,7 +165,7 @@ WSGI_APPLICATION = 'beaconfoodforest.wsgi.application'
 DATABASES = {
     'production': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME' : "beaconf2_django_main",
+        'NAME': "beaconf2_django_main",
         'USER': 'beaconf2_django_user',
         'PASSWORD': 'V4ADbu{UwWV,@o^lSL',
         'HOST': '66.147.244.132',
@@ -172,26 +173,26 @@ DATABASES = {
     # This is the default testing database
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME' : "beaconf2_django_testing",
+        'NAME': "beaconf2_django_testing",
         'USER': 'beaconf2_tester',
         'PASSWORD': 'tester123',
         'HOST': '66.147.244.132',
     },
     'local': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME' : "beaconf2_django_testing",
+        'NAME': "beaconf2_django_testing",
         'USER': 'beaconf2_tester',
         'PASSWORD': 'tester123',
         'HOST': '66.147.244.132',
     },
     'testing': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME' : "beaconf2_django_testing",
+        'NAME': "beaconf2_django_testing",
         'USER': 'beaconf2_tester',
         'PASSWORD': 'tester123',
         'HOST': 'localhost',
     },
-    'lite':{
+    'lite': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
@@ -201,7 +202,7 @@ DATABASES = {
 # Email settings
 EMAIL_HOST = 'mail.beaconfoodforest.org'
 EMAIL_PORT = 465
-EMAIL_HOST_USER = 'sender@beaconfoodforest.org'  
+EMAIL_HOST_USER = 'sender@beaconfoodforest.org'
 EMAIL_HOST_PASSWORD = 'l.$R5=Fh"@U()d'
 EMAIL_USE_SSL = True
 
@@ -223,46 +224,50 @@ CAPTCHA_TEXT_FIELD_TEMPLATE = 'base/captcha_field_override.html'
 TAGGIT_CASE_INSENSITIVE = True
 
 ENVIRONMENTS = {
-    'local':{
+    'local': {
         'STATIC_ROOT': None,
-        'ALLOWED_HOSTS': ['*',],  # Allow all domains
+        'ALLOWED_HOSTS': ['*', ],  # Allow all domains
         'DEBUG': True,
-        'STATIC_URL':'/static/',
-        'MEDIA_ROOT':'/Users/mlapora/media',
-        'MEDIA_URL':'/media/',
-        'CACHES': { 'default': {'BACKEND': 'django.core.cache.backends.dummy.DummyCache',} },
-        'DATABASE':'lite',
-        'TEMPLATE_LOADERS':['django.template.loaders.filesystem.Loader','django.template.loaders.app_directories.Loader',],
-        'DONATE_EMAIL':'matt@lapora.org',
+        'STATIC_URL': '/static/',
+        'MEDIA_ROOT': '/Users/mlapora/media',
+        'MEDIA_URL': '/media/',
+        'CACHES': {'default': {'BACKEND': 'django.core.cache.backends.dummy.DummyCache', }},
+        'DATABASE': 'lite',
+        'TEMPLATE_LOADERS': ['django.template.loaders.filesystem.Loader', 'django.template.loaders.app_directories.Loader', ],
+        'DONATE_EMAIL': 'matt@lapora.org',
     },
-    'testing':{
-        'STATIC_ROOT': '/home3/beaconf2/public_html/s-test', # This the place on the live test server where static files will be collected for delivery.
-        'ALLOWED_HOSTS': ['.beaconfoodforest.org',],
+    'testing': {
+        # This the place on the live test server where static files will be
+        # collected for delivery.
+        'STATIC_ROOT': '/home3/beaconf2/public_html/s-test',
+        'ALLOWED_HOSTS': ['.beaconfoodforest.org', ],
         'DEBUG': True,
-        'STATIC_URL':'http://beaconfoodforest.org/s-test/',
-        'CACHES': { 'default': {'BACKEND': 'django.core.cache.backends.dummy.DummyCache',} },
-        'DATABASE':'testing',
+        'STATIC_URL': 'http://beaconfoodforest.org/s-test/',
+        'CACHES': {'default': {'BACKEND': 'django.core.cache.backends.dummy.DummyCache', }},
+        'DATABASE': 'testing',
         'MEDIA_ROOT': '/home3/beaconf2/public_html/m-test',
         'MEDIA_URL': 'http://beaconfoodforest.org/m-test/',
-        'TEMPLATE_LOADERS':['django.template.loaders.filesystem.Loader','django.template.loaders.app_directories.Loader',],
-        'DONATE_EMAIL':'matt@lapora.org',
+        'TEMPLATE_LOADERS': ['django.template.loaders.filesystem.Loader', 'django.template.loaders.app_directories.Loader', ],
+        'DONATE_EMAIL': 'matt@lapora.org',
     },
-    'production':{
-        'STATIC_ROOT': '/home3/beaconf2/public_html/s', # This the place on the live server where static files will be collected for delivery.
-        'ALLOWED_HOSTS': ['.beaconfoodforest.org',], # Allows domain and subdomains
+    'production': {
+        # This the place on the live server where static files will be collected
+        # for delivery.
+        'STATIC_ROOT': '/home3/beaconf2/public_html/s',
+        'ALLOWED_HOSTS': ['.beaconfoodforest.org', ],  # Allows domain and subdomains
         'DEBUG': False,
-        'STATIC_URL':'http://beaconfoodforest.org/s/',
-        'CACHES': { 'default': {'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',} },
-        'DATABASE':'production',
+        'STATIC_URL': 'http://beaconfoodforest.org/s/',
+        'CACHES': {'default': {'BACKEND': 'django.core.cache.backends.locmem.LocMemCache', }},
+        'DATABASE': 'production',
         'MEDIA_ROOT': '/home3/beaconf2/public_html/media',
         'MEDIA_URL': 'http://beaconfoodforest.org/media/',
-        'TEMPLATE_LOADERS':[('django.template.loaders.cached.Loader', 
-            [
-            'django.template.loaders.filesystem.Loader',
-            'django.template.loaders.app_directories.Loader',
-            ]),
-        ],
-        'DONATE_EMAIL':'donate@beaconfoodforest.org',
+        'TEMPLATE_LOADERS': [('django.template.loaders.cached.Loader',
+                              [
+                                  'django.template.loaders.filesystem.Loader',
+                                  'django.template.loaders.app_directories.Loader',
+                              ]),
+                             ],
+        'DONATE_EMAIL': 'donate@beaconfoodforest.org',
     },
 }
 
@@ -286,13 +291,13 @@ MEDIA_URL = ENVIRONMENTS[ENVIRONMENT]['MEDIA_URL']
 TEMPLATES[0]['OPTIONS']['loaders'] = ENVIRONMENTS[ENVIRONMENT]['TEMPLATE_LOADERS']
 
 # Going to try in-memory cacheing on server.  The site isn't terribly big so going to see
-# if we can get away with it in production.  Note that Bluehost could end up killing the 
+# if we can get away with it in production.  Note that Bluehost could end up killing the
 # Django processes if memory gets too big.  This is probably the fastest solution we have
-# since we can't use Memcached... because of long running processes.  Next step would be 
+# since we can't use Memcached... because of long running processes.  Next step would be
 # Database cacheing.
 CACHES = ENVIRONMENTS[ENVIRONMENT]['CACHES']
 
-DATABASES['default'] = DATABASES[ ENVIRONMENTS[ENVIRONMENT]['DATABASE'] ]
+DATABASES['default'] = DATABASES[ENVIRONMENTS[ENVIRONMENT]['DATABASE']]
 
 # For material donation page
 DONATE_EMAIL = ENVIRONMENTS[ENVIRONMENT]['DONATE_EMAIL']
