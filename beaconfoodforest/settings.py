@@ -238,7 +238,7 @@ ENVIRONMENTS = {
     'testing':{
         'STATIC_ROOT': '/home3/beaconf2/public_html/s-test', # This the place on the live test server where static files will be collected for delivery.
         'ALLOWED_HOSTS': ['.beaconfoodforest.org',],
-        'DEBUG': False,
+        'DEBUG': True,
         'STATIC_URL':'http://beaconfoodforest.org/s-test/',
         'CACHES': { 'default': {'BACKEND': 'django.core.cache.backends.dummy.DummyCache',} },
         'DATABASE':'testing',
