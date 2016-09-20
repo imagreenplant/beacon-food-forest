@@ -1,8 +1,9 @@
-from django.db import models
+from django.db import models, IntegrityError, transaction
 from django_markdown.models import MarkdownField
 import django.utils.timezone as timezone
 import datetime
-
+from django.utils import text as slugify
+import random
 
 class ExternalNewsArticle(models.Model):
 
@@ -63,6 +64,28 @@ class Announcement(models.Model):
     def __str__(self):
         return ": ".join([self.publish_date.strftime('%b %d,%Y'), self.slug, ])
 
+    def create_slug(self,headline,date,randomize=None):
+        if not headline:
+            headline = self.headline
+        if not date:
+            date = self.publish_date
+
+        if not randomize:
+            return slugify.slugify("-".join([headline, date.strftime("%B-%d-%Y")]))[:50]
+        return slugify.slugify("-".join([headline,date.strftime("%B-%d-%Y"),\
+            str(random.randrange(0,100))]))[:50]
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = self.create_slug( self.headline, self.event_date)
+        try:
+            # Bug in django requires this statement to catch IntegrityError
+            with transaction.atomic():
+                super(Announcement, self).save(*args, **kwargs)
+        except IntegrityError:
+            self.slug = self.create_slug( self.headline, self.event_date, True)
+            super(Announcement, self).save(*args, **kwargs)
+
     def is_active_announcement(self):
         return self.publish_date <= datetime.date.today() and self.expire_date >= datetime.date.today()
 
@@ -85,7 +108,7 @@ class Announcement(models.Model):
     link = models.URLField(
         blank=True, help_text="(Optional) A pertinent url for the announcement")
     slug = models.CharField(
-        max_length=500, blank=True, help_text="A short description of announcement")
+        max_length=500, blank=True, unique=True, help_text="A short description of announcement")
     headline = models.CharField(
         'The short headline for the announcement', max_length=200, blank=False,
         default="HEADLINE", help_text='(Required) The short headline of the announcement')
