@@ -1,9 +1,17 @@
 cd ~/django-projects/test/beacon-food-forest-main/
+echo "============ Stashing local changes =============="
+git stash
 echo "============ Fetching new code from git =============="
 git fetch
 echo "Checking out branch $1 to test.beaconfoodforest.org"
 git checkout $1
 git rebase
+echo "============ Applying virtual environment =============="
+workon bff-py3.5
+echo "============ UN-Stashing local changes =============="
+git stash pop
+echo "============ Installing new requirements =============="
+pip install -r requirements.txt
 echo "============ Collecting new static files =============="
 python manage.py collectstatic --noinput
 echo "============ Migrating database schema =============="
