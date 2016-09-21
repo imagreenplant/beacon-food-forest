@@ -50,6 +50,10 @@ except KeyError:
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
+# Site id is for the .sites installed package.  Differs if using for multiple sites.
+# In our case just defaulting to 1
+SITE_ID = 1
+
 # Application definition
 INSTALLED_APPS = (
     # Bootstrap design for admin interface
@@ -61,6 +65,10 @@ INSTALLED_APPS = (
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+
+    # Flatpages
+    'django.contrib.sites',
+    'django.contrib.flatpages',
 
     # Staticfiles app for serving static files in different environments
     'django.contrib.staticfiles',
