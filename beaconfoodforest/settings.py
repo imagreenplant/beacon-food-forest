@@ -239,6 +239,7 @@ ENVIRONMENTS = {
         'DATABASE': 'lite',
         'TEMPLATE_LOADERS': ['django.template.loaders.filesystem.Loader', 'django.template.loaders.app_directories.Loader', ],
         'DONATE_EMAIL': 'matt@lapora.org',
+        'LOG_FILE': 'logs/request.log',
     },
     'testing': {
         # This the place on the live test server where static files will be
@@ -253,6 +254,7 @@ ENVIRONMENTS = {
         'MEDIA_URL': 'http://beaconfoodforest.org/m-test/',
         'TEMPLATE_LOADERS': ['django.template.loaders.filesystem.Loader', 'django.template.loaders.app_directories.Loader', ],
         'DONATE_EMAIL': 'matt@lapora.org',
+        'LOG_FILE': '/home3/beaconf2/django-projects/test/beacon-food-forest-main/logs/request.log',
     },
     'production': {
         # This the place on the live server where static files will be collected
@@ -272,6 +274,7 @@ ENVIRONMENTS = {
                               ]),
                              ],
         'DONATE_EMAIL': 'donate@beaconfoodforest.org',
+        'LOG_FILE': '/home3/beaconf2/django-projects/beacon-food-forest-main/logs/request.log',
     },
 }
 
@@ -300,6 +303,8 @@ TEMPLATES[0]['OPTIONS']['loaders'] = ENVIRONMENTS[ENVIRONMENT]['TEMPLATE_LOADERS
 # since we can't use Memcached... because of long running processes.  Next step would be
 # Database cacheing.
 CACHES = ENVIRONMENTS[ENVIRONMENT]['CACHES']
+
+LOGGING['handlers']['file']['filename'] = ENVIRONMENTS[ENVIRONMENT]['LOG_FILE']
 
 DATABASES['default'] = DATABASES[ENVIRONMENTS[ENVIRONMENT]['DATABASE']]
 
