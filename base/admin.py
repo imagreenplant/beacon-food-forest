@@ -22,3 +22,8 @@ class VolunteerAdmin(admin.ModelAdmin):
 @admin.register(Download)
 class DownloadAdmin(admin.ModelAdmin):
 	list_display = ('display_name', 'download_file', 'publish_to_frontpage',)	
+
+#Flatpages with Markdown
+# admin.autodiscover()
+# flatpages.register()
+# urlpatterns += [ url(r'^admin/', include(admin.site.urls)), ]
