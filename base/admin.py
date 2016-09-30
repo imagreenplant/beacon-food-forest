@@ -23,7 +23,7 @@ class VolunteerAdmin(admin.ModelAdmin):
 class DownloadAdmin(admin.ModelAdmin):
 	list_display = ('display_name', 'download_file', 'publish_to_frontpage',)	
 
-#Flatpages with Markdown
-# admin.autodiscover()
-# flatpages.register()
-# urlpatterns += [ url(r'^admin/', include(admin.site.urls)), ]
+
+# Integrate Markdown specifically for the flatpages data
+from django_markdown import flatpages
+flatpages.register()
