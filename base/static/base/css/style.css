@@ -920,6 +920,7 @@ body {
 h1.title-text {
     color: #fff;
     font-size: 2em;
+    font-family: Verdana, Geneva, sans-serif;
 }
 h2.subtitle-text {
     color: #ee3a43;
