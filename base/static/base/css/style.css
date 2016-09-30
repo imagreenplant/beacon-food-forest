@@ -50,11 +50,15 @@ nav ul {
 /*Bootstrap Override*/
 h1 {
     font-weight: bold;
+    color: #fff;
+    font-size: 2em;
+    font-family: Verdana, Geneva, sans-serif;
 }
 
 h2 {
     font-size: 150%;
     color: #A5978D;
+    font-family: Verdana, Geneva, sans-serif;
 }
 h3 {
     font-weight: bold;
@@ -842,7 +846,7 @@ body {
     display:none;
 }
 
-@media screen and (max-width: 990px) {
+@media screen and (max-width: 1125px) {
     /* #menu is the original menu */
     #menu {
         display:none;
@@ -918,9 +922,9 @@ body {
 /* These styles only appear in #title */
 
 h1.title-text {
-    color: #fff;
+/*    color: #fff;
     font-size: 2em;
-    font-family: Verdana, Geneva, sans-serif;
+    font-family: Verdana, Geneva, sans-serif;*/
 }
 h2.subtitle-text {
     color: #ee3a43;
