@@ -1,10 +1,11 @@
 {% extends "base/app-page-content.html" %} 
 {% load staticfiles %}
+{% load custom_markdown %}
 {% block app-title %}Education | {{ flatpage.title }}{% endblock app-title %}
 {% block app-content %}
     <div class="content-div">
         <p>
-            {{ flatpage.content }}
+            {{ flatpage.content | parse_markdown }}
         </p>
     </div>
 {% endblock app-content %}
