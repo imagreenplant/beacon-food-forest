@@ -3,7 +3,7 @@
 {% load custom_markdown %}
 {% block app-title %}Education | {{ flatpage.title }}{% endblock app-title %}
 {% block app-content %}
-    <div class="content-div">
+    <div class="content-div markdown">
         <p>
             {{ flatpage.content | parse_markdown }}
         </p>
