@@ -157,7 +157,8 @@ LOGGING = {
     },
     'formatters': {
         'verbose': {
-            'format': '%(levelname)s %(asctime)s %(module)s %(process)d %(thread)d %(message)s'
+            'format': '%(levelname)s %(asctime)s %(module)s \
+                       %(process)d %(thread)d %(message)s'
         },
     },
     'loggers': {
