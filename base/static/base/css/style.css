@@ -48,8 +48,21 @@ nav ul {
 }
 
 /*Bootstrap Override*/
-h1,h2 {
+h1 {
     font-weight: bold;
+    color: #fff;
+    font-size: 2em;
+    font-family: Verdana, Geneva, sans-serif;
+}
+
+h2 {
+    font-size: 150%;
+    color: #A5978D;
+    font-family: Verdana, Geneva, sans-serif;
+}
+h3 {
+    font-weight: bold;
+    color: #4C301C;
 }
 .btn-primary {
     background-color: #0DAED3;
@@ -155,14 +168,6 @@ q:after {
     float: right;
 }
 
-.content-title {
-    font-size: 150%;
-    color: #A5978D;
-    font-family: "Georgia";
-    margin: 1em 0 1em 0;
-    font-weight: normal;
-}
-
 /*App pages (education, plants etc)*/
 .app-asset-title {
     font-size: 2em;
@@ -253,7 +258,8 @@ q:after {
         margin: 0.5em 0;
         padding: 0;
         font-size: 1.3em;
-        color: white;  }
+        color: white;  
+        font-weight: bold;}
       .event-desc.event-listpage{
         vertical-align: bottom;
       }
@@ -370,11 +376,14 @@ a, .nav a:link, .nav a:visited, .nav a:hover, .nav a:active {
     padding: 0px 0 0 0;
 }
 /* Static anchor for content-title */
+h2.content-title {
+    margin: 1em 0 1em 0;
+}
+
 
 .content-title a, .content-title a:link, .content-title a:visited, .content-title a:hover, .content-title a:active {
     color: #A5978D;
     font-size: 200%;
-    font-family: "Georgia";
     font-weight: normal;
     text-decoration: none;
     text-transform: none;
@@ -837,7 +846,7 @@ body {
     display:none;
 }
 
-@media screen and (max-width: 990px) {
+@media screen and (max-width: 1125px) {
     /* #menu is the original menu */
     #menu {
         display:none;
@@ -913,14 +922,15 @@ body {
 /* These styles only appear in #title */
 
 h1.title-text {
-    color: #fff;
+/*    color: #fff;
     font-size: 2em;
-    font-family: "Georgia";
+    font-family: Verdana, Geneva, sans-serif;*/
 }
 h2.subtitle-text {
     color: #ee3a43;
     text-transform: uppercase;
     font-size: 1.6em;
+    font-weight: bold;
     font-family: "Lucida Grande";
     bottom: 0px;
     position: absolute;
@@ -1101,7 +1111,6 @@ h2.subtitle-text {
 .sidetitle {
     font-size: 19px;
     color: #7AC143;
-    font-family: "Georgia";
     line-height: 100%;
     vertical-align: top;
     font-weight: normal;
@@ -1111,7 +1120,6 @@ h2.subtitle-text {
 .sponsor {
     font-size: 19px;
     color: #4C301C;
-    font-family: "Georgia";
     line-height: 1.3em;
     position: absolute;
     bottom: 20px;
@@ -1226,8 +1234,21 @@ span.blue a {
 .ann-brown {
     border-color: #4C301C;
 }
-
 /*End Announcements*/
+
+/*Markdown*/
+.markdown a {
+    color: #0DAED3;
+    font-size: 100%;
+    font-weight: bold;
+    text-decoration: none;
+    text-transform: none;
+    padding: 0;   
+}
+/*Markdown END*/
+
+
+
 h2.asset-page {
     font-size: 300%;
     color: #A5978D;
@@ -1375,7 +1396,6 @@ h2.asset-page {
     .sidetitle {
         font-size: 150%;
         color: #A5978D;
-        font-family: "Georgia";
         margin: 1em 0px;
         font-weight: normal;
     }
