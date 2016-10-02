@@ -1,0 +1,64 @@
+{% extends "base/app-page-content.html" %} 
+{% load staticfiles %} 
+{% load custom_markdown %}
+{% block app-title %}Announcement | {{announcement.headline}} {% endblock app-title %}
+{% block app-content %}
+    {% if announcement %}
+        <div class="app-listing container-fluid">
+          <div class="crop">
+            {% if announcement.primary_image %}
+              <img src="/media/{{announcement.primary_image}}" alt="{{announcement.headline}} photo">
+            {% else %}
+              <img src="{% static "base/img/trumpet.jpg" %}" alt="Education event default image"> 
+            {% endif %} 
+            
+            <div class="event">
+              {% if announcement.event_date %}
+              <div class="event-date">
+                  <p class="event-month">{{ announcement.event_date|date:"M" }}</p>
+                  <p class="event-day">{{ announcement.event_date|date:"j" }}</p>
+              </div>
+              {% endif %}
+              {% if announcement.headline %}
+              <div class="event-desc">
+                <h2 class="event-desc-header">{{announcement.headline}}</h2>
+                {% if announcement.link %}
+                  <a class="rsvp btn btn-primary" href="{{ announcement.link }}" role="button">See More</a>
+                {% endif %}
+              </div>
+              {% endif %}
+            </div>
+          </div>
+
+
+          <div>
+            <p class="description">{{ announcement.content|parse_markdown }}</p>
+            {# https://developers.google.com/structured-data/rich-snippets/events #}
+            {# https://schema.org/Event #}
+            {# https://schema.org/EducationEvent #}
+            <script type="application/ld+json">
+                {
+                  "@context": "http://schema.org",
+                  "@type": "Event",
+                  "name": "{{ announcement.headline }}",
+                  {% if announcement.event_date %}
+                    "startDate" : "{{ announcement.event_date|date:"c"}}",
+                  {% endif %}
+                  "url" : "{{ request.build_absolute_uri }}",
+                  {% if announcement.description %}
+                    "description" : "{{ announcement.content|parse_markdown }}",  
+                  {% endif %}
+                  {% if announcement.primary_image %}
+                    "image" : "/media/{{announcement.primary_image}}",
+                  {% else %}
+                    "image" : "{% static "base/img/trumpet.jpg" %}",
+                  {% endif %}
+                }
+            </script>
+          </div>
+        </div>
+    {% endif %}
+{% endblock app-content %}
+{% block app-sidenav %}
+  {% include "education/education-sidenav.html" %}
+{% endblock app-sidenav %}

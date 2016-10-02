@@ -12,7 +12,8 @@ class WorkPartyEventAdmin(admin.ModelAdmin):
 
 @admin.register(Announcement)
 class AnnouncementAdmin(MarkdownModelAdmin):
-	list_display = ('announcement_publish_date', 'announcement_slug',)	
+	list_display = ('publish_date', 'slug',)
+	fields = ('headline','publish_date','expire_date','event_date','content','primary_image','link','override','slug')
 
 @admin.register(VolunteerContact)
 class VolunteerAdmin(admin.ModelAdmin):
@@ -21,3 +22,8 @@ class VolunteerAdmin(admin.ModelAdmin):
 @admin.register(Download)
 class DownloadAdmin(admin.ModelAdmin):
 	list_display = ('display_name', 'download_file', 'publish_to_frontpage',)	
+
+
+# Integrate Markdown specifically for the flatpages data
+from django_markdown import flatpages
+flatpages.register()
