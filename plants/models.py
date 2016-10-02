@@ -109,7 +109,8 @@ class Plant(models.Model):
     year_planted = models.IntegerField(
         null=True, blank=True,
         help_text='(Optional) Year planted at Beacon Food forest.  Use -1 for unknown.')
-    site_code = models.CharField(max_length=20, blank=False, unique=True,
+    site_code = models.CharField(
+        max_length=20, blank=False, unique=True,
         help_text="(Required) A unique code for plant, comprised of year planted + \
         sequential number of plant.  e.g. 1501 (2015,first plant)")
     url_slug = models.SlugField(blank=True, unique=True, help_text="(Optional) An url friendly short description. \
