@@ -1,6 +1,6 @@
 {% extends "base/app-page-content.html" %} 
 {% load staticfiles %}
-
+{% load custom_markdown %}
 {% block add-css %}
     <link rel="stylesheet" type="text/css" href="{% static "maps/css/map.css" %}">
 {% endblock add-css %}
@@ -20,7 +20,7 @@
                 'name': '{{plant.name}}',
                 'friendly_name': '{{ plant.friendly_name }}',
                 'latin_name': '{{ plant.latin_name }}',
-                'content': '{{ plant.text }}',
+                'content': "{{ plant.text |parse_markdown }}",
                 'year_planted': '{{ plant.year_planted }}',
                 'site_code': '{{ plant.site_code }}',
                 'url': '{% url "plants-detail" plant.url_slug  %}',
