@@ -25,17 +25,19 @@ var infowindow = new google.maps.InfoWindow({
 	content: contentString
 });
 
-function addMarker(location, code) {
+function addMarker(location, data) {
     var marker = new google.maps.Marker({
         position: location,
-        map: map
+        map: map,
+        title: data.name,
+        infowindow: data.content,
     });
     all_markers.push(marker);
 }
 
 function addAllMarkers(markers) {
     for (var marker in markers) {
-        addMarker(markers[marker].coordinates, marker.name)
+        addMarker(markers[marker].coordinates, marker)
     }
 }
 
