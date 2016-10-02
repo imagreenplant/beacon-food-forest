@@ -1,24 +1,31 @@
 from django.db import models
 from django_markdown.models import MarkdownField
 from django.utils import text as slugify
-import django.utils.timezone as timezone
-import datetime
+# import django.utils.timezone as timezone
 from django.core.urlresolvers import reverse
 from taggit.managers import TaggableManager
+
 
 class Location(models.Model):
 
     class Meta:
-       verbose_name = "Location"
-       verbose_name_plural = "Locations"
+        verbose_name = "Location"
+        verbose_name_plural = "Locations"
 
     def __str__(self):
-       return self.friendly_location
+        return self.friendly_location
 
-    gps_latitude = models.DecimalField(max_digits=10, decimal_places=7, blank=True, default=0.00,help_text='(Optional) GPS latitude')
-    gps_longitude = models.DecimalField(max_digits=10, decimal_places=7, blank=True, default=0.00,help_text='(Optional) GPS longitude')
-    friendly_location = models.CharField(max_length=200, blank=True, help_text="(Optional) Description of location")
-    greater_area = models.CharField(max_length=200, blank=True, help_text="(Optional) Description of area like Phase2 Upper")
+    gps_latitude = models.DecimalField(
+        max_digits=10, decimal_places=7, blank=True,
+        default=0.00, help_text='(Optional) GPS latitude')
+    gps_longitude = models.DecimalField(
+        max_digits=10, decimal_places=7, blank=True,
+        default=0.00, help_text='(Optional) GPS longitude')
+    friendly_location = models.CharField(
+        max_length=200, blank=True, help_text="(Optional) Description of location")
+    greater_area = models.CharField(max_length=200, blank=True,
+                                    help_text="(Optional) Description of area like Phase2 Upper")
+
 
 class Coordinates(models.Model):
 
@@ -29,8 +36,11 @@ class Coordinates(models.Model):
     def __str__(self):
         return ":".join([str(self.latitude), str(self.longitude)])
 
-    latitude = models.DecimalField(max_digits=10, decimal_places=7, blank=False, default=0.00,help_text='(Required) GPS latitude')
-    longitude = models.DecimalField(max_digits=10, decimal_places=7, blank=False, default=0.00,help_text='(Required) GPS longitude')
+    latitude = models.DecimalField(max_digits=10, decimal_places=7,
+                                   blank=False, default=0.00, help_text='(Required) GPS latitude')
+    longitude = models.DecimalField(max_digits=10, decimal_places=7,
+                                    blank=False, default=0.00, help_text='(Required) GPS longitude')
+
 
 class MapCategory(models.Model):
 
@@ -41,11 +51,12 @@ class MapCategory(models.Model):
     def __str__(self):
         return self.category
 
-    category = models.CharField(max_length=100, blank=True, help_text="(Optional) On map, main folder to categorize \
-        this plant, e.g. Trees, Shrubs, Herbals.  If left blank, will not be displayed on map.  More folders can be \
-        added in admin interface.")
+    category = models.CharField(max_length=100, blank=True, help_text="(Optional) On map, main \
+        folder to categorize this plant, e.g. Trees, Shrubs, Herbals.  If left blank, will not \
+        be displayed on map.  More folders can be added in admin interface.")
     icon = models.ImageField("category icon", blank=True, help_text='Primary icon for category.  Please use \
         svg format for optimum performance.')
+
 
 class MapSubCategory(models.Model):
 
@@ -56,21 +67,22 @@ class MapSubCategory(models.Model):
     def __str__(self):
         return self.subcategory
 
-    subcategory = models.CharField(max_length=100, blank=True, help_text="(Optional) On map, subfolder to categorize \
-        this plant, e.g. under trees, we would have -- Apples, Nuts, etc.  If left blank, will not be displayed on \
-        map.  More subfolders can be added")
+    subcategory = models.CharField(max_length=100, blank=True, help_text="(Optional) On map, \
+        subfolder to categorize this plant, e.g. under trees, we would have -- Apples, Nuts, \
+        etc.  If left blank, will not be displayed on map.  More subfolders can be added")
     icon = models.ImageField("subcategory icon", blank=True, help_text='Primary icon for subcategory.  Please use \
         svg format for optimum performance.')
+
 
 class Plant(models.Model):
     """Represents a single plant"""
 
     class Meta:
-       verbose_name = "plant"
-       verbose_name_plural = "plants"
+        verbose_name = "plant"
+        verbose_name_plural = "plants"
 
     def __str__(self):
-       return self.name
+        return self.name
 
     def save(self, *args, **kwargs):
         if not self.url_slug:
@@ -86,14 +98,20 @@ class Plant(models.Model):
     # Adds tags via django-taggit library --> "taggit"
     tags = TaggableManager()
 
-    friendly_name = models.CharField(max_length=100, blank=True, help_text="(Optional) A friendly plant name, like 'Charlie the Apple Tree'")
+    friendly_name = models.CharField(
+        max_length=100, blank=True,
+        help_text="(Optional) A friendly plant name, like 'Charlie the Apple Tree'")
     latin_name = models.CharField(max_length=150, blank=True, help_text="(Optional) Latin name")
     name = models.CharField(max_length=150, blank=False, help_text="Common Name (required)")
-    text = MarkdownField(blank=True, help_text="(Optional) Descriptive text for plant (put anything here)")
+    text = MarkdownField(
+        blank=True, help_text="(Optional) Descriptive text for plant (put anything here)")
     primary_picture = models.ImageField(help_text="(Optional) primary image", blank=True)
-    year_planted = models.IntegerField(null=True, blank=True, help_text='(Optional) Year planted at Beacon Food forest.  Use -1 for unknown.')
-    site_code = models.CharField(max_length=20, blank=False, unique=True,help_text="(Required) A unique \
-       code for plant, comprised of year planted + sequential number of plant.  e.g. 1501 (2015,first plant)")
+    year_planted = models.IntegerField(
+        null=True, blank=True,
+        help_text='(Optional) Year planted at Beacon Food forest.  Use -1 for unknown.')
+    site_code = models.CharField(max_length=20, blank=False, unique=True,
+        help_text="(Required) A unique code for plant, comprised of year planted + \
+        sequential number of plant.  e.g. 1501 (2015,first plant)")
     url_slug = models.SlugField(blank=True, unique=True, help_text="(Optional) An url friendly short description. \
        Must be unique to each plant e.g julies-quince")
     last_modified = models.DateTimeField(auto_now=True, auto_now_add=False)
@@ -104,18 +122,18 @@ class Plant(models.Model):
        the plant from being listed on the site, then uncheck this.")
 
     # Specific to map
-    category = models.ForeignKey(MapCategory,on_delete=models.CASCADE, blank=True, null=True, \
-        help_text="(Optional) On map, main folder to categorize this plant, e.g. Trees, Shrubs, \
+    category = models.ForeignKey(MapCategory, on_delete=models.CASCADE, blank=True, null=True,
+                                 help_text="(Optional) On map, main folder to categorize this plant, e.g. Trees, Shrubs, \
         Herbals.  If left blank, will not be displayed on map.  More folders can be added\
         in admin interface.")
-    subcategory = models.ForeignKey(MapSubCategory,on_delete=models.CASCADE, blank=True, null=True, \
-        help_text="(Optional) On map, subfolder to categorize this plant, e.g. under trees, \
+    subcategory = models.ForeignKey(MapSubCategory, on_delete=models.CASCADE, blank=True, null=True,
+                                    help_text="(Optional) On map, subfolder to categorize this plant, e.g. under trees, \
         we would have -- Apples, Nuts, etc.  If left blank, will not be displayed on map.  \
         More subfolders can be added in admin interface.")
-    location = models.ForeignKey(Location,on_delete=models.CASCADE, blank=True, null=True, \
-        help_text='Assign a location (made separately)')
-    coordinates = models.ForeignKey(Coordinates,on_delete=models.CASCADE, blank=True, null=True, \
-        help_text='Exact gps coordinates of location of plant')
+    location = models.ForeignKey(Location, on_delete=models.CASCADE, blank=True, null=True,
+                                 help_text='Assign a location (made separately)')
+    coordinates = models.ForeignKey(Coordinates, on_delete=models.CASCADE, blank=True, null=True,
+                                    help_text='Exact gps coordinates of location of plant')
 
 # Saving this for another day.  We may not want this.
 
@@ -127,7 +145,7 @@ class Plant(models.Model):
 
 #   def __str__(self):
 #    return " ".join(date,actor)
-       
+
 #   description = models.TextField(blank=False, help_text="A description of what happened to the plant")
 #   date = models.DateField(default=timezone.now, blank=False, help_text="The date of the maintenance.  If you \
 #    don't know, just estimate.")
