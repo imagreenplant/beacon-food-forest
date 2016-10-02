@@ -18,6 +18,13 @@
                 'coordinates': { lat: {{ plant.coordinates.latitude }}, 
                                  lng: {{ plant.coordinates.longitude }} },
                 'name': '{{plant.name}}',
+                'friendly_name': '{{ plant.friendly_name }}',
+                'latin_name': '{{ plant.latin_name }}',
+                'content': '{{ plant.text }}',
+                'year_planted': '{{ plant.year_planted }}',
+                'site_code': '{{ plant.site_code }}',
+                'url': '{% url "plants-detail" plant.url_slug  %}',
+                'location': '{{ plant.location }}',
             },
             {% endfor %}
         };
