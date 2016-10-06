@@ -1,4 +1,4 @@
-from django.conf.urls import include, url
+from django.conf.urls import url
 
 urlpatterns = [
     url(r'^$', 'plants.views.index', name="plants-hub"),
