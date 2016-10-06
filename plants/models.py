@@ -22,7 +22,8 @@ class Location(models.Model):
         max_digits=10, decimal_places=7, blank=True,
         default=0.00, help_text='(Optional) GPS longitude')
     friendly_location = models.CharField(
-        max_length=200, blank=True, help_text="(Optional) Description of location")
+        max_length=200, blank=True, 
+        help_text="(Optional) Description of location")
     greater_area = models.CharField(max_length=200, blank=True,
                                     help_text="(Optional) Description of area like Phase2 Upper")
 
