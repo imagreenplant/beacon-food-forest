@@ -23,6 +23,8 @@ var entityMap = {
         scaleControl: false,
         streetViewControl: false,
         overviewMapControl: false,
+        rotateControl: true,
+        fullscreenControl: true,
     },
 
     addAllMarkers: function(markers) {
@@ -48,6 +50,10 @@ var entityMap = {
             position: google.maps.ControlPosition.LEFT_BOTTOM,
         };
         this.mapOptions.center = new google.maps.LatLng(47.56785610052802, -122.31254031038299);
+        this.mapOptions.rotateControlOptions = {
+            style: google.maps.MapTypeControlStyle.HORIZONTAL_BAR,
+            position: google.maps.ControlPosition.LEFT_BOTTOM,
+        };
 
         this.map = new google.maps.Map(document.getElementById('map-canvas'), this.mapOptions);
         this.addAllMarkers(plants);
