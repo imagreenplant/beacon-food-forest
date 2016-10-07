@@ -1,9 +1,5 @@
 "use strict";
 var entityMap = entityMap || {};
-var google = this.google;
-var plants = this.plants;
-
-var beacon_food_forest_location = new google.maps.LatLng(47.56845610052802, -122.31254031038299);
 
 var entityMap = {
     getInfo: function() { /**/ },
@@ -11,20 +7,16 @@ var entityMap = {
     entities: [],
     map: {},
 
+    beacon_food_forest_location: null,
+    google: null,
+    plants: null,
 
     mapOptions: {
-        zoom: 18,
-
-        //Heading can't be used here, appears to conflict with GeoXML lib.  Stuck with North/South orientation.
-        center: beacon_food_forest_location,
-        mapTypeId: google.maps.MapTypeId.SATELLITE,
-        tilt: 0,
+        zoom: 19,
+        heading: 90,
+        tilt: 45,
         panControl: false,
         zoomControl: true,
-        zoomControlOptions: {
-            style: google.maps.ZoomControlStyle.SMALL,
-            position: google.maps.ControlPosition.LEFT_BOTTOM,
-        },
 
         // May be useful someday if we use an overlay as a map, instead of the satellite
         mapTypeControl: false,
@@ -50,13 +42,18 @@ var entityMap = {
     },
 
     initMap: function() {
+        this.mapOptions.mapTypeId = google.maps.MapTypeId.SATELLITE;
+        this.mapOptions.zoomControlOptions = {
+            style: google.maps.ZoomControlStyle.SMALL,
+            position: google.maps.ControlPosition.LEFT_BOTTOM,
+        };
+        this.mapOptions.center = new google.maps.LatLng(47.56785610052802, -122.31254031038299);
+
         this.map = new google.maps.Map(document.getElementById('map-canvas'), this.mapOptions);
         this.addAllMarkers(plants);
     },
 
 };
-
-// var all_markers = [];
 
 var contentString = '<div id="content">' +
     '<div id="siteNotice">' +
@@ -79,11 +76,11 @@ var contentString = '<div id="content">' +
     '</div>' +
     '</div>';
 
-var infowindow = google.maps.InfoWindow({
-    content: contentString
-});
+// var infowindow = google.maps.InfoWindow({
+//     content: contentString
+// });
 
-var plantMap = new entityMap();
+// var plantMap = new entityMap();
 
 // function addMarker(location, data, map) {
 //     var marker = new google.maps.Marker({

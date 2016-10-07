@@ -11,6 +11,7 @@
 {% block sub-page-class %}app map{% endblock sub-page-class %}
 {% block app-content %}
     <div id="map-canvas"></div>
+    <script type="text/javascript" src="{% static "maps/js/mapdb.js" %}"></script>
     <script type="text/javascript">
         var plants = {
             {% for plant in plants %}
@@ -29,7 +30,6 @@
             {% endfor %}
         };
     </script>
-    <script type="text/javascript" src="{% static "maps/js/mapdb.js" %}"></script>
     <div id="the_side_bar">
         <ul>
             <div>
@@ -58,63 +58,7 @@
                 </ul>
             </div>
         </ul>
-        <!--
-        
-        <ul>
-            <div id="gml_folder1" style="display:block">
-                <ul>
-                    <div class="line-item">
-                        <input type="checkbox" id="gml2FCB" style="vertical-align:middle" checked="" onclick="gml.toggleContents(2,this.checked)">&nbsp;<span title="" id="gmlTB2" oncontextmenu="gml.saveJSON(2);" onclick="gml.toggleFolder(2)" style="font-weight:normal"><img id="gmlFB2" style="vertical-align:text-top;padding:0;margin:0;height:" +this.sidebariconheight+"px;"="" border="0" src="/static/maps/img/basic-folder-icon.png"></span>&nbsp;<a href="#" onclick="gml.overlayman.zoomToFolder(2);gml.mb.showMess('Trees',3000);return false;">Trees</a>
-                        <br>
-                    </div>
-                    <div id="gml_folder2" style="display:block">
-                        <ul>
-                            <div class="line-item">
-                                <input type="checkbox" id="gml3FCB" style="vertical-align:middle" checked="" onclick="gml.toggleContents(3,this.checked)">&nbsp;<span title="" id="gmlTB3" oncontextmenu="gml.saveJSON(3);" onclick="gml.toggleFolder(3)" style="font-weight:normal"><img id="gmlFB3" style="vertical-align:text-top;padding:0;margin:0;height:" +this.sidebariconheight+"px;"="" border="0" src="/static/maps/img/basic-folder-icon.png"></span>&nbsp;<a href="#" onclick="gml.overlayman.zoomToFolder(3);gml.mb.showMess('Nuts',3000);return false;">Nuts</a>
-                                <br>
-                            </div>
-                            <div id="gml_folder3" style="display:block">
-                                <li id="gmlsb0" onmouseout="google.maps.event.trigger(gml.overlayman.markers[0],'mouseout');" onmouseover="google.maps.event.trigger(gml.overlayman.markers[0],'mouseover');" class="inView">
-                                    <input id="gml0CB" type="checkbox" style="vertical-align:middle" checked="" onclick="gml.showHide(0,this.checked)"><a href="#" onclick="google.maps.event.trigger(gml.overlayman.markers[0],'click');return false;">&nbsp;<img style="vertical-align:text-top;padding:0;margin:0;height:16px;" border="0" src="/static/maps/img/nut.svg">&nbsp;&nbsp;Heart Nut</a></li>
-                                <li id="gmlsb1" onmouseout="google.maps.event.trigger(gml.overlayman.markers[1],'mouseout');" onmouseover="google.maps.event.trigger(gml.overlayman.markers[1],'mouseover');" class="inView">
-                                    <input id="gml1CB" type="checkbox" style="vertical-align:middle" checked="" onclick="gml.showHide(1,this.checked)"><a href="#" onclick="google.maps.event.trigger(gml.overlayman.markers[1],'click');return false;">&nbsp;<img style="vertical-align:text-top;padding:0;margin:0;height:16px;" border="0" src="/static/maps/img/nut.svg">&nbsp;&nbsp;Heart Nut</a></li>
-                                <li id="gmlsb2" onmouseout="google.maps.event.trigger(gml.overlayman.markers[2],'mouseout');" onmouseover="google.maps.event.trigger(gml.overlayman.markers[2],'mouseover');" class="inView">
-                                    <input id="gml2CB" type="checkbox" style="vertical-align:middle" checked="" onclick="gml.showHide(2,this.checked)"><a href="#" onclick="google.maps.event.trigger(gml.overlayman.markers[2],'click');return false;">&nbsp;<img style="vertical-align:text-top;padding:0;margin:0;height:16px;" border="0" src="/static/maps/img/nut.svg">&nbsp;&nbsp;Heart Nut</a></li>
-                                <li id="gmlsb3" onmouseout="google.maps.event.trigger(gml.overlayman.markers[3],'mouseout');" onmouseover="google.maps.event.trigger(gml.overlayman.markers[3],'mouseover');" class="inView">
-                                    <input id="gml3CB" type="checkbox" style="vertical-align:middle" checked="" onclick="gml.showHide(3,this.checked)"><a href="#" onclick="google.maps.event.trigger(gml.overlayman.markers[3],'click');return false;">&nbsp;<img style="vertical-align:text-top;padding:0;margin:0;height:16px;" border="0" src="/static/maps/img/nut.svg">&nbsp;&nbsp;Butter Nut</a></li>
-                                <li id="gmlsb4" onmouseout="google.maps.event.trigger(gml.overlayman.markers[4],'mouseout');" onmouseover="google.maps.event.trigger(gml.overlayman.markers[4],'mouseover');" class="inView">
-                                    <input id="gml4CB" type="checkbox" style="vertical-align:middle" checked="" onclick="gml.showHide(4,this.checked)"><a href="#" onclick="google.maps.event.trigger(gml.overlayman.markers[4],'click');return false;">&nbsp;<img style="vertical-align:text-top;padding:0;margin:0;height:16px;" border="0" src="/static/maps/img/nut.svg">&nbsp;&nbsp;Butter Nut</a></li>
-                            </div>
-                        </ul>
-                        <ul>
-                            <div class="line-item">
-                                <input type="checkbox" id="gml4FCB" style="vertical-align:middle" checked="" onclick="gml.toggleContents(4,this.checked)">&nbsp;<span title="" id="gmlTB4" oncontextmenu="gml.saveJSON(4);" onclick="gml.toggleFolder(4)" style="font-weight:normal"><img id="gmlFB4" style="vertical-align:text-top;padding:0;margin:0;height:" +this.sidebariconheight+"px;"="" border="0" src="/static/maps/img/basic-folder-icon.png"></span>&nbsp;<a href="#" onclick="gml.overlayman.zoomToFolder(4);gml.mb.showMess('Apples',3000);return false;">Apples</a>
-                                <br>
-                            </div>
-                            <div id="gml_folder4" style="display:block">
-                                <li id="gmlsb5" onmouseout="google.maps.event.trigger(gml.overlayman.markers[5],'mouseout');" onmouseover="google.maps.event.trigger(gml.overlayman.markers[5],'mouseover');" class="inView">
-                                    <input id="gml5CB" type="checkbox" style="vertical-align:middle" checked="" onclick="gml.showHide(5,this.checked)"><a href="#" onclick="google.maps.event.trigger(gml.overlayman.markers[5],'click');return false;">&nbsp;<img style="vertical-align:text-top;padding:0;margin:0;height:16px;" border="0" src="/static/maps/img/apple.svg">&nbsp;&nbsp;Apple, Entiat</a></li>
-                                <li id="gmlsb6" onmouseout="google.maps.event.trigger(gml.overlayman.markers[6],'mouseout');" onmouseover="google.maps.event.trigger(gml.overlayman.markers[6],'mouseover');" class="inView">
-                                    <input id="gml6CB" type="checkbox" style="vertical-align:middle" checked="" onclick="gml.showHide(6,this.checked)"><a href="#" onclick="google.maps.event.trigger(gml.overlayman.markers[6],'click');return false;">&nbsp;<img style="vertical-align:text-top;padding:0;margin:0;height:16px;" border="0" src="/static/maps/img/apple.svg">&nbsp;&nbsp;Apple, Melrose</a></li>
-                                <li id="gmlsb7" onmouseout="google.maps.event.trigger(gml.overlayman.markers[7],'mouseout');" onmouseover="google.maps.event.trigger(gml.overlayman.markers[7],'mouseover');" class="inView">
-                                    <input id="gml7CB" type="checkbox" style="vertical-align:middle" checked="" onclick="gml.showHide(7,this.checked)"><a href="#" onclick="google.maps.event.trigger(gml.overlayman.markers[7],'click');return false;">&nbsp;<img style="vertical-align:text-top;padding:0;margin:0;height:16px;" border="0" src="/static/maps/img/apple.svg">&nbsp;&nbsp;Apple, Pristine</a></li>
-                                <li id="gmlsb8" onmouseout="google.maps.event.trigger(gml.overlayman.markers[8],'mouseout');" onmouseover="google.maps.event.trigger(gml.overlayman.markers[8],'mouseover');" class="inView">
-                                    <input id="gml8CB" type="checkbox" style="vertical-align:middle" checked="" onclick="gml.showHide(8,this.checked)"><a href="#" onclick="google.maps.event.trigger(gml.overlayman.markers[8],'click');return false;">&nbsp;<img style="vertical-align:text-top;padding:0;margin:0;height:16px;" border="0" src="/static/maps/img/apple.svg">&nbsp;&nbsp;Apple, Dwarf Tsuga</a></li>
-                                <li id="gmlsb9" onmouseout="google.maps.event.trigger(gml.overlayman.markers[9],'mouseout');" onmouseover="google.maps.event.trigger(gml.overlayman.markers[9],'mouseover');" class="inView">
-                                    <input id="gml9CB" type="checkbox" style="vertical-align:middle" checked="" onclick="gml.showHide(9,this.checked)"><a href="#" onclick="google.maps.event.trigger(gml.overlayman.markers[9],'click');return false;">&nbsp;<img style="vertical-align:text-top;padding:0;margin:0;height:16px;" border="0" src="/static/maps/img/apple.svg">&nbsp;&nbsp;Apple, Kind Edward</a></li>
-                                <li id="gmlsb10" onmouseout="google.maps.event.trigger(gml.overlayman.markers[10],'mouseout');" onmouseover="google.maps.event.trigger(gml.overlayman.markers[10],'mouseover');" class="inView">
-                                    <input id="gml10CB" type="checkbox" style="vertical-align:middle" checked="" onclick="gml.showHide(10,this.checked)"><a href="#" onclick="google.maps.event.trigger(gml.overlayman.markers[10],'click');return false;">&nbsp;<img style="vertical-align:text-top;padding:0;margin:0;height:16px;" border="0" src="/static/maps/img/apple.svg">&nbsp;&nbsp;Apple, Chehalis</a></li>
-                                <li id="gmlsb11" onmouseout="google.maps.event.trigger(gml.overlayman.markers[11],'mouseout');" onmouseover="google.maps.event.trigger(gml.overlayman.markers[11],'mouseover');" class="inView">
-                                    <input id="gml11CB" type="checkbox" style="vertical-align:middle" checked="" onclick="gml.showHide(11,this.checked)"><a href="#" onclick="google.maps.event.trigger(gml.overlayman.markers[11],'click');return false;">&nbsp;<img style="vertical-align:text-top;padding:0;margin:0;height:16px;" border="0" src="/static/maps/img/apple.svg">&nbsp;&nbsp;Apple, Pristine Cox</a></li>
-                                <li id="gmlsb12" onmouseout="google.maps.event.trigger(gml.overlayman.markers[12],'mouseout');" onmouseover="google.maps.event.trigger(gml.overlayman.markers[12],'mouseover');" class="inView">
-                                    <input id="gml12CB" type="checkbox" style="vertical-align:middle" checked="" onclick="gml.showHide(12,this.checked)"><a href="#" onclick="google.maps.event.trigger(gml.overlayman.markers[12],'click');return false;">&nbsp;<img style="vertical-align:text-top;padding:0;margin:0;height:16px;" border="0" src="/static/maps/img/apple.svg">&nbsp;&nbsp;Apple, Kingston Black Cider</a></li>
-                            </div>
-                        </ul>
-                    </div>
-                </ul>
-            </div>
-        </ul>
-    -->
+
     </div>
     <button class="btn btn-primary sidebar-button open_button"><i class="fa fa-list" aria-hidden="true"></i> LIST</button>
     <button class="btn btn-secondary sidebar-button close_button"><i class="fa fa-close" aria-hidden="true"></i></button>
@@ -122,5 +66,5 @@
 
 {% block add-to-footer %}
     <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/loglevel/1.3.0/loglevel.min.js"></script>
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAsnOLu3eLbo60hkQNWo-3EEt102mOv99w&callback=initializeMap"></script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAsnOLu3eLbo60hkQNWo-3EEt102mOv99w&callback=entityMap.initMap"></script>
 {% endblock add-to-footer %}
