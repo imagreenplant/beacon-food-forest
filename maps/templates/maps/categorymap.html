@@ -21,7 +21,7 @@
                 'name': '{{plant.name}}',
                 'friendly_name': '{{ plant.friendly_name }}',
                 'latin_name': '{{ plant.latin_name }}',
-                'content': "{{ plant.text |parse_markdown }}",
+                'content': "{{ plant.text | parse_markdown | safe }}",
                 'year_planted': '{{ plant.year_planted }}',
                 'site_code': '{{ plant.site_code }}',
                 'url': '{% url "plants-detail" plant.url_slug  %}',
