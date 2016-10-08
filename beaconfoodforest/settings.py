@@ -53,6 +53,7 @@ DEBUG = False
 # Site id is for the .sites installed package.  Differs if using for multiple sites.
 # In our case just defaulting to 1
 SITE_ID = 1
+INTERNAL_IPS = ['127.0.0.1',]
 
 # Application definition
 INSTALLED_APPS = (
@@ -102,8 +103,12 @@ INSTALLED_APPS = (
 
     # Adding a tagging library for plant models
     'taggit',
+
+    # Debug toolbar https://django-debug-toolbar.readthedocs.io/
+    'debug_toolbar',
 )
 MIDDLEWARE_CLASSES = (
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',

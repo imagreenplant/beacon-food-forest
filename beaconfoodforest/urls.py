@@ -99,3 +99,9 @@ if settings.DEBUG:
     urlpatterns.append( url(r'^static/(?P<path>.*)$', never_cache(serve_static)) )
     urlpatterns.append( url(r'^media/(?P<path>.*)$', 'django.views.static.serve', {
         'document_root': settings.MEDIA_ROOT}))
+
+if settings.DEBUG:
+    import debug_toolbar
+    urlpatterns += [
+        url(r'^__debug__/', include(debug_toolbar.urls)),
+    ]
