@@ -10,10 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.8/ref/settings/
 """
 
-try:
-    import psycopg2
-except ImportError:
-    print("Please install the PostGresSQL lib:  pip install psycopg2")
+import socket
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.8/howto/deployment/checklist/
@@ -23,7 +20,7 @@ except ImportError:
 import os
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-import socket
+
 print("Machine hostname is %s, this will determine the environment setting." %
       socket.gethostname())
 
@@ -53,10 +50,9 @@ DEBUG = False
 # Site id is for the .sites installed package.  Differs if using for multiple sites.
 # In our case just defaulting to 1
 SITE_ID = 1
-INTERNAL_IPS = ['127.0.0.1',]
 
 # Application definition
-INSTALLED_APPS = (
+INSTALLED_APPS = [
     # Bootstrap design for admin interface
     'django_admin_bootstrapped',
 
@@ -103,12 +99,8 @@ INSTALLED_APPS = (
 
     # Adding a tagging library for plant models
     'taggit',
-
-    # Debug toolbar https://django-debug-toolbar.readthedocs.io/
-    'debug_toolbar',
-)
-MIDDLEWARE_CLASSES = (
-    'debug_toolbar.middleware.DebugToolbarMiddleware',
+]
+MIDDLEWARE_CLASSES = [
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -118,7 +110,7 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware',
-)
+]
 
 ROOT_URLCONF = 'beaconfoodforest.urls'
 
@@ -252,7 +244,10 @@ ENVIRONMENTS = {
         'MEDIA_URL': '/media/',
         'CACHES': {'default': {'BACKEND': 'django.core.cache.backends.dummy.DummyCache', }},
         'DATABASE': 'lite',
-        'TEMPLATE_LOADERS': ['django.template.loaders.filesystem.Loader', 'django.template.loaders.app_directories.Loader', ],
+        'TEMPLATE_LOADERS': [
+            'django.template.loaders.filesystem.Loader',
+            'django.template.loaders.app_directories.Loader',
+        ],
         'DONATE_EMAIL': 'matt@lapora.org',
         'LOG_FILE': 'logs/request.log',
     },
@@ -267,7 +262,10 @@ ENVIRONMENTS = {
         'DATABASE': 'testing',
         'MEDIA_ROOT': '/home3/beaconf2/public_html/m-test',
         'MEDIA_URL': 'http://beaconfoodforest.org/m-test/',
-        'TEMPLATE_LOADERS': ['django.template.loaders.filesystem.Loader', 'django.template.loaders.app_directories.Loader', ],
+        'TEMPLATE_LOADERS': [
+            'django.template.loaders.filesystem.Loader',
+            'django.template.loaders.app_directories.Loader',
+        ],
         'DONATE_EMAIL': 'matt@lapora.org',
         'LOG_FILE': '/home3/beaconf2/django-projects/test/beacon-food-forest-main/logs/request.log',
     },
@@ -325,6 +323,18 @@ DATABASES['default'] = DATABASES[ENVIRONMENTS[ENVIRONMENT]['DATABASE']]
 
 # For material donation page
 DONATE_EMAIL = ENVIRONMENTS[ENVIRONMENT]['DONATE_EMAIL']
+
+if DEBUG:
+    try:
+        import debug_toolbar
+    except ImportError:
+        pass
+    else:
+        INSTALLED_APPS.append('debug_toolbar')
+        INTERNAL_IPS = ['127.0.0.1', ]
+        MIDDLEWARE_CLASSES.insert(
+            MIDDLEWARE_CLASSES.index('django.middleware.common.CommonMiddleware') + 1,
+            'debug_toolbar.middleware.DebugToolbarMiddleware')
 
 
 if DEBUG:
