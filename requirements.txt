@@ -2,6 +2,7 @@ appnope==0.1.0
 decorator==4.0.9
 Django==1.8.9
 django-admin-bootstrapped==2.5.7
+django-debug-toolbar==1.6
 django-extensions==1.6.1
 django-markdown==0.8.4
 django-simple-captcha==0.5.1
@@ -18,4 +19,5 @@ psycopg2==2.6.1
 ptyprocess==0.5.1
 simplegeneric==0.8.1
 six==1.10.0
+sqlparse==0.2.1
 traitlets==4.1.0
