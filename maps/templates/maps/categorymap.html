@@ -18,14 +18,14 @@
             "{{plant.site_code}}": {
                 'coordinates': { lat: {{ plant.coordinates.latitude }}, 
                                  lng: {{ plant.coordinates.longitude }} },
-                'name': '{{plant.name}}',
-                'friendly_name': '{{ plant.friendly_name }}',
-                'latin_name': '{{ plant.latin_name }}',
-                'content': "{{ plant.text |parse_markdown }}",
-                'year_planted': '{{ plant.year_planted }}',
-                'site_code': '{{ plant.site_code }}',
+                'name': '{{ plant.name | escapejs}}',
+                'friendly_name': '{{ plant.friendly_name | escapejs}}',
+                'latin_name': '{{ plant.latin_name | escapejs }}',
+                'content': '{{ plant.text | parse_markdown | escapejs }}',
+                'year_planted': '{{ plant.year_planted | escapejs}}',
+                'site_code': '{{ plant.site_code | escapejs}}',
                 'url': '{% url "plants-detail" plant.url_slug  %}',
-                'location': '{{ plant.location }}',
+                'location': '{{ plant.location | escapejs }}',
             },
             {% endfor %}
         };
