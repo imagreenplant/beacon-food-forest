@@ -40,18 +40,27 @@ print("ENVIRONMENT is set to %s" % ENVIRONMENT)
 
 
 # Store the secrets.json file in the ~/.beaconfoodforest directory.
-try:
-    if not ENVIRONMENT == "local":
-        DATA_DIR = pathlib('~/.beaconfoodforest')
-        with DATA_DIR.joinpath('', 'secrets.json').open() as handle:
+if not ENVIRONMENT == "local":
+    try:
+        DATA_DIR = pathlib.Path('~/.beaconfoodforest/secrets.json')
+        with DATA_DIR.open() as handle:
             SECRETS = json.load(handle)
-except IOError:
-    SECRETS = {
-        'secret_key': 'a',
-    }
+    except IOError:
+        SECRETS = {
+            'secret_key': 'a',
+        }
+else:
+    try:
+        DATA_DIR = pathlib.Path('./secrets.json')
+        with DATA_DIR.open() as handle:
+            SECRETS = json.load(handle)
+    except IOError:
+        SECRETS = {
+            'secret_key': 'a',
+        }
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = SECRETS.secret_key
+SECRET_KEY = SECRETS.get('secret_key','a')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
@@ -206,10 +215,10 @@ DATABASES = {
 }
 
 # Email settings
-EMAIL_HOST = SECRETS.email_host
+EMAIL_HOST = SECRETS.get('email_host', 'example.com')
 EMAIL_PORT = 465
-EMAIL_HOST_USER = SECRETS.email_host_user
-EMAIL_HOST_PASSWORD = SECRETS.email_host_password
+EMAIL_HOST_USER = SECRETS.get('email_host_user', 'fakeuser')
+EMAIL_HOST_PASSWORD = SECRETS.get('email_host_password', 'fakepassword')
 EMAIL_USE_SSL = True
 
 # Internationalization
@@ -244,7 +253,7 @@ ENVIRONMENTS = {
             'django.template.loaders.filesystem.Loader',
             'django.template.loaders.app_directories.Loader',
         ],
-        'DONATE_EMAIL': SECRETS.donate_email.testing,
+        'DONATE_EMAIL': SECRETS.get('donate_email').get('testing'),
         'LOG_FILE': 'logs/request.log',
     },
     'testing': {
@@ -262,7 +271,7 @@ ENVIRONMENTS = {
             'django.template.loaders.filesystem.Loader',
             'django.template.loaders.app_directories.Loader',
         ],
-        'DONATE_EMAIL': SECRETS.donate_email.testing,
+        'DONATE_EMAIL': SECRETS.get('donate_email',{}).get('testing'),
         'LOG_FILE': '/home3/beaconf2/django-projects/test/beacon-food-forest-main/logs/request.log',
     },
     'production': {
@@ -282,7 +291,7 @@ ENVIRONMENTS = {
                                   'django.template.loaders.app_directories.Loader',
                               ]),
                              ],
-        'DONATE_EMAIL': SECRETS.donate_email.live,
+        'DONATE_EMAIL': SECRETS.get('donate_email').get('live'),
         'LOG_FILE': '/home3/beaconf2/django-projects/beacon-food-forest-main/logs/request.log',
     },
 }
