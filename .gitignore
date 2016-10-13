@@ -1,16 +1,9 @@
-dada_mail_support_files/*
-dMail/*
-blog/*
-blogalpha/*
 error_log
-leaf/*
 beacon-food-forest-main.sublime-project
 beacon-food-forest-main.sublime-workspace
 *.pyc
 static-collector
 local-static
-beaconfoodforest/settings_local.py
-key
 db.sqlite3
 beacondb
 .DS_Store
