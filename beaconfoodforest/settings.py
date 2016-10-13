@@ -324,7 +324,7 @@ DATABASES['default'] = DATABASES[ENVIRONMENTS[ENVIRONMENT]['DATABASE']]
 # For material donation page
 DONATE_EMAIL = ENVIRONMENTS[ENVIRONMENT]['DONATE_EMAIL']
 
-if DEBUG:
+if ENVIRONMENT == 'local':
     try:
         import debug_toolbar
     except ImportError:
