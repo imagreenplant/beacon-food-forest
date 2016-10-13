@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/1.8/ref/settings/
 import socket
 import pathlib
 import json
+import logging
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.8/howto/deployment/checklist/
@@ -23,7 +24,7 @@ import os
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
-print("Machine hostname is %s, this will determine the environment setting." %
+logging.info("Machine hostname is %s, this will determine the environment setting." %
       socket.gethostname())
 
 if socket.gethostname() == "opal.local":
@@ -159,6 +160,17 @@ LOGGING = {
             'backupCount': 5,
             'formatter': 'verbose',
         },
+        'console': {
+            'level': 'DEBUG',
+            'filters': ['require_debug_true'],
+            'class': 'logging.StreamHandler',
+            'formatter': 'verbose',
+        },
+    },
+    'filters': {
+        'require_debug_true': {
+            '()': 'django.utils.log.RequireDebugTrue',
+        },
     },
     'formatters': {
         'verbose': {
@@ -172,7 +184,13 @@ LOGGING = {
             'level': 'DEBUG',
             'propagate': True,
         },
+        'django': {
+            'handlers': ['console'],
+            'propagate': True,
+            'level': 'DEBUG',
+        },
     },
+
 }
 
 WSGI_APPLICATION = 'beaconfoodforest.wsgi.application'
@@ -226,7 +244,7 @@ ENVIRONMENTS = {
             'django.template.loaders.filesystem.Loader',
             'django.template.loaders.app_directories.Loader',
         ],
-        'DONATE_EMAIL': 'matt@lapora.org',
+        'DONATE_EMAIL': SECRETS.donate_email.testing,
         'LOG_FILE': 'logs/request.log',
     },
     'testing': {
@@ -244,7 +262,7 @@ ENVIRONMENTS = {
             'django.template.loaders.filesystem.Loader',
             'django.template.loaders.app_directories.Loader',
         ],
-        'DONATE_EMAIL': 'matt@lapora.org',
+        'DONATE_EMAIL': SECRETS.donate_email.testing,
         'LOG_FILE': '/home3/beaconf2/django-projects/test/beacon-food-forest-main/logs/request.log',
     },
     'production': {
@@ -264,7 +282,7 @@ ENVIRONMENTS = {
                                   'django.template.loaders.app_directories.Loader',
                               ]),
                              ],
-        'DONATE_EMAIL': 'donate@beaconfoodforest.org',
+        'DONATE_EMAIL': SECRETS.donate_email.live,
         'LOG_FILE': '/home3/beaconf2/django-projects/beacon-food-forest-main/logs/request.log',
     },
 }
