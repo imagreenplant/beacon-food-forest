@@ -59,7 +59,7 @@ else:
         }
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = SECRETS.get('secret_key','a')
+SECRET_KEY = SECRETS.get('secret_key', 'a')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
@@ -270,7 +270,7 @@ ENVIRONMENTS = {
             'django.template.loaders.filesystem.Loader',
             'django.template.loaders.app_directories.Loader',
         ],
-        'DONATE_EMAIL': SECRETS.get('donate_email',{}).get('testing'),
+        'DONATE_EMAIL': SECRETS.get('donate_email', {}).get('testing'),
         'LOG_FILE': '/home3/beaconf2/django-projects/test/beacon-food-forest-main/logs/request.log',
     },
     'production': {
