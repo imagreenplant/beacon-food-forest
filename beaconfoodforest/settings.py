@@ -270,7 +270,7 @@ ENVIRONMENTS = {
             'django.template.loaders.filesystem.Loader',
             'django.template.loaders.app_directories.Loader',
         ],
-        'DONATE_EMAIL': SECRETS.get('donate_email', {}).get('testing'),
+        'DONATE_EMAIL': SECRETS.get('donate_email').get('testing'),
         'LOG_FILE': '/home3/beaconf2/django-projects/test/beacon-food-forest-main/logs/request.log',
     },
     'production': {
