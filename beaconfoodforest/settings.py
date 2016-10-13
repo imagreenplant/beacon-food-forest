@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/1.8/ref/settings/
 """
 
 import socket
+import pathlib
+import json
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.8/howto/deployment/checklist/
@@ -36,13 +38,19 @@ else:
 print("ENVIRONMENT is set to %s" % ENVIRONMENT)
 
 
-# SECURITY WARNING: keep the secret key used in production secret!
+# Store the secrets.json file in the ~/.beaconfoodforest directory.
 try:
-    SECRET_KEY = os.environ['DJANGO_KEY']
-    print("Local key exists")
-except KeyError:
-    SECRET_KEY = 'i3zc+lymkle=d00x1l4d$w2mp7jidk%x^tb*wlmh2h%ee8o^y6'
-    print("No local key exists, using ", SECRET_KEY)
+    if not ENVIRONMENT == "local":
+        DATA_DIR = pathlib('~/.beaconfoodforest')
+        with DATA_DIR.joinpath('', 'secrets.json').open() as handle:
+            SECRETS = json.load(handle)
+except IOError:
+    SECRETS = {
+        'secret_key': 'a',
+    }
+
+# SECURITY WARNING: keep the secret key used in production secret!
+SECRET_KEY = SECRETS.secret_key
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
@@ -172,49 +180,18 @@ WSGI_APPLICATION = 'beaconfoodforest.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
-
 DATABASES = {
-    'production': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': "beaconf2_django_main",
-        'USER': 'beaconf2_django_user',
-        'PASSWORD': 'V4ADbu{UwWV,@o^lSL',
-        'HOST': '66.147.244.132',
-    },
-    # This is the default testing database
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': "beaconf2_django_testing",
-        'USER': 'beaconf2_tester',
-        'PASSWORD': 'tester123',
-        'HOST': '66.147.244.132',
-    },
-    'local': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': "beaconf2_django_testing",
-        'USER': 'beaconf2_tester',
-        'PASSWORD': 'tester123',
-        'HOST': '66.147.244.132',
-    },
-    'testing': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': "beaconf2_django_testing",
-        'USER': 'beaconf2_tester',
-        'PASSWORD': 'tester123',
-        'HOST': 'localhost',
-    },
     'lite': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
 
-
 # Email settings
-EMAIL_HOST = 'mail.beaconfoodforest.org'
+EMAIL_HOST = SECRETS.email_host
 EMAIL_PORT = 465
-EMAIL_HOST_USER = 'sender@beaconfoodforest.org'
-EMAIL_HOST_PASSWORD = 'l.$R5=Fh"@U()d'
+EMAIL_HOST_USER = SECRETS.email_host_user
+EMAIL_HOST_PASSWORD = SECRETS.email_host_password
 EMAIL_USE_SSL = True
 
 # Internationalization
@@ -233,6 +210,7 @@ CAPTCHA_TEXT_FIELD_TEMPLATE = 'base/captcha_field_override.html'
 
 # Taggit Settings
 TAGGIT_CASE_INSENSITIVE = True
+
 
 ENVIRONMENTS = {
     'local': {
