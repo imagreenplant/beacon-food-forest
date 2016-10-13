@@ -13,7 +13,7 @@ https://docs.djangoproject.com/en/1.8/ref/settings/
 import socket
 import pathlib
 import json
-import logging
+
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.8/howto/deployment/checklist/
@@ -23,8 +23,7 @@ import logging
 import os
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-
-logging.info("Machine hostname is %s, this will determine the environment setting." %
+print("Machine hostname is %s, this will determine the environment setting." %
       socket.gethostname())
 
 if socket.gethostname() == "opal.local":
