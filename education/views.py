@@ -2,7 +2,7 @@
 from django.shortcuts import render_to_response, get_object_or_404
 from django.template import RequestContext
 from .models import ClassEvent
-import datetime
+from django.utils import timezone
 
 
 def index(request):
@@ -20,7 +20,7 @@ def class_detail(request, slug):
 def past_classes(request):
     page_title = "Past Classes"
     class_events = ClassEvent.objects.filter(
-        expire_date__lt=datetime.date.today()) \
+        expire_date__lt=timezone.datetime.today()) \
         .order_by('event_date')
 
     return render_to_response('education/class_list.html',
@@ -31,8 +31,8 @@ def past_classes(request):
 def current_classes(request):
     page_title = "Upcoming Classes"
     current_classes = ClassEvent.objects.filter(
-        publish_date__lte=datetime.date.today()) \
-        .filter(expire_date__gte=datetime.date.today()) \
+        publish_date__lte=timezone.datetime.today()) \
+        .filter(expire_date__gte=timezone.datetime.today()) \
         .order_by('event_date')
 
     return render_to_response('education/class_list.html',

@@ -1,9 +1,10 @@
 from django.db import models, IntegrityError, transaction
 from django_markdown.models import MarkdownField
-import django.utils.timezone as timezone
-import datetime
+from django.utils import timezone
 from django.utils import text as slugify
+import datetime
 import random
+
 
 class ExternalNewsArticle(models.Model):
 
@@ -21,9 +22,12 @@ class ExternalNewsArticle(models.Model):
         max_length=500, blank=True, help_text="A short description of article")
     external_url = models.URLField(
         blank=False, help_text="The URL at which the article resides")
-    pub_date = models.DateField(auto_now=False, auto_now_add=False,
-                                blank=False, default=timezone.now,
-                                help_text="The date the article was originally published")
+    pub_date = models.DateField(
+        auto_now=False,
+        auto_now_add=False,
+        blank=False,
+        default=timezone.now,
+        help_text="The date the article was originally published")
 
 
 class WorkPartyEvent(models.Model):
@@ -36,23 +40,32 @@ class WorkPartyEvent(models.Model):
         return self.work_party_date.strftime('%b %d,%Y')
 
     def is_within_n_days(self, n):
-        n_days = datetime.timedelta(days=n)
-        return self.work_party_date - n_days <= datetime.date.today()  \
-            and self.work_party_date >= datetime.date.today()
+        n_days = timezone.timedelta(days=n)
+        return self.work_party_date - n_days <= timezone.datetime.today()  \
+            and self.work_party_date >= timezone.datetime.today()
 
     def days_away(self):
-        away = self.work_party_date - datetime.date.today()
+        away = self.work_party_date - timezone.datetime.today()
         return away.days
 
-    work_party_date = models.DateField(auto_now=False, auto_now_add=False, blank=False,
-                                       default=timezone.now,
-                                       help_text="The date the article was originally published")
-    work_party_time_start = models.TimeField(auto_now=False, auto_now_add=False,
-                                        blank=False, default=datetime.time(10),
-                                        help_text="The time that the work party starts")
-    work_party_time_end = models.TimeField(auto_now=False, auto_now_add=False, 
-                                            blank=False, default=datetime.time(
-        14), help_text="The time that the work party ends")
+    work_party_date = models.DateField(
+        auto_now=False,
+        auto_now_add=False,
+        blank=False,
+        default=timezone.now,
+        help_text="The date the article was originally published")
+    work_party_time_start = models.TimeField(
+        auto_now=False,
+        auto_now_add=False,
+        blank=False,
+        default=datetime.time(10, 0, 0),
+        help_text="The time that the work party starts")
+    work_party_time_end = models.TimeField(
+        auto_now=False,
+        auto_now_add=False,
+        blank=False,
+        default=datetime.time(14, 0, 0),
+        help_text="The time that the work party ends")
 
 
 class Announcement(models.Model):
@@ -64,7 +77,7 @@ class Announcement(models.Model):
     def __str__(self):
         return ": ".join([self.publish_date.strftime('%b %d,%Y'), self.slug, ])
 
-    def create_slug(self,headline,date,randomize=None):
+    def create_slug(self, headline, date, randomize=None):
         if not headline:
             headline = self.headline
         if not date:
@@ -72,22 +85,23 @@ class Announcement(models.Model):
 
         if not randomize:
             return slugify.slugify("-".join([headline, date.strftime("%B-%d-%Y")]))[:50]
-        return slugify.slugify("-".join([headline,date.strftime("%B-%d-%Y"),\
-            str(random.randrange(0,100))]))[:50]
+        return slugify.slugify("-".join([headline, date.strftime("%B-%d-%Y"),
+                                         str(random.randrange(0, 100))]))[:50]
 
     def save(self, *args, **kwargs):
         if not self.slug:
-            self.slug = self.create_slug( self.headline, self.event_date)
+            self.slug = self.create_slug(self.headline, self.event_date)
         try:
             # Bug in django requires this statement to catch IntegrityError
             with transaction.atomic():
                 super(Announcement, self).save(*args, **kwargs)
         except IntegrityError:
-            self.slug = self.create_slug( self.headline, self.event_date, True)
+            self.slug = self.create_slug(self.headline, self.event_date, True)
             super(Announcement, self).save(*args, **kwargs)
 
     def is_active_announcement(self):
-        return self.publish_date <= datetime.date.today() and self.expire_date >= datetime.date.today()
+        return self.publish_date <= timezone.datetime.today() \
+            and self.expire_date >= timezone.datetime.today()
 
     publish_date = models.DateField(
         auto_now=False, auto_now_add=False, blank=False,
@@ -102,7 +116,8 @@ class Announcement(models.Model):
         """)
     override = models.BooleanField(
         blank=False, default=True,
-        help_text="(Optional) Override. If box is unchecked, announcement will immediately turn off.")
+        help_text="(Optional) Override. If box is unchecked, \
+            announcement will immediately turn off.")
     content = MarkdownField(
         blank=True, help_text="(Optional) Larger content block for announcement")
     link = models.URLField(
@@ -112,8 +127,10 @@ class Announcement(models.Model):
     headline = models.CharField(
         'The short headline for the announcement', max_length=200, blank=False,
         default="HEADLINE", help_text='(Required) The short headline of the announcement')
-    primary_image = models.ImageField("Optional announcement background image",
-        blank=True, help_text='(Optional) Background image for announcement')
+    primary_image = models.ImageField(
+        "Optional announcement background image",
+        blank=True,
+        help_text='(Optional) Background image for announcement')
 
 
 class VolunteerContact(models.Model):
@@ -139,7 +156,9 @@ class Download(models.Model):
     download_file = models.FileField(
         upload_to="downloads/", max_length=200, help_text='Upload file here')
     publish_to_frontpage = models.BooleanField(
-        blank=False, default=False, help_text='Should this show on the front page in the downloads list?')
+        blank=False,
+        default=False,
+        help_text='Should this show on the front page in the downloads list?')
     display_name = models.CharField(
         max_length=100, blank=False, default="", help_text="A short descriptive display name")
     file_description = models.CharField(
