@@ -254,31 +254,31 @@ ENVIRONMENTS = {
     'testing': {
         # This the place on the live test server where static files will be
         # collected for delivery.
-        'STATIC_ROOT': '/home3/beaconf2/public_html/s-test',
+        'STATIC_ROOT': "".join((SECRETS.get('server_public_root'), 'public_html/s-test')),
         'ALLOWED_HOSTS': ['.beaconfoodforest.org', ],
         'DEBUG': True,
         'STATIC_URL': 'http://beaconfoodforest.org/s-test/',
         'CACHES': {'default': {'BACKEND': 'django.core.cache.backends.dummy.DummyCache', }},
         'DATABASE': 'testing',
-        'MEDIA_ROOT': '/home3/beaconf2/public_html/m-test',
+        'MEDIA_ROOT': "".join((SECRETS.get('server_public_root'), 'public_html/m-test')),
         'MEDIA_URL': 'http://beaconfoodforest.org/m-test/',
         'TEMPLATE_LOADERS': [
             'django.template.loaders.filesystem.Loader',
             'django.template.loaders.app_directories.Loader',
         ],
         'DONATE_EMAIL': SECRETS.get('donate_email').get('testing'),
-        'LOG_FILE': '/home3/beaconf2/django-projects/test/beacon-food-forest-main/logs/request.log',
+        'LOG_FILE': "".join((BASE_DIR, "logs/request.log")),
     },
     'production': {
         # This the place on the live server where static files will be collected
         # for delivery.
-        'STATIC_ROOT': '/home3/beaconf2/public_html/s',
+        'STATIC_ROOT': "".join((SECRETS.get('server_public_root'), 'public_html/s')),
         'ALLOWED_HOSTS': ['.beaconfoodforest.org', ],  # Allows domain and subdomains
         'DEBUG': False,
         'STATIC_URL': 'http://beaconfoodforest.org/s/',
         'CACHES': {'default': {'BACKEND': 'django.core.cache.backends.locmem.LocMemCache', }},
         'DATABASE': 'production',
-        'MEDIA_ROOT': '/home3/beaconf2/public_html/media',
+        'MEDIA_ROOT': "".join((SECRETS.get('server_public_root'), 'public_html/media')),
         'MEDIA_URL': 'http://beaconfoodforest.org/media/',
         'TEMPLATE_LOADERS': [('django.template.loaders.cached.Loader',
                               [
@@ -287,7 +287,7 @@ ENVIRONMENTS = {
                               ]),
                              ],
         'DONATE_EMAIL': SECRETS.get('donate_email').get('live'),
-        'LOG_FILE': '/home3/beaconf2/django-projects/beacon-food-forest-main/logs/request.log',
+        'LOG_FILE': "".join((BASE_DIR, "logs/request.log")),
     },
 }
 
