@@ -26,9 +26,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 print("Machine hostname is %s, this will determine the environment setting." %
       socket.gethostname())
 
-if socket.gethostname() == "opal.local":
-    ENVIRONMENT = "local"
-elif socket.gethostname().find("bluehost") > -1 and BASE_DIR.find("test") > -1:
+if socket.gethostname().find("bluehost") > -1 and BASE_DIR.find("test") > -1:
     ENVIRONMENT = "testing"
 elif socket.gethostname().find("bluehost") > -1:
     ENVIRONMENT = "production"
