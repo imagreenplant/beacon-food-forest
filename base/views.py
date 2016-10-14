@@ -24,7 +24,8 @@ def debuginfo(request):
 		"Static url is %s" % settings.STATIC_URL,
 		"Cache type is %s" % settings.CACHES['default']['BACKEND'],
 		"Database engine is %s" % settings.DATABASES['default']['ENGINE'],
-		"Template loader is %s" % settings.TEMPLATES[0]['OPTIONS']['loaders']
+		"Template loader is %s" % settings.TEMPLATES[0]['OPTIONS']['loaders'],
+		"Media root is %s" % settings.MEDIA_ROOT,
 	]
 
 	content = "\n".join(content)

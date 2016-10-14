@@ -9,3 +9,4 @@ beacondb
 .DS_Store
 logs/*
 secrets*.json
+media/*

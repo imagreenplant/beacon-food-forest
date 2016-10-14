@@ -240,7 +240,7 @@ ENVIRONMENTS = {
         'ALLOWED_HOSTS': ['*', ],  # Allow all domains
         'DEBUG': True,
         'STATIC_URL': '/static/',
-        'MEDIA_ROOT': '/Users/mlapora/media',
+        'MEDIA_ROOT': 'media/',
         'MEDIA_URL': '/media/',
         'CACHES': {'default': {'BACKEND': 'django.core.cache.backends.dummy.DummyCache', }},
         'DATABASE': 'lite',
