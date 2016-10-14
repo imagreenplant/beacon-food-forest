@@ -43,18 +43,16 @@ if not ENVIRONMENT == "local":
         with DATA_DIR.open() as handle:
             SECRETS = json.load(handle)
     except IOError:
-        SECRETS = {
-            'secret_key': 'a',
-        }
+        print("Unable to find secrets.json.  Please place the file in the server user's\
+               home directory in a directory called .beaconfoodforest/")
 else:
     try:
         DATA_DIR = pathlib.Path('./secrets.json')
         with DATA_DIR.open() as handle:
             SECRETS = json.load(handle)
     except IOError:
-        SECRETS = {
-            'secret_key': 'a',
-        }
+        print("Unable to find secrets.json.  Please place in the code directory.  \
+               Using defaults.")
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = SECRETS.get('secret_key', 'a')
