@@ -46,7 +46,7 @@ def debugfiles(request):
 def send_donation_notification(donor_data):
     send_subject = " ".join(
         [donor_data['donation_type'], " donation from ", donor_data['your_name']])
-    send_from = "sender@beaconfoodforest.org"
+    send_from = settings.EMAIL_HOST_USER
     send_to = [settings.DONATE_EMAIL]
 
     message_data = [
