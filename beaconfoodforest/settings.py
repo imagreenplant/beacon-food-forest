@@ -204,7 +204,7 @@ WSGI_APPLICATION = 'beaconfoodforest.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
 DATABASES = {
-    'lite': {
+    'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
@@ -320,7 +320,8 @@ CACHES = ENVIRONMENTS[ENVIRONMENT]['CACHES']
 
 LOGGING['handlers']['file']['filename'] = ENVIRONMENTS[ENVIRONMENT]['LOG_FILE']
 
-DATABASES['default'] = DATABASES[ENVIRONMENTS[ENVIRONMENT]['DATABASE']]
+if ENVIRONMENT != "local":
+    DATABASES['default'] = SECRETS.get('databases').get(ENVIRONMENTS[ENVIRONMENT]['DATABASE'])
 
 # For material donation page
 DONATE_EMAIL = ENVIRONMENTS[ENVIRONMENT]['DONATE_EMAIL']
