@@ -39,7 +39,7 @@ print("ENVIRONMENT is set to %s" % ENVIRONMENT)
 # Store the secrets.json file in the ~/.beaconfoodforest directory.
 if not ENVIRONMENT == "local":
     try:
-        DATA_DIR = pathlib.Path('~/.beaconfoodforest/secrets.json')
+        DATA_DIR = pathlib.Path.joinpath(pathlib.Path.home(), ".beaconfoodforest/secrets.json")
         with DATA_DIR.open() as handle:
             SECRETS = json.load(handle)
     except IOError:
@@ -56,6 +56,7 @@ else:
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = SECRETS.get('secret_key', 'a')
+print(SECRETS)
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
