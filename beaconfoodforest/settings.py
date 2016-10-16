@@ -268,7 +268,7 @@ ENVIRONMENTS = {
             'django.template.loaders.app_directories.Loader',
         ],
         'DONATE_EMAIL': SECRETS.get('donate_email').get('testing'),
-        'LOG_FILE': "".join((BASE_DIR, "logs/request.log")),
+        'LOG_FILE': "".join((BASE_DIR, "/logs/request.log")),
     },
     'production': {
         # This the place on the live server where static files will be collected
@@ -288,7 +288,7 @@ ENVIRONMENTS = {
                               ]),
                              ],
         'DONATE_EMAIL': SECRETS.get('donate_email').get('live'),
-        'LOG_FILE': "".join((BASE_DIR, "logs/request.log")),
+        'LOG_FILE': "".join((BASE_DIR, "/logs/request.log")),
     },
 }
 
