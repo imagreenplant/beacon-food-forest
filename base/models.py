@@ -1,6 +1,7 @@
 from django.db import models, IntegrityError, transaction
 from django_markdown.models import MarkdownField
 from django.utils import timezone
+from django.utils.timezone import localtime, now
 from django.utils import text as slugify
 import datetime
 import random
@@ -45,7 +46,7 @@ class WorkPartyEvent(models.Model):
             and self.work_party_date >= timezone.datetime.today()
 
     def days_away(self):
-        away = self.work_party_date - timezone.datetime.today()
+        away = self.work_party_date - localtime(now()).date()
         return away.days
 
     work_party_date = models.DateField(
