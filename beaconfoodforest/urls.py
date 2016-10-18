@@ -15,6 +15,7 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
+from beaconfoodforest import settings
 
 # Redirects from old site pages
 from django.views.generic.base import RedirectView
@@ -88,6 +89,14 @@ urlpatterns = [
     url(r'^captcha/', include('captcha.urls')),
     url(r'^sitemap\.xml$', sitemap, {'sitemaps': sitemaps},name='django.contrib.sitemaps.views.sitemap'),
 ]
+
+handler500 = 'base.views.handler500'
+handler404 = 'base.views.handler404'
+if settings.DEBUG:
+    urlpatterns += [
+        url(r'^500/$', 'base.views.handler500'),
+        url(r'^404/$', 'base.views.handler404'),
+    ]
 
 from django.conf import settings
 from django.contrib.staticfiles.views import serve as serve_static

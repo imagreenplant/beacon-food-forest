@@ -1150,7 +1150,7 @@ h2.subtitle-text {
     position: relative;
     clear: both;
     bottom: 0;
-    padding: 0px 0px 16px 35px;
+    padding: 0 0 16px 0;
     height: 30px;
     background-color: #fff;
     margin: 0 0px 0 -1px;
