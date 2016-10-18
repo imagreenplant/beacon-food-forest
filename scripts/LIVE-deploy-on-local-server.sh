@@ -7,7 +7,7 @@ git rebase
 echo "============ Applying virtual environment =============="
 export WORKON_HOME=$HOME/.python-environments
 export PROJECT_HOME=$HOME/django-projects
-export VIRTUALENVWRAPPER_PYTHON='$HOME/python3.5/bin/python3.5'
+export VIRTUALENVWRAPPER_PYTHON=$HOME/python3.5/bin/python3.5
 source $HOME/bin/virtualenvwrapper.sh
 workon bff-py3.5
 cd $HOME/django-projects/beacon-food-forest-main/
