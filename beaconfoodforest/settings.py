@@ -11,6 +11,9 @@ https://docs.djangoproject.com/en/1.8/ref/settings/
 """
 
 import socket
+import pathlib
+import json
+
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.8/howto/deployment/checklist/
@@ -20,13 +23,10 @@ import socket
 import os
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-
 print("Machine hostname is %s, this will determine the environment setting." %
       socket.gethostname())
 
-if socket.gethostname() == "opal.local":
-    ENVIRONMENT = "local"
-elif socket.gethostname().find("bluehost") > -1 and BASE_DIR.find("test") > -1:
+if socket.gethostname().find("bluehost") > -1 and BASE_DIR.find("test") > -1:
     ENVIRONMENT = "testing"
 elif socket.gethostname().find("bluehost") > -1:
     ENVIRONMENT = "production"
@@ -36,13 +36,27 @@ else:
 print("ENVIRONMENT is set to %s" % ENVIRONMENT)
 
 
+# Store the secrets.json file in the ~/.beaconfoodforest directory.
+if not ENVIRONMENT == "local":
+    try:
+        DATA_DIR = pathlib.Path.joinpath(pathlib.Path.home(), ".beaconfoodforest/secrets.json")
+        with DATA_DIR.open() as handle:
+            SECRETS = json.load(handle)
+    except IOError:
+        print("Unable to find secrets.json.  Please place the file in the server user's\
+               home directory in a directory called .beaconfoodforest/")
+else:
+    try:
+        DATA_DIR = pathlib.Path('./secrets.json')
+        with DATA_DIR.open() as handle:
+            SECRETS = json.load(handle)
+    except IOError:
+        print("Unable to find secrets.json.  Please place in the code directory.  \
+               Using defaults.")
+
 # SECURITY WARNING: keep the secret key used in production secret!
-try:
-    SECRET_KEY = os.environ['DJANGO_KEY']
-    print("Local key exists")
-except KeyError:
-    SECRET_KEY = 'i3zc+lymkle=d00x1l4d$w2mp7jidk%x^tb*wlmh2h%ee8o^y6'
-    print("No local key exists, using ", SECRET_KEY)
+SECRET_KEY = SECRETS.get('secret_key', 'a')
+print(SECRETS)
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
@@ -151,6 +165,17 @@ LOGGING = {
             'backupCount': 5,
             'formatter': 'verbose',
         },
+        'console': {
+            'level': 'DEBUG',
+            'filters': ['require_debug_true'],
+            'class': 'logging.StreamHandler',
+            'formatter': 'verbose',
+        },
+    },
+    'filters': {
+        'require_debug_true': {
+            '()': 'django.utils.log.RequireDebugTrue',
+        },
     },
     'formatters': {
         'verbose': {
@@ -164,7 +189,13 @@ LOGGING = {
             'level': 'DEBUG',
             'propagate': True,
         },
+        'django': {
+            'handlers': ['console'],
+            'propagate': True,
+            'level': 'INFO',
+        },
     },
+
 }
 
 WSGI_APPLICATION = 'beaconfoodforest.wsgi.application'
@@ -172,49 +203,18 @@ WSGI_APPLICATION = 'beaconfoodforest.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
-
 DATABASES = {
-    'production': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': "beaconf2_django_main",
-        'USER': 'beaconf2_django_user',
-        'PASSWORD': 'V4ADbu{UwWV,@o^lSL',
-        'HOST': '66.147.244.132',
-    },
-    # This is the default testing database
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': "beaconf2_django_testing",
-        'USER': 'beaconf2_tester',
-        'PASSWORD': 'tester123',
-        'HOST': '66.147.244.132',
-    },
-    'local': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': "beaconf2_django_testing",
-        'USER': 'beaconf2_tester',
-        'PASSWORD': 'tester123',
-        'HOST': '66.147.244.132',
-    },
-    'testing': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': "beaconf2_django_testing",
-        'USER': 'beaconf2_tester',
-        'PASSWORD': 'tester123',
-        'HOST': 'localhost',
-    },
-    'lite': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
 
-
 # Email settings
-EMAIL_HOST = 'mail.beaconfoodforest.org'
+EMAIL_HOST = SECRETS.get('email_host', 'example.com')
 EMAIL_PORT = 465
-EMAIL_HOST_USER = 'sender@beaconfoodforest.org'
-EMAIL_HOST_PASSWORD = 'l.$R5=Fh"@U()d'
+EMAIL_HOST_USER = SECRETS.get('email_host_user', 'fakeuser')
+EMAIL_HOST_PASSWORD = SECRETS.get('email_host_password', 'fakepassword')
 EMAIL_USE_SSL = True
 
 # Internationalization
@@ -234,13 +234,14 @@ CAPTCHA_TEXT_FIELD_TEMPLATE = 'base/captcha_field_override.html'
 # Taggit Settings
 TAGGIT_CASE_INSENSITIVE = True
 
+
 ENVIRONMENTS = {
     'local': {
         'STATIC_ROOT': None,
         'ALLOWED_HOSTS': ['*', ],  # Allow all domains
         'DEBUG': True,
         'STATIC_URL': '/static/',
-        'MEDIA_ROOT': '/Users/mlapora/media',
+        'MEDIA_ROOT': 'media/',
         'MEDIA_URL': '/media/',
         'CACHES': {'default': {'BACKEND': 'django.core.cache.backends.dummy.DummyCache', }},
         'DATABASE': 'lite',
@@ -248,37 +249,37 @@ ENVIRONMENTS = {
             'django.template.loaders.filesystem.Loader',
             'django.template.loaders.app_directories.Loader',
         ],
-        'DONATE_EMAIL': 'matt@lapora.org',
+        'DONATE_EMAIL': SECRETS.get('donate_email').get('testing'),
         'LOG_FILE': 'logs/request.log',
     },
     'testing': {
         # This the place on the live test server where static files will be
         # collected for delivery.
-        'STATIC_ROOT': '/home3/beaconf2/public_html/s-test',
+        'STATIC_ROOT': "".join((SECRETS.get('server_public_root'), 'public_html/s-test')),
         'ALLOWED_HOSTS': ['.beaconfoodforest.org', ],
         'DEBUG': True,
         'STATIC_URL': 'http://beaconfoodforest.org/s-test/',
         'CACHES': {'default': {'BACKEND': 'django.core.cache.backends.dummy.DummyCache', }},
         'DATABASE': 'testing',
-        'MEDIA_ROOT': '/home3/beaconf2/public_html/m-test',
+        'MEDIA_ROOT': "".join((SECRETS.get('server_public_root'), 'public_html/m-test')),
         'MEDIA_URL': 'http://beaconfoodforest.org/m-test/',
         'TEMPLATE_LOADERS': [
             'django.template.loaders.filesystem.Loader',
             'django.template.loaders.app_directories.Loader',
         ],
-        'DONATE_EMAIL': 'matt@lapora.org',
-        'LOG_FILE': '/home3/beaconf2/django-projects/test/beacon-food-forest-main/logs/request.log',
+        'DONATE_EMAIL': SECRETS.get('donate_email').get('testing'),
+        'LOG_FILE': "".join((BASE_DIR, "/logs/request.log")),
     },
     'production': {
         # This the place on the live server where static files will be collected
         # for delivery.
-        'STATIC_ROOT': '/home3/beaconf2/public_html/s',
+        'STATIC_ROOT': "".join((SECRETS.get('server_public_root'), 'public_html/s')),
         'ALLOWED_HOSTS': ['.beaconfoodforest.org', ],  # Allows domain and subdomains
         'DEBUG': False,
         'STATIC_URL': 'http://beaconfoodforest.org/s/',
         'CACHES': {'default': {'BACKEND': 'django.core.cache.backends.locmem.LocMemCache', }},
         'DATABASE': 'production',
-        'MEDIA_ROOT': '/home3/beaconf2/public_html/media',
+        'MEDIA_ROOT': "".join((SECRETS.get('server_public_root'), 'public_html/media')),
         'MEDIA_URL': 'http://beaconfoodforest.org/media/',
         'TEMPLATE_LOADERS': [('django.template.loaders.cached.Loader',
                               [
@@ -286,8 +287,8 @@ ENVIRONMENTS = {
                                   'django.template.loaders.app_directories.Loader',
                               ]),
                              ],
-        'DONATE_EMAIL': 'donate@beaconfoodforest.org',
-        'LOG_FILE': '/home3/beaconf2/django-projects/beacon-food-forest-main/logs/request.log',
+        'DONATE_EMAIL': SECRETS.get('donate_email').get('live'),
+        'LOG_FILE': "".join((BASE_DIR, "/logs/request.log")),
     },
 }
 
@@ -319,7 +320,8 @@ CACHES = ENVIRONMENTS[ENVIRONMENT]['CACHES']
 
 LOGGING['handlers']['file']['filename'] = ENVIRONMENTS[ENVIRONMENT]['LOG_FILE']
 
-DATABASES['default'] = DATABASES[ENVIRONMENTS[ENVIRONMENT]['DATABASE']]
+if ENVIRONMENT != "local":
+    DATABASES['default'] = SECRETS.get('databases').get(ENVIRONMENTS[ENVIRONMENT]['DATABASE'])
 
 # For material donation page
 DONATE_EMAIL = ENVIRONMENTS[ENVIRONMENT]['DONATE_EMAIL']

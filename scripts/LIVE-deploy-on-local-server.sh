@@ -1,4 +1,4 @@
-cd ~/django-projects/beacon-food-forest-main/
+cd $HOME/django-projects/beacon-food-forest-main/
 echo "============ Stashing local changes =============="
 git stash
 echo "============ Fetching new code from git =============="
@@ -7,10 +7,10 @@ git rebase
 echo "============ Applying virtual environment =============="
 export WORKON_HOME=$HOME/.python-environments
 export PROJECT_HOME=$HOME/django-projects
-export VIRTUALENVWRAPPER_PYTHON='/home3/beaconf2/python3.5/bin/python3.5'
-source /home3/beaconf2/bin/virtualenvwrapper.sh
+export VIRTUALENVWRAPPER_PYTHON='$HOME/python3.5/bin/python3.5'
+source $HOME/bin/virtualenvwrapper.sh
 workon bff-py3.5
-cd ~/django-projects/beacon-food-forest-main/
+cd $HOME/django-projects/beacon-food-forest-main/
 echo "============ UN-Stashing local changes =============="
 git stash pop
 echo "============ Installing new requirements =============="
