@@ -56,7 +56,6 @@ else:
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = SECRETS.get('secret_key', 'a')
-print(SECRETS)
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
