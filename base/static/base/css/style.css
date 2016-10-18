@@ -1324,7 +1324,7 @@ h2.asset-page {
         margin-right: 100px;
     }
 }
-@media only screen and (max-width: 900px) {
+@media only screen and (max-width: 950px) {
     .imageBar {
         display: none;
     }
