@@ -1194,9 +1194,6 @@ span.blue a {
     float: right;
     max-height: 200px;
 }
-.markdown p {
-    color: white;
-}
 .ann-text .published-date {
     font-size: 60%;
     color: white;
