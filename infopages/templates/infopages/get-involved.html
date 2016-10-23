@@ -7,18 +7,21 @@
     <div class="row">
         <h2>Help from afar</h2>
         <div class="col-md-4 col-sm-6 text-center">
-            <p><img src="{% static 'base/svg/donation.svg' %}" alt="Link to donate money"></p>
-            <p>
+            <div><img src="{% static 'base/svg/donation.svg' %}" alt="Link to donate money"></div>
+            <h3>
                 <span class="blue"><a href="#" onclick="center_popup_open('donate')">Donate Money</a></span>
-            </p>
+            </h3>
+            <p>{% lorem 30 w %}</p>
         </div>
         <div class="col-md-4 col-sm-6 text-center">
             <p><img src="{% static "base/svg/newspaper.svg" %}" alt="Link to signup for newsletter"></p>
             <p>Newsletter</p>
+            <p>{% lorem 30 w %}</p>
         </div>
         <div class="col-md-4 col-sm-6 text-center">
             <p><img src="{% static "base/svg/dialogue.svg" %}" alt="Link to Beacon Food Forest Facebook page"></p>
             <p>Facebook</p>
+            <p>{% lorem 30 w %}</p>
         </div>
     </div>
     <hr>
