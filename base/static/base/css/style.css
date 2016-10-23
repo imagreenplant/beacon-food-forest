@@ -342,7 +342,7 @@ a, .nav a:link, .nav a:visited, .nav a:hover, .nav a:active {
     text-transform: none;
     padding: 0px 0 0 0;
 }
-#footer .link a, #footer .link a:link, #footer .link a:visited, #footer .link a:hover, #footer .link a:active {
+footer.link a, footer.link a:link, footer.link a:visited, footer.link a:hover, footer.link a:active {
     color: #4C301C;
     font-size: 100%;
     font-weight: normal;
@@ -886,7 +886,7 @@ body {
 .get-involved img {
     width: 80%;
     margin: 0 auto;
-    max-width: 300px;
+    max-width: 150px;
 }
 
 
@@ -1159,7 +1159,7 @@ h2.subtitle-text {
 }
 /* Footer */
 
-#footer {
+footer {
     width: 100%;
     position: relative;
     clear: both;
@@ -1170,10 +1170,10 @@ h2.subtitle-text {
     margin: 0 0px 0 -1px;
     z-index: 10;
 }
-#footer p {
+footer p {
     margin: 5px 0 0 10px;
 }
-#copyright {
+.copyright {
     font-size: 80%;
 }
 /* //////Extras */
@@ -1400,7 +1400,7 @@ h2.asset-page {
     .community-partners img {
         width: 100%;
     }
-    #footer {
+    footer {
         padding: 0px;
     }
     #botnav {
