@@ -2,22 +2,22 @@
 {% load staticfiles %}
 {% block info-content %}
 
-<div class="content-div container-fluid">
+<div class="content-div container-fluid get-involved">
     <h2 class="row text-center">{% block info-title %}How to get Involved{% endblock info-title %}</h2>
     <div class="row">
         <h2>Help from afar</h2>
         <div class="col-md-4 col-sm-6 text-center">
-            <p><img src="{% static 'base/svg/donation.svg' %}" alt="Donate"></p>
+            <p><img src="{% static 'base/svg/donation.svg' %}" alt="Link to donate money"></p>
             <p>
                 <span class="blue"><a href="#" onclick="center_popup_open('donate')">Donate Money</a></span>
             </p>
         </div>
         <div class="col-md-4 col-sm-6 text-center">
-            <p><img src="{% static "base/svg/newspaper.svg" %}" alt=""></p>
+            <p><img src="{% static "base/svg/newspaper.svg" %}" alt="Link to signup for newsletter"></p>
             <p>Newsletter</p>
         </div>
         <div class="col-md-4 col-sm-6 text-center">
-            <p><img src="{% static "base/svg/facebook.svg" %}" alt=""></p>
+            <p><img src="{% static "base/svg/facebook.svg" %}" alt="Link to Beacon Food Forest Facebook page"></p>
             <p>Facebook</p>
         </div>
     </div>
@@ -25,11 +25,11 @@
     <div class="row">
         <h2>Get your hands dirty</h2>
         <div class="col-md-6 text-center">
-            <p><img src="{% static 'base/svg/shovel.svg' %}" alt="Shovel"></p>
+            <p><img src="{% static 'base/svg/shovel.svg' %}" alt="Link to information on work parties"></p>
             <p>Work Party</p>
         </div>
         <div class="col-md-6 text-center">
-            <p><img src="{% static "base/svg/ecology.svg" %}" alt=""></p>
+            <p><img src="{% static "base/svg/ecology.svg" %}" alt="Link to information on other events"></p>
             <p>Other activities</p>
         </div>
     </div>
@@ -37,23 +37,33 @@
     <div class="row">
         <h2>Get even more involved</h2>
         <div class="col-md-4 text-center">
-            <p><i class="fa fa-user" aria-hidden="true"></i></p>
+            <p><img src="{% static "base/svg/directions.svg" %}" alt="Link to information on attending a new volunteer orientation"></p>
             <p>Attend an orientation</p>
         </div>
         <div class="col-md-4 text-center">
-            <p><img src="{% static 'base/svg/connections.svg' %}" alt=""></p>
+            <p><img src="{% static 'base/svg/connections.svg' %}" alt="Button to email the volunteer coordinator"></p>
             <p>Email the volunteer coordinator</p>
         </div>
         <div class="col-md-4 text-center">
-            <p><img src="{% static 'base/svg/watercolor.svg' %}" alt=""></p>
+            <p><img src="{% static 'base/svg/watercolor.svg' %}" alt="Email the art coordinator for proposals"></p>
             <p>Art projects</p>
         </div>
     </div>
     <hr>
     <div class="row">
         <h2>Get your fellow humans involved</h2>
-        <div class="col-md-6 text-center"><p>Setup a group work party</p></div>
-        <div class="col-md-6 text-center"><p>Tour</p></div>
+        <div class="col-md-6 text-center">
+            <p><img src="{% static "base/svg/group.svg" %}" alt="Email the group coordinator to setup group events"></p>
+            <p>Setup a group work party</p>
+        </div>
+        <div class="col-md-6 text-center">
+            <p><img src="{% static "base/svg/map.svg" %}" alt="Schedule a toor with the tour coordinator"></p>
+            <p>Tour</p>
+        </div>
     </div>
 </div>
 {% endblock info-content %}
+
+{% block footer %}
+    <div>Icons made by <a href="http://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> and <a href="http://www.flaticon.com/authors/darius-dan" title="Darius Dan">Darius Dan</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
+{% endblock footer %}

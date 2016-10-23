@@ -167,6 +167,9 @@ q:after {
 .float-right {
     float: right;
 }
+.block-center {
+  margin: 0 auto;
+}
 
 /*App pages (education, plants etc)*/
 .app-asset-title {
@@ -878,6 +881,17 @@ body {
     margin-left: 0.2em;
 }
 /*End Social links*/
+
+/*How to get involved page*/
+.get-involved img {
+    width: 80%;
+    margin: 0 auto;
+    max-width: 300px;
+}
+
+
+/*END How to get involved page*/
+
 
 #main {
     background-image: url('../../base/img/bg.png');
