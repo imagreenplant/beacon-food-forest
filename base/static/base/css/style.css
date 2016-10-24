@@ -331,6 +331,16 @@ q:after {
     text-transform: none;
     padding: 0px 0 0 0;
 }
+.upperlink a, .upperlink a:link, .upperlink a:visited, .upperlink a:hover, .upperlink a:active {
+    color: #4C301C;
+    font-size: 100%;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 0 0 0 0;
+}
+
+
+
 /* Static anchor for content-title */
 h2.content-title {
     margin: 1em 0 1em 0;
