@@ -1,33 +1,4 @@
-/*
-Content
-#4C301C
-
-Text
-Headers
-#A5978D
-
-Green
-#7AC143
-
-Blue +
-#0DAED3
-
- */
-/*
-//////  Global text styles
-
-    /*
-    non global text >
-        .top-text
-        .title-text
-        .subtitle-text
-        .side-title
-        .sponsor
-
-
-                        */
-/*BEGIN RESET*/
-
+/************ BEGIN CSS RESET ***************/
 html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video {
     margin: 0;
     padding: 0;
@@ -46,7 +17,6 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 nav ul {
     list-style: none;
 }
-
 /*Bootstrap Override*/
 h1 {
     font-weight: bold;
@@ -54,7 +24,6 @@ h1 {
     font-size: 2em;
     font-family: Verdana, Geneva, sans-serif;
 }
-
 h2 {
     font-size: 150%;
     color: #A5978D;
@@ -68,9 +37,6 @@ h3 {
     background-color: #0DAED3;
     font-weight: 900;
 }
-
-
-
 a {
     margin: 0;
     padding: 0;
@@ -78,15 +44,11 @@ a {
     vertical-align: baseline;
     background: transparent;
 }
-/* change colours to suit your needs */
-
 ins {
     background-color: #ff9;
     color: #000;
     text-decoration: none;
 }
-/* change colours to suit your needs */
-
 mark {
     background-color: #ff9;
     color: #000;
@@ -104,8 +66,6 @@ table {
     border-collapse: collapse;
     border-spacing: 0;
 }
-/* change border colour to suit your needs */
-
 hr {
     display: block;
     height: 1px;
@@ -117,7 +77,10 @@ hr {
 input, select {
     vertical-align: middle;
 }
-/*END RESET*/
+/************ END RESET ***************/
+
+
+
 /*Box Sizing*/
 
 html {
