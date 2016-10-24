@@ -82,20 +82,19 @@ input, select {
 
 
 /*Box Sizing*/
-
 html {
     box-sizing: border-box;
 }
-
 /*Fix for choppy iOS scrolling*/
 * {
   -webkit-overflow-scrolling: touch;
 }
-
 *, *:before, *:after {
     box-sizing: inherit;
 }
 /*END Box Sizing*/
+
+
 
 html, body {
     padding: 0;
@@ -133,6 +132,9 @@ q:after {
 .block-center {
   margin: 0 auto;
 }
+
+
+
 
 /*App pages (education, plants etc)*/
 .app-asset-title {
@@ -186,6 +188,11 @@ q:after {
   z-index: 30;
 }
 
+
+
+
+
+
 /*Taken from Zurb/Foundation event blocks for Education */
 .event {
   position: absolute;
@@ -235,6 +242,10 @@ q:after {
         text-transform: uppercase;
         z-index: 40;}
 
+
+
+
+
 /*IMage grid styles*/
 .image-grid {
     margin-bottom: 30px;}
@@ -265,8 +276,11 @@ q:after {
 .text-green {
     color: #50B748;
 }
-/*
-//////Links */
+
+
+
+
+
 /*  Bold & Uppercase  */
 
 .nav a, .nav a:link, .nav a:visited, .nav a:hover, .nav a:active {
@@ -288,14 +302,7 @@ q:after {
     text-transform: none;
     padding: 0px 0 0 0;
 }
-footer.link a, footer.link a:link, footer.link a:visited, footer.link a:hover, footer.link a:active {
-    color: #4C301C;
-    font-size: 100%;
-    font-weight: normal;
-    text-decoration: underline;
-    text-transform: none;
-    padding: 0px 0 0 0;
-}
+
 /*  Bold & Underline */
 
 .container .heavy a, .container .heavy a:link, .container .heavy a:visited, .container .heavy a:hover, .container .heavy a:active {
@@ -1135,13 +1142,11 @@ h2.subtitle-text {
 }
 
 /* Footer */
-
 footer {
     width: 100%;
     position: relative;
     clear: both;
     bottom: 0;
-    /*padding: 0 0 16px 35px;*/
     height: 30px;
     background-color: #fff;
     /*margin: 0 0px 0 -1px;*/
@@ -1150,7 +1155,15 @@ footer {
 footer p {
     margin: 5px 0 0 10px;
 }
-.copyright {
+footer.link a, footer.link a:link, footer.link a:visited, footer.link a:hover, footer.link a:active {
+    color: #4C301C;
+    font-size: 100%;
+    font-weight: normal;
+    text-decoration: underline;
+    text-transform: none;
+    padding: 0px 0 0 0;
+}
+footer .copyright {
     font-size: 80%;
 }
 /* //////Extras */
