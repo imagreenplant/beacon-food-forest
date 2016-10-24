@@ -41,7 +41,7 @@
     <div id="popcontent">{% include "base/popcontent.html" %}</div>
     <div id="main" class="{% block sub-page-class %}home{% endblock sub-page-class %}">
         <div class="background-nut"></div>
-        <div id="headercontent">{% include "base/header.html" %}</div>
+        {% block header %}{% include "base/header.html" %}{% endblock header %}
         {% block content %}{% endblock content%}
         {% block footer %}{% include "base/footer.html" %}{% endblock footer %}
     </div>

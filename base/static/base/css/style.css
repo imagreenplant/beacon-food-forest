@@ -184,7 +184,7 @@ q:after {
     background-image: none;
 }
 .app #botnav {
-    margin: 0 0 0 0;
+    /*margin: 0 0 0 0;*/
     border-right: none;
 }
 .crop {
@@ -770,6 +770,9 @@ body {
     background: #fff;
     z-index: -3;
 }
+header {
+    height: 260px;
+}
 #header {
     width: 100%;
     height: 225px;
@@ -778,9 +781,9 @@ body {
     position: absolute;
     z-index: 5;
 }
-#headercontent {
+/*#headercontent {
     height: 260px;
-}
+}*/
 #brown-bg {
     background-color: #4C301C;
     height: 225px;
@@ -801,7 +804,7 @@ body {
 }
 /*Reduce size of nut image on list pages*/
 .app .background-nut {
-    font-size: 72%;
+    font-size: 62%;
 }
 .app.map .background-nut {
     font-size: 50%;
@@ -813,6 +816,9 @@ body {
     padding: 1px 2px 1px 2px;
 }
 
+.app .container {
+    margin: 4em 0 0 0;
+}
 .banner-img {
     width: 155px;
     height: 255px;
@@ -888,6 +894,18 @@ body {
     margin: 0 auto;
     max-width: 150px;
 }
+.get-involved hr {
+    height: 2px;
+    background: #4c301c;
+    margin: 3em 0 2em 0;
+}
+.get-involved h2 {
+    font-size: 2.2em;
+    margin: 0 0 0.9em 0.4em;
+    color: #4c301c;
+    font-weight: bold;
+}
+
 
 
 /*END How to get involved page*/
@@ -1150,12 +1168,15 @@ h2.subtitle-text {
 }
 /* Bottom Navigation Bar */
 
-#botnav {
+.home .botnav {
+    margin: 0 209px 0 0px;
+    border-right: 10px #50B748 solid;
+}
+
+.botnav {
     height: auto;
     background-color: #4C301C;
-    border-right: 10px #50B748 solid;
     padding: 8px 0 0 25px;
-    margin: 0 209px 0 -35px;
 }
 /* Footer */
 
@@ -1164,10 +1185,10 @@ footer {
     position: relative;
     clear: both;
     bottom: 0;
-    padding: 0 0 16px 35px;
+    /*padding: 0 0 16px 35px;*/
     height: 30px;
     background-color: #fff;
-    margin: 0 0px 0 -1px;
+    /*margin: 0 0px 0 -1px;*/
     z-index: 10;
 }
 footer p {
@@ -1487,7 +1508,7 @@ h2.asset-page {
     #header {
         top: 20px;
     }
-    #headercontent {
+    header {
         height: 246px;
     }
     #main {
