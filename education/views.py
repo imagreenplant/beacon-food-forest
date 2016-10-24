@@ -39,18 +39,3 @@ def current_classes(request):
                               {'classes': current_classes,
                                'title': page_title},
                               context_instance=RequestContext(request))
-
-
-def teacher_criteria(request):
-    return render_to_response('education/teacher_criteria.html', {},
-                              context_instance=RequestContext(request))
-
-
-def teacher_expectations(request):
-    return render_to_response('education/teacher_expectations.html', {},
-                              context_instance=RequestContext(request))
-
-
-def teacher_proposal(request):
-    return render_to_response('education/teacher_proposal.html', {},
-                              context_instance=RequestContext(request))
