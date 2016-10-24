@@ -723,6 +723,13 @@ body {
     background: #fff;
     z-index: -3;
 }
+
+
+
+
+
+
+/*************** HEADER *****************/
 header {
     height: 260px;
 }
@@ -734,9 +741,104 @@ header {
     position: absolute;
     z-index: 5;
 }
-/*#headercontent {
-    height: 260px;
-}*/
+@media only screen and (max-width: 560px) {
+    #header {
+        top: 20px;
+    }
+    header {
+        height: 246px;
+    }
+}
+/*************** END HEADER *****************/
+
+
+
+
+
+
+
+/**************** Footer **************/
+footer {
+    width: 100%;
+    position: relative;
+    clear: both;
+    bottom: 0;
+    height: 30px;
+    background-color: #fff;
+    /*margin: 0 0px 0 -1px;*/
+    z-index: 10;
+}
+footer p {
+    margin: 5px 0 0 10px;
+}
+footer.link a, footer.link a:link, footer.link a:visited, footer.link a:hover, footer.link a:active {
+    color: #4C301C;
+    font-size: 100%;
+    font-weight: normal;
+    text-decoration: underline;
+    text-transform: none;
+    padding: 0px 0 0 0;
+}
+footer .copyright {
+    font-size: 80%;
+}
+.home .botnav {
+    margin: 0 210px 0 0px;
+    border-right: 10px #50B748 solid;
+}
+.botnav {
+    height: auto;
+    background-color: #4C301C;
+    padding: 8px 0 0 25px;
+}
+.botnav a, .botnav a:link, .botnav a:visited, .botnav a:hover, .botnav a:active {
+    vertical-align: middle;
+    color: #fff;
+    font-size: 100%;
+    font-weight: bold;
+    text-decoration: none;
+    text-transform: uppercase;
+    display: inline-block;
+}
+@media only screen and (max-width: 949px) {
+    .home .botnav {
+        margin: 0 150px 0 0;
+    }
+}
+@media only screen and (max-width: 750px) {
+    footer {
+        padding: 0px;
+    }
+    .botnav {
+        margin: 0px;
+        border: none;
+    }
+    .home .botnav {
+        margin: 0;
+        border-right: none;
+
+    }
+}
+@media only screen and (max-width: 560px) {
+    .botnav {
+        width: 100%;
+        margin: 0;
+        border: 0;
+    }
+    .botnav a {
+        width: 90%;
+        text-align: center;
+        padding: 15px;
+    }
+}
+/**************** END Footer **************/
+
+
+
+
+
+
+
 #brown-bg {
     background-color: #4C301C;
     height: 225px;
@@ -784,6 +886,14 @@ header {
 }
 
 
+
+
+
+
+
+
+
+
 /*Navigation Menu*/
 .nav {
     width: 95%;
@@ -819,6 +929,16 @@ header {
     }
 }
 /*END Navigation menu*/
+
+
+
+
+
+
+
+
+
+
 /*Social links*/
 .social-desktop {
     float: right;
@@ -841,7 +961,17 @@ header {
 }
 /*End Social links*/
 
-/*How to get involved page*/
+
+
+
+
+
+
+
+
+
+
+/************** How to get involved page***********/
 .get-involved img {
     width: 80%;
     margin: 0 auto;
@@ -858,10 +988,14 @@ header {
     color: #4c301c;
     font-weight: bold;
 }
+/************ END How to get involved page ******************/
 
 
 
-/*END How to get involved page*/
+
+
+
+
 
 
 #main {
@@ -1121,51 +1255,11 @@ h2.subtitle-text {
 }
 /* Bottom Navigation Bar */
 
-.home .botnav {
-    margin: 0 209px 0 0px;
-    border-right: 10px #50B748 solid;
-}
 
-.botnav {
-    height: auto;
-    background-color: #4C301C;
-    padding: 8px 0 0 25px;
-}
-.botnav a, .botnav a:link, .botnav a:visited, .botnav a:hover, .botnav a:active {
-    vertical-align: middle;
-    color: #fff;
-    font-size: 100%;
-    font-weight: bold;
-    text-decoration: none;
-    text-transform: uppercase;
-    display: inline-block;
-}
 
-/* Footer */
-footer {
-    width: 100%;
-    position: relative;
-    clear: both;
-    bottom: 0;
-    height: 30px;
-    background-color: #fff;
-    /*margin: 0 0px 0 -1px;*/
-    z-index: 10;
-}
-footer p {
-    margin: 5px 0 0 10px;
-}
-footer.link a, footer.link a:link, footer.link a:visited, footer.link a:hover, footer.link a:active {
-    color: #4C301C;
-    font-size: 100%;
-    font-weight: normal;
-    text-decoration: underline;
-    text-transform: none;
-    padding: 0px 0 0 0;
-}
-footer .copyright {
-    font-size: 80%;
-}
+
+
+
 /* //////Extras */
 
 span.blue a {
@@ -1315,9 +1409,6 @@ h2.asset-page {
         width: 160px;
         padding-left: 10px;
     }
-    .botnav {
-        margin: 0px 149px 0px -35px
-    }
     .main-content {
         margin-right: 92px;
     }
@@ -1389,13 +1480,6 @@ h2.asset-page {
     }
     .community-partners img {
         width: 100%;
-    }
-    footer {
-        padding: 0px;
-    }
-    .botnav {
-        margin: 0px;
-        border: none;
     }
     .sidetitle {
         font-size: 150%;
@@ -1497,9 +1581,6 @@ h2.asset-page {
     #contact-info p {
         text-align: center;
         width: 100%;
-    }
-    #footer-content {
-      display:table-footer-group;
     }
     .thank-you-splash h2 {
         font-size: 200%;
