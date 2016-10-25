@@ -753,6 +753,16 @@ header {
     position: absolute;
     z-index: 5;
 }
+#title {
+    float: left;
+    position: relative;
+    text-align: left;
+    margin: 20px 0 30px 190px;
+    left: 0px;
+    width: 425px;
+    z-index: 3;
+    height: 160px;
+}
 @media only screen and (max-width: 560px) {
     #header {
         top: 20px;
@@ -884,7 +894,7 @@ footer .copyright {
 }
 
 .app .container {
-    margin: 4em 0 0 0;
+    margin: 3em 0 0 0;
 }
 .banner-img {
     width: 155px;
@@ -1001,6 +1011,11 @@ footer .copyright {
     color: #4c301c;
     font-weight: bold;
 }
+@media only screen and (max-width: 560px) {
+    .get-involved h2 {
+        font-size: 1.4em;
+    }
+}
 .get-involved a {
     display: block;
     padding: 1em;
@@ -1045,27 +1060,8 @@ footer .copyright {
     position: relative;
     z-index: 1;
 }
-/*
-////// Navigation Header content
-                    */
 
-#title {
-    float: left;
-    position: relative;
-    text-align: left;
-    margin: 20px 0 30px 190px;
-    left: 0px;
-    width: 425px;
-    z-index: 3;
-    height: 160px;
-}
-/* These styles only appear in #title */
 
-h1.title-text {
-/*    color: #fff;
-    font-size: 2em;
-    font-family: Verdana, Geneva, sans-serif;*/
-}
 h2.subtitle-text {
     color: #ee3a43;
     text-transform: uppercase;
@@ -1312,9 +1308,6 @@ span.blue a {
 .markdown img {
     float: right;
     max-height: 200px;
-}
-.markdown h2 {
-    margin-top: 2.5em;
 }
 .ann-text .published-date {
     font-size: 60%;
@@ -1578,12 +1571,6 @@ h2.asset-page {
     .main-content {
         margin-right: 0px;
         padding: 0 10px 0 10px;
-    }
-    #header {
-        top: 20px;
-    }
-    header {
-        height: 246px;
     }
     #main {
         margin: 0;
