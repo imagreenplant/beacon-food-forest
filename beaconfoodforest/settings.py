@@ -37,6 +37,7 @@ print("ENVIRONMENT is set to %s" % ENVIRONMENT)
 
 
 # Store the secrets.json file in the ~/.beaconfoodforest directory.
+SECRETS = {}
 if not ENVIRONMENT == "local":
     try:
         DATA_DIR = pathlib.Path.joinpath(pathlib.Path.home(), ".beaconfoodforest/secrets.json")
@@ -248,37 +249,39 @@ ENVIRONMENTS = {
             'django.template.loaders.filesystem.Loader',
             'django.template.loaders.app_directories.Loader',
         ],
-        'DONATE_EMAIL': SECRETS.get('donate_email').get('testing'),
+        'DONATE_EMAIL': SECRETS.get('donate_email').get('testing') if SECRETS.get('donate_email') \
+        else 'user@example.com',
         'LOG_FILE': 'logs/request.log',
     },
     'testing': {
         # This the place on the live test server where static files will be
         # collected for delivery.
-        'STATIC_ROOT': "".join((SECRETS.get('server_public_root'), 'public_html/s-test')),
+        'STATIC_ROOT': "".join((SECRETS.get('server_public_root', ''), 'public_html/s-test')),
         'ALLOWED_HOSTS': ['.beaconfoodforest.org', ],
         'DEBUG': True,
         'STATIC_URL': 'http://beaconfoodforest.org/s-test/',
         'CACHES': {'default': {'BACKEND': 'django.core.cache.backends.dummy.DummyCache', }},
         'DATABASE': 'testing',
-        'MEDIA_ROOT': "".join((SECRETS.get('server_public_root'), 'public_html/m-test')),
+        'MEDIA_ROOT': "".join((SECRETS.get('server_public_root', ''), 'public_html/m-test')),
         'MEDIA_URL': 'http://beaconfoodforest.org/m-test/',
         'TEMPLATE_LOADERS': [
             'django.template.loaders.filesystem.Loader',
             'django.template.loaders.app_directories.Loader',
         ],
-        'DONATE_EMAIL': SECRETS.get('donate_email').get('testing'),
+        'DONATE_EMAIL': SECRETS.get('donate_email').get('testing') if SECRETS.get('donate_email') \
+        else 'user@example.com',
         'LOG_FILE': "".join((BASE_DIR, "/logs/request.log")),
     },
     'production': {
         # This the place on the live server where static files will be collected
         # for delivery.
-        'STATIC_ROOT': "".join((SECRETS.get('server_public_root'), 'public_html/s')),
+        'STATIC_ROOT': "".join((SECRETS.get('server_public_root', ''), 'public_html/s')),
         'ALLOWED_HOSTS': ['.beaconfoodforest.org', ],  # Allows domain and subdomains
         'DEBUG': False,
         'STATIC_URL': 'http://beaconfoodforest.org/s/',
         'CACHES': {'default': {'BACKEND': 'django.core.cache.backends.locmem.LocMemCache', }},
         'DATABASE': 'production',
-        'MEDIA_ROOT': "".join((SECRETS.get('server_public_root'), 'public_html/media')),
+        'MEDIA_ROOT': "".join((SECRETS.get('server_public_root', ''), 'public_html/media')),
         'MEDIA_URL': 'http://beaconfoodforest.org/media/',
         'TEMPLATE_LOADERS': [('django.template.loaders.cached.Loader',
                               [
@@ -286,7 +289,8 @@ ENVIRONMENTS = {
                                   'django.template.loaders.app_directories.Loader',
                               ]),
                              ],
-        'DONATE_EMAIL': SECRETS.get('donate_email').get('live'),
+        'DONATE_EMAIL': SECRETS.get('donate_email').get('live') if SECRETS.get('donate_email') \
+        else 'user@example.com',
         'LOG_FILE': "".join((BASE_DIR, "/logs/request.log")),
     },
 }
@@ -320,7 +324,8 @@ CACHES = ENVIRONMENTS[ENVIRONMENT]['CACHES']
 LOGGING['handlers']['file']['filename'] = ENVIRONMENTS[ENVIRONMENT]['LOG_FILE']
 
 if ENVIRONMENT != "local":
-    DATABASES['default'] = SECRETS.get('databases').get(ENVIRONMENTS[ENVIRONMENT]['DATABASE'])
+    DATABASES['default'] = SECRETS.get('databases').get(ENVIRONMENTS[ENVIRONMENT]['DATABASE']) \
+        if SECRETS.get('databases') else 'testing'
 
 # For material donation page
 DONATE_EMAIL = ENVIRONMENTS[ENVIRONMENT]['DONATE_EMAIL']
