@@ -5,11 +5,12 @@
 	<link rel="stylesheet" type="text/css" href="{% static "maps/css/map.css" %}">
 {% endblock add-css %}
 
-{% block app-title %}Maps
+{% block header %}{% include "base/header.html" with h1="Maps" %}{% endblock header %}
+{% block title %}Maps
 	{% if kml.name %}
 		| {{kml.name}}
 	{% endif %}
-{% endblock app-title %}
+{% endblock title %}
 
 {% block sub-page-class %}app map{% endblock sub-page-class %}
 {% block app-content %}

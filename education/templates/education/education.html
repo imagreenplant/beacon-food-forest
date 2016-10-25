@@ -1,6 +1,7 @@
 {% extends "base/app-page-content.html" %} 
 {% load staticfiles %}
-{% block app-title %}Education{% endblock app-title %}
+{% block title %}Education{% endblock title %}
+{% block header %}{% include "base/header.html" with h1="Education" %}{% endblock header %}
 {% block app-content %}
     <div class="content-div">
         <h2 class="content-title">
@@ -42,7 +43,7 @@
             Want to teach a class?
         </h2>
         <p>
-            Do you want to teach a class in permaculture at the Beacon Food Forest?  Start <a href="{% url 'teacher-criteria' %}">here</a>.
+            Do you want to teach a class in permaculture at the Beacon Food Forest?  Start <a href="{% url 'teach-your-own-class' %}">here</a>.
         </p>
         <div class="block-items block-items-text">
             <p>

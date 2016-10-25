@@ -41,14 +41,14 @@
     <div id="popcontent">{% include "base/popcontent.html" %}</div>
     <div id="main" class="{% block sub-page-class %}home{% endblock sub-page-class %}">
         <div class="background-nut"></div>
-        <div id="headercontent">{% include "base/header.html" %}</div>
+        {% block header %}{% include "base/header.html" %}{% endblock header %}
         {% block content %}{% endblock content%}
-        <div id="footercontent">{% include "base/footer.html" %}</div>
+        {% block footer %}{% include "base/footer.html" %}{% endblock footer %}
     </div>
     
     <script type="text/javascript" src="{% static "base/js/easypop.js" %}"></script>
     <script src="{% static "base/js/bffga.js" %}"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script> 
-    {% block add-to-footer %}{% endblock add-to-footer %}   
+     
 </body>
 </html>

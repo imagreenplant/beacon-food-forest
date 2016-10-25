@@ -1,7 +1,8 @@
 {% extends "base/app-page-content.html" %} 
 {% load staticfiles %} 
 {% load custom_markdown %}
-{% block app-title %}Education | {{class.title}} Class{% endblock app-title %}
+{% block title %}Education | {{class.title}} Class{% endblock title %}
+{% block header %}{% include "base/header.html" with h1="Education" %}{% endblock header %}
 {% block app-content %}
     {% if class %}
         <div class="app-listing container-fluid">

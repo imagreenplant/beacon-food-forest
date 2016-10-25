@@ -1,9 +1,10 @@
 {% extends "infopages/infopage-content.html" %}
 {% load staticfiles %}
+{% block header %}{% include "base/header.html" with h1="Frequently Asked Questions" %}{% endblock header %}
 
 {% block info-content %}
 <div class="content-div">
-    <h2 class="content-title">{% block info-title %}Frequently Asked Questions{% endblock info-title %}</h2>
+    <h2 class="content-title">{% block title %}Frequently Asked Questions{% endblock title %}</h2>
     <h3>          
                     Where did the idea come from for the Beacon Food Forest?
         </h3>
