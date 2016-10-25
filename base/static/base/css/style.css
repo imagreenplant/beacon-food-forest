@@ -1546,6 +1546,7 @@ h2.asset-page {
     .top-text {
         padding: 0px;
         margin-top: 4px;
+        font-size: 0.7em;
     }
     .top-text a {
         font-size: 80%;
