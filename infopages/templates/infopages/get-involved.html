@@ -6,77 +6,73 @@
 <div class="content-div container-fluid get-involved">
     <div class="row">
         <h2>Help from afar</h2>
-        <div class="col-md-4 col-sm-6 text-center">
-            <div><img src="{% static 'base/svg/donation.svg' %}" alt="Link to donate money"></div>
-            <h3>
-                <span class="blue"><a href="#" onclick="center_popup_open('donate')">Donate Money</a></span>
-            </h3>
-            <p>{% lorem 30 w %}</p>
-        </div>
-        <div class="col-md-4 col-sm-6 text-center">
-            <p><img src="{% static "base/svg/newspaper.svg" %}" alt="Link to signup for newsletter"></p>
+        <a href="#" onclick="center_popup_open('donate')" class="col-md-4 col-sm-6 text-center">
+            <img src="{% static 'base/svg/donation.svg' %}" alt="Link to donate money">
+            <h3>Donate Money</h3>
+            <p>Your donation is tax-deductible and will be put towards many possible expenses including tools, food for volunteers, procuring plants, building materials, etc.  Thank you so much, it helps as we are a volunteer-run organization.</p>
+        </a>
+        <a href="#" onclick="center_popup_open('mailList')" class="col-md-4 col-sm-6 text-center">
+            <img src="{% static "base/svg/newspaper.svg" %}" alt="Link to signup for newsletter">
             <h3>Newsletter</h3>
-            <p>{% lorem 40 w %}</p>
-        </div>
-        <div class="col-md-4 col-sm-6 text-center">
-            <p><img src="{% static "base/svg/dialogue.svg" %}" alt="Link to Beacon Food Forest Facebook page"></p>
+            <p>This link will sign you up for our mailing list which provides notice of upcoming work parties, events, as well as the monthly newsletter.</p>
+        </a>
+        <a href="https://www.facebook.com/beaconfoodforest" target="_blank" class="col-md-4 col-sm-6 text-center">
+            <img src="{% static "base/svg/dialogue.svg" %}" alt="Link to Beacon Food Forest Facebook page">
             <h3>Social</h3>
-            <p>{% lorem 30 w %}</p>
-        </div>
+            <p>Head over to Facebook and like our page.  It helps further our reach and is a great way to become part of the community.</p>
+        </a>
     </div>
     <hr>
     <div class="row">
         <h2>Get your hands dirty</h2>
-        <div class="col-md-4 col-sm-6 text-center">
-            <p><img src="{% static 'base/svg/shovel.svg' %}" alt="Link to information on work parties"></p>
+        <a href="#" onclick="center_popup_open('calendar')" class="col-md-4 col-sm-6 text-center">
+            <img src="{% static 'base/svg/shovel.svg' %}" alt="Link to information on work parties">
             <h3>Work Party</h3>
-            <p>{% lorem 30 w %}</p>
-        </div>
-        <div class="col-md-4 col-sm-6 text-center">
-            <p><img src="{% static "base/svg/ecology.svg" %}" alt="Link to information on other events"></p>
+            <p>Come to a work party and engage in activities to help develop and maintain the Beacon Food Forest.  <strong>ALL ages and skill levels are welcome</strong>.  Lunch will be served.  Bring your gloves and head over because we want to see you, rain or shine.  Check the calendar or signup for the newsletter for work party dates.</p>
+        </a>
+        <a href="mailto:volunteer@beaconfoodforest.org" class="col-md-4 col-sm-6 text-center">
+            <img src="{% static "base/svg/ecology.svg" %}" alt="Link to information on other events">
             <h3>Other activities</h3>
-            <p>{% lorem 30 w %}</p>
-        </div>
-        <a href="http://www.seattle.gov/neighborhoods/ppatch/signupPpatch.htm">
-            <div class="col-md-4 col-sm-6 text-center">
-                <p><img src="{% static "base/svg/sprout.svg" %}" alt="Link to sign up for a p-patch"></p>
-                <h3>Sign Up for a P-Patch</h3>
-                <p>{% lorem 30 w %}</p>
-            </div>
+            <p>During summer we have sunset labs, maintenance and harvest of the Helix farm plot, wetland restoration and various other tasks as they come up.  Come by a site development meeting (see calendar) or email the volunteer coordinator for more information.</p>
+        </a>
+        <a href="http://www.seattle.gov/neighborhoods/ppatch/signupPpatch.htm" target="_blank" class="col-md-4 col-sm-6 text-center">
+            <img src="{% static "base/svg/sprout.svg" %}" alt="Link to sign up for a p-patch">
+            <h3>Sign Up for a P-Patch</h3>
+            <p>The Beacon Food Forest is one giant P-Patch (garden).  Sign up to tend your own plot.  Volunteer hours as well as a small fee are required to maintain a P-Patch.  Sign up is done through the city of Seattle.</p>
         </a>
     </div>
     <hr>
     <div class="row">
         <h2>Get even more involved</h2>
-        <div class="col-md-4 col-sm-6 text-center">
-            <p><img src="{% static "base/svg/directions.svg" %}" alt="Link to information on attending a new volunteer orientation"></p>
+        <a href="#" onclick="center_popup_open('calendar')" class="col-md-4 col-sm-6 text-center">
+            <img src="{% static "base/svg/directions.svg" %}" alt="Link to information on attending a new volunteer orientation">
             <h3>Attend an orientation</h3>
-            <p>{% lorem 30 w %}</p>
-        </div>
-        <div class="col-md-4 col-sm-6 text-center">
-            <p><img src="{% static 'base/svg/connections.svg' %}" alt="Button to email the volunteer coordinator"></p>
+            <p>Want to learn the workings of the Beacon Food Forest and help out the organization?  Writing grants, holding classes, leading tasks, volunteer coordination, or simply just being a part of an amazing community of volunteers who do their best.  ALL skill levels are welcome.  Check the calendar for the next new volunteer orientation.</p>
+        </a>
+        <a href="mailto:volunteer@beaconfoodforest.org" class="col-md-4 col-sm-6 text-center">
+            <img src="{% static 'base/svg/connections.svg' %}" alt="Button to email the volunteer coordinator">
             <h3>Email the volunteer coordinator</h3>
-            <p>{% lorem 30 w %}</p>
-        </div>
-        <div class="col-md-4 col-sm-6 text-center">
-            <p><img src="{% static 'base/svg/watercolor.svg' %}" alt="Email the art coordinator for proposals"></p>
+            <p>Our volunteer coordinator is here to help.  Don't know where to start?  Send an email and start asking questions.</p>
+        </a>
+        <a href="&#109;ailt&#111;&#58;&#37;&#54;Au&#108;i%61&#37;6E&#37;6F&#37;72%74h&#114;&#37;&#54;5%&#54;4&#64;h&#111;%&#55;4&#109;a&#105;&#108;&#46;co%6&#68;" target="_top" class="col-md-4 col-sm-6 text-center">
+            <img src="{% static 'base/svg/watercolor.svg' %}" alt="Email the art coordinator for proposals">
             <h3>Art projects</h3>
-            <p>{% lorem 30 w %}</p>
-        </div>
+            <p>Dream big, and bring your art proposal to our Art coordinator.  We relish art and that which brings harmony.  Get yourself a grant and see that vision come to life at the Beacon Food Forest!</p>
+        </a>
     </div>
     <hr>
     <div class="row">
         <h2>Get your fellow humans involved</h2>
-        <div class="col-md-4 col-sm-6 text-center">
-            <p><img src="{% static "base/svg/group.svg" %}" alt="Email the group coordinator to setup group events"></p>
+        <a href="mailto:mia@beaconfoodforest.org" class="col-md-4 col-sm-6 text-center">
+            <img src="{% static "base/svg/group.svg" %}" alt="Email the group coordinator to setup group events">
             <h3>Setup a group work party</h3>
-            <p>{% lorem 30 w %}</p>
-        </div>
-        <div class="col-md-4 col-sm-6 text-center">
-            <p><img src="{% static "base/svg/map.svg" %}" alt="Schedule a toor with the tour coordinator"></p>
+            <p>We invite organizations or large groups to come help on site.  Email our group coordinator to get matched up with some volunteers that will help coordinate tasks and planning for the big day out of the office.</p>
+        </a>
+        <a href="mailto:tours@beaconfoodforest.org" class="col-md-4 col-sm-6 text-center">
+            <img src="{% static "base/svg/map.svg" %}" alt="Schedule a toor with the tour coordinator">
             <h3>Tour</h3>
-            <p>{% lorem 30 w %}</p>
-        </div>
+            <p>The Beacon Food Forest is global.  People from Taiwan, Ukraine, France and many others have visited to understand just how the magic happened here.  Whether your group is big or small, email the tour coordinator as we'd love to see you on the grounds.</p>
+        </a>
     </div>
 </div>
 {% endblock app-content %}
