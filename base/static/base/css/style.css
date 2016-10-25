@@ -440,7 +440,7 @@ input[type=text] {
     background: #FFF;
     z-index: 1002;
     overflow: scroll;
-    padding: 0px 15px 0px 15px;
+    padding: 10px 15px 0px 15px;
     border: 10px #50B748 solid;
     top: 7%;
     width: 90%;
