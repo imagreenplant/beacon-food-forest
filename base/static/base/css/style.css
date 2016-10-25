@@ -988,6 +988,7 @@ footer .copyright {
     width: 80%;
     margin: 0 auto;
     max-width: 150px;
+    display: block;
 }
 .get-involved hr {
     height: 2px;
