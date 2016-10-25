@@ -2,8 +2,11 @@
 {% load staticfiles %} 
 {% load custom_markdown %}
 
+
+{% block header %}{% include "base/header.html" with h1="Plant List" %}{% endblock header %}
+
 {% block app-content %}
-    <h2 class="asset-page">{% block app-title %}{{ title }}{% endblock app-title %}</h2>
+    <h2 class="asset-page">{% block title %}{{ title }}{% endblock title %}</h2>
     {% if plants %}
         <table class="table table-striped">
             <thead>

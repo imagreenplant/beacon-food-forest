@@ -5,8 +5,8 @@
     <link rel="stylesheet" type="text/css" href="{% static "maps/css/map.css" %}">
 {% endblock add-css %}
 
-{% block app-title %}Maps | {{site_title_append}}
-{% endblock app-title %}
+{% block header %}{% include "base/header.html" with h1="Maps" %}{% endblock header %}
+{% block title %}Maps | {{site_title_append}}{% endblock title %}
 
 {% block sub-page-class %}app map{% endblock sub-page-class %}
 {% block app-content %}

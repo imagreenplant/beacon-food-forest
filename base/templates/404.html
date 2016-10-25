@@ -1,8 +1,10 @@
 {% extends "base/app-page-content.html" %} 
 {% load staticfiles %}
+{% block header %}{% include "base/header.html" with h1="404 Uh Oh" %}{% endblock header %}
+
 {% block app-content %}
 <div id="content2-perma" class="first-content-div">
-    <h2 class="content-title">{% block app-title %}404 Page{% endblock app-title %}</h2>
+    <h2 class="content-title">{% block title %}404 Page{% endblock title %}</h2>
     <p>So sorry, looks like the page you found no longer exists.  But please stick around and click around for other
     good info</p>
 </div>

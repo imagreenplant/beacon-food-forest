@@ -2,7 +2,8 @@
 {% load staticfiles %} 
 {% load custom_markdown %}
 
-{% block app-title %}{{ plant.name}} ({{ plant.site_code }}) Plant Page{% endblock app-title %}
+{% block header %}{% include "base/header.html" with h1="Plants" %}{% endblock header %}
+{% block title %}{{ plant.name}} ({{ plant.site_code }}) Plant Page{% endblock title %}
 
 {% block app-canonical %}
 <link rel="canonical" href="http://beaconfoodforest.org{% url "plants-detail" plant_url %}" />
