@@ -51,6 +51,6 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='plant',
             name='coordinates',
-            field=models.ForeignKey(default=b'', blank=True, to='plants.Coordinates', help_text=b'Exact gps coordinates of location of plant'),
+            field=models.ForeignKey(default=b'1234', blank=True, to='plants.Coordinates', help_text=b'Exact gps coordinates of location of plant'),
         ),
     ]
