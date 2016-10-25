@@ -1001,6 +1001,14 @@ footer .copyright {
     color: #4c301c;
     font-weight: bold;
 }
+.get-involved a {
+    display: block;
+    padding: 1em;
+}
+.get-involved a:hover {
+    background-color: #f6fcff;
+    text-decoration: none;
+}
 /************ END How to get involved page ******************/
 
 
