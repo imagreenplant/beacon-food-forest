@@ -153,6 +153,11 @@ TEMPLATES = [
 
 # Adding Logging.  This should be set to "WARNING" or "ERROR" for some
 # time after we've deployed.
+
+# If request.log doesn't exist, this will create
+with open("logs/request.log", "a+") as f:
+    pass
+
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
