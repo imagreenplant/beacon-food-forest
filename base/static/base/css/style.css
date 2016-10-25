@@ -409,7 +409,7 @@ input[type=text] {
     background: #FFF;
     z-index: 1002;
     overflow: visible;
-    padding: 0px 5px 0px 20px;
+    padding: 10px 5px 0px 20px;
     border: 10px #50B748 solid;
     top: 20%;
     width: 90%;
