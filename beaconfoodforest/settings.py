@@ -151,13 +151,17 @@ TEMPLATES = [
     },
 ]
 
-# Adding Logging.  This should be set to "WARNING" or "ERROR" for some
-# time after we've deployed.
 
 # If request.log doesn't exist, this will create
+dir = os.path.dirname('logs/')
+if not os.path.exists(dir):
+    os.makedirs(dir)
 with open("logs/request.log", "a+") as f:
     pass
+#
 
+# Adding Logging.  This should be set to "WARNING" or "ERROR" for some
+# time after we've deployed.
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
