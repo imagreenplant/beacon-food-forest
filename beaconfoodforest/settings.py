@@ -104,6 +104,9 @@ INSTALLED_APPS = [
 
     # The plants app for tracking individual plants
     'plants',
+    # Library helps with storing positional coordinates + forms
+    # https://github.com/philippbosch/django-geoposition
+    'geoposition',
 
     # Helper apps for design -- probably don't need in production
     'django.contrib.webdesign',
@@ -223,6 +226,21 @@ TIME_ZONE = 'America/Los_Angeles'
 USE_I18N = True
 USE_L10N = True
 USE_TZ = True
+
+# Choose Bootstrap3 for django crispy forms
+CRISPY_TEMPLATE_PACK = 'bootstrap3'
+
+# Geo position  https://github.com/philippbosch/django-geoposition
+GEOPOSITION_GOOGLE_MAPS_API_KEY = 'AIzaSyAsnOLu3eLbo60hkQNWo-3EEt102mOv99w'
+GEOPOSITION_MAP_OPTIONS = {
+    'zoom': 18,
+    # 'mapTypeId': "google.maps.MapTypeId.SATELLITE"
+    'center': {'lat': 47.56845610052802, 'lng': -122.31254031038299}
+}
+GEOPOSITION_MARKER_OPTIONS = {
+    'cursor': 'move'
+}
+GEOPOSITION_MAP_WIDGET_HEIGHT = 480
 
 # Captcha settings
 CAPTCHA_CHALLENGE_FUNCT = 'captcha.helpers.math_challenge'
