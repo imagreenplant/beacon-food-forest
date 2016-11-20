@@ -233,12 +233,13 @@ CRISPY_TEMPLATE_PACK = 'bootstrap3'
 # Geo position  https://github.com/philippbosch/django-geoposition
 GEOPOSITION_GOOGLE_MAPS_API_KEY = 'AIzaSyAsnOLu3eLbo60hkQNWo-3EEt102mOv99w'
 GEOPOSITION_MAP_OPTIONS = {
-    'zoom': 18,
-    # 'mapTypeId': "google.maps.MapTypeId.SATELLITE"
-    'center': {'lat': 47.56845610052802, 'lng': -122.31254031038299}
+    'zoom': 19,
+    'mapTypeId': 'satellite',
+    'center': {'lat': 47.56845610052802, 'lng': -122.31254031038299},
+    'tilt': 0,
 }
 GEOPOSITION_MARKER_OPTIONS = {
-    'cursor': 'move'
+    # 'cursor': 'move'
 }
 GEOPOSITION_MAP_WIDGET_HEIGHT = 480
 
