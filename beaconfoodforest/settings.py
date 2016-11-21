@@ -239,7 +239,7 @@ GEOPOSITION_MAP_OPTIONS = {
     'tilt': 0,
 }
 GEOPOSITION_MARKER_OPTIONS = {
-    # 'cursor': 'move'
+    'position': {'lat': 47.56845610052802, 'lng': -122.31254031038299},
 }
 GEOPOSITION_MAP_WIDGET_HEIGHT = 480
 
