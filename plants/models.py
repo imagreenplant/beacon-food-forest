@@ -4,6 +4,7 @@ from django.utils import text as slugify
 # import django.utils.timezone as timezone
 from django.core.urlresolvers import reverse
 from taggit.managers import TaggableManager
+from geoposition.fields import GeopositionField
 
 
 class Location(models.Model):
@@ -22,7 +23,7 @@ class Location(models.Model):
         max_digits=10, decimal_places=7, blank=True,
         default=0.00, help_text='(Optional) GPS longitude')
     friendly_location = models.CharField(
-        max_length=200, blank=True, 
+        max_length=200, blank=True,
         help_text="(Optional) Description of location")
     greater_area = models.CharField(max_length=200, blank=True,
                                     help_text="(Optional) Description of area like Phase2 Upper")
@@ -135,6 +136,8 @@ class Plant(models.Model):
     location = models.ForeignKey(Location, on_delete=models.CASCADE, blank=True, null=True,
                                  help_text='Assign a location (made separately)')
     coordinates = models.ForeignKey(Coordinates, on_delete=models.CASCADE, blank=True, null=True,
+                                    help_text='Exact gps coordinates of location of plant (Obsolete)')
+    geo_location = GeopositionField(blank=True, null=True,
                                     help_text='Exact gps coordinates of location of plant')
 
 # Saving this for another day.  We may not want this.
