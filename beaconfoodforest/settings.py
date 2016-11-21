@@ -235,11 +235,11 @@ GEOPOSITION_GOOGLE_MAPS_API_KEY = 'AIzaSyAsnOLu3eLbo60hkQNWo-3EEt102mOv99w'
 GEOPOSITION_MAP_OPTIONS = {
     'zoom': 19,
     'mapTypeId': 'satellite',
-    'center': {'lat': 47.56845610052802, 'lng': -122.31254031038299},
+    'center': {'lat': 47.567994622412314, 'lng': -122.31268246746077},
     'tilt': 0,
 }
 GEOPOSITION_MARKER_OPTIONS = {
-    'position': {'lat': 47.56845610052802, 'lng': -122.31254031038299},
+    'position': {'lat': 47.567994622412314, 'lng': -122.31268246746077},
 }
 GEOPOSITION_MAP_WIDGET_HEIGHT = 480
 
