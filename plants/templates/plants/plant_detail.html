@@ -38,9 +38,9 @@
                     <p>{{ plant.text|parse_markdown}}</p>
                 </div>
 
-                {% if plant.coordinates %}
+                {% if plant.geo_location %}
                 <div class="plant-image lfloat">
-                    <img src="http://maps.googleapis.com/maps/api/staticmap?center=47.5679410,-122.3127390&zoom=18&size=250x300&maptype=hybrid&markers=color%3ared%7C{{plant.coordinates.latitude}},{{plant.coordinates.longitude}}&sensor=true">
+                    <img src="http://maps.googleapis.com/maps/api/staticmap?center=47.5679410,-122.3127390&zoom=18&size=250x300&maptype=hybrid&markers=color%3ared%7C{{plant.geo_location.latitude}},{{plant.geo_location.longitude}}&sensor=true">
                 </div>
                 {% endif %}
 

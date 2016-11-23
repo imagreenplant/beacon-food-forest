@@ -31,7 +31,7 @@ def fruitTrees(request):
     # View specific to fruit trees only, as the main featured map
     fruit_trees = Plant.objects.\
         filter(category__category__exact="Trees").\
-        filter(coordinates_id__isnull=False)
+        filter(geo_location__isnull=False)
     site_title_append = "Trees"
     return render_to_response(
         'maps/categorymap.html',

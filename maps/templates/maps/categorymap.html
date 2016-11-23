@@ -25,7 +25,7 @@
                 'year_planted': '{{ plant.year_planted | escapejs}}',
                 'site_code': '{{ plant.site_code | escapejs}}',
                 'url': '{% url "plants-detail" plant.url_slug  %}',
-                'location': '{{ plant.location | escapejs }}',
+                'location': '{{ plant.geo_location | escapejs }}',
             },
             {% endfor %}
         };
@@ -46,7 +46,7 @@
                     </div>
                     <div class="subfolder subcategory line-item">
                         {% for plant in plants %}
-                            <li class="{{ plant.side_code }}" onmouseout="google.maps.event.trigger(gml.overlayman.markers[0],'mouseout');" onmouseover="google.maps.event.trigger(gml.overlayman.markers[0],'mouseover');" data-location="{{plant.location}}" data-coordinates="{{plant.coordinates}}">
+                            <li class="{{ plant.side_code }}" onmouseout="google.maps.event.trigger(gml.overlayman.markers[0],'mouseout');" onmouseover="google.maps.event.trigger(gml.overlayman.markers[0],'mouseover');" data-location="" data-coordinates="{{plant.geo_location}}">
                                 <input class="checkbox" type="checkbox" checked="" onclick="gml.showHide(0,this.checked)">
                                 <a href="#" onclick="google.maps.event.trigger(gml.overlayman.markers[0],'click');return false;">&nbsp;
                                     <img class="plant-icon" src="{{plant.subcategory.icon}}">
