@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django_markdown.admin import MarkdownModelAdmin
-from plants.models import Plant, Location, Coordinates, MapCategory, MapSubCategory
+from plants.models import Plant, Location, MapCategory, MapSubCategory
 # from plants.models import MaintenanceEvent, Harvest
 
 
@@ -13,14 +13,6 @@ class PlantAdmin(MarkdownModelAdmin):
 @admin.register(Location)
 class LocationAdmin(MarkdownModelAdmin):
     list_display = ('friendly_location', 'gps_latitude', 'gps_longitude')
-
-
-@admin.register(Coordinates)
-class CoordinatesAdmin(admin.ModelAdmin):
-    '''
-        Admin View for Coordinates
-    '''
-    list_display = ('latitude', 'longitude')
 
 
 @admin.register(MapCategory)
