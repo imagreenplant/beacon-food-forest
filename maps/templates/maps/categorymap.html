@@ -16,8 +16,8 @@
         var plants = {
             {% for plant in plants %}
             "{{plant.site_code}}": {
-                'coordinates': { lat: {{ plant.coordinates.latitude }}, 
-                                 lng: {{ plant.coordinates.longitude }} },
+                'coordinates': { lat: {{ plant.geo_location.latitude }}, 
+                                 lng: {{ plant.geo_location.longitude }} },
                 'name': '{{ plant.name | escapejs}}',
                 'friendly_name': '{{ plant.friendly_name | escapejs}}',
                 'latin_name': '{{ plant.latin_name | escapejs }}',
