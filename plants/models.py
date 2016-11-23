@@ -27,6 +27,8 @@ class Location(models.Model):
         help_text="(Optional) Description of location")
     greater_area = models.CharField(max_length=200, blank=True,
                                     help_text="(Optional) Description of area like Phase2 Upper")
+    geo_location = GeopositionField(blank=True, null=True,
+                                    help_text='Approximate gps coordinates of location')
 
 
 class Coordinates(models.Model):
