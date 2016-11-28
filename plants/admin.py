@@ -12,7 +12,7 @@ class PlantAdmin(MarkdownModelAdmin):
 
 @admin.register(Location)
 class LocationAdmin(MarkdownModelAdmin):
-    list_display = ('friendly_location', 'gps_latitude', 'gps_longitude')
+    list_display = ('friendly_location', 'geo_location')
 
 
 @admin.register(MapCategory)
