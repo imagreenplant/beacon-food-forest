@@ -16,12 +16,6 @@ class Location(models.Model):
     def __str__(self):
         return self.friendly_location
 
-    gps_latitude = models.DecimalField(
-        max_digits=10, decimal_places=7, blank=True,
-        default=0.00, help_text='(Optional) GPS latitude')
-    gps_longitude = models.DecimalField(
-        max_digits=10, decimal_places=7, blank=True,
-        default=0.00, help_text='(Optional) GPS longitude')
     friendly_location = models.CharField(
         max_length=200, blank=True,
         help_text="(Optional) Description of location")
@@ -29,21 +23,6 @@ class Location(models.Model):
                                     help_text="(Optional) Description of area like Phase2 Upper")
     geo_location = GeopositionField(blank=True, null=True,
                                     help_text='Approximate gps coordinates of location')
-
-
-class Coordinates(models.Model):
-
-    class Meta:
-        verbose_name = "Coordinates"
-        verbose_name_plural = "Coordinates"
-
-    def __str__(self):
-        return ":".join([str(self.latitude), str(self.longitude)])
-
-    latitude = models.DecimalField(max_digits=10, decimal_places=7,
-                                   blank=False, default=0.00, help_text='(Required) GPS latitude')
-    longitude = models.DecimalField(max_digits=10, decimal_places=7,
-                                    blank=False, default=0.00, help_text='(Required) GPS longitude')
 
 
 class MapCategory(models.Model):
@@ -137,8 +116,6 @@ class Plant(models.Model):
         More subfolders can be added in admin interface.")
     location = models.ForeignKey(Location, on_delete=models.CASCADE, blank=True, null=True,
                                  help_text='Assign a location (made separately)')
-    coordinates = models.ForeignKey(Coordinates, on_delete=models.CASCADE, blank=True, null=True,
-                                    help_text='Exact gps coordinates of location of plant (Obsolete)')
     geo_location = GeopositionField(blank=True, null=True,
                                     help_text='Exact gps coordinates of location of plant')
 
