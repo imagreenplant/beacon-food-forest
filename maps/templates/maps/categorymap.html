@@ -13,22 +13,7 @@
     <div id="map-canvas"></div>
     <script type="text/javascript" src="{% static "maps/js/mapdb.js" %}"></script>
     <script type="text/javascript">
-        var plants = {
-            {% for plant in plants %}
-            "{{plant.site_code}}": {
-                'coordinates': { lat: {{ plant.geo_location.latitude }}, 
-                                 lng: {{ plant.geo_location.longitude }} },
-                'name': '{{ plant.name | escapejs}}',
-                'friendly_name': '{{ plant.friendly_name | escapejs}}',
-                'latin_name': '{{ plant.latin_name | escapejs }}',
-                'content': '{{ plant.text | parse_markdown | escapejs }}',
-                'year_planted': '{{ plant.year_planted | escapejs}}',
-                'site_code': '{{ plant.site_code | escapejs}}',
-                'url': '{% url "plants-detail" plant.url_slug  %}',
-                'location': '{{ plant.geo_location | escapejs }}',
-            },
-            {% endfor %}
-        };
+        var plants = {};
     </script>
     <div id="the_side_bar">
         {% for plant_category, plant_list in categories.items %}
@@ -40,9 +25,24 @@
                 </div>
                 <ul class="plants">
                     {% for plant in plant_list %}
-                        {{plant}}
-                        {{plant_list}}
-                        <li>{{ plant.name }}</li> 
+                        <li>{{ plant.name }}
+                            <script type="text/javascript">
+                                plants[{{plant.site_code}}] =
+                                    {
+                                        'coordinates': { lat: {{ plant.geo_location.latitude }}, 
+                                                         lng: {{ plant.geo_location.longitude }} },
+                                        'name': '{{ plant.name | escapejs}}',
+                                        'friendly_name': '{{ plant.friendly_name | escapejs}}',
+                                        'latin_name': '{{ plant.latin_name | escapejs }}',
+                                        'content': '{{ plant.text | parse_markdown | escapejs }}',
+                                        'year_planted': '{{ plant.year_planted | escapejs}}',
+                                        'site_code': '{{ plant.site_code | escapejs}}',
+                                        'url': '{% url "plants-detail" plant.url_slug  %}',
+                                        'location': '{{ plant.geo_location | escapejs }}',
+                                    },
+                                };
+                            </script>
+                        </li> 
                     {% endfor %}
                 </ul>
             </div> 

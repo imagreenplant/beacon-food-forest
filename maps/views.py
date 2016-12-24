@@ -46,7 +46,9 @@ def categories(request):
     categories = MapCategory.objects.all()
     categorical_data = {}
     for category in categories:
-        plants_by_category = Plant.objects.filter(category__category__exact=category.category)
+        plants_by_category = Plant.objects.\
+            filter(category__category__exact=category.category).\
+            filter(geo_location__isnull=False)
         if plants_by_category:
             categorical_data[category.category] = plants_by_category
 
@@ -54,4 +56,3 @@ def categories(request):
         'maps/categorymap.html',
         {'categories': categorical_data, 'site_title_append': site_title_append},
         context_instance=RequestContext(request))
-
