@@ -10,3 +10,4 @@ beacondb
 logs/*
 secrets*.json
 media/*
+node_modules/

@@ -88,6 +88,9 @@ INSTALLED_APPS = [
     # Creates a sitemap
     'django.contrib.sitemaps',
 
+    # Adds bundles to js via Webpack
+    'webpack_loader',
+
     # The base of the site, header, footer, sidebar
     'base',
     'education',
@@ -323,6 +326,17 @@ ALLOWED_HOSTS = ENVIRONMENTS[ENVIRONMENT]['ALLOWED_HOSTS']
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 STATIC_ROOT = ENVIRONMENTS[ENVIRONMENT]['STATIC_ROOT']
 STATIC_URL = ENVIRONMENTS[ENVIRONMENT]['STATIC_URL']
+# Adds Webpack bundles, stored in assets
+STATICFILES_DIRS = (
+    # This lets Django's collectstatic store our bundles
+    os.path.join(BASE_DIR, 'assets'),
+)
+WEBPACK_LOADER = {
+    'DEFAULT': {
+        'BUNDLE_DIR_NAME': 'bundles/',
+        'STATS_FILE': os.path.join(BASE_DIR, 'webpack-stats.json'),
+    }
+}
 
 # Media uploads https://docs.djangoproject.com/en/1.9/topics/files/
 MEDIA_ROOT = ENVIRONMENTS[ENVIRONMENT]['MEDIA_ROOT']
