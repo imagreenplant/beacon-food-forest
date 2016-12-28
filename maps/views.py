@@ -53,6 +53,6 @@ def categories(request):
             categorical_data[category.category] = plants_by_category
 
     return render_to_response(
-        'maps/categorymap.html',
+        'maps/category_map_list.html',
         {'categories': categorical_data, 'site_title_append': site_title_append},
         context_instance=RequestContext(request))
