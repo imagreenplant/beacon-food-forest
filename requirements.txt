@@ -5,11 +5,13 @@ django-admin-bootstrapped==2.5.7
 django-crispy-forms==1.6.1
 django-debug-toolbar==1.6
 django-extensions==1.7.4
+django-filter==1.0.1
 django-geoposition==0.3.0
 django-markdown==0.8.4
 django-simple-captcha==0.5.1
 django-taggit==0.20.2
 django-webpack-loader==0.4.1
+djangorestframework==3.5.3
 gnureadline==6.3.3
 ipython==4.1.1
 ipython-genutils==0.1.0

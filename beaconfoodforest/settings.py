@@ -107,6 +107,9 @@ INSTALLED_APPS = [
     # The maps app for trees etc
     'maps',
 
+    # Django Rest Framework for using React with maps
+    'rest_framework',
+
     # The plants app for tracking individual plants
     'plants',
     # Library helps with storing positional coordinates + forms
@@ -256,6 +259,15 @@ CAPTCHA_TEXT_FIELD_TEMPLATE = 'base/captcha_field_override.html'
 
 # Taggit Settings
 TAGGIT_CASE_INSENSITIVE = True
+
+# Django Rest framework settings
+REST_FRAMEWORK = {
+    # Use Django's standard `django.contrib.auth` permissions,
+    # or allow read-only access for unauthenticated users.
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+    ]
+}
 
 
 ENVIRONMENTS = {
