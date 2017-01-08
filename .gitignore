@@ -12,3 +12,4 @@ secrets*.json
 media/*
 node_modules/
 assets/bundles/*
+.eslintrc.json
