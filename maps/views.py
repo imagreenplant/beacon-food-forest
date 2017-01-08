@@ -2,6 +2,7 @@ from django.shortcuts import render_to_response, get_object_or_404
 from django.template import RequestContext
 from .models import KmlMap
 from plants.models import Plant, MapCategory
+import json
 
 
 def kml_map(request, slug):
@@ -46,9 +47,7 @@ def categories(request):
     categories = MapCategory.objects.all()
     categorical_data = {}
     for category in categories:
-        plants_by_category = Plant.objects.\
-            filter(category__category__exact=category.category).\
-            filter(geo_location__isnull=False)
+        plants_by_category = category.plant_set.all()
         if plants_by_category:
             categorical_data[category.category] = plants_by_category
 
@@ -56,3 +55,8 @@ def categories(request):
         'maps/category_map_list.html',
         {'categories': categorical_data, 'site_title_append': site_title_append},
         context_instance=RequestContext(request))
+
+
+def serialized_categories():
+    # This function needs to return a serialized category response to setup React properly
+    pass
