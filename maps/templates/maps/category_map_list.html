@@ -14,7 +14,7 @@
                 {% for plant in plant_list %}
                     <li>{{ plant.name }}
                         <script type="text/javascript">
-                            plants[{{plant.site_code}}] =
+                            plants["{{plant.site_code}}"] =
                                 {
                                     'coordinates': { lat: {{ plant.geo_location.latitude }}, 
                                                      lng: {{ plant.geo_location.longitude }} },
@@ -26,13 +26,20 @@
                                     'site_code': '{{ plant.site_code | escapejs}}',
                                     'url': '{% url "plants-detail" plant.url_slug  %}',
                                     'location': '{{ plant.geo_location | escapejs }}',
-                                },
-                            };
+                                }
                         </script>
                     </li> 
                 {% endfor %}
             </ul>
         </div> 
     {% endfor %}
+    <p>------</p>
+    <div id="react-container"></div>
+    <p>------</p>
+    <script type="text/javascript">
+
+
+
+    </script>
 
 {% endblock map-list-data %}

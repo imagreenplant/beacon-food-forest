@@ -1,50 +1,38 @@
-import React, { Component } from 'react';
 var ReactDOM = require('react-dom')
+var React = require('react')
 
-export class Hello extends Component {
-    render() {
-        return (
-            <p>
-            Hello, Reactivate!
-            </p>
-        );
+var Hello = React.createClass({
+    render: function() {
+        return <p>Hello there</p>
     }
-}
+})
 
-export class MapList extends Component {
-    render() {
-        return (
-            <div></div>
-        );
+var MapList = React.createClass({
+    render: function () {
+        return <h1>Hello, {this.props.name}</h1>
     }
-}
+});
 
-export class MapCategory extends Component {
-    render() {
-        return (
-            <div></div>
-        );
+var MapCategory = React.createClass({
+    render: function () {
+        return <h1>Hello, {this.props.name}</h1>
     }
-}
+});
 
-export class MapSubCategory extends Component {
-    render() {
-        return (
-            <div></div>
-        );
+var MapSubCategory = React.createClass({
+    render: function () {
+        return <h1>Hello, {this.props.name}</h1>
     }
-}
+});
 
-export class MapItem extends Component {
-    render() {
-        return (
-            <div></div>
-        );
+var MapItem = React.createClass({
+    render: function () {
+        return <h1>Hello, {this.props.name}</h1>
     }
-}
+});
 
 
-
-
-
-// ReactDOM.render(<Hello />, document.getElementById('container'))
+ReactDOM.render(
+  <Hello/>,
+  document.getElementById('react-container')
+);
