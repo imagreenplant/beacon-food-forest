@@ -1,7 +1,9 @@
 {% extends "maps/categorymap.html" %}
 {% load custom_markdown %}
 
-{% block map-list-data %}
+{% block map-list %}
+    
+    {% block map-list-data %}{% endblock map-list-data %}
     
     {% for plant_category, plant_list in categories.items %}
         <div class="categories">
@@ -42,4 +44,4 @@
 
     </script>
 
-{% endblock map-list-data %}
+{% endblock map-list %}
