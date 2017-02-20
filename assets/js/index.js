@@ -9,15 +9,23 @@ var Hello = React.createClass({
 
 var MapList = React.createClass({
     render: function() {
-        var firstplant = "";
+        var firstplant, fplant = "";
         if (this.props.itemlist) {
             firstplant = this.props.itemlist['1303'].name;
-            console.log(firstplant + "!!!")
+            console.log(firstplant + "!!!");
+            fplant = this.props.itemlist['1303'];
+
         }
         else {
             firstplant = "Ruube"
         }
-        return <p>{firstplant}</p>
+        return( 
+            <div>
+            <p>{firstplant}</p>
+            <p><MapItem item={fplant} /></p>
+            </div>
+
+        );
     }
 });
 
@@ -46,12 +54,14 @@ var MapSubCategory = React.createClass({
 
 var MapItem = React.createClass({
     render: function () {
-        return 
-        <li key="{this.props.item.site_code}"
-            data-position="{this.props.item.coordinates}" 
-            data-content="<MapItemContent />">
+        return(
+        <li key={this.props.item.site_code}
+            data-code={this.props.item.site_code}
+            data-position={this.props.item.coordinates}   // Shows as [object]
+            data-content="">
             {this.props.item.name}
         </li>
+        );
     }
 });
 
