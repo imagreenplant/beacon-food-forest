@@ -55,14 +55,16 @@ def categories(request):
         {'categories': categorical_data, 'site_title_append': site_title_append},
         context_instance=RequestContext(request))
 
+
 def itemsByCategory(request):
     site_title_append = "Plants by Category"
-    plants = Plants.objects.all()    
+    plants = Plant.objects.all()
 
     return render_to_response(
         'maps/category_map_list_data.html',
         {'plants': plants, 'site_title_append': site_title_append},
         context_instance=RequestContext(request))
+
 
 def serialized_categories():
     # This function needs to return a serialized category response to setup React properly

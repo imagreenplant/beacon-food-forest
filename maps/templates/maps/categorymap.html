@@ -14,38 +14,12 @@
     <div id="map-canvas"></div>
     <script type="text/javascript" src="{% static "maps/js/mapdb.js" %}"></script>
     <script type="text/javascript">
-        var plants = {};
+        var plants = [];
     </script>
     <div id="the_side_bar">
 
     {% block map-list %}{% endblock map-list %}
 
-            <!-- <div>
-                <input type="checkbox" class="checkbox" checked="" onclick="gml.toggleContents(2,this.checked)">
-                <span title="" oncontextmenu="gml.saveJSON(2);" onclick="gml.toggleFolder(2)"><i class="fa fa-plus" aria-hidden="true"></i></span>
-                <a href="#" onclick="gml.overlayman.zoomToFolder(2);gml.mb.showMess('Trees',3000);return false;">Trees</a>
-            </div>
-            <div class="folder category">
-                <ul>
-                    <div class="line-item">
-                        <input type="checkbox" class="checkbox" checked="" onclick="gml.toggleContents(3,this.checked)">
-                        <span title="" id="gmlTB3" oncontextmenu="gml.saveJSON(3);" onclick="gml.toggleFolder(3)" style="font-weight:normal"><i class="fa fa-plus" aria-hidden="true"></i></span>
-                        <a href="#" onclick="gml.overlayman.zoomToFolder(3);gml.mb.showMess('Nuts',3000);return false;">Nuts</a>
-                    </div>
-                    <div class="subfolder subcategory line-item">
-                        {% for plant in plants %}
-                            <li class="{{ plant.side_code }}" onmouseout="google.maps.event.trigger(gml.overlayman.markers[0],'mouseout');" onmouseover="google.maps.event.trigger(gml.overlayman.markers[0],'mouseover');" data-location="" data-coordinates="{{plant.geo_location}}">
-                                <input class="checkbox" type="checkbox" checked="" onclick="gml.showHide(0,this.checked)">
-                                <a href="#" onclick="google.maps.event.trigger(gml.overlayman.markers[0],'click');return false;">&nbsp;
-                                    <img class="plant-icon" src="{{plant.subcategory.icon}}">
-                                    {{ plant.name }}
-                                </a>
-                            </li>
-                        {% endfor %}
-                    </div>
-                </ul>
-            </div>
-            -->
             <div id="container"></div>
     </div>
     {% render_bundle 'main' %}    

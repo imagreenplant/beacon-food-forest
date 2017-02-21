@@ -2,26 +2,28 @@
 {% load custom_markdown %}
 
 {% block map-list-data %}
-
+    <p>Data Block!</p>
     <script type="text/javascript">
-    // Need to return rest API data here in json form
-    var plants = {};
-    {% for plant in plant_list %}
-        plants["{{plant.site_code}}"] =
-            {
-                'coordinates': { lat: {{ plant.geo_location.latitude }}, 
-                                 lng: {{ plant.geo_location.longitude }} },
-                'name': '{{ plant.name | escapejs}}',
-                'friendly_name': '{{ plant.friendly_name | escapejs}}',
-                'latin_name': '{{ plant.latin_name | escapejs }}',
-                'content': '{{ plant.text | parse_markdown | escapejs }}',
-                'year_planted': '{{ plant.year_planted | escapejs}}',
-                'site_code': '{{ plant.site_code | escapejs}}',
-                'url': '{% url "plants-detail" plant.url_slug  %}',
-                'location': '{{ plant.geo_location | escapejs }}',
-            }
-                
-    {% endfor %}
+        var plants = [];
+        {% for plant in plants %}
+            plants.push(
+                {
+                    'coordinates': 
+                        { 
+                            lat: {{ plant.geo_location.latitude | default:"0" }}, 
+                            lng: {{ plant.geo_location.longitude | default:"0" }}
+                        },
+                    'name': '{{ plant.name | escapejs}}',
+                    'friendly_name': '{{ plant.friendly_name | escapejs}}',
+                    'latin_name': '{{ plant.latin_name | escapejs }}',
+                    'content': '{{ plant.text | parse_markdown | escapejs }}',
+                    'year_planted': '{{ plant.year_planted | escapejs}}',
+                    'site_code': '{{ plant.site_code | escapejs}}',
+                    'url': '{% url "plants-detail" plant.url_slug  %}',
+                    'location': '{{ plant.geo_location | escapejs }}',
+                }
+            );      
+        {% endfor %}
     </script>
 
 {% endblock map-list-data %}

@@ -14,23 +14,7 @@
             </div>
             <ul class="plants">
                 {% for plant in plant_list %}
-                    <li>{{ plant.name }}
-                        <script type="text/javascript">
-                            plants["{{plant.site_code}}"] =
-                                {
-                                    'coordinates': { lat: {{ plant.geo_location.latitude }}, 
-                                                     lng: {{ plant.geo_location.longitude }} },
-                                    'name': '{{ plant.name | escapejs}}',
-                                    'friendly_name': '{{ plant.friendly_name | escapejs}}',
-                                    'latin_name': '{{ plant.latin_name | escapejs }}',
-                                    'content': '{{ plant.text | parse_markdown | escapejs }}',
-                                    'year_planted': '{{ plant.year_planted | escapejs}}',
-                                    'site_code': '{{ plant.site_code | escapejs}}',
-                                    'url': '{% url "plants-detail" plant.url_slug  %}',
-                                    'location': '{{ plant.geo_location | escapejs }}',
-                                }
-                        </script>
-                    </li> 
+                    <li>{{ plant.name }}</li> 
                 {% endfor %}
             </ul>
         </div> 
@@ -38,10 +22,4 @@
     <p>------</p>
     <div id="react-container"></div>
     <p>------</p>
-    <script type="text/javascript">
-
-
-
-    </script>
-
 {% endblock map-list %}
