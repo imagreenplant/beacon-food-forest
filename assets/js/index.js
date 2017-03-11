@@ -1,3 +1,7 @@
+//https://www.fullstackreact.com/articles/how-to-write-a-google-maps-react-component/
+//https://jsbin.com/gaxapezowo/1/edit?js,output
+// https://github.com/istarkov/google-map-react
+
 var ReactDOM = require('react-dom')
 var React = require('react')
 
