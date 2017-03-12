@@ -88,6 +88,9 @@ INSTALLED_APPS = [
     # Creates a sitemap
     'django.contrib.sitemaps',
 
+    # Adds bundles to js via Webpack
+    'webpack_loader',
+
     # The base of the site, header, footer, sidebar
     'base',
     'education',
@@ -103,6 +106,9 @@ INSTALLED_APPS = [
 
     # The maps app for trees etc
     'maps',
+
+    # Django Rest Framework for using React with maps
+    'rest_framework',
 
     # The plants app for tracking individual plants
     'plants',
@@ -254,6 +260,15 @@ CAPTCHA_TEXT_FIELD_TEMPLATE = 'base/captcha_field_override.html'
 # Taggit Settings
 TAGGIT_CASE_INSENSITIVE = True
 
+# Django Rest framework settings
+REST_FRAMEWORK = {
+    # Use Django's standard `django.contrib.auth` permissions,
+    # or allow read-only access for unauthenticated users.
+    # 'DEFAULT_PERMISSION_CLASSES': [
+    #     'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+    # ]
+}
+
 
 ENVIRONMENTS = {
     'local': {
@@ -323,6 +338,17 @@ ALLOWED_HOSTS = ENVIRONMENTS[ENVIRONMENT]['ALLOWED_HOSTS']
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 STATIC_ROOT = ENVIRONMENTS[ENVIRONMENT]['STATIC_ROOT']
 STATIC_URL = ENVIRONMENTS[ENVIRONMENT]['STATIC_URL']
+# Adds Webpack bundles, stored in assets
+STATICFILES_DIRS = (
+    # This lets Django's collectstatic store our bundles
+    os.path.join(BASE_DIR, 'assets'),
+)
+WEBPACK_LOADER = {
+    'DEFAULT': {
+        'BUNDLE_DIR_NAME': 'bundles/',
+        'STATS_FILE': os.path.join(BASE_DIR, 'webpack-stats.json'),
+    }
+}
 
 # Media uploads https://docs.djangoproject.com/en/1.9/topics/files/
 MEDIA_ROOT = ENVIRONMENTS[ENVIRONMENT]['MEDIA_ROOT']
