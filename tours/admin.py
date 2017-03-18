@@ -1,3 +1,7 @@
 from django.contrib import admin
+from tours.models import AudioTourModel
 
-# Register your models here.
+
+@admin.register(AudioTourModel)
+class AudioTourModelAdmin(admin.ModelAdmin):
+    list_display = ('title', 'index')
