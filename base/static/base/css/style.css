@@ -900,7 +900,7 @@ footer .copyright {
     height: 255px;
     position: absolute;
     margin: -15px 15px 0 15px;
-    z-index: 3;
+    z-index: 20;
 }
 .banner-img img {
     width: 100%;
@@ -917,21 +917,12 @@ footer .copyright {
 
 /*Navigation Menu*/
 .link-nav {
-    width: 95%;
-    height: 24px;
+    height: 31px;
     background-color: #0DAED3;
     float: right;
-    /*text-align: right;*/
-    /*margin: 8px 0 0 0;*/
     padding-top: 4px;
-}
-.link-nav a {
     z-index: 10;
-    position: relative;
 }
-/*.link-nav ul {
-    list-style: none;
-}*/
 
 /*Bootstrap overrides*/
 .navbar {
