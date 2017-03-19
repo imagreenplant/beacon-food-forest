@@ -153,10 +153,7 @@ q:after {
 #main.app {
     background-image: none;
 }
-.app .botnav {
-    /*margin: 0 0 0 0;*/
-    border-right: none;
-}
+
 .crop {
     position: relative;
     width: 100%;
@@ -806,53 +803,11 @@ footer.link a, footer.link a:link, footer.link a:visited, footer.link a:hover, f
 footer .copyright {
     font-size: 80%;
 }
-.home .botnav {
-    margin: 0 210px 0 0px;
-    border-right: 10px #50B748 solid;
-}
-.botnav {
-    height: auto;
-    background-color: #4C301C;
-    padding: 8px 0 0 25px;
-}
-.botnav a, .botnav a:link, .botnav a:visited, .botnav a:hover, .botnav a:active {
-    vertical-align: middle;
-    color: #fff;
-    font-size: 100%;
-    font-weight: bold;
-    text-decoration: none;
-    text-transform: uppercase;
-    display: inline-block;
-}
-@media only screen and (max-width: 949px) {
-    .home .botnav {
-        margin: 0 150px 0 0;
-    }
-}
+
+
 @media only screen and (max-width: 750px) {
     footer {
         padding: 0px;
-    }
-    .botnav {
-        margin: 0px;
-        border: none;
-    }
-    .home .botnav {
-        margin: 0;
-        border-right: none;
-
-    }
-}
-@media only screen and (max-width: 560px) {
-    .botnav {
-        width: 100%;
-        margin: 0;
-        border: 0;
-    }
-    .botnav a {
-        width: 90%;
-        text-align: center;
-        padding: 15px;
     }
 }
 /**************** END Footer **************/
@@ -1498,22 +1453,8 @@ h2.asset-page {
         margin-left: 10%;
     }
 }
-@media only screen and (min-width: 561px) {
-    .botnav a {
-        padding: 0px 20px 6px 0px;
-    }
-}
+
 @media only screen and (max-width: 560px) {
-    .botnav {
-        width: 100%;
-        margin: 0;
-        border: 0;
-    }
-    .botnav a {
-        width: 90%;
-        text-align: center;
-        padding: 15px;
-    }
     .container {
         position: relative;
     }
