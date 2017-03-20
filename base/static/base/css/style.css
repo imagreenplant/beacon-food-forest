@@ -1,25 +1,25 @@
 /************ BEGIN CSS RESET ***************/
-/*html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, 
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, 
 pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, 
 strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, 
 legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, 
 canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 section, summary, time, mark, audio, video {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    outline: 0;
+    /*margin: 0;*/
+    /*padding: 0;*/
+    /*border: 0;*/
+    /*outline: 0;*/
     font-size: 100%;
-    vertical-align: baseline;
-    background: transparent;
+    /*vertical-align: baseline;*/
+    /*background: transparent;*/
 }
 body {
     line-height: 1;
 }
-article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+/*article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
     display: block;
-}
-nav ul {
+}*/
+/*nav ul {
     list-style: none;
 }*/
 /*Bootstrap Override*/
@@ -286,19 +286,6 @@ a {
     font-weight: bold;
 }
 
-/*  Bold & Uppercase  */
-
-.link-nav a, .link-nav a:link, .link-nav a:visited, .link-nav a:hover, .link-nav a:active {
-    color: #4C301C;
-    font-size: 100%;
-    font-weight: bold;
-    text-decoration: none;
-    text-transform: uppercase;
-    padding: 0px 30px 0 0;
-    vertical-align: middle;
-}
-/*  Normal & Underlined */
-
 .container .link a, .container .link a:link, .container .link a:visited, .container .link a:hover, .container .link a:active {
     color: #4C301C;
     font-size: 100%;
@@ -308,8 +295,6 @@ a {
     padding: 0px 0 0 0;
 }
 
-/*  Bold & Underline */
-
 .container .heavy a, .container .heavy a:link, .container .heavy a:visited, .container .heavy a:hover, .container .heavy a:active {
     color: #4C301C;
     font-size: 100%;
@@ -318,7 +303,6 @@ a {
     text-transform: none;
     padding: 0px 0 0 0;
 }
-/* Bold & Blue */
 
 .container .blue a, .container .blue a:link, .container .blue a:visited, .container .blue a:hover, .container .blue a:active {
     color: #0DAED3;
@@ -345,8 +329,6 @@ a {
 }
 
 
-
-/* Static anchor for content-title */
 h2.content-title {
     margin: 1em 0 1em 0;
 }
@@ -877,15 +859,35 @@ footer .copyright {
     float: right;
     padding-top: 4px;
     z-index: 10;
+    padding-left: 160px;
 }
+.link-nav a, .link-nav a:link, .link-nav a:visited, .link-nav a:hover, .link-nav a:active {
+    color: #4C301C;
+    font-size: 100%;
+    font-weight: bold;
+    text-decoration: none;
+    text-transform: uppercase;
+    padding: 0px 30px 0 0;
+    vertical-align: middle;
+}
+
 .menu {
-    background-color: yellow;
+    background-color: #0DAED3;
 }
 
 /*Bootstrap overrides*/
 .navbar {
     border-radius: 0;
     min-height: 0;
+}
+
+.navbar-default {
+    border: 0px;
+}
+
+button.donate-button {
+    padding: 0;
+    margin: 0;
 }
 
 
@@ -974,7 +976,7 @@ footer .copyright {
     width: 100%;
     height: auto;
     position: absolute;
-    padding: 8px 0px 0 0;
+    /*padding: 8px 0px 0 0;*/
     z-index: 1;
 }
 .top-text {
