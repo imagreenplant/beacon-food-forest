@@ -1,5 +1,6 @@
 {% load staticfiles %}
 <header>
+    <!-- 
     <div class="top-text upperlink">
         <div class="social-mobile">
             <a href="https://www.facebook.com/beaconfoodforest" target="_blank"><i class="fa fa-facebook-official"></i></a>
@@ -7,32 +8,53 @@
         </div>
         <a href="https://goo.gl/maps/eGfUL">15th AVE S & South Dakota St. Seattle, WA</a>
     </div>
+    -->
     <div id="brown-bg"></div>
     <div id="header">
-        <nav class="link-nav navbar navbar-fixed-top">
-            <ul id="menu" class="nav navbar-nav navbar-right">
-                <li><button class="btn btn-danger navbar-btn">Donate</button></li>
-                <li><a href="#" onclick="center_popup_open('donate')">Donate</a></li>
-                <li><a href="{% url 'get-involved' %}">Get Involved</a></li>
-                <li><a href="#" onclick="center_popup_open('calendar')">Calendar</a></li>
-                <li><a href="{% url 'education-hub' %}">Education</a></li>
-                <li><a href="/recipes/">Recipes</a></li>
-                <li><a href="{% url 'faq' %}">FAQ</a></li>
-                <li><a href="{% url 'homepage' %}#contact">Contact Us</a></li>
-                <li><a href="#" onclick="center_popup_open('translate')">Translate</a></li>
-                <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-                  <ul class="dropdown-menu">
-                    <li><a href="#">Action</a></li>
-                    <li><a href="#">Another action</a></li>
-                    <li><a href="#">Something else here</a></li>
-                    <li role="separator" class="divider"></li>
-                    <li><a href="#">Separated link</a></li>
-                    <li role="separator" class="divider"></li>
-                    <li><a href="#">One more separated link</a></li>
-                  </ul>
-                </li>
-            </ul>
+        <nav class="link-nav navbar navbar-default navbar-fixed-top">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                  </button>
+                </div>
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="menu nav navbar-nav navbar-right">
+                        <li><button class="btn btn-danger navbar-btn"><a href="#" onclick="center_popup_open('donate')">Donate</a></button></li>
+                        <li><a href="#" onclick="center_popup_open('calendar')">Calendar</a></li>
+                        <li><a href="/recipes/">Recipes</a></li>
+                        <li><a href="{% url 'homepage' %}#contact">Contact Us</a></li>
+                        <li><a href="#" onclick="center_popup_open('translate')">Translate</a></li>
+                        <li class="dropdown">
+                          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Get Involved <span class="caret"></span></a>
+                          <ul class="dropdown-menu">
+                            <li><a href="{% url 'get-involved' %}">Get Involved</a></li>
+                            <li><a href="#">Another action</a></li>
+                            <li><a href="#">Something else here</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#">Separated link</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#">One more separated link</a></li>
+                          </ul>
+                        </li>
+                        <li class="dropdown">
+                          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Learn More <span class="caret"></span></a>
+                          <ul class="dropdown-menu">
+                            <li><a href="{% url 'faq' %}">FAQ</a></li>
+                            <li><a href="{% url 'education-hub' %}">Education</a></li>
+                            <li><a href="#">Something else here</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#">Separated link</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#">One more separated link</a></li>
+                          </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </nav>
 
         <div class="banner-img">

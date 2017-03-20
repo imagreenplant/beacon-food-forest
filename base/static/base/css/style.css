@@ -1,5 +1,5 @@
 /************ BEGIN CSS RESET ***************/
-html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, 
+/*html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, 
 pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, 
 strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, 
 legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, 
@@ -21,7 +21,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 }
 nav ul {
     list-style: none;
-}
+}*/
 /*Bootstrap Override*/
 h1 {
     font-weight: bold;
@@ -878,6 +878,9 @@ footer .copyright {
     padding-top: 4px;
     z-index: 10;
 }
+.menu {
+    background-color: yellow;
+}
 
 /*Bootstrap overrides*/
 .navbar {
@@ -1465,9 +1468,6 @@ h2.asset-page {
     }
     .top-text a {
         font-size: 80%;
-    }
-    .link-nav {
-        margin: 18px 0px 0px 0px;
     }
     #title {
         margin: 20px 0px 0px 137px;
