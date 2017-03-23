@@ -354,6 +354,10 @@ h2.content-title {
     margin: 1em 0 1em 0;
 }
 
+p.subtitle {
+    font-size: 0.9rem;
+}
+
 
 .content-title a, .content-title a:link, .content-title a:visited, .content-title a:hover, .content-title a:active {
     color: #A5978D;
