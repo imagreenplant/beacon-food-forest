@@ -861,7 +861,43 @@ footer .copyright {
     z-index: 10;
     padding-left: 160px;
 }
-.link-nav a, .link-nav a:link, .link-nav a:visited, .link-nav a:hover, .link-nav a:active {
+.link-nav a {
+    color: #4C301C;
+    font-size: 100%;
+    font-weight: bold;
+    text-decoration: none;
+    text-transform: uppercase;
+    padding: 0px 30px 0 0;
+    vertical-align: middle;
+}
+.link-nav a:link{
+    color: #4C301C;
+    font-size: 100%;
+    font-weight: bold;
+    text-decoration: none;
+    text-transform: uppercase;
+    padding: 0px 30px 0 0;
+    vertical-align: middle;
+}
+.link-nav a:visited {
+    color: #4C301C;
+    font-size: 100%;
+    font-weight: bold;
+    text-decoration: none;
+    text-transform: uppercase;
+    padding: 0px 30px 0 0;
+    vertical-align: middle;
+}
+.link-nav a:hover {
+    color: #4C301C;
+    font-size: 100%;
+    font-weight: bold;
+    text-decoration: none;
+    text-transform: uppercase;
+    padding: 0px 30px 0 0;
+    vertical-align: middle;
+}
+.link-nav a:active {
     color: #4C301C;
     font-size: 100%;
     font-weight: bold;
