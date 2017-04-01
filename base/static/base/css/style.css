@@ -921,6 +921,14 @@ footer .copyright {
     border: 0px;
 }
 
+.navbar-toggle {
+    margin: 0 2px 0 0;
+    background-color: #FFFFFF;
+}
+.navbar-default .navbar-toggle .icon-bar {
+    background-color: #4C301C;
+}
+
 button.donate-button {
     padding: 0;
     margin: 0;
