@@ -908,7 +908,7 @@ footer .copyright {
 }
 
 .menu {
-    background-color: #0DAED3;
+    background-color: #FFFFFF;
 }
 
 /*Bootstrap overrides*/
@@ -927,6 +927,14 @@ footer .copyright {
 }
 .navbar-default .navbar-toggle .icon-bar {
     background-color: #4C301C;
+}
+.navbar-collapse {
+    border: none;
+    padding: 0;
+}
+.navbar-nav {
+    margin: 0;
+    padding: 1em;
 }
 
 button.donate-button {
