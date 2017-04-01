@@ -908,7 +908,19 @@ footer .copyright {
 }
 
 .menu {
-    background-color: #FFFFFF;
+    background-color: #0DAED3;
+}
+.dropdown-menu {
+    background-color: #0DAED3;
+    border: none;
+    padding: 1em;
+}
+.dropdown-menu > li > a:focus, .dropdown-menu > li > a:hover {
+    background-color: transparent;
+    color: #FFFFFF;
+}
+.navbar-nav .open .dropdown-menu .dropdown-header, .navbar-nav .open .dropdown-menu > li > a {
+    padding: 0;
 }
 
 /*Bootstrap overrides*/
@@ -920,10 +932,23 @@ footer .copyright {
 .navbar-default {
     border: 0px;
 }
+.navbar-default .navbar-nav > li > a {
+    color: #FFFFFF;
+}
+.navbar-default .navbar-nav > li > a:focus, 
+.navbar-default .navbar-nav > li > a:hover {
+    color: #FFFFFF;
+}
+.navbar-default .navbar-nav > .open > a, 
+.navbar-default .navbar-nav > .open > a:focus, 
+.navbar-default .navbar-nav > .open > a:hover {
+    background-color: transparent;
+}
 
 .navbar-toggle {
     margin: 0 2px 0 0;
-    background-color: #FFFFFF;
+    /*background-color: #FFFFFF;*/
+    border: none;
 }
 .navbar-default .navbar-toggle .icon-bar {
     background-color: #4C301C;
@@ -934,7 +959,7 @@ footer .copyright {
 }
 .navbar-nav {
     margin: 0;
-    padding: 1em;
+    padding: 0.4em;
 }
 
 button.donate-button {
