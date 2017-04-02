@@ -9,7 +9,13 @@
         <a href="https://goo.gl/maps/eGfUL">15th AVE S & South Dakota St. Seattle, WA</a>
     </div>
     -->
-    <div id="brown-bg"></div>
+    <div id="brown-bg">
+        <div class="social-mobile">
+            <a href="https://twitter.com/beacfoodforest"><i class="fa fa-twitter-square"></i></a>
+            <a href="https://www.facebook.com/beaconfoodforest" target="_blank"><i class="fa fa-facebook-official"></i></a>
+            <a href="https://www.instagram.com/beaconfoodforest/" target="_blank"><i class="fa fa-instagram"></i></a>
+        </div>
+    </div>
     <div id="header">
         <nav class="link-nav navbar navbar-default navbar-fixed-top">
             <div class="container-fluid">
@@ -36,10 +42,14 @@
                           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Learn More <span class="caret"></span></a>
                           <ul class="dropdown-menu">
                             <li><a href="{% url 'faq' %}">FAQ</a></li>
+                            <li><a href="{% url 'project' %}">The Project</a></li>
+                            <li><a href="{% url 'how-we-started' %}">How We Started</a></li>
+                            <li><a href="{% url 'permaculture' %}">Permaculture</a></li>
+                            <li role="separator" class="divider"></li>
                             <li><a href="{% url 'education-hub' %}">Education</a></li>
                             <li><a href="/recipes/">Recipes</a></li>
-                            <li><a href="#" onclick="center_popup_open('calendar')">Calendar</a></li>
                             <li role="separator" class="divider"></li>
+                            <li><a href="#" onclick="center_popup_open('calendar')">Calendar</a></li>
                             <li><a href="#" onclick="center_popup_open('directions')">Directions</a></li>
                           </ul>
                         </li>
