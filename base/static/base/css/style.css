@@ -857,18 +857,13 @@ footer .copyright {
     height: 40px;
     background-color: #0DAED3;
     float: right;
-    padding-top: 4px;
     z-index: 10;
     padding-left: 160px;
 }
 .link-nav a:link{
-    /*color: #4C301C;*/
-    /*font-size: 100%;*/
     font-weight: bold;
-    /*text-decoration: none;*/
     text-transform: uppercase;
-    padding: 0px 30px 0 0;
-    /*vertical-align: middle;*/
+    padding: 0;
 }
 
 .menu {
@@ -914,7 +909,7 @@ footer .copyright {
 }
 
 .navbar-toggle {
-    margin: 0 2px 0 0;
+    margin: 4px 2px 0 0;
     /*background-color: #FFFFFF;*/
     border: none;
 }
@@ -927,7 +922,9 @@ footer .copyright {
 }
 .navbar-nav {
     margin: 0;
-    padding: 0.4em;
+}
+.nav > li {
+    margin: 10px 10px 9px 10px;
 }
 
 button.donate-button {
