@@ -5,23 +5,13 @@ strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label,
 legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, 
 canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 section, summary, time, mark, audio, video {
-    /*margin: 0;*/
-    /*padding: 0;*/
-    /*border: 0;*/
-    /*outline: 0;*/
     font-size: 100%;
-    /*vertical-align: baseline;*/
-    /*background: transparent;*/
 }
 body {
     line-height: 1;
 }
-/*article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
-    display: block;
-}*/
-/*nav ul {
-    list-style: none;
-}*/
+
+
 /*Bootstrap Override*/
 h1 {
     font-weight: bold;
@@ -189,10 +179,6 @@ q:after {
 
   z-index: 30;
 }
-
-
-
-
 
 
 /*Taken from Zurb/Foundation event blocks for Education */
@@ -762,25 +748,27 @@ header {
 
 /**************** Footer **************/
 footer {
-    width: 100%;
-    position: relative;
-    clear: both;
-    bottom: 0;
+    /*width: 100%;*/
+    /*position: relative;*/
+    /*clear: both;*/
+    /*bottom: 0;*/
     height: 30px;
-    background-color: #fff;
-    /*margin: 0 0px 0 -1px;*/
+    background-color: #4C301C;
     z-index: 10;
+    padding-left: 1em;
+
 }
 footer p {
-    margin: 5px 0 0 10px;
+    /*margin: 5px 0 0 10px;*/
+    color: #FFFFFF;
 }
 footer.link a, footer.link a:link, footer.link a:visited, footer.link a:hover, footer.link a:active {
-    color: #4C301C;
-    font-size: 100%;
-    font-weight: normal;
-    text-decoration: underline;
-    text-transform: none;
-    padding: 0px 0 0 0;
+    /*color: #4C301C;*/
+    /*font-size: 100%;*/
+    /*font-weight: normal;*/
+    /*text-decoration: underline;*/
+    /*text-transform: none;*/
+    /*padding: 0px 0 0 0;*/
 }
 footer .copyright {
     font-size: 80%;
