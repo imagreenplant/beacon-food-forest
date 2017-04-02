@@ -858,7 +858,7 @@ footer .copyright {
     background-color: #0DAED3;
     float: right;
     z-index: 10;
-    padding-left: 160px;
+    padding-left: 130px;
 }
 .link-nav a:link{
     font-weight: bold;
@@ -869,11 +869,15 @@ footer .copyright {
 .menu {
     background-color: #0DAED3;
 }
+.dropdown {
+    font-size: 1.2em;
+}
 .dropdown-menu {
     background-color: #0DAED3;
     border: none;
     padding: 1em;
     box-shadow: none;
+    font-size: inherit;
 }
 .dropdown-menu > li > a {
     color: #FFFFFF;
@@ -926,15 +930,16 @@ footer .copyright {
     margin: 0;
 }
 .nav > li {
-    margin: 10px 10px 9px 10px;
+    margin: 11px 10px 5px 10px;
 }
 
 button.donate-button {
     padding: 0 25px;
-    margin: -1px 0 0 0;
+    margin: -4px 0 0 0;
     background-color: #ff0;
     font-weight: bold;
     text-transform: uppercase;
+    font-size: inherit;
 }
 button.donate-button:hover {
     background-color: lime;
