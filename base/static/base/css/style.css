@@ -914,6 +914,7 @@ footer .copyright {
     background-color: #0DAED3;
     border: none;
     padding: 1em;
+    box-shadow: none;
 }
 .dropdown-menu > li > a:focus, .dropdown-menu > li > a:hover {
     background-color: transparent;
@@ -963,8 +964,8 @@ footer .copyright {
 }
 
 button.donate-button {
-    padding: 0;
-    margin: 0;
+    padding: 1px 0 0 30px;
+    margin: -2px 20px 0 0;
 }
 
 
