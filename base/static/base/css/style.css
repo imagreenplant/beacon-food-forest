@@ -966,8 +966,11 @@ footer .copyright {
 button.donate-button {
     padding: 1px 0 0 30px;
     margin: -2px 20px 0 0;
+    background-color: #ff0;
 }
-
+button.donate-button:hover {
+    background-color: lime;
+}
 
 /*END Navigation menu*/
 
