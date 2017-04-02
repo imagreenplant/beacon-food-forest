@@ -1230,6 +1230,7 @@ h2.subtitle-text {
 }
 .sideblock ul{
     list-style: none;
+    padding: 0;
 }
 .sideblock li {
     margin: 10px 10px 10px 0px;
