@@ -895,10 +895,12 @@ footer .copyright {
 .navbar-default {
     border: 0px;
 }
-.navbar-default .navbar-nav > li > a {
+.navbar-default .navbar-nav > li > a,
+.navbar-default .navbar-nav > li > a:focus,
+.navbar-default .navbar-nav > li > a:active   {
     color: #FFFFFF;
 }
-.navbar-default .navbar-nav > li > a:focus, 
+
 .navbar-default .navbar-nav > li > a:hover {
     color: #D6D6D6;
 }
@@ -931,6 +933,8 @@ button.donate-button {
     padding: 0 25px;
     margin: -1px 0 0 0;
     background-color: #ff0;
+    font-weight: bold;
+    text-transform: uppercase;
 }
 button.donate-button:hover {
     background-color: lime;
