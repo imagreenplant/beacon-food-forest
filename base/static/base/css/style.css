@@ -730,42 +730,22 @@ header {
 
 
 
-
-
-
-
 /**************** Footer **************/
 footer {
     width: 100%;
     position: absolute;
-    /*clear: both;*/
     bottom: 0;
     height: 2.5rem;
     background-color: #4C301C;
     z-index: 10;
     padding-left: 1em;
-
-}
-footer.link a, footer.link a:link, footer.link a:visited, footer.link a:hover, footer.link a:active {
-    /*color: #4C301C;*/
-    /*font-size: 100%;*/
-    /*font-weight: normal;*/
-    /*text-decoration: underline;*/
-    /*text-transform: none;*/
-    /*padding: 0px 0 0 0;*/
 }
 footer .copyright {
     font-size: 80%;
     margin: 3px 0 0 0;
     color: #FFFFFF;
 }
-
 /**************** END Footer **************/
-
-
-
-
-
 
 
 #brown-bg {
@@ -810,13 +790,6 @@ footer .copyright {
 .banner-img img {
     width: 100%;
 }
-
-
-
-
-
-
-
 
 
 
