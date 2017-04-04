@@ -267,6 +267,9 @@ a {
     color: #0DAED3;
     font-weight: bold;
 }
+a > p {
+    font-weight: normal;
+}
 
 .container .link a, .container .link a:link, .container .link a:visited, .container .link a:hover, .container .link a:active {
     color: #4C301C;
