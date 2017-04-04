@@ -848,6 +848,13 @@ footer .copyright {
 .navbar-default .navbar-nav > li > a:active   {
     color: #FFFFFF;
 }
+.navbar-default .navbar-toggle:focus,
+.navbar-default .navbar-toggle:active {
+    background: transparent;
+} 
+.navbar-default .navbar-toggle:hover {
+    background: #FFFFFF;
+}
 
 .navbar-default .navbar-nav > li > a:hover {
     color: #D6D6D6;
@@ -960,7 +967,7 @@ button.donate-button a {
     padding: 1em;
 }
 .get-involved a:hover {
-    background-color: #f6fcff;
+    background-color: #e2f5f3;
     text-decoration: none;
 }
 /************ END How to get involved page ******************/
