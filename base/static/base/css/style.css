@@ -854,6 +854,9 @@ footer .copyright {
 .navbar-default .navbar-nav > .open > a:hover {
     background-color: transparent;
 }
+.navbar-default .navbar-nav .open .dropdown-menu > li > a {
+    color: #FFFFFF;
+}
 
 .navbar-toggle {
     margin: 4px 2px 0 0;
