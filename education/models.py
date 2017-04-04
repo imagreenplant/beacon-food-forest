@@ -1,6 +1,7 @@
 from django.db import models, IntegrityError, transaction
 from django_markdown.models import MarkdownField
 import django.utils.timezone as timezone
+from django.utils.timezone import localtime, now
 from django.utils import text as slugify
 from django.core.urlresolvers import reverse
 from decimal import Decimal
@@ -37,7 +38,7 @@ class ClassEvent(models.Model):
         return reverse('class-detail', args=[str(self.get_canonical_url_path())])
 
     def days_away(self):
-        away = self.event_date - timezone.datetime.today()
+        away = self.event_date - localtime(now()).date()
         return away.days
 
     title = models.CharField(
