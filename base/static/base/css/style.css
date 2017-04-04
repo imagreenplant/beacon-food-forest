@@ -1008,7 +1008,7 @@ h2.subtitle-text {
     z-index: 0;
     position: relative;
     min-height: 1500px;
-    padding-bottom: 2.5rem;
+    padding-bottom: 2rem;
 }
 .shortpage-container {
     min-height: 37em;
@@ -1164,7 +1164,7 @@ h2.subtitle-text {
     position: absolute;
     right: 0px;
     top: 242px;
-    bottom: 2.5rem;
+    bottom: 2rem;
 }
 .sideblock ul{
     list-style: none;
