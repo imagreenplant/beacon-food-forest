@@ -67,6 +67,7 @@ hr {
 }
 input, select {
     vertical-align: middle;
+    border: 1px solid;
 }
 /************ END RESET ***************/
 
@@ -738,7 +739,7 @@ footer {
     width: 100%;
     position: absolute;
     bottom: 0;
-    height: 2.5rem;
+    height: 2rem;
     background-color: #4C301C;
     z-index: 10;
     padding-left: 1em;
