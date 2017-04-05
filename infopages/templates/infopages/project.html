@@ -1,8 +1,10 @@
 {% extends "infopages/infopage-content.html" %}
 {% load staticfiles %}
+{% block header %}{% include "base/header.html" with h1="The Project" %}{% endblock header %}
+
 {% block info-content %}
 <div class="content-div">
-    <h2 class="content-title">{% block info-title %}About The Project{% endblock info-title %}</h2>
+    <h2 class="content-title">{% block title %}About The Project{% endblock title %}</h2>
     <p>
         The Beacon Food Forest (BFF) started in 2009 as a result of a permaculture design course final project. To pass the course four students selected the BFF's actual site and created a dream design which demonstrated all the design elements we had learned in the course. The best tools to come out of this final project were a full size landscape design drawing, which we used to present our concept to the community and Seattle City agencies, along with the language to support this design. The schematic designs below held a lot of leverage. The design, drawn by a certified Landscape Architect, fit the actual topography of the site and had massive community support and input.
     </p>

@@ -1,49 +1,73 @@
 {% load staticfiles %}
-<div class="top-text">
-    <div class="social-mobile">
-        <a href="https://www.facebook.com/beaconfoodforest"><i class="fa fa-facebook-official"></i></a>
-        <a href="https://www.instagram.com/beaconfoodforest/"><i class="fa fa-instagram"></i></a>
+<header>
+    <div id="brown-bg">
+        <div class="social-mobile">
+            <a href="https://twitter.com/beacfoodforest" target="_blank"><i class="fa fa-twitter-square"></i></a>
+            <a href="https://www.facebook.com/beaconfoodforest" target="_blank"><i class="fa fa-facebook-official"></i></a>
+            <a href="https://www.instagram.com/beaconfoodforest/" target="_blank"><i class="fa fa-instagram"></i></a>
+        </div>
     </div>
-    <a href="https://goo.gl/maps/eGfUL">15th AVE S & South Dakota St. Seattle, WA</a>
-</div>
-<div id="brown-bg"></div>
-<div id="header">
-    <div class="nav">
-        <ul id="menu">
-            <li><a href="#" onclick="center_popup_open('donate')">Donate</a></li>
-            <li><a href="{% url 'homepage' %}#getinvolved">Get Involved</a></li>
-            <li><a href="#" onclick="center_popup_open('calendar')">Calendar</a></li>
-            <li><a href="{% url 'education-hub' %}">Education</a></li>
-            <li><a href="/recipes/">Recipes</a></li>
-            <li><a href="{% url 'faq' %}">FAQ</a></li>
-            <li><a href="{% url 'homepage' %}#contact">Contact Us</a></li>
-            <li><a href="#" onclick="center_popup_open('translate')">Translate</a></li>
-        </ul>
-    </div>
-    <script>
-        $('#menu').slicknav({
-            label: '',
-            prependTo:'.nav',
-            closeOnClick:true,
-        });
-    </script>
+    <div id="header">
+        <nav class="link-nav navbar navbar-default navbar-fixed-top">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bff-collapse" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                  </button>
+                </div>
+                <div class="collapse navbar-collapse" id="bff-collapse">
+                    <ul class="menu nav navbar-nav navbar-right">
+                        <li><button class="btn navbar-btn donate-button" onclick="center_popup_open('donate')">Donate</button></li>
+                        <li class="dropdown">
+                          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Get Involved <span class="caret"></span></a>
+                          <ul class="dropdown-menu">
+                            <li><a href="{% url 'get-involved' %}">Get Involved</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="{% url 'homepage' %}#contact">Contact Us</a></li>
+                          </ul>
+                        </li>
+                        <li class="dropdown">
+                          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Learn More <span class="caret"></span></a>
+                          <ul class="dropdown-menu">
+                            <li><a href="{% url 'faq' %}">FAQ</a></li>
+                            <li><a href="{% url 'project' %}">The Project</a></li>
+                            <li><a href="{% url 'how-we-started' %}">How We Started</a></li>
+                            <li><a href="{% url 'permaculture' %}">Permaculture</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="{% url 'education-hub' %}">Education</a></li>
+                            <li><a href="/recipes/">Recipes</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#" onclick="center_popup_open('calendar')">Calendar</a></li>
+                            <li><a href="#" onclick="center_popup_open('directions')">Directions</a></li>
+                          </ul>
+                        </li>
+                        <li><a href="#" onclick="center_popup_open('translate')">Translate</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
 
-    <div class="banner-img">
-        <a href="{% url 'homepage' %}">
-            <img src="{% static "base/img/bff_toplogo.png" %}" alt="Beacon Food Forest symbol"> </a>
-    </div>
+        <div class="banner-img">
+            <a href="{% url 'homepage' %}">
+                <img src="{% static "base/img/bff_toplogo.png" %}" alt="Beacon Food Forest symbol"> </a>
+        </div>
 
-    <div id="title">
-        <h1 class="title-text">
-            Beacon Food Forest
-            <br/>Permaculture Project
-        </h1>
+        <div id="title">
+            <h1 class="title-text">
+                Beacon Food Forest
+                <br/>{{ h1 | default:"Permaculture Project"}}
+            </h1>
 
-        <h2 class="subtitle-text">Community Powered</h2>
+            <h2 class="subtitle-text">Community Powered</h2>
+        </div>
+        <div class="social-desktop">
+            <a href="https://twitter.com/beacfoodforest" target="_blank"><i class="fa fa-twitter-square"></i></a>
+            <a href="https://www.facebook.com/beaconfoodforest" target="_blank"><i class="fa fa-facebook-official"></i></a>
+            <a href="https://www.instagram.com/beaconfoodforest/" target="_blank"><i class="fa fa-instagram"></i></a>
+        </div>
     </div>
-    <div class="social-desktop">
-        <a href="https://www.facebook.com/beaconfoodforest"><i class="fa fa-facebook-official"></i></a>
-        <a href="https://www.instagram.com/beaconfoodforest/"><i class="fa fa-instagram"></i></a>
-    </div>
-</div>
-<!--  DIV HEADER -->
+</header>
+

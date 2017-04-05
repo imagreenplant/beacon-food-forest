@@ -1,7 +1,7 @@
 from django.shortcuts import render_to_response, get_object_or_404
 from django.template import RequestContext
 from .models import KmlMap
-from plants.models import Plant
+from plants.models import Plant, MapCategory
 
 
 def kml_map(request, slug):
@@ -31,9 +31,41 @@ def fruitTrees(request):
     # View specific to fruit trees only, as the main featured map
     fruit_trees = Plant.objects.\
         filter(category__category__exact="Trees").\
-        filter(coordinates_id__isnull=False)
+        filter(geo_location__isnull=False)
     site_title_append = "Trees"
     return render_to_response(
         'maps/categorymap.html',
         {'plants': fruit_trees, 'site_title_append': site_title_append},
         context_instance=RequestContext(request))
+
+
+def categories(request):
+    # Grabs all plant categories and lists plants within
+    site_title_append = "Plants by Category"
+
+    categories = MapCategory.objects.all()
+    categorical_data = {}
+    for category in categories:
+        plants_by_category = category.plant_set.all()
+        if plants_by_category:
+            categorical_data[category.category] = plants_by_category
+
+    return render_to_response(
+        'maps/category_map_list.html',
+        {'categories': categorical_data, 'site_title_append': site_title_append},
+        context_instance=RequestContext(request))
+
+
+def itemsByCategory(request):
+    site_title_append = "Plants by Category"
+    plants = Plant.objects.all()
+
+    return render_to_response(
+        'maps/category_map_list_data.html',
+        {'plants': plants, 'site_title_append': site_title_append},
+        context_instance=RequestContext(request))
+
+
+def serialized_categories():
+    # This function needs to return a serialized category response to setup React properly
+    pass

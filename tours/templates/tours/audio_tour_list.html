@@ -1,0 +1,14 @@
+{% extends "base/app-page-content.html" %} 
+{% load staticfiles %} 
+{% block header %}{% include "base/header.html" with h1="Audio Tour" %}{% endblock header %}
+
+{% block app-content %}
+    <h2 class="asset-page">{% block title %}{{ title }}{% endblock title %}</h2>
+    {% if audio %}
+        {% for audio_file in audio %}
+        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 image-grid">
+          <iframe width="100%" height="300" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/{{ audio_file.soundcloud_id }}&amp;auto_play=false&amp;hide_related=true&amp;show_comments=false&amp;show_user=false&amp;show_reposts=false&amp;visual=true"></iframe>
+        </div>
+        {% endfor %}
+    {% endif %}
+{% endblock app-content %}

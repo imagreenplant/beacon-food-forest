@@ -1,70 +1,34 @@
 {% extends "base/app-page-content.html" %} 
 {% load staticfiles %}
-{% load custom_markdown %}
+{% load render_bundle from webpack_loader %}
+
 {% block add-css %}
     <link rel="stylesheet" type="text/css" href="{% static "maps/css/map.css" %}">
 {% endblock add-css %}
 
-{% block app-title %}Maps | {{site_title_append}}
-{% endblock app-title %}
+{% block header %}{% include "base/header.html" with h1="Maps" %}{% endblock header %}
+{% block title %}Maps | {{site_title_append}}{% endblock title %}
 
 {% block sub-page-class %}app map{% endblock sub-page-class %}
 {% block app-content %}
     <div id="map-canvas"></div>
     <script type="text/javascript" src="{% static "maps/js/mapdb.js" %}"></script>
     <script type="text/javascript">
-        var plants = {
-            {% for plant in plants %}
-            "{{plant.site_code}}": {
-                'coordinates': { lat: {{ plant.coordinates.latitude }}, 
-                                 lng: {{ plant.coordinates.longitude }} },
-                'name': '{{ plant.name | escapejs}}',
-                'friendly_name': '{{ plant.friendly_name | escapejs}}',
-                'latin_name': '{{ plant.latin_name | escapejs }}',
-                'content': '{{ plant.text | parse_markdown | escapejs }}',
-                'year_planted': '{{ plant.year_planted | escapejs}}',
-                'site_code': '{{ plant.site_code | escapejs}}',
-                'url': '{% url "plants-detail" plant.url_slug  %}',
-                'location': '{{ plant.location | escapejs }}',
-            },
-            {% endfor %}
-        };
+        var plants = [];
     </script>
     <div id="the_side_bar">
-        <ul>
-            <div>
-                <input type="checkbox" class="checkbox" checked="" onclick="gml.toggleContents(2,this.checked)">
-                <span title="" oncontextmenu="gml.saveJSON(2);" onclick="gml.toggleFolder(2)"><i class="fa fa-plus" aria-hidden="true"></i></span>
-                <a href="#" onclick="gml.overlayman.zoomToFolder(2);gml.mb.showMess('Trees',3000);return false;">Trees</a>
-            </div>
-            <div class="folder category">
-                <ul>
-                    <div class="line-item">
-                        <input type="checkbox" class="checkbox" checked="" onclick="gml.toggleContents(3,this.checked)">
-                        <span title="" id="gmlTB3" oncontextmenu="gml.saveJSON(3);" onclick="gml.toggleFolder(3)" style="font-weight:normal"><i class="fa fa-plus" aria-hidden="true"></i></span>
-                        <a href="#" onclick="gml.overlayman.zoomToFolder(3);gml.mb.showMess('Nuts',3000);return false;">Nuts</a>
-                    </div>
-                    <div class="subfolder subcategory line-item">
-                        {% for plant in plants %}
-                            <li class="{{ plant.side_code }}" onmouseout="google.maps.event.trigger(gml.overlayman.markers[0],'mouseout');" onmouseover="google.maps.event.trigger(gml.overlayman.markers[0],'mouseover');" data-location="{{plant.location}}" data-coordinates="{{plant.coordinates}}">
-                                <input class="checkbox" type="checkbox" checked="" onclick="gml.showHide(0,this.checked)">
-                                <a href="#" onclick="google.maps.event.trigger(gml.overlayman.markers[0],'click');return false;">&nbsp;
-                                    <img class="plant-icon" src="{{plant.subcategory.icon}}">
-                                    {{ plant.name }}
-                                </a>
-                            </li>
-                        {% endfor %}
-                    </div>
-                </ul>
-            </div>
-        </ul>
 
+    {% block map-list %}{% endblock map-list %}
+
+            <div id="container"></div>
     </div>
+    {% render_bundle 'main' %}    
+
     <button class="btn btn-primary sidebar-button open_button"><i class="fa fa-list" aria-hidden="true"></i> LIST</button>
     <button class="btn btn-secondary sidebar-button close_button"><i class="fa fa-close" aria-hidden="true"></i></button>
 {% endblock app-content %}
 
-{% block add-to-footer %}
+{% block footer %}
     <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/loglevel/1.3.0/loglevel.min.js"></script>
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAsnOLu3eLbo60hkQNWo-3EEt102mOv99w&callback=entityMap.initMap"></script>
-{% endblock add-to-footer %}
+{% endblock footer %}

@@ -1,8 +1,10 @@
 {% extends "base/app-page-content.html" %} 
 {% load staticfiles %} 
 {% load custom_markdown %}
+{% block header %}{% include "base/header.html" with h1="Education" %}{% endblock header %}
+
 {% block app-content %}
-    <h2 class="asset-page">{% block app-title %}{{ title }}{% endblock app-title %}</h2>
+    <h2 class="asset-page">{% block title %}{{ title }}{% endblock title %}</h2>
     {% if classes %}
         {% for class in classes %}
         <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 image-grid">

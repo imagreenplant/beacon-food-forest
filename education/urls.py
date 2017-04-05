@@ -8,12 +8,6 @@ urlpatterns = [
     url(r'^classes/past/$', 'education.views.past_classes', name="past-classes"),
     url(r'^classes/(?P<slug>[\w-]+)/$',
         'education.views.class_detail', name="class-detail"),
-    url(r'^teach-your-own-class/criteria/$',
-        'education.views.teacher_criteria', name="teacher-criteria"),
-    url(r'^teach-your-own-class/expectations/$',
-        'education.views.teacher_expectations', name="teacher-expectations"),
-    url(r'^teach-your-own-class/workshop-proposal/$',
-        'education.views.teacher_proposal', name="teacher-proposal"),
 ]
 
 # Flatpages

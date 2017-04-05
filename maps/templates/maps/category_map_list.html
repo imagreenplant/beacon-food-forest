@@ -1,0 +1,25 @@
+{% extends "maps/categorymap.html" %}
+{% load custom_markdown %}
+
+{% block map-list %}
+    
+    {% block map-list-data %}{% endblock map-list-data %}
+    
+    {% for plant_category, plant_list in categories.items %}
+        <div class="categories">
+            <div class="category-name">
+                <input type="checkbox" class="checkbox" checked="" onclick="">
+                <span title="" oncontextmenu="" onclick=""><i class="fa fa-plus" aria-hidden="true"></i></span>
+                <a href="#" onclick="">{{ plant_category }}</a>
+            </div>
+            <ul class="plants">
+                {% for plant in plant_list %}
+                    <li>{{ plant.name }}</li> 
+                {% endfor %}
+            </ul>
+        </div> 
+    {% endfor %}
+    <p>------</p>
+    <div id="react-container"></div>
+    <p>------</p>
+{% endblock map-list %}
