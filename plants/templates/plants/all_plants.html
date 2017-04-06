@@ -6,6 +6,9 @@
 {% block header %}{% include "base/header.html" with h1="Plant List" %}{% endblock header %}
 
 {% block app-content %}
+    <div class="alert alert-warning">
+      <i class="fa fa-exclamation-triangle" aria-hidden="true"></i> <strong>This plant list is under contruction.  Not all trees and plants are listed, and information on their pages may be incorrect.</strong>
+    </div>
     <h2 class="asset-page">{% block title %}{{ title }}{% endblock title %}</h2>
     {% if plants %}
         <table class="table table-striped">
