@@ -3,7 +3,7 @@ from .models import Committee, Meeting
 from django.template import RequestContext
 
 def index(request):
-    committees = Committee.objects.all()
+    committees = Committee.objects.all().order_by('name')
     page_title = "Committees"
 
     return render_to_response(
