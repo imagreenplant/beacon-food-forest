@@ -1,0 +1,15 @@
+{% extends "base/app-page-content.html" %} 
+{% load custom_markdown %}
+{% load staticfiles %} 
+
+{% block header %}{% include "base/header.html" with h1="Meeting" %}{% endblock header %}
+
+{% block app-content %}
+    <h2 class="asset-page">{% block title %}{{ title }}{% endblock title %}</h2>
+    {% if meeting %}
+        {% if meeting.author %}
+            <p>Transcribed by {{ meeting.author }}</p>
+        {% endif %}
+        <p class="description">{{ meeting.notes|parse_markdown }}</p>
+    {% endif %}
+{% endblock app-content %}

@@ -29,9 +29,9 @@ def committee_detail(request, name):
 
 def meeting(request, id):
     meeting = get_object_or_404(Meeting, pk=id)
-    page_title = " ".join([meeting, "Meeting"])
+    page_title = " ".join([meeting.__str__(), "Meeting"])
 
     return render_to_response('committee/meeting_detail.html',
-        {'title': page_title, 'committee': committee, 'meetings': meetings},
+        {'title': page_title, 'meeting': meeting},
         context_instance=RequestContext(request))
 
