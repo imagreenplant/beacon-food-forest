@@ -21,7 +21,7 @@ def upcoming_meetings():
 def committee_detail(request, name):
     committee = get_object_or_404(Committee, name=name)
     page_title = " ".join([name, "Committee"])
-    meetings = Meeting.objects.filter(committee__name=name)
+    meetings = Meeting.objects.filter(committee__name=name).order_by('-date')
 
     return render_to_response('committee/committee_detail.html',
         {'title': page_title, 'committee': committee, 'meetings': meetings},
