@@ -25,7 +25,7 @@ class Meeting(models.Model):
         verbose_name_plural = "meetings"
 
     def __str__(self):
-        return self.date.strftime('%b %d,%Y')
+        return self.date.strftime('%b %d, %Y')
 
     committee = models.ForeignKey(
         Committee, on_delete=models.CASCADE, blank=True, null=True,

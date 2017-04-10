@@ -2,9 +2,9 @@
 {% load staticfiles %} 
 
 {% block header %}{% include "base/header.html" with h1="Committees" %}{% endblock header %}
+{% block title %}{{ title }}{% endblock title %}
 
 {% block app-content %}
-    <h2 class="asset-page">{% block title %}{{ title }}{% endblock title %}</h2>
     {% if committees %}
         <ul class="list-group">
         {% for committee in committees %}
