@@ -6,9 +6,9 @@
 {% block app-content %}
     <h2 class="asset-page">{% block title %}{{ title }}{% endblock title %}</h2>
     {% if committees %}
-        <ul>
+        <ul class="list-group">
         {% for committee in committees %}
-            <li>{{ committee.name }}</li>
+            <li class="list-group-item col-sm-4 col-md-3">{{ committee.name }}</li>
         {% endfor %}
         </ul>
     {% endif %}
