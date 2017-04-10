@@ -48,7 +48,6 @@ sitemaps = {
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^markdown/', include('django_markdown.urls')),
-    # url(r'^lessons/', views.listLessons, name="lessons"),
 
     # Homepage
     url(r'^$', 'home.views.index', name="homepage"),
