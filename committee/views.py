@@ -18,8 +18,20 @@ def past_meetings():
 def upcoming_meetings():
     pass
 
-def committee_detail():
-    pass
+def committee_detail(request, name):
+    committee = get_object_or_404(Committee, name=name)
+    page_title = " ".join([name, "Committee"])
+    meetings = Meeting.objects.filter(committee__name=name)
 
-def meeting():
-    pass
+    return render_to_response('committee/committee_detail.html',
+        {'title': page_title, 'committee': committee, 'meetings': meetings},
+        context_instance=RequestContext(request))
+
+def meeting(request, id):
+    meeting = get_object_or_404(Meeting, pk=id)
+    page_title = " ".join([meeting, "Meeting"])
+
+    return render_to_response('committee/meeting_detail.html',
+        {'title': page_title, 'committee': committee, 'meetings': meetings},
+        context_instance=RequestContext(request))
+
