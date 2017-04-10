@@ -27,9 +27,12 @@ class Meeting(models.Model):
     def __str__(self):
         return self.date.strftime('%b %d,%Y')
 
-    committee = models.ForeignKey(Committee, on_delete=models.CASCADE, blank=True, null=True,
-                                 help_text="(Recommended) Choose the committee this meeting belongs to")
-    author = models.CharField(max_length=100, blank=True, help_text='(Optional) Author of the meeting notes')
+    committee = models.ForeignKey(
+        Committee, on_delete=models.CASCADE, blank=True, null=True,
+        help_text="(Recommended) Choose the committee this meeting belongs to")
+    author = models.CharField(
+        max_length=100, blank=True, 
+        help_text='(Optional) Author of the meeting notes')
     date = models.DateField(
         auto_now=False,
         auto_now_add=False,
