@@ -1,0 +1,15 @@
+{% extends "base/app-page-content.html" %} 
+{% load staticfiles %} 
+
+{% block header %}{% include "base/header.html" with h1="Committees" %}{% endblock header %}
+
+{% block app-content %}
+    <h2 class="asset-page">{% block title %}{{ title }}{% endblock title %}</h2>
+    {% if committees %}
+        <ul>
+        {% for committee in committees %}
+            <li>{{ committee.name }}</li>
+        {% endfor %}
+        </ul>
+    {% endif %}
+{% endblock app-content %}
