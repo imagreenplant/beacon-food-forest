@@ -26,6 +26,7 @@ from base.sitemaps import StaticViewSitemap
 from plants.sitemaps import PlantSitemap, PlantStaticSitemap
 from education.sitemaps import ClassEventSitemap, EducationSitemap
 from maps.sitemaps import KmlMapSitemap
+from tours.sitemaps import ToursSitemap
 
 # Apps
 from maps import urls as map_urls
@@ -40,7 +41,7 @@ sitemaps = {
     'education-static': EducationSitemap,
     'classes': ClassEventSitemap,
     'maps': KmlMapSitemap,
-
+    'tours': ToursSitemap,
 }
 
 urlpatterns = [
