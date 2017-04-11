@@ -6,10 +6,10 @@
 
 {% block app-content %}
     {% if committees %}
-        <ul class="list-group">
+        <div class="list-group">
         {% for committee in committees %}
-            <li class="list-group-item col-sm-4 col-md-3">{{ committee.name }}</li>
+            <a href="{% url 'committee-detail' committee.slug %}" class="list-group-item list-group-item-action col-sm-4 col-md-3">{{ committee.name }}</a>
         {% endfor %}
-        </ul>
+        </div>
     {% endif %}
 {% endblock app-content %}

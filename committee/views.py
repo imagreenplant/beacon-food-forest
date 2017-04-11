@@ -11,17 +11,16 @@ def index(request):
         {'title': page_title, 'committees': committees},
         context_instance=RequestContext(request))
 
+# def past_meetings():
+#     pass
 
-def past_meetings():
-    pass
+# def upcoming_meetings():
+#     pass
 
-def upcoming_meetings():
-    pass
-
-def committee_detail(request, name):
-    committee = get_object_or_404(Committee, name=name)
-    page_title = " ".join([name, "Committee"])
-    meetings = Meeting.objects.filter(committee__name=name).order_by('-date')
+def committee_detail(request, slug):
+    committee = get_object_or_404(Committee, slug=slug)
+    page_title = " ".join([committee.name, "Committee"])
+    meetings = Meeting.objects.filter(committee__slug=slug).order_by('-date')
 
     return render_to_response('committee/committee_detail.html',
         {'title': page_title, 'committee': committee, 'meetings': meetings},

@@ -3,7 +3,7 @@ from django_markdown.models import MarkdownField
 import django.utils.timezone as timezone
 from django.utils import text as slugify
 import random
-import uuid
+
 
 class Committee(models.Model):
 
