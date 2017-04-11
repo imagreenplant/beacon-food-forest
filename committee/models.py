@@ -59,3 +59,4 @@ class Meeting(models.Model):
         blank=False, default=True,
         help_text="(Optional) Override. If box is unchecked, \
             meeting will not be shown on website.")
+    last_modified = models.DateTimeField(auto_now=True, auto_now_add=False)
