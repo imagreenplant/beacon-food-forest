@@ -1,8 +1,9 @@
-from django.db import models
+from django.db import models, IntegrityError, transaction
 from django_markdown.models import MarkdownField
 import django.utils.timezone as timezone
-# from django.utils import text as slugify
-
+from django.utils import text as slugify
+import random
+import uuid
 
 class Committee(models.Model):
 
@@ -13,8 +14,22 @@ class Committee(models.Model):
     def __str__(self):
         return self.name
 
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify.slugify(self.name)
+        try:
+            # Bug in django requires this statement to catch IntegrityError
+            with transaction.atomic():
+                super(Committee, self).save(*args, **kwargs)
+        except IntegrityError:
+            self.slug = slugify.slugify("-".join([self.name, str(random.randrange(0, 100))]))
+            super(Committee, self).save(*args, **kwargs)
+
+
     name = models.CharField(max_length=100, blank=False, help_text="(Required) Name of the committee")
     main_contact = models.EmailField(blank=True, help_text='Main email contact for committee')
+    slug = models.SlugField(unique=True, blank=True, help_text="(Optional) An url friendly \
+        short description.")
 
 
 class Meeting(models.Model):
