@@ -1,0 +1,16 @@
+{% extends "base/app-page-content.html" %} 
+{% load staticfiles %} 
+
+{% block header %}{% include "base/header.html" with h1="Committee" %}{% endblock header %}
+
+{% block app-content %}
+    <h2 class="asset-page">{% block title %}{{ title }}{% endblock title %}</h2>
+    {% if committee %}
+        <p>{{ committee.main_contact }}</p>
+        <ul>
+        {% for meeting in meetings %}
+            <li><a href="{% url 'meeting-detail' meeting.id %}">{{ meeting }}</a></li>
+        {% endfor %}
+        </ul>
+    {% endif %}
+{% endblock app-content %}

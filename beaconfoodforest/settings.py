@@ -91,7 +91,12 @@ INSTALLED_APPS = [
 
     # The base of the site, header, footer, sidebar
     'base',
+
+    # Education specific pages
     'education',
+
+    # Committee
+    'committee',
 
     # The home page -- this might be combined with info pages
     'home',
