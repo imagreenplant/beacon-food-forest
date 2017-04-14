@@ -1,7 +1,6 @@
-from django.shortcuts import render_to_response, get_object_or_404
+from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse, HttpResponseRedirect
 from django.core.mail import send_mail
-from django.template import RequestContext
 
 from beaconfoodforest import settings
 from base.forms import MaterialsDonationForm
@@ -11,11 +10,11 @@ import sys
 
 
 def robots(request):
-    return render_to_response('base/robots.txt')
+    return render(request, 'base/robots.txt')
 
 
 def google_verify(request):
-    return render_to_response('base/google4d7d768ede13abd5.html')
+    return render(request, 'base/google4d7d768ede13abd5.html')
 
 
 def debuginfo(request):
@@ -75,26 +74,22 @@ def material_donation_notify(request):
 
 
 def material_donation_thanks(request):
-    return render_to_response(
-        'base/material_donation_thanks.html', {},
-        context_instance=RequestContext(request))
+    return render(request, 'base/material_donation_thanks.html', {})
 
 
 def announcement(request, slug):
     announcement = get_object_or_404(Announcement, slug=slug)
-    return render_to_response('base/announcement_detail.html', {'announcement': announcement},
-                              context_instance=RequestContext(request))
+    return render(request, 'base/announcement_detail.html', {'announcement': announcement})
 
 
 def handler404(request):
-    response = render_to_response('404.html', {},
-                                  context_instance=RequestContext(request))
+    response = render(request, '404.html', {})
     response.status_code = 404
     return response
 
 
 def handler500(request):
-    response = render_to_response('500.html', {},
-                                  context_instance=RequestContext(request))
+    response = render(request, '500.html', {},
+                                  context)
     response.status_code = 500
     return response

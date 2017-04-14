@@ -1,4 +1,4 @@
-from django.shortcuts import render_to_response, get_object_or_404
+from django.shortcuts import render, get_object_or_404
 from django.template import RequestContext
 from .models import KmlMap
 from plants.models import Plant, MapCategory
@@ -8,8 +8,8 @@ def kml_map(request, slug):
     # The kml map is a useful tool to allow users to upload their KML from
     # Google Earth and have it show online.
     kml = get_object_or_404(KmlMap, slug=slug)
-    return render_to_response(
-        'maps/kmap.html', {'kml': kml}, context_instance=RequestContext(request))
+    return render(
+        'maps/kmap.html', {'kml': kml}, context)
 
 
 def tag_map(request, tag):
@@ -20,11 +20,11 @@ def tag_map(request, tag):
         tagged_plants = Plant.objects.filter(tags__name__in=[tag])
         # Find a way to convert to SEO readable title
         site_title_append = tag
-    return render_to_response(
+    return render(
         'maps/tagmap.html',
         {'site_title_append': site_title_append,
          'tagged_plants': tagged_plants},
-        context_instance=RequestContext(request))
+        context)
 
 
 def fruitTrees(request):
@@ -33,10 +33,10 @@ def fruitTrees(request):
         filter(category__category__exact="Trees").\
         filter(geo_location__isnull=False)
     site_title_append = "Trees"
-    return render_to_response(
+    return render(
         'maps/categorymap.html',
         {'plants': fruit_trees, 'site_title_append': site_title_append},
-        context_instance=RequestContext(request))
+        context)
 
 
 def categories(request):
@@ -50,20 +50,20 @@ def categories(request):
         if plants_by_category:
             categorical_data[category.category] = plants_by_category
 
-    return render_to_response(
+    return render(
         'maps/category_map_list.html',
         {'categories': categorical_data, 'site_title_append': site_title_append},
-        context_instance=RequestContext(request))
+        context)
 
 
 def itemsByCategory(request):
     site_title_append = "Plants by Category"
     plants = Plant.objects.all()
 
-    return render_to_response(
+    return render(
         'maps/category_map_list_data.html',
         {'plants': plants, 'site_title_append': site_title_append},
-        context_instance=RequestContext(request))
+        context)
 
 
 def serialized_categories():
