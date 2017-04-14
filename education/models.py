@@ -1,5 +1,6 @@
 from django.db import models, IntegrityError, transaction
-from django_markdown.models import MarkdownField
+# from django_markdown.models import MarkdownField
+from markdownx.models import MarkdownxField
 import django.utils.timezone as timezone
 from django.utils.timezone import localtime, now
 from django.utils import text as slugify
@@ -62,7 +63,7 @@ class ClassEvent(models.Model):
     ticket_link = models.URLField(
         "link to tickets", blank=True,
         help_text='(Optional) An url link where to get tickets')
-    class_description = MarkdownField(
+    class_description = MarkdownxField(
         blank=True, help_text="(Optional) Desciption of class (can be long) with formatting")
     class_primary_image = models.ImageField(
         "optional class image", blank=True, help_text='(Optional) Primary image for the class')

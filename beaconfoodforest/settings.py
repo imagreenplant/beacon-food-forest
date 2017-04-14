@@ -102,7 +102,8 @@ INSTALLED_APPS = [
     'home',
 
     # Added markdown capability for announcements
-    'django_markdown',
+    # 'django_markdown',
+    'markdownx',
 
     # Subpages for the site, like FAQ, permaculture info, etc
     'infopages',
@@ -122,8 +123,6 @@ INSTALLED_APPS = [
     # https://github.com/philippbosch/django-geoposition
     'geoposition',
 
-    # Helper apps for design -- probably don't need in production
-    'django.contrib.webdesign',
     # To protect forms with Captcha
     'captcha',
 

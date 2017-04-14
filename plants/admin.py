@@ -1,17 +1,18 @@
 from django.contrib import admin
-from django_markdown.admin import MarkdownModelAdmin
+# from django_markdown.admin import MarkdownModelAdmin
+from markdownx.admin import MarkdownxModelAdmin
 from plants.models import Plant, Location, MapCategory, MapSubCategory
 # from plants.models import MaintenanceEvent, Harvest
 
 
 @admin.register(Plant)
-class PlantAdmin(MarkdownModelAdmin):
+class PlantAdmin(MarkdownxModelAdmin):
     list_display = ('name', 'site_code', 'alive',)
     save_as = True
 
 
 @admin.register(Location)
-class LocationAdmin(MarkdownModelAdmin):
+class LocationAdmin(MarkdownxModelAdmin):
     list_display = ('friendly_location', 'geo_location')
 
 
