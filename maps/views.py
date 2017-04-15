@@ -7,7 +7,7 @@ def kml_map(request, slug):
     # The kml map is a useful tool to allow users to upload their KML from
     # Google Earth and have it show online.
     kml = get_object_or_404(KmlMap, slug=slug)
-    return render('maps/kmap.html', {'kml': kml})
+    return render(request, 'maps/kmap.html', {'kml': kml})
 
 
 def tag_map(request, tag):
@@ -18,9 +18,9 @@ def tag_map(request, tag):
         tagged_plants = Plant.objects.filter(tags__name__in=[tag])
         # Find a way to convert to SEO readable title
         site_title_append = tag
-    return render('maps/tagmap.html',
-        {'site_title_append': site_title_append,
-        'tagged_plants': tagged_plants})
+    return render(request, 'maps/tagmap.html',
+                  {'site_title_append': site_title_append,
+                   'tagged_plants': tagged_plants})
 
 
 def fruitTrees(request):
@@ -29,9 +29,8 @@ def fruitTrees(request):
         filter(category__category__exact="Trees").\
         filter(geo_location__isnull=False)
     site_title_append = "Trees"
-    return render(
-        'maps/categorymap.html',
-        {'plants': fruit_trees, 'site_title_append': site_title_append})
+    return render(request, 'maps/categorymap.html',
+                  {'plants': fruit_trees, 'site_title_append': site_title_append})
 
 
 def categories(request):
@@ -45,18 +44,17 @@ def categories(request):
         if plants_by_category:
             categorical_data[category.category] = plants_by_category
 
-    return render(
-        'maps/category_map_list.html',
-        {'categories': categorical_data, 'site_title_append': site_title_append})
+    return render(request, 'maps/category_map_list.html',
+                  {'categories': categorical_data, 'site_title_append': site_title_append})
 
 
 def itemsByCategory(request):
     site_title_append = "Plants by Category"
     plants = Plant.objects.all()
 
-    return render(
-        'maps/category_map_list_data.html',
-        {'plants': plants, 'site_title_append': site_title_append})
+    return render(request,
+                  'maps/category_map_list_data.html',
+                  {'plants': plants, 'site_title_append': site_title_append})
 
 
 def serialized_categories():
