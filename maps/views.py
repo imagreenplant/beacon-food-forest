@@ -1,5 +1,4 @@
 from django.shortcuts import render, get_object_or_404
-from django.template import RequestContext
 from .models import KmlMap
 from plants.models import Plant, MapCategory
 
@@ -8,8 +7,7 @@ def kml_map(request, slug):
     # The kml map is a useful tool to allow users to upload their KML from
     # Google Earth and have it show online.
     kml = get_object_or_404(KmlMap, slug=slug)
-    return render(
-        'maps/kmap.html', {'kml': kml}, context)
+    return render('maps/kmap.html', {'kml': kml})
 
 
 def tag_map(request, tag):
@@ -20,11 +18,9 @@ def tag_map(request, tag):
         tagged_plants = Plant.objects.filter(tags__name__in=[tag])
         # Find a way to convert to SEO readable title
         site_title_append = tag
-    return render(
-        'maps/tagmap.html',
+    return render('maps/tagmap.html',
         {'site_title_append': site_title_append,
-         'tagged_plants': tagged_plants},
-        context)
+        'tagged_plants': tagged_plants})
 
 
 def fruitTrees(request):
@@ -35,8 +31,7 @@ def fruitTrees(request):
     site_title_append = "Trees"
     return render(
         'maps/categorymap.html',
-        {'plants': fruit_trees, 'site_title_append': site_title_append},
-        context)
+        {'plants': fruit_trees, 'site_title_append': site_title_append})
 
 
 def categories(request):
@@ -52,8 +47,7 @@ def categories(request):
 
     return render(
         'maps/category_map_list.html',
-        {'categories': categorical_data, 'site_title_append': site_title_append},
-        context)
+        {'categories': categorical_data, 'site_title_append': site_title_append})
 
 
 def itemsByCategory(request):
@@ -62,8 +56,7 @@ def itemsByCategory(request):
 
     return render(
         'maps/category_map_list_data.html',
-        {'plants': plants, 'site_title_append': site_title_append},
-        context)
+        {'plants': plants, 'site_title_append': site_title_append})
 
 
 def serialized_categories():
