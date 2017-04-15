@@ -5,8 +5,7 @@ def index(request):
     committees = Committee.objects.all().order_by('name')
     page_title = "Committees"
 
-    return render(
-        'committee/committee_hub.html', 
+    return render(request, 'committee/committee_hub.html', 
         {'title': page_title, 'committees': committees})
 
 # def past_meetings():
