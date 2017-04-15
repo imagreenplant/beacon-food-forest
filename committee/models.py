@@ -25,6 +25,10 @@ class Committee(models.Model):
             self.slug = slugify.slugify("-".join([self.name, str(random.randrange(0, 100))]))
             super(Committee, self).save(*args, **kwargs)
 
+    def get_absolute_url(self):
+        from django.urls import reverse
+        return reverse('committee-detail', args=[str(self.slug)])
+
     name = models.CharField(max_length=100, blank=False,
                             help_text="(Required) Name of the committee")
     main_contact = models.EmailField(blank=True, help_text='Main email contact for committee')
