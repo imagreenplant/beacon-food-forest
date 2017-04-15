@@ -1,3 +1,15 @@
 from django.test import TestCase
+from django.core.urlresolvers import reverse
 
-# Create your tests here.
+
+class ResponseStatus(TestCase):
+
+    def test_committees(self):
+        response = self.client.get(reverse('committee-hub'))
+        self.assertEqual(response.status_code, 200)
+
+    def test_committee(self):
+        response = self.client.get('/committee/')
+        self.assertEqual(response.status_code, 200)
+
+
