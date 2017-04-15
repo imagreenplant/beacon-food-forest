@@ -46,6 +46,10 @@ class Meeting(models.Model):
     def __str__(self):
         return self.date.strftime('%b %d, %Y')
 
+    def get_absolute_url(self):
+        from django.urls import reverse
+        return reverse('meeting-detail', args=[str(self.id)])
+
     committee = models.ForeignKey(
         Committee, on_delete=models.CASCADE, blank=True, null=True,
         help_text="(Recommended) Choose the committee this meeting belongs to")
