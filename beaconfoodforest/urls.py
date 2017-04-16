@@ -21,7 +21,7 @@ from beaconfoodforest import settings
 from home.views import index as home_index
 from infopages.views import faq, project, permaculture, howWeStarted, getInvolved
 from base.views import material_donation_notify, material_donation_thanks, announcement,\
-    robots, debuginfo, debugfiles, handler500, handler404, google_verify
+    robots, debuginfo, handler500, handler404, google_verify
 
 # Redirects from old site pages
 from django.views.generic.base import RedirectView
@@ -98,7 +98,6 @@ urlpatterns = [
     url(r'^google4d7d768ede13abd5\.html', google_verify),
     url(r'^robots.txt', robots),
     url(r'^debug/$', debuginfo),
-    url(r'^debug/files/$', debugfiles),
     url(r'^captcha/', include('captcha.urls')),
     url(r'^sitemap\.xml$', sitemap, {'sitemaps': sitemaps},
         name='django.contrib.sitemaps.views.sitemap'),

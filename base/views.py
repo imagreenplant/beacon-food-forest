@@ -4,9 +4,10 @@ from django.core.mail import send_mail
 
 from beaconfoodforest import settings
 from base.forms import MaterialsDonationForm
-from base.models import Download, Announcement
+from base.models import Announcement
 
 import sys
+from django import get_version
 
 
 def robots(request):
@@ -28,18 +29,12 @@ def debuginfo(request):
         "Database engine is %s" % settings.DATABASES['default']['ENGINE'],
         "Template loader is %s" % settings.TEMPLATES[0]['OPTIONS']['loaders'],
         "Media root is %s" % settings.MEDIA_ROOT,
+        "Django version is %s" % get_version()
     ]
 
     content = "\n".join(content)
 
     return HttpResponse(content, content_type='text/plain')
-
-
-def debugfiles(request):
-    all_files = []
-    [all_files.append(file.download_file.url) for file in Download.objects.all()]
-    file_content = "\n".join(all_files)
-    return HttpResponse(file_content, content_type='text/plain')
 
 
 def send_donation_notification(donor_data):
