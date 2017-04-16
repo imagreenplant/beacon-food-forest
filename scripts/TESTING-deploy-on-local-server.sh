@@ -9,7 +9,7 @@ export WORKON_HOME=$HOME/.python-environments
 export PROJECT_HOME=$HOME/django-projects
 export VIRTUALENVWRAPPER_PYTHON=$HOME/python3.5/bin/python3.5
 source $HOME/bin/virtualenvwrapper.sh
-workon bff-py3.5
+workon bff-test-py3.5
 cd $HOME/django-projects/test/beacon-food-forest-main/
 echo "============ Installing new requirements =============="
 pip install -r requirements.txt
