@@ -1,6 +1,6 @@
 from django import template
 from base.forms import MaterialsDonationForm
-from django.core.context_processors import csrf
+from django.template.context_processors import csrf
 
 register = template.Library()
 

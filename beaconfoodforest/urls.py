@@ -17,6 +17,12 @@ from django.conf.urls import include, url
 from django.contrib import admin
 from beaconfoodforest import settings
 
+# Views
+from home.views import index as home_index
+from infopages.views import faq, project, permaculture, howWeStarted, getInvolved
+from base.views import material_donation_notify, material_donation_thanks, announcement,\
+    robots, debuginfo, handler500, handler404, google_verify
+
 # Redirects from old site pages
 from django.views.generic.base import RedirectView
 
@@ -47,21 +53,22 @@ sitemaps = {
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^markdown/', include('django_markdown.urls')),
+    # url(r'^markdown/', include('django_markdown.urls')),
+    url(r'^markdownx/', include('markdownx.urls')),
 
     # Homepage
-    url(r'^$', 'home.views.index', name="homepage"),
+    url(r'^$', home_index, name="homepage"),
 
     # Info Sub-pages
-    url(r'^faq/$', 'infopages.views.faq', name="faq"),
-    url(r'^project/$', 'infopages.views.project', name="project"),
-    url(r'^permaculture/$', 'infopages.views.permaculture', name="permaculture"),
-    url(r'^how-we-started/$', 'infopages.views.howWeStarted', name="how-we-started"),
-    url(r'^get-involved/$', 'infopages.views.getInvolved', name="get-involved"),
+    url(r'^faq/$', faq, name="faq"),
+    url(r'^project/$', project, name="project"),
+    url(r'^permaculture/$', permaculture, name="permaculture"),
+    url(r'^how-we-started/$', howWeStarted, name="how-we-started"),
+    url(r'^get-involved/$', getInvolved, name="get-involved"),
 
     # Forms
-    url(r'^material_donation_notify/$', 'base.views.material_donation_notify', ),
-    url(r'^thanks/$', 'base.views.material_donation_thanks', ),
+    url(r'^material_donation_notify/$', material_donation_notify, ),
+    url(r'^thanks/$', material_donation_thanks, ),
 
     # Redirects from old pages to retain SEO juice
     url(r'^faq.html$', RedirectView.as_view(permanent=True, pattern_name="faq")),
@@ -85,37 +92,35 @@ urlpatterns = [
     url(r'^committees?/', include(committee_urls), name="committees"),
 
     # Announcements
-    url(r'^announcement/(?P<slug>[\w-]+)/$', 'base.views.announcement', name="announcement-detail"),
+    url(r'^announcement/(?P<slug>[\w-]+)/$', announcement, name="announcement-detail"),
 
     # Other
-    url(r'^google4d7d768ede13abd5\.html', 'base.views.google_verify'),
-    url(r'^robots.txt', 'base.views.robots'),
-    url(r'^debug/$', 'base.views.debuginfo'),
-    url(r'^debug/files/$', 'base.views.debugfiles'),
+    url(r'^google4d7d768ede13abd5\.html', google_verify),
+    url(r'^robots.txt', robots),
+    url(r'^debug/$', debuginfo),
     url(r'^captcha/', include('captcha.urls')),
     url(r'^sitemap\.xml$', sitemap, {'sitemaps': sitemaps},
         name='django.contrib.sitemaps.views.sitemap'),
 ]
 
-handler500 = 'base.views.handler500'
-handler404 = 'base.views.handler404'
 if settings.DEBUG:
     urlpatterns += [
-        url(r'^500/$', 'base.views.handler500'),
-        url(r'^404/$', 'base.views.handler404'),
+        url(r'^500/$', handler500),
+        url(r'^404/$', handler404),
     ]
 
 ##############################################################################
 
 from django.conf import settings
 from django.contrib.staticfiles.views import serve as serve_static
+from django.views.static import serve as serve_media
 from django.views.decorators.cache import never_cache
 
 admin.site.site_header = 'Beacon Food Forest Admin'
 
 if settings.DEBUG:
     urlpatterns.append(url(r'^static/(?P<path>.*)$', never_cache(serve_static)))
-    urlpatterns.append(url(r'^media/(?P<path>.*)$', 'django.views.static.serve', {
+    urlpatterns.append(url(r'^media/(?P<path>.*)$', serve_media, {
         'document_root': settings.MEDIA_ROOT}))
 
 if settings.DEBUG:

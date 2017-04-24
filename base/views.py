@@ -1,21 +1,21 @@
-from django.shortcuts import render_to_response, get_object_or_404
+from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse, HttpResponseRedirect
 from django.core.mail import send_mail
-from django.template import RequestContext
 
 from beaconfoodforest import settings
 from base.forms import MaterialsDonationForm
-from base.models import Download, Announcement
+from base.models import Announcement
 
 import sys
+from django import get_version
 
 
 def robots(request):
-    return render_to_response('base/robots.txt')
+    return render(request, 'base/robots.txt')
 
 
 def google_verify(request):
-    return render_to_response('base/google4d7d768ede13abd5.html')
+    return render(request, 'base/google4d7d768ede13abd5.html')
 
 
 def debuginfo(request):
@@ -29,18 +29,12 @@ def debuginfo(request):
         "Database engine is %s" % settings.DATABASES['default']['ENGINE'],
         "Template loader is %s" % settings.TEMPLATES[0]['OPTIONS']['loaders'],
         "Media root is %s" % settings.MEDIA_ROOT,
+        "Django version is %s" % get_version()
     ]
 
     content = "\n".join(content)
 
     return HttpResponse(content, content_type='text/plain')
-
-
-def debugfiles(request):
-    all_files = []
-    [all_files.append(file.download_file.url) for file in Download.objects.all()]
-    file_content = "\n".join(all_files)
-    return HttpResponse(file_content, content_type='text/plain')
 
 
 def send_donation_notification(donor_data):
@@ -75,26 +69,21 @@ def material_donation_notify(request):
 
 
 def material_donation_thanks(request):
-    return render_to_response(
-        'base/material_donation_thanks.html', {},
-        context_instance=RequestContext(request))
+    return render(request, 'base/material_donation_thanks.html', {})
 
 
 def announcement(request, slug):
     announcement = get_object_or_404(Announcement, slug=slug)
-    return render_to_response('base/announcement_detail.html', {'announcement': announcement},
-                              context_instance=RequestContext(request))
+    return render(request, 'base/announcement_detail.html', {'announcement': announcement})
 
 
 def handler404(request):
-    response = render_to_response('404.html', {},
-                                  context_instance=RequestContext(request))
+    response = render(request, '404.html')
     response.status_code = 404
     return response
 
 
 def handler500(request):
-    response = render_to_response('500.html', {},
-                                  context_instance=RequestContext(request))
+    response = render(request, '500.html')
     response.status_code = 500
     return response

@@ -1,5 +1,6 @@
 from django.contrib import admin
-from django_markdown.admin import MarkdownModelAdmin
+# from django_markdown.admin import MarkdownModelAdmin
+from markdownx.admin import MarkdownxModelAdmin
 from .models import ExternalNewsArticle, WorkPartyEvent, Announcement, VolunteerContact, Download
 
 @admin.register(ExternalNewsArticle)
@@ -11,7 +12,7 @@ class WorkPartyEventAdmin(admin.ModelAdmin):
 	list_display = ('work_party_date',)
 
 @admin.register(Announcement)
-class AnnouncementAdmin(MarkdownModelAdmin):
+class AnnouncementAdmin(MarkdownxModelAdmin):
 	list_display = ('publish_date', 'slug',)
 	fields = ('headline','publish_date','expire_date','event_date','content','primary_image','link','override','slug')
 

@@ -1,5 +1,6 @@
 from django.db import models
-from django_markdown.models import MarkdownField
+# from django_markdown.models import MarkdownField
+from markdownx.models import MarkdownxField
 from django.utils import text as slugify
 # import django.utils.timezone as timezone
 from django.core.urlresolvers import reverse
@@ -86,7 +87,7 @@ class Plant(models.Model):
         help_text="(Optional) A friendly plant name, like 'Charlie the Apple Tree'")
     latin_name = models.CharField(max_length=150, blank=True, help_text="(Optional) Latin name")
     name = models.CharField(max_length=150, blank=False, help_text="Common Name (required)")
-    text = MarkdownField(
+    text = MarkdownxField(
         blank=True, help_text="(Optional) Descriptive text for plant (put anything here)")
     primary_picture = models.ImageField(help_text="(Optional) primary image", blank=True)
     year_planted = models.IntegerField(

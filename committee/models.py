@@ -1,5 +1,5 @@
 from django.db import models, IntegrityError, transaction
-from django_markdown.models import MarkdownField
+from markdownx.models import MarkdownxField
 import django.utils.timezone as timezone
 from django.utils import text as slugify
 import random
@@ -25,8 +25,12 @@ class Committee(models.Model):
             self.slug = slugify.slugify("-".join([self.name, str(random.randrange(0, 100))]))
             super(Committee, self).save(*args, **kwargs)
 
+    def get_absolute_url(self):
+        from django.urls import reverse
+        return reverse('committee-detail', args=[str(self.slug)])
 
-    name = models.CharField(max_length=100, blank=False, help_text="(Required) Name of the committee")
+    name = models.CharField(max_length=100, blank=False,
+                            help_text="(Required) Name of the committee")
     main_contact = models.EmailField(blank=True, help_text='Main email contact for committee')
     slug = models.SlugField(unique=True, blank=True, help_text="(Optional) An url friendly \
         short description.")
@@ -42,11 +46,15 @@ class Meeting(models.Model):
     def __str__(self):
         return self.date.strftime('%b %d, %Y')
 
+    def get_absolute_url(self):
+        from django.urls import reverse
+        return reverse('meeting-detail', args=[str(self.id)])
+
     committee = models.ForeignKey(
         Committee, on_delete=models.CASCADE, blank=True, null=True,
         help_text="(Recommended) Choose the committee this meeting belongs to")
     author = models.CharField(
-        max_length=100, blank=True, 
+        max_length=100, blank=True,
         help_text='(Optional) Author of the meeting notes')
     date = models.DateField(
         auto_now=False,
@@ -54,7 +62,7 @@ class Meeting(models.Model):
         blank=False,
         default=timezone.now,
         help_text="The date the meeting took place")
-    notes = MarkdownField(blank=True, help_text="(Optional) Cut and paste meeting notes here")
+    notes = MarkdownxField(blank=True, help_text="(Optional) Cut and paste meeting notes here")
     override = models.BooleanField(
         blank=False, default=True,
         help_text="(Optional) Override. If box is unchecked, \

@@ -1,5 +1,4 @@
-from django.shortcuts import render_to_response, get_object_or_404
-from django.template import RequestContext
+from django.shortcuts import render, get_object_or_404
 from .models import Plant
 from django.core.exceptions import ObjectDoesNotExist
 from rest_framework.decorators import api_view
@@ -21,8 +20,7 @@ def index(request):
     for plant in plants:
         plant.canonical = getCanonicalPlantUrl(plant)
 
-    return render_to_response('plants/all_plants.html', {'title': page_title, 'plants': plants},
-                              context_instance=RequestContext(request))
+    return render(request, 'plants/all_plants.html', {'title': page_title, 'plants': plants})
 
 
 def detail(request, id):
@@ -31,9 +29,8 @@ def detail(request, id):
     except ObjectDoesNotExist:
         plant = get_object_or_404(Plant, site_code=id)
 
-    return render_to_response('plants/plant_detail.html',
-                              {'plant': plant, 'plant_url': getCanonicalPlantUrl(plant)},
-                              context_instance=RequestContext(request))
+    return render(request, 'plants/plant_detail.html',
+                  {'plant': plant, 'plant_url': getCanonicalPlantUrl(plant)})
 
 
 @api_view(['GET'])

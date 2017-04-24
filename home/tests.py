@@ -1,3 +1,9 @@
 from django.test import TestCase
+from django.core.urlresolvers import reverse
 
-# Create your tests here.
+
+class ResponseStatus(TestCase):
+
+    def test_homepage(self):
+        response = self.client.get(reverse('homepage'))
+        self.assertEqual(response.status_code, 200)
