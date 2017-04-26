@@ -128,6 +128,9 @@ INSTALLED_APPS = [
 
     # Adding a tagging library for plant models
     'taggit',
+
+    # Add revision history to admin
+    'reversion',
 ]
 MIDDLEWARE_CLASSES = [
     'django.contrib.sessions.middleware.SessionMiddleware',
