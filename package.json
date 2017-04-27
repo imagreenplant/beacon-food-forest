@@ -28,5 +28,10 @@
     "react-dom": "^15.4.1",
     "webpack": "^1.14.0",
     "webpack-bundle-tracker": "^0.1.0"
+  },
+  "dependencies": {
+    "@mapbox/point-geometry": "^0.1.0",
+    "google-map-react": "^0.24.0",
+    "prop-types": "^15.5.8"
   }
 }

@@ -60,3 +60,13 @@ def itemsByCategory(request):
 def serialized_categories():
     # This function needs to return a serialized category response to setup React properly
     pass
+
+
+def reactMap(request):
+    # View specific to fruit trees only, as the main featured map
+    fruit_trees = Plant.objects.\
+        filter(category__category__exact="Trees").\
+        filter(geo_location__isnull=False)
+    site_title_append = "Trees"
+    return render(request, 'maps/reactmap.html',
+                  {'plants': fruit_trees, 'site_title_append': site_title_append})

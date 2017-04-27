@@ -1,70 +1,117 @@
-//https://www.fullstackreact.com/articles/how-to-write-a-google-maps-react-component/
-//https://jsbin.com/gaxapezowo/1/edit?js,output
-// https://github.com/istarkov/google-map-react
+import React, { Component } from 'react';
+import GoogleMapReact from 'google-map-react';
+import ReactDOM from 'react-dom';
 
-var ReactDOM = require('react-dom')
-var React = require('react')
+const AnyReactComponent = ({ text }) => <div>{text}</div>;
 
-var MapList = React.createClass({
-    render: function() {
-        var mapItemElements = this.props.itemlist
-            .map(function (item) {
-                return( <MapItem item={item} /> );
-            })
-        return( 
-            <ul>{mapItemElements}</ul>
-        );
-    }
-});
+let message = 'es6 webpack!'; // so fancy  
+console.log(message);  
 
-var MapCategoryList = React.createClass({
-    render: function () {
-        return <div class="categories">this.props.categories</div>
-    }
-})
+class SimpleMap extends Component {
+  // defaultProps = {
+  //   center: {lat: 59.95, lng: 30.33},
+  //   zoom: 11
+  // };
 
-var MapCategory = React.createClass({
-    render: function () {
-        return(
-        <div class="category-name">
-                <input type="checkbox" class="checkbox" checked="" onclick="" />
-                <span title="" oncontextmenu="" onclick=""><i class="fa fa-plus" aria-hidden="true"></i></span>
-                <a href="#" onclick="">this.props.category.name</a>
-        </div>
-        );
-    }
-});
+  render() {
+    return (
+      <GoogleMapReact
+        defaultCenter={{lat: 59.95, lng: 30.33}}
+        defaultZoom={11}
+        bootstrapURLKeys={{key: "AIzaSyAsnOLu3eLbo60hkQNWo-3EEt102mOv99w"}}
+      >
+        <AnyReactComponent
+          lat={59.955413}
+          lng={30.337844}
+          text={'Kreyser Avrora'}
+        />
+      </GoogleMapReact>
+    );
+  }
+}
 
-var MapSubCategory = React.createClass({
-    render: function () {
-        return <h1>Hello, {this.props.subcategory.name}</h1>
-    }
-});
+// class UserName extends React.Component {  
+//   render() {
+//     return <div>name: {this.props.name}</div>;
+//   }
+// }
 
-var MapItem = React.createClass({
-    render: function () {
-        return(
-            <li key={this.props.item.site_code}
-                data-code={this.props.item.site_code}
-                // data-position-latitude={this.props.item.coordinates.lat}
-                // data-position-longitude={this.props.item.coordinates.lng}   
-                data-content="">
-                {this.props.item.name}
-                <MapItemContent content={this.props.item.description} />
-            </li>
-        );
-    }
-});
+// class User extends React.Component {  
+//   render() {
+//     return <div>
+//         <h1>City: {this.props.user.city}</h1>
+//         <UserName name={this.props.user.name} />
+//       </div>;
+//   }
+// }
 
-var MapItemContent = React.createClass({
-    render: function () {
-        return(
-            <div className="map-item-content">{this.props.content}</div>
-        );
-    }
-});
+// var user = { name: 'John', city: 'San Francisco' };  
+// React.render(<User user={user} />, document.getElementById('the_side_bar'));
+/*
+ * Base Google Map example
+ */
+// import React, {PropTypes, Component} from 'react';
+// // import shouldPureComponentUpdate from 'react-pure-render/function';
+
+// import GoogleMap from 'google-map-react';
+// // import MyGreatPlace from './my_great_place.jsx';
+
+// function createMapOptions(maps) {
+//   // next props are exposed at maps
+//   // "Animation", "ControlPosition", "MapTypeControlStyle", "MapTypeId",
+//   // "NavigationControlStyle", "ScaleControlStyle", "StrokePosition", "SymbolPath", "ZoomControlStyle",
+//   // "DirectionsStatus", "DirectionsTravelMode", "DirectionsUnitSystem", "DistanceMatrixStatus",
+//   // "DistanceMatrixElementStatus", "ElevationStatus", "GeocoderLocationType", "GeocoderStatus", "KmlLayerStatus",
+//   // "MaxZoomStatus", "StreetViewStatus", "TransitMode", "TransitRoutePreference", "TravelMode", "UnitSystem"
+//   return {
+//     zoomControlOptions: {
+//       position: maps.ControlPosition.RIGHT_CENTER,
+//       style: maps.ZoomControlStyle.SMALL
+//     },
+//     mapTypeControlOptions: {
+//       position: maps.ControlPosition.TOP_RIGHT
+//     },
+//     mapTypeControl: true
+//   };
+// }
+
+// export default class SimpleMapPage extends Component {
+//   static propTypes: {
+//     center: PropTypes.array,
+//     zoom: PropTypes.number,
+//     greatPlaceCoords: PropTypes.any
+//   };
+
+//   static defaultProps: {
+//     center: [59.938043, 30.337157],
+//     zoom: 9,
+//     greatPlaceCoords: {lat: 59.724465, lng: 30.080121}
+//   };
+
+//   // shouldComponentUpdate = shouldPureComponentUpdate;
+
+//   constructor(props) {
+//     super(props);
+//   }
+
+//   render() {
+//     return (
+//        <GoogleMap
+//         apiKey="AIzaSyAsnOLu3eLbo60hkQNWo-3EEt102mOv99w" // set if you need stats etc ...
+//         center=[59.938043, 30.337157]
+//         zoom=9
+//         options={createMapOptions}>
+//         <MyGreatPlace lat={59.955413} lng={30.337844} text={'A'} /* Kreyser Avrora */ />
+//         <MyGreatPlace {...this.props.greatPlaceCoords} text={'B'} /* road circle */ />
+//       </GoogleMap>
+//     );
+//   }
+// }
+
 
 ReactDOM.render(
-  <MapList itemlist={plants} />,
-  document.getElementById('react-container')
+  <div style={{width: '100%', height: '400px'}}>
+    <SimpleMap/>
+  </div>,
+  document.getElementById('map-canvas')
 );

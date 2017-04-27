@@ -1,0 +1,32 @@
+{% extends "base/app-page-content.html" %} 
+{% load staticfiles %}
+{% load render_bundle from webpack_loader %}
+
+{% block add-css %}
+    <link rel="stylesheet" type="text/css" href="{% static "maps/css/map.css" %}">
+{% endblock add-css %}
+
+{% block header %}{% include "base/header.html" with h1="Maps" %}{% endblock header %}
+{% block title %}Maps | {{site_title_append}}{% endblock title %}
+
+{% block sub-page-class %}app map{% endblock sub-page-class %}
+{% block app-content %}
+    <div id="map-canvas"></div>
+    <script type="text/javascript">
+        var plants = [];
+    </script>
+    <div id="the_side_bar">
+
+    {% block map-list %}{% endblock map-list %}
+
+            <div id="container"></div>
+    </div>
+    {% render_bundle 'main' %}    
+
+    <button class="btn btn-primary sidebar-button open_button"><i class="fa fa-list" aria-hidden="true"></i> LIST</button>
+    <button class="btn btn-secondary sidebar-button close_button"><i class="fa fa-close" aria-hidden="true"></i></button>
+{% endblock app-content %}
+
+{% block footer %}
+
+{% endblock footer %}
