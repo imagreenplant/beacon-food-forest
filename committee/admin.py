@@ -1,14 +1,14 @@
 from django.contrib import admin
-# from django_markdown.admin import MarkdownModelAdmin
+from reversion.admin import VersionAdmin
 from markdownx.admin import MarkdownxModelAdmin
 from .models import Committee, Meeting
 
 
 @admin.register(Committee)
-class CommitteeAdmin(admin.ModelAdmin):
+class CommitteeAdmin(VersionAdmin):
     list_display = ('name',)
 
 
 @admin.register(Meeting)
-class MeetingAdmin(MarkdownxModelAdmin):
+class MeetingAdmin(MarkdownxModelAdmin, VersionAdmin):
     list_display = ('committee', 'date', 'author')
