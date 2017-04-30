@@ -131,6 +131,9 @@ INSTALLED_APPS = [
 
     # Add revision history to admin
     'reversion',
+
+    # A rich text field editor
+    'ckeditor',
 ]
 MIDDLEWARE_CLASSES = [
     'django.contrib.sessions.middleware.SessionMiddleware',
