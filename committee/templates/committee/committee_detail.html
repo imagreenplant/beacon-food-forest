@@ -7,6 +7,7 @@
     <h2 class="asset-page">{% block title %}{{ title }}{% endblock title %}</h2>
     {% if committee %}
         <p>{{ committee.main_contact }}</p>
+        <p>{{ committee.description | safe }}</p>
         <ul>
         {% for meeting in meetings %}
             <li><a href="{% url 'meeting-detail' meeting.id %}">{{ meeting }}</a></li>
