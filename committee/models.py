@@ -1,5 +1,6 @@
 from django.db import models, IntegrityError, transaction
 from markdownx.models import MarkdownxField
+from ckeditor.fields import RichTextField
 import django.utils.timezone as timezone
 from django.utils import text as slugify
 import random
@@ -34,6 +35,8 @@ class Committee(models.Model):
     main_contact = models.EmailField(blank=True, help_text='Main email contact for committee')
     slug = models.SlugField(unique=True, blank=True, help_text="(Optional) An url friendly \
         short description.")
+    description = RichTextField(blank=True, help_text='A friendly description of the \
+        committee accessible to the public.')
 
 
 class Meeting(models.Model):
