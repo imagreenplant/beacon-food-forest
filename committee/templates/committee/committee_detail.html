@@ -1,17 +1,24 @@
 {% extends "base/app-page-content.html" %} 
 {% load staticfiles %} 
 
-{% block header %}{% include "base/header.html" with h1="Committee" %}{% endblock header %}
+{% block header %}{% include "base/header.html" with h1="Committees" %}{% endblock header %}
 
 {% block app-content %}
     <h2 class="asset-page">{% block title %}{{ title }}{% endblock title %}</h2>
+
     {% if committee %}
-        <p>{{ committee.main_contact }}</p>
-        <p>{{ committee.description | safe }}</p>
-        <ul>
+    <div class="container-fluid">
+        {% if committee.main_contact %}
+            <p>Contact <a href="mailto:{{ committee.main_contact }}">{{ committee.main_contact }}</a></p>
+        {% endif %}
+        {% if committee.description %}
+            <div class="col-md-6">{{ committee.description | safe }}</div>    
+        {% endif %}
+        <ul class="list-group">
         {% for meeting in meetings %}
-            <li><a href="{% url 'meeting-detail' meeting.id %}">{{ meeting }}</a></li>
+            <li class="list-group-item"><a href="{% url 'meeting-detail' meeting.id %}">{{ meeting }}</a></li>
         {% endfor %}
         </ul>
+    </div>
     {% endif %}
 {% endblock app-content %}
