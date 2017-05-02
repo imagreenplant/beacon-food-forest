@@ -8,21 +8,25 @@
 
     {% if committee %}
     <div class="container-fluid">
-        <div class="col-lg-9 col-sm-6">
+        <content class="col-lg-9 col-sm-6">
         {% if committee.description %}
             <div>{{ committee.description | safe }}</div>  
         {% endif %}
         {% if committee.main_contact %}
             <p>Contact <a href="mailto:{{ committee.main_contact }}">{{ committee.main_contact }}</a></p>
         {% endif %}
-        </div>
+        </content>
         <div class="col-lg-3 col-sm-6">
             <h3>Meeting Notes</h3>
-            <ul class="meeting-notes">
-            {% for meeting in meetings %}
-                <li class=""><a href="{% url 'meeting-detail' meeting.id %}">{{ meeting }}</a></li>
-            {% endfor %}
-            </ul>
+            {% if meetings %}
+                <ul class="meeting-notes">
+                {% for meeting in meetings %}
+                    <li class=""><a href="{% url 'meeting-detail' meeting.id %}">{{ meeting }}</a></li>
+                {% endfor %}
+                </ul>
+            {% else %}
+                <small>meeting notes unavailable</small>
+            {% endif %}
         </div>
 
     </div>
