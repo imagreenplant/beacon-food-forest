@@ -697,7 +697,18 @@ body {
     z-index: -3;
 }
 
-
+/*Committee hub*/
+div.list-group a {
+    font-weight: normal;
+}
+.ckeditor {
+    line-height: 1.5;
+    margin-left: 1em;
+}
+.meeting-notes {
+    list-style: none;
+    line-height: 1.3;
+}
 
 
 
