@@ -8,7 +8,17 @@
     {% if committees %}
         <div class="list-group">
         {% for committee in committees %}
-            <a href="{% url 'committee-detail' committee.slug %}" class="list-group-item list-group-item-action col-sm-4 col-md-3">{{ committee.name }}</a>
+            <a href="{% url 'committee-detail' committee.slug %}" class="list-group-item list-group-item-action flex-column align-items-start">
+                <div class="d-flex w-100 justify-content-between">
+                    <h3 class="mb-1">{{ committee.name }}</h3>
+                {% if committee.description %}
+                    <div class="mb-1 ckeditor">{{ committee.description | safe }}</div>
+                {% endif %}
+                {% if committee.main_contact %}
+                    <small class="text-muted">Contact {{ committee.main_contact }}</small>
+                {% endif %}
+                </div>
+            </a>
         {% endfor %}
         </div>
     {% endif %}
