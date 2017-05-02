@@ -10,7 +10,9 @@
     <div class="container-fluid">
         <content class="col-lg-9 col-sm-6">
         {% if committee.description %}
-            <div>{{ committee.description | safe }}</div>  
+            <div>{{ committee.description | safe }}</div>
+        {% else %}
+            <small>no description available</small>  
         {% endif %}
         {% if committee.main_contact %}
             <p>Contact <a href="mailto:{{ committee.main_contact }}">{{ committee.main_contact }}</a></p>
