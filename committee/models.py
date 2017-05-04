@@ -1,5 +1,4 @@
 from django.db import models, IntegrityError, transaction
-from markdownx.models import MarkdownxField
 from ckeditor.fields import RichTextField
 import django.utils.timezone as timezone
 from django.utils import text as slugify
@@ -65,8 +64,7 @@ class Meeting(models.Model):
         blank=False,
         default=timezone.now,
         help_text="The date the meeting took place")
-    notes = MarkdownxField(blank=True, help_text="(Optional) Cut and paste meeting notes here")
-    mnotes = RichTextField(blank=True, help_text="(Optional) Cut and paste meeting notes here")
+    notes = RichTextField(blank=True, help_text="(Optional) Cut and paste meeting notes here")
     override = models.BooleanField(
         blank=False, default=True,
         help_text="(Optional) Override. If box is unchecked, \
