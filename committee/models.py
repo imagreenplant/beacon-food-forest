@@ -66,6 +66,7 @@ class Meeting(models.Model):
         default=timezone.now,
         help_text="The date the meeting took place")
     notes = MarkdownxField(blank=True, help_text="(Optional) Cut and paste meeting notes here")
+    mnotes = RichTextField(blank=True, help_text="(Optional) Cut and paste meeting notes here")
     override = models.BooleanField(
         blank=False, default=True,
         help_text="(Optional) Override. If box is unchecked, \
