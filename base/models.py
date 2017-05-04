@@ -1,6 +1,7 @@
 from django.db import models, IntegrityError, transaction
 # from django_markdown.models import MarkdownField
 from markdownx.models import MarkdownxField
+from ckeditor.fields import RichTextField
 from django.utils import timezone
 from django.utils.timezone import localtime, now
 from django.utils import text as slugify
@@ -121,6 +122,8 @@ class Announcement(models.Model):
         help_text="(Optional) Override. If box is unchecked, \
             announcement will immediately turn off.")
     content = MarkdownxField(
+        blank=True, help_text="(Optional) Larger content block for announcement")
+    ccontent = RichTextField(
         blank=True, help_text="(Optional) Larger content block for announcement")
     link = models.URLField(
         blank=True, help_text="(Optional) A pertinent url for the announcement")
