@@ -4,6 +4,6 @@
 {% block title %}{{ flatpage.title }}{% endblock title %}
 {% block app-content %}
     <div class="content-div flatpage">
-            {{ flatpage.content }}
+            {{ flatpage.content | safe}}
     </div>
 {% endblock app-content %}
