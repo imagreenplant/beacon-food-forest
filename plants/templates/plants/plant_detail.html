@@ -1,6 +1,5 @@
 {% extends "base/app-page-content.html" %} 
 {% load staticfiles %} 
-{% load custom_markdown %}
 
 {% block header %}{% include "base/header.html" with h1="Plants" %}{% endblock header %}
 {% block title %}{{ plant.name}} ({{ plant.site_code }}) Plant Page{% endblock title %}
@@ -38,7 +37,7 @@
                         {% endif %}
                         </p>
                     {% endif %}
-                    <p>{{ plant.text|parse_markdown}}</p>
+                    <div class="ckeditor">{{ plant.text}}</div>
                 </div>
 
                 {% if plant.geo_location %}
