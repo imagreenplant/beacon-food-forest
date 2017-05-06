@@ -9,6 +9,6 @@
         {% if meeting.author %}
             <p>Transcribed by {{ meeting.author }}</p>
         {% endif %}
-        <p class="description">{{ meeting.notes }}</p>
+        <p class="description">{{ meeting.notes | safe }}</p>
     {% endif %}
 {% endblock app-content %}
