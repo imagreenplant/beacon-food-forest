@@ -1,18 +1,17 @@
 from django.contrib import admin
 from reversion.admin import VersionAdmin
-from markdownx.admin import MarkdownxModelAdmin
 from plants.models import Plant, Location, MapCategory, MapSubCategory
 # from plants.models import MaintenanceEvent, Harvest
 
 
 @admin.register(Plant)
-class PlantAdmin(MarkdownxModelAdmin, VersionAdmin):
+class PlantAdmin(VersionAdmin):
     list_display = ('name', 'site_code', 'alive',)
     save_as = True
 
 
 @admin.register(Location)
-class LocationAdmin(MarkdownxModelAdmin, VersionAdmin):
+class LocationAdmin(VersionAdmin):
     list_display = ('friendly_location', 'geo_location')
 
 
