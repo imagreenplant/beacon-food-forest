@@ -32,7 +32,7 @@
 
 
           <div>
-            <p class="description">{{ announcement.content }}</p>
+            <p class="description">{{ announcement.content | safe}}</p>
             {# https://developers.google.com/structured-data/rich-snippets/events #}
             {# https://schema.org/Event #}
             {# https://schema.org/EducationEvent #}
