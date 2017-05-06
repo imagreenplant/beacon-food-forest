@@ -28,8 +28,3 @@ class VolunteerAdmin(admin.ModelAdmin):
 @admin.register(Download)
 class DownloadAdmin(admin.ModelAdmin):
     list_display = ('display_name', 'download_file', 'publish_to_frontpage',)
-
-
-# Integrate Markdown specifically for the flatpages data
-from django_markdown import flatpages
-flatpages.register()
