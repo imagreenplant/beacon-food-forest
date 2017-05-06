@@ -1,5 +1,6 @@
 {% extends "base/app-page-content.html" %} 
 {% load staticfiles %} 
+{% load custom_markdown %}
 {% block header %}{% include "base/header.html" with h1="Announcement" %}{% endblock header %}
 {% block title %}Announcement | {{announcement.headline}} {% endblock title %}
 {% block app-content %}
@@ -32,7 +33,7 @@
 
 
           <div>
-            <p class="description">{{ announcement.content }}</p>
+            <p class="description">{{ announcement.content|parse_markdown }}</p>
             {# https://developers.google.com/structured-data/rich-snippets/events #}
             {# https://schema.org/Event #}
             {# https://schema.org/EducationEvent #}
@@ -46,7 +47,7 @@
                   {% endif %}
                   "url" : "{{ request.build_absolute_uri }}",
                   {% if announcement.description %}
-                    "description" : "{{ announcement.content }}",  
+                    "description" : "{{ announcement.content|parse_markdown }}",  
                   {% endif %}
                   {% if announcement.primary_image %}
                     "image" : "/media/{{announcement.primary_image}}",
