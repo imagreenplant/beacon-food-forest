@@ -1,6 +1,5 @@
 {% extends "base/app-page-content.html" %} 
 {% load staticfiles %} 
-{% load custom_markdown %}
 {% block title %}Education | {{class.title}} Class{% endblock title %}
 {% block header %}{% include "base/header.html" with h1="Education" %}{% endblock header %}
 {% block app-content %}
@@ -28,7 +27,7 @@
 
           <div>
             <p><i>From {{ class.event_start_time }} until {{ class.event_end_time }}</i></p>
-            <p class="description">{{ class.class_description|parse_markdown }}</p>
+            <p class="description">{{ class.class_description }}</p>
             {% if class.class_location %}
                 <p>Location: 
                     {% if class.class_location_link %}
