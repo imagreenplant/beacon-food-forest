@@ -37,7 +37,7 @@
                         {% endif %}
                         </p>
                     {% endif %}
-                    <div class="ckeditor">{{ plant.text}}</div>
+                    <div class="ckeditor">{{ plant.text | safe}}</div>
                 </div>
 
                 {% if plant.geo_location %}
