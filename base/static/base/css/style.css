@@ -69,6 +69,9 @@ input, select {
     vertical-align: middle;
     border: 1px solid;
 }
+.alert {
+  display:inline-block;
+}
 /************ END RESET ***************/
 
 
