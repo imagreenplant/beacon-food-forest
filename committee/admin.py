@@ -1,6 +1,5 @@
 from django.contrib import admin
 from reversion.admin import VersionAdmin
-from markdownx.admin import MarkdownxModelAdmin
 from .models import Committee, Meeting
 
 
@@ -10,5 +9,5 @@ class CommitteeAdmin(VersionAdmin):
 
 
 @admin.register(Meeting)
-class MeetingAdmin(MarkdownxModelAdmin, VersionAdmin):
+class MeetingAdmin(VersionAdmin):
     list_display = ('committee', 'date', 'author')

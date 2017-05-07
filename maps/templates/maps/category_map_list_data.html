@@ -1,5 +1,4 @@
 {% extends "maps/category_map_list.html" %}
-{% load custom_markdown %}
 
 {% block map-list-data %}
     <p>Data Block!</p>
@@ -16,7 +15,7 @@
                     'name': '{{ plant.name | escapejs}}',
                     'friendly_name': '{{ plant.friendly_name | escapejs}}',
                     'latin_name': '{{ plant.latin_name | escapejs }}',
-                    'content': '{{ plant.text | parse_markdown | escapejs }}',
+                    'content': '{{ plant.text | safe }}',
                     'year_planted': '{{ plant.year_planted | escapejs}}',
                     'site_code': '{{ plant.site_code | escapejs}}',
                     'url': '{% url "plants-detail" plant.url_slug  %}',

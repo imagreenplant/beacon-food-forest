@@ -101,10 +101,6 @@ INSTALLED_APPS = [
     # The home page -- this might be combined with info pages
     'home',
 
-    # Added markdown capability for announcements
-    # 'django_markdown',
-    'markdownx',
-
     # Subpages for the site, like FAQ, permaculture info, etc
     'infopages',
 
