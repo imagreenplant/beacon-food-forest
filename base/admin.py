@@ -18,6 +18,7 @@ class AnnouncementAdmin(VersionAdmin):
     list_display = ('publish_date', 'slug',)
     fields = ('headline', 'publish_date', 'expire_date', 'event_date',
               'content', 'primary_image', 'link', 'override', 'slug')
+    view_on_site = True
 
 
 @admin.register(VolunteerContact)
