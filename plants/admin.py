@@ -8,6 +8,7 @@ from plants.models import Plant, Location, MapCategory, MapSubCategory
 class PlantAdmin(VersionAdmin):
     list_display = ('name', 'site_code', 'alive',)
     save_as = True
+    view_on_site = True
 
 
 @admin.register(Location)
