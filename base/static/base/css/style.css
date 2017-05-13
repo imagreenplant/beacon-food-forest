@@ -95,7 +95,7 @@ html, body {
     padding: 0;
     height: 100%;
     width:100%;
-    overflow-x:hidden;
+    /*overflow-x:hidden;*/
 }
 body {
     font-size: 100%;
