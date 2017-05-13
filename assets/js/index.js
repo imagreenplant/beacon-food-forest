@@ -12,18 +12,27 @@ class SimpleMap extends Component {
   //   center: {lat: 59.95, lng: 30.33},
   //   zoom: 11
   // };
+  // createMapOptions: function (maps) {
+  //   return {
+  //     panControl: false,
+  //     mapTypeControl: false,
+  //     scrollwheel: false,
+  //     styles: [{ stylers: [{ 'saturation': -100 }, { 'gamma': 0.8 }, { 'lightness': 4 }, { 'visibility': 'on' }] }]
+  //   }
+  // }
 
   render() {
     return (
       <GoogleMapReact
-        defaultCenter={{lat: 59.95, lng: 30.33}}
-        defaultZoom={11}
+        defaultCenter={{lat: 47.56845610052802, lng: -122.31254031038299}}
+        defaultZoom={18}
         bootstrapURLKeys={{key: "AIzaSyAsnOLu3eLbo60hkQNWo-3EEt102mOv99w"}}
+        heading={90}
+        // options={createMapOptions}
       >
         <AnyReactComponent
-          lat={59.955413}
-          lng={30.337844}
-          text={'Kreyser Avrora'}
+          lat={47.56845610052802}
+          lng={-122.31254031038299}
         />
       </GoogleMapReact>
     );
@@ -110,7 +119,7 @@ class SimpleMap extends Component {
 
 
 ReactDOM.render(
-  <div style={{width: '100%', height: '400px'}}>
+  <div style={{width: '100%', height: '600px'}}>
     <SimpleMap/>
   </div>,
   document.getElementById('map-canvas')
