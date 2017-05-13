@@ -35,3 +35,15 @@ function center_popup_onload(popup_id) {
 // e.g. http://beaconfoodforest.org#donate
 document.addEventListener("DOMContentLoaded", center_popup_onload(window.location.hash.substring(1)));
 
+
+// For small header logo upon scrollTo$(window).scroll(function() {
+
+$('body').scroll(function(){
+  if($('body').scrollTop() > 290){
+    $('.scroll-logo').css({'display': 'block'});
+  }
+  if($('body').scrollTop() <= 290){
+    $('.scroll-logo').css({'display': 'none'});
+  }
+});
+
