@@ -39,10 +39,10 @@ document.addEventListener("DOMContentLoaded", center_popup_onload(window.locatio
 // For small header logo upon scrollTo$(window).scroll(function() {
 
 $('body').scroll(function(){
-  if($('body').scrollTop() > 290){
+  if($(document).scrollTop() > 290){
     $('.scroll-logo').css({'display': 'block'});
   }
-  if($('body').scrollTop() <= 290){
+  if($(document).scrollTop() <= 290){
     $('.scroll-logo').css({'display': 'none'});
   }
 });
