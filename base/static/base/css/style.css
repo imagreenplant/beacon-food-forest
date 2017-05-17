@@ -823,7 +823,11 @@ footer .copyright {
     left: 5px;
     z-index: 20;
     display: none;
-    max-width: 200px;
+    max-width: 350px;
+    width: 90%;
+}
+.scroll-logo img {
+    width: 100%;
 }
 
 
