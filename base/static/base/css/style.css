@@ -101,6 +101,10 @@ body {
     font-size: 100%;
     font-family: "Helvetica";
 }
+#wrapper {
+    overflow-x: hidden;
+}
+
 p {
     color: #4C301C;
     font-size: 100%;
@@ -819,6 +823,7 @@ footer .copyright {
     left: 5px;
     z-index: 20;
     display: none;
+    max-width: 200px;
 }
 
 
