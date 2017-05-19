@@ -716,6 +716,17 @@ div.list-group a {
     list-style: none;
     line-height: 1.3;
 }
+.committee-contact {
+    margin: 1em;
+    display: block;
+}
+.committee a {
+    color: #4C301C;
+}
+.committee a.committee-desc:hover, .committee a.committee-desc:focus {
+    color: inherit;
+    text-decoration: none;
+}
 
 
 

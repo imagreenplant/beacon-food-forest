@@ -6,19 +6,26 @@
 
 {% block app-content %}
     {% if committees %}
-        <div class="list-group">
+        <div class="list-group committee">
         {% for committee in committees %}
-            <a href="{% url 'committee-detail' committee.slug %}" class="list-group-item list-group-item-action flex-column align-items-start">
-                <div class="d-flex w-100 justify-content-between">
-                    <h3 class="mb-1">{{ committee.name }}</h3>
-                {% if committee.description %}
-                    <div class="mb-1 ckeditor">{{ committee.description | safe }}</div>
-                {% endif %}
-                {% if committee.main_contact %}
-                    <small class="text-muted">Contact {{ committee.main_contact }}</small>
-                {% endif %}
-                </div>
-            </a>
+            <div class="list-group-item list-group-item-action flex-column align-items-start committee">
+                <a href="{% url 'committee-detail' committee.slug %}" class="committee-desc">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h3 class="mb-1">{{ committee.name }}</h3>
+                    {% if committee.description %}
+                        <div class="mb-1 ckeditor">{{ committee.description | safe }}</div>
+                    {% endif %}
+
+                    </div>
+                </a>
+                    {% if committee.main_contact %}
+                        <div class="text-muted committee-contact">
+                            <a href="mailto:{{ committee.main_contact }}">
+                                Contact {{ committee.main_contact }}
+                            </a>
+                        </div>
+                    {% endif %}
+            </div>
         {% endfor %}
         </div>
     {% endif %}
