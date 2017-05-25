@@ -525,7 +525,7 @@ div#directions p {
     background: #FFF;
     z-index: 1002;
     overflow: auto;
-    padding: 15px 15px 0px 15px;
+    padding: 15px;
     border: 10px #50B748 solid;
 }
 .donateform label {
