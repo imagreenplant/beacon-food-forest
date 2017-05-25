@@ -489,8 +489,6 @@ div#directions p {
 
 /*Donate Form Begin*/
 #donate {
-    height: 88%;
-    max-height: 570px;
     width: 90%;
     overflow: scroll;
 }
@@ -570,48 +568,33 @@ div#directions p {
     font-size: 100%;
 }
 
-
-.donate-help {
-    border: 1px dashed;
-    padding: 12px;
-    margin: 15px 0 5px 0;
-    color: rgb(42, 0, 155);
-
-}
-.donate-help p{
-    margin: 0px;
-}
-.donate-help strong {
-    color: #FF4040;
-}
-.donate-help-image {
-    margin-top: 15px;
-}
-.fit-width {
-    width: 100%;
-}
-@media screen and (max-width: 650px) {
-    .donate-help {
-        font-size: smaller;
-    }
-    .donate-help img {
-        width: 340px;
-    }
-}
 @media screen and (max-width: 450px) {
     #donate, #materials-donation {
         font-size: smaller;
     }
-    .donate-help {
-        font-size: smaller;
-        border: none;
-        padding: 0;
-    }
-    .donate-help img {
-        width: 250px;
-    }
 }
 
+.paypal-button {
+    background:linear-gradient(to bottom, #ffec64 5%, #ffefd6 100%);
+    border-radius:6px;
+    border:1px solid #ffffff;
+    display:inline-block;
+    cursor:pointer;
+    color:#333333;
+    /*font-family:Arial;*/
+    font-size:2em;
+    font-weight:bold;
+    padding:6px 24px;
+}
+.paypal-button:hover {
+    background:linear-gradient(to bottom, #ffefd6 5%, #ffec64 100%);
+}
+.paypal-button img {
+    width: 3em;
+}
+#paypal-donate-form {
+    display: none;
+}
 
 /*Donate Form End*/
 
