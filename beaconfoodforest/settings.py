@@ -36,6 +36,7 @@ else:
 print("ENVIRONMENT is set to %s" % ENVIRONMENT)
 
 
+SECRETS = {}
 # Store the secrets.json file in the ~/.beaconfoodforest directory.
 if not ENVIRONMENT == "local":
     try:
