@@ -38,7 +38,16 @@ else:
 print("ENVIRONMENT is set to %s" % ENVIRONMENT)
 
 # Store the secrets.json file in the ~/.beaconfoodforest directory.
-if not ENVIRONMENT == "local":
+
+
+if ENVIRONMENT == "codeship":
+    try:
+        DATA_DIR = pathlib.Path('./defaults.json')
+        with DATA_DIR.open() as handle:
+            SECRETS = json.load(handle)
+    except IOError:
+        print("Can't find defaults.json.")
+elif (ENVIRONMENT == "testing") OR (ENVIRONMENT == "production"):
     try:
         DATA_DIR = pathlib.Path.joinpath(pathlib.Path.home(), ".beaconfoodforest/secrets.json")
         with DATA_DIR.open() as handle:
@@ -46,7 +55,7 @@ if not ENVIRONMENT == "local":
     except IOError:
         print("Unable to find secrets.json.  Please place the file in the server user's\
                home directory in a directory called .beaconfoodforest/")
-elif ENVIRONMENT == "local":
+else:
     try:
         DATA_DIR = pathlib.Path('./secrets.json')
         with DATA_DIR.open() as handle:
@@ -54,13 +63,6 @@ elif ENVIRONMENT == "local":
     except IOError:
         print("Unable to find secrets.json.  Please place in the code directory.  \
                Use defaults.json as an example.")
-else:
-    try:
-        DATA_DIR = pathlib.Path('./defaults.json')
-        with DATA_DIR.open() as handle:
-            SECRETS = json.load(handle)
-    except IOError:
-        print("Can't find defaults.json.")
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = SECRETS.get('secret_key', 'default--key')
