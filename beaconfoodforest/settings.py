@@ -35,7 +35,6 @@ else:
 
 print("ENVIRONMENT is set to %s" % ENVIRONMENT)
 
-
 SECRETS = {}
 # Store the secrets.json file in the ~/.beaconfoodforest directory.
 if not ENVIRONMENT == "local":
@@ -292,7 +291,7 @@ ENVIRONMENTS = {
             'django.template.loaders.filesystem.Loader',
             'django.template.loaders.app_directories.Loader',
         ],
-        'DONATE_EMAIL': SECRETS.get('donate_email').get('testing'),
+        'DONATE_EMAIL': SECRETS.get('donate_email', {'testing': 'default@example.com'}).get('testing'),
         'LOG_FILE': 'logs/request.log',
     },
     'testing': {
