@@ -52,7 +52,7 @@ else:
     except IOError:
         print("Unable to find secrets.json.  Please place in the code directory.  \
                Using defaults.json instead.")
-    else:
+    finally:
         DATA_DIR = pathlib.Path('./defaults.json')
         with DATA_DIR.open() as handle:
             SECRETS = json.load(handle)
