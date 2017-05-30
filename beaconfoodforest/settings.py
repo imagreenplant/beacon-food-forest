@@ -30,6 +30,8 @@ if socket.gethostname().find("bluehost") > -1 and BASE_DIR.find("test") > -1:
     ENVIRONMENT = "testing"
 elif socket.gethostname().find("bluehost") > -1:
     ENVIRONMENT = "production"
+elif socket.gethostname().find("railsonfire") > -1:
+    ENVIRONMENT = "codeship"
 else:
     ENVIRONMENT = "local"
 
@@ -44,21 +46,24 @@ if not ENVIRONMENT == "local":
     except IOError:
         print("Unable to find secrets.json.  Please place the file in the server user's\
                home directory in a directory called .beaconfoodforest/")
-else:
+elif ENVIRONMENT == "local":
     try:
         DATA_DIR = pathlib.Path('./secrets.json')
         with DATA_DIR.open() as handle:
             SECRETS = json.load(handle)
     except IOError:
         print("Unable to find secrets.json.  Please place in the code directory.  \
-               Using defaults.json instead.")
-    finally:
+               Use defaults.json as an example.")
+else:
+    try:
         DATA_DIR = pathlib.Path('./defaults.json')
         with DATA_DIR.open() as handle:
             SECRETS = json.load(handle)
+    except IOError:
+        print("Can't find defaults.json.")
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = SECRETS.get('secret_key', 'a')
+SECRET_KEY = SECRETS.get('secret_key', 'default--key')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
@@ -296,6 +301,22 @@ ENVIRONMENTS = {
         ],
         'DONATE_EMAIL': SECRETS.get('donate_email', {'testing': 'default@example.com'}).get('testing'),
         'LOG_FILE': 'logs/request.log',
+    },
+    'codeship': {
+        'STATIC_ROOT': None,
+        'ALLOWED_HOSTS': ['*', ],  # Allow all domains
+        'DEBUG': True,
+        'STATIC_URL': '/static/',
+        'MEDIA_ROOT': 'media/',
+        'MEDIA_URL': '/media/',
+        'CACHES': {'default': {'BACKEND': 'django.core.cache.backends.dummy.DummyCache', }},
+        'DATABASE': 'lite',
+        'TEMPLATE_LOADERS': [
+            'django.template.loaders.filesystem.Loader',
+            'django.template.loaders.app_directories.Loader',
+        ],
+        'DONATE_EMAIL': 'example@example.com',
+        'LOG_FILE': 'request.log',
     },
     'testing': {
         # This the place on the live test server where static files will be
