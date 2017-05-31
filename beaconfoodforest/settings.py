@@ -47,7 +47,7 @@ if ENVIRONMENT == "codeship":
             SECRETS = json.load(handle)
     except IOError:
         print("Can't find defaults.json.")
-elif (ENVIRONMENT == "testing") OR (ENVIRONMENT == "production"):
+elif ENVIRONMENT == "testing" or ENVIRONMENT == "production":
     try:
         DATA_DIR = pathlib.Path.joinpath(pathlib.Path.home(), ".beaconfoodforest/secrets.json")
         with DATA_DIR.open() as handle:
