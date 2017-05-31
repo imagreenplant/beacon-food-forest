@@ -399,7 +399,7 @@ CACHES = ENVIRONMENTS[ENVIRONMENT]['CACHES']
 
 LOGGING['handlers']['file']['filename'] = ENVIRONMENTS[ENVIRONMENT]['LOG_FILE']
 
-if ENVIRONMENT != "local":
+if ENVIRONMENT != "local" or ENVIRONMENT != "codeship":
     DATABASES['default'] = SECRETS.get('databases').get(ENVIRONMENTS[ENVIRONMENT]['DATABASE'])
 
 # For material donation page
