@@ -38,8 +38,7 @@ else:
 print("ENVIRONMENT is set to %s" % ENVIRONMENT)
 
 # Store the secrets.json file in the ~/.beaconfoodforest directory.
-
-
+SECRETS = {}
 if ENVIRONMENT == "codeship":
     try:
         DATA_DIR = pathlib.Path('./defaults.json')
@@ -66,6 +65,7 @@ else:
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = SECRETS.get('secret_key', 'default--key')
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
@@ -399,7 +399,7 @@ CACHES = ENVIRONMENTS[ENVIRONMENT]['CACHES']
 
 LOGGING['handlers']['file']['filename'] = ENVIRONMENTS[ENVIRONMENT]['LOG_FILE']
 
-if ENVIRONMENT != "local" or ENVIRONMENT != "codeship":
+if not (ENVIRONMENT in ("local", "codeship")):
     DATABASES['default'] = SECRETS.get('databases').get(ENVIRONMENTS[ENVIRONMENT]['DATABASE'])
 
 # For material donation page
