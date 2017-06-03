@@ -1,0 +1,17 @@
+{
+    "databases": {
+        "default": {
+            "ENGINE": "django.db.backends.sqlite3",
+            "NAME": "db.sqlite3"
+        }
+    },
+    "secret": "when you wish upon a star",
+    "email_host": "mail.example.com",
+    "email_host_user": "sender@example.com",
+    "email_host_password": "nope",
+    "donate_email": {
+        "live": "example@example.com",
+        "testing": "example@example.com"
+    },
+    "server_public_root": "."
+}
