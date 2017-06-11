@@ -75,7 +75,6 @@ input, select {
 /************ END RESET ***************/
 
 
-
 /*Box Sizing*/
 html {
     box-sizing: border-box;
@@ -462,6 +461,12 @@ div#directions p {
     height: 97%;
 }
 /*End responsive calendar*/
+
+.flat-calendar {
+    width: 95%;
+    height: 95%;
+    position: relative;
+}
 
 /*Controls the placement of the popups for donations, mailing list, etc*/
 .center-popup {
