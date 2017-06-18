@@ -468,6 +468,28 @@ div#directions p {
     position: relative;
 }
 
+.googleCalendar{
+  position: relative;
+  /*height: 0;*/
+  width: 100%;
+  padding-bottom: 29em;
+}
+
+.googleCalendar iframe{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.googleCalendar iframe, 
+.vresponsive-iframe-container object, 
+.vresponsive-iframe-container embed {
+    width: 100%;
+    height: 97%;
+}
+
 /*Controls the placement of the popups for donations, mailing list, etc*/
 .center-popup {
     /* IE 9 */
