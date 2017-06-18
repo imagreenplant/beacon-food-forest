@@ -117,8 +117,11 @@ INSTALLED_APPS = [
     # The maps app for trees etc
     'maps',
 
-    # Tours, starting with audio tour.
+    # Tours, starting with audio tour and a tour calendar page.
     'tours',
+
+    # Wishlist
+    'wishlist',
 
     # Django Rest Framework for using React with maps
     'rest_framework',
