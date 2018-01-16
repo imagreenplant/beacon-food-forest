@@ -386,6 +386,8 @@ WEBPACK_LOADER = {
 # Media uploads https://docs.djangoproject.com/en/1.9/topics/files/
 MEDIA_ROOT = ENVIRONMENTS[ENVIRONMENT]['MEDIA_ROOT']
 MEDIA_URL = ENVIRONMENTS[ENVIRONMENT]['MEDIA_URL']
+# Via https://stackoverflow.com/questions/608579/django-file-uploads-permissions
+FILE_UPLOAD_PERMISSIONS = 0o644
 
 # Added this line to remove annoying template cacheing when developing
 TEMPLATES[0]['OPTIONS']['loaders'] = ENVIRONMENTS[ENVIRONMENT]['TEMPLATE_LOADERS']
