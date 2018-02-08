@@ -33,6 +33,7 @@ from plants.sitemaps import PlantSitemap, PlantStaticSitemap
 from education.sitemaps import ClassEventSitemap, EducationSitemap
 from maps.sitemaps import KmlMapSitemap
 from tours.sitemaps import ToursSitemap
+from committee.sitemaps import CommitteeStaticSitemap, CommitteeSitemap, MeetingSitemap
 
 # Apps
 from maps import urls as map_urls
@@ -49,6 +50,9 @@ sitemaps = {
     'classes': ClassEventSitemap,
     'maps': KmlMapSitemap,
     'tours': ToursSitemap,
+    'committee-static': CommitteeStaticSitemap,
+    'committees': CommitteeSitemap,
+    'meetings': MeetingSitemap,
 }
 
 urlpatterns = [
