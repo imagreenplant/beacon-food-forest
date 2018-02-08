@@ -50,6 +50,9 @@ sitemaps = {
     'classes': ClassEventSitemap,
     'maps': KmlMapSitemap,
     'tours': ToursSitemap,
+    'committee-static': CommitteeStaticSitemap,
+    'committees': CommitteeSitemap,
+    'meetings': MeetingSitemap,
 }
 
 urlpatterns = [
