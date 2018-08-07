@@ -1,6 +1,6 @@
 ## Synopsis
 
-Django code for the site at http://beaconfoodforest.org.  Includes a home page, apps for education and plants, and dynamic maps based on either KML or a database.
+Django code for the site at https://beaconfoodforest.org.  Includes a home page, apps for education and plants, and dynamic maps based on either KML or a database.
 
 
 ## Installation

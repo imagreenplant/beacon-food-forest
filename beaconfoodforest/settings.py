@@ -344,11 +344,11 @@ ENVIRONMENTS = {
         'STATIC_ROOT': "".join((SECRETS.get('server_public_root'), 'public_html/s')),
         'ALLOWED_HOSTS': ['.beaconfoodforest.org', ],  # Allows domain and subdomains
         'DEBUG': False,
-        'STATIC_URL': 'http://beaconfoodforest.org/s/',
+        'STATIC_URL': 'https://beaconfoodforest.org/s/',
         'CACHES': {'default': {'BACKEND': 'django.core.cache.backends.locmem.LocMemCache', }},
         'DATABASE': 'production',
         'MEDIA_ROOT': "".join((SECRETS.get('server_public_root'), 'public_html/media')),
-        'MEDIA_URL': 'http://beaconfoodforest.org/media/',
+        'MEDIA_URL': 'https://beaconfoodforest.org/media/',
         'TEMPLATE_LOADERS': [('django.template.loaders.cached.Loader',
                               [
                                   'django.template.loaders.filesystem.Loader',
