@@ -19,3 +19,7 @@ def howWeStarted(request):
 
 def getInvolved(request):
     return render(request, 'infopages/get-involved.html', {})
+
+
+def codeOfConduct(request):
+    return render(request, 'infopages/code-of-conduct.html', {})
