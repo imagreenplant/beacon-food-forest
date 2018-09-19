@@ -24,6 +24,10 @@ class ResponseStatus(TestCase):
         response = self.client.get(reverse('get-involved'))
         self.assertEqual(response.status_code, 200)
 
+    def test_code_of_conduct(self):
+        response = self.client.get(reverse('code-of-conduct'))
+        self.assertEqual(response.status_code, 200)
+
     def test_thanks(self):
         response = self.client.get('/thanks/')
         self.assertEqual(response.status_code, 200)
