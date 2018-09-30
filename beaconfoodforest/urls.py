@@ -19,7 +19,7 @@ from beaconfoodforest import settings
 
 # Views
 from home.views import index as home_index
-from infopages.views import faq, project, permaculture, howWeStarted, getInvolved, codeOfConduct
+from infopages.views import faq, project, permaculture, howWeStarted, getInvolved, codeOfConduct, conflictResolution
 from base.views import material_donation_notify, material_donation_thanks, announcement,\
     robots, debuginfo, handler500, handler404, google_verify
 
@@ -68,6 +68,7 @@ urlpatterns = [
     url(r'^how-we-started/$', howWeStarted, name="how-we-started"),
     url(r'^get-involved/$', getInvolved, name="get-involved"),
     url(r'^code-of-conduct/$', codeOfConduct, name="code-of-conduct"),
+    url(r'^conflict-resolution/$', conflictResolution, name="conflict-resolution"),
 
     # Forms
     url(r'^material_donation_notify/$', material_donation_notify, ),

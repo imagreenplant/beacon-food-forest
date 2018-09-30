@@ -23,3 +23,7 @@ def getInvolved(request):
 
 def codeOfConduct(request):
     return render(request, 'infopages/code-of-conduct.html', {})
+
+
+def conflictResolution(request):
+    return render(request, 'infopages/conflict-resolution.html', {})
