@@ -41,6 +41,7 @@ from education import urls as education_urls
 from plants import urls as plant_urls
 from tours import urls as tours_urls
 from committee import urls as committee_urls
+from volunteers import urls as volunteers_urls
 
 sitemaps = {
     'static': StaticViewSitemap,
@@ -95,6 +96,9 @@ urlpatterns = [
 
     # Committees
     url(r'^committees?/', include(committee_urls), name="committees"),
+
+    # Volunteers Hub
+    url(r'^volunteers?/', include(volunteers_urls), name="volunteers-hub"),
 
     # Announcements
     url(r'^announcement/(?P<slug>[\w-]+)/$', announcement, name="announcement-detail"),
