@@ -108,6 +108,9 @@ INSTALLED_APPS = [
     # Committee
     'committee',
 
+    # Volunteers
+    'volunteers',
+
     # The home page -- this might be combined with info pages
     'home',
 
