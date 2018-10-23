@@ -79,6 +79,7 @@ urlpatterns = [
     url(r'^project.html$', RedirectView.as_view(permanent=True, pattern_name="project")),
     url(r'^permaculture.html$', RedirectView.as_view(permanent=True, pattern_name="permaculture")),
     url(r'^howwestarted.html$', RedirectView.as_view(permanent=True, pattern_name="how-we-started")),
+    url(r'^index.html$', RedirectView.as_view(permanent=True, pattern_name="homepage")),
 
     # Maps
     url(r'^maps/', include(map_urls), name="maps"),
