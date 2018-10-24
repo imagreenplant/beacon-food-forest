@@ -1,0 +1,9 @@
+{% extends "base/app-page-content.html" %} 
+{% load staticfiles %} 
+
+{% block header %}{% include "base/header.html" with h1="Volunteers" %}{% endblock header %}
+{% block title %}{{ title }}{% endblock title %}
+
+{% block app-content %}
+    <script src="https://static.airtable.com/js/embed/embed_snippet_v1.js"></script><iframe class="airtable-embed airtable-dynamic-height" src="https://airtable.com/embed/shr3Mmznet5rkMwxL?backgroundColor=blue" frameborder="0" onmousewheel="" width="100%" height="1564" style="background: transparent; border: 1px solid #ccc;"></iframe>
+{% endblock app-content %}
