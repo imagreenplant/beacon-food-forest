@@ -1,13 +1,15 @@
 {% extends "base/index.html" %} 
 {% block content %}
-    <div class="container">
-        <div id="indexcontent" class="main-content">
-        	<div id="content" class="long-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-1"></div>
+        	<div class="col-9">
         		{% block main-content %}{% endblock main-content%}
         	</div>
-        </div>
-        <div class="right-column">
-            <div id="sidecontent">{% include "base/sidenav.html" %}</div>
+
+            <div class="col-2">
+                <div id="sidecontent">{% include "base/sidenav.html" %}</div>
+            </div>
         </div>
     </div>
 {% endblock content %}
