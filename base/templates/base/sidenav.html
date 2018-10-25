@@ -1,24 +1,9 @@
-{% load staticfiles %}
 {% load news_articles current_classes work_parties downloads_tag %}
 
-<div id="sidenav">
+<div>
     {% show_current_classes %}
     {% show_current_work_parties %}
     {% show_recent_articles %}
     {% show_published_downloads %}
-
-    <div class="sponsor">
-        <div class="side-logo">
-            <a href="{% url 'homepage' %}">
-                <img src="{% static "base/img/bff_botlogo.png" %}" class="sponsorlh10" alt="Beacon Food Forest Logo"/>
-            </a>
-        </div>
-        <div>
-            <h2 class="sidetitle content-title">Sponsored by</h2>
-            <a href="http://www.seattle.gov/neighborhoods/" target="_blank" rel="noopener">
-                <img src="{% static "base/img/neighborhoods-logo.jpg" %}" alt="Seattle Department of Neighborhoods Sponsor Logo">
-            </a>
-        </div>
-    </div>
 </div>
 <!-- DIV SIDENAV -->

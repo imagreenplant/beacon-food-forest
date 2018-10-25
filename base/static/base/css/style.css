@@ -1212,26 +1212,12 @@ h2.subtitle-text {
 }
 /* This only appears once */
 
-.sponsor {
-    font-size: 19px;
-    color: #4C301C;
-    line-height: 1.3em;
-    position: absolute;
-    bottom: 20px;
-    padding-bottom: 10px;
-}
-.sponsor img {
+img.sponsor {
     display: block;
     border: 0;
     margin-top: 10px;
-    width: 92%;
+    width: 30rem;
 }
-.sponsorlh10 {
-    margin-bottom: 13px;
-}
-/* Bottom Navigation Bar */
-
-
 
 
 

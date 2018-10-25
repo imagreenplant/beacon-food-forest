@@ -1,15 +1,28 @@
-{% extends "base/index.html" %} 
+{% extends "base/index.html" %}
+{% load staticfiles %}
 {% block content %}
     <div class="container-fluid">
         <div class="row">
-            <div class="col-1"></div>
-        	<div class="col-9">
+            <div class="col col-md-1"></div>
+        	<div class="col col-md-9">
         		{% block main-content %}{% endblock main-content%}
         	</div>
 
-            <div class="col-2">
-                <div id="sidecontent">{% include "base/sidenav.html" %}</div>
+            <div class="col col-lg-2">
+                <div>{% include "base/sidenav.html" %}</div>
+            </div>
+        </div>
+        <div class="row justify-content-md-center">
+            <div class="col-md-auto">
+                <div>
+                    <h2 class="sidetitle content-title">Sponsored by</h2>
+                    <a href="http://www.seattle.gov/neighborhoods/" target="_blank" rel="noopener">
+                        <img class="sponsor" src="{% static "base/img/neighborhoods-logo.jpg" %}" alt="Seattle Department of Neighborhoods Sponsor Logo">
+                    </a>
+                </div>
             </div>
         </div>
     </div>
 {% endblock content %}
+
+
