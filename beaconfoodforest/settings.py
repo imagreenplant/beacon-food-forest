@@ -329,11 +329,11 @@ ENVIRONMENTS = {
         'STATIC_ROOT': "".join((SECRETS.get('server_public_root'), 'public_html/s-test')),
         'ALLOWED_HOSTS': ['.beaconfoodforest.org', ],
         'DEBUG': True,
-        'STATIC_URL': 'http://beaconfoodforest.org/s-test/',
+        'STATIC_URL': 'https://beaconfoodforest.org/s-test/',
         'CACHES': {'default': {'BACKEND': 'django.core.cache.backends.dummy.DummyCache', }},
         'DATABASE': 'testing',
         'MEDIA_ROOT': "".join((SECRETS.get('server_public_root'), 'public_html/m-test')),
-        'MEDIA_URL': 'http://beaconfoodforest.org/m-test/',
+        'MEDIA_URL': 'https://beaconfoodforest.org/m-test/',
         'TEMPLATE_LOADERS': [
             'django.template.loaders.filesystem.Loader',
             'django.template.loaders.app_directories.Loader',
