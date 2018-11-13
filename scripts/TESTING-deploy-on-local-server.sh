@@ -12,6 +12,7 @@ source $HOME/bin/virtualenvwrapper.sh
 workon bff-test-py3.5
 cd $HOME/django-projects/test/beacon-food-forest-main/
 echo "============ Installing new requirements =============="
+pip install --upgrade pip
 pip install -r requirements.txt
 echo "============ Collecting new static files =============="
 python manage.py collectstatic --noinput
