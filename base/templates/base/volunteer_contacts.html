@@ -3,7 +3,9 @@
 	{% if volunteer_contacts %}
     	{% for contact in volunteer_contacts %}
 		    <p class="volunteer">{{contact.volunteer_name}}
-		        <br/>{{contact.volunteer_title_blurb}}
+		        {% if contact.volunteer_title_blurb %}
+		        	<br/>{{contact.volunteer_title_blurb}}
+		        {% endif %}
 		        <br/>
 		        <span class="link">
 		        	<a href="mailto:{{contact.volunteer_email}}">{{contact.volunteer_email}}</a>
@@ -16,7 +18,7 @@
 				  "name": "{{contact.volunteer_name}}",
 				  "jobTitle": "{{contact.volunteer_title_blurb}}",
 				  "affiliation": "Beacon Food Forest",
-				  "email": "{{contact.volunteer_email}}",
+				  "email": "{{contact.volunteer_email}}"
 				}
 			</script>
     	{% endfor %}
