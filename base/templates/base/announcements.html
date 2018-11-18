@@ -12,7 +12,13 @@
                         <p class="event-day">{{ workparty.work_party_date|date:"j" }}</p>
                     </div>
                     <div class="event-desc event-listpage">
-                      <h2 class="event-desc-header">[Event] Work Party coming up in {{workparty.days_away}} day{{ workparty.days_away|pluralize:"s" }}!</h2>
+                      <h2 class="event-desc-header">
+                        {% if workparty.days_away == 0 %}
+                          [Event] The Work Party is today! Come on by between {{ workparty.work_party_time_start }} to {{ workparty.work_party_time_end }}
+                        {% else %}
+                          [Event] Work Party coming up in {{workparty.days_away}} day{{ workparty.days_away|pluralize:"s" }}!
+                        {% endif %}
+                      </h2>
                     </div>
                   </div>
                 </div>
