@@ -8,13 +8,17 @@
         Beacon Food Forest Mailing List
     </div>
     <p>
-        <strong>Enter your  e-mail address to subscribe!</strong>
+        <strong>Please enter your information below to subscribe!</strong>
     </p>
     <form action="http://www2.seattle.gov/lists/lsoftupdate.asp" method="post">
         <input type="hidden" name="ConfName" value="BEACONFOODFOREST">
         <input type="hidden" name="ReturnPage" value="https://beaconfoodforest.org/">
-        <br/>
-        <input type="text" size="40" name="Email">
+        <label for="mail-list-firstname">First</label>
+        <input type="text" size="40" name="firstname" id="mail-list-first-name">
+        <label for="mail-list-last-name">Last</label>
+        <input type="text" size="40" name="lastname" id="mail-list-last-name">
+        <label for="mail-list-email">Email</label>
+        <input type="text" size="40" name="Email" id="mail-list-email">
         <input type="submit" value="Subscribe">
     </form>
 </div>
