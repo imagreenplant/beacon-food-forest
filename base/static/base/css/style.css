@@ -837,9 +837,9 @@ footer .copyright {
 .link-nav {
     height: 40px;
     background-color: #0DAED3;
-    float: right;
+    /*float: right;*/
     z-index: 10;
-    padding-left: 130px;
+    /*padding-left: 130px;*/
 }
 .link-nav a:link{
     font-weight: bold;
@@ -877,9 +877,9 @@ footer .copyright {
 .navbar-default {
     border: 0px;
 }
-.navbar-default .navbar-nav > li > a,
-.navbar-default .navbar-nav > li > a:focus,
-.navbar-default .navbar-nav > li > a:active   {
+.navbar .navbar-nav > li > a,
+.navbar .navbar-nav > li > a:focus,
+.navbar .navbar-nav > li > a:active   {
     color: #FFFFFF;
 }
 .navbar-default .navbar-toggle:focus,

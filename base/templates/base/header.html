@@ -8,7 +8,7 @@
         </div>
     </div>
     <div id="header">
-        <nav class="link-nav navbar navbar-default navbar-fixed-top">
+         <!--<nav class="link-nav navbar navbar-default navbar-fixed-top">
             <div class="container-fluid">
                 <div class="navbar-header">
                   <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bff-collapse" aria-expanded="false">
@@ -18,6 +18,47 @@
                     <span class="icon-bar"></span>
                   </button>
                 </div>
+                <div class="collapse navbar-collapse" id="bff-collapse">
+                    <ul class="menu nav navbar-nav navbar-right">
+                        <li><button class="btn navbar-btn donate-button" onclick="center_popup_open('donate')">Donate</button></li>
+                        <li class="dropdown">
+                          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Get Involved <span class="caret"></span></a>
+                          <ul class="dropdown-menu">
+                            <li><a href="{% url 'get-involved' %}">Get Involved</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="{% url 'homepage' %}#contact">Contact Us</a></li>
+                          </ul>
+                        </li>
+                        <li class="dropdown">
+                          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Learn More <span class="caret"></span></a>
+                          <ul class="dropdown-menu">
+                            <li><a href="{% url 'faq' %}">FAQ</a></li>
+                            <li><a href="{% url 'project' %}">The Project</a></li>
+                            <li><a href="{% url 'how-we-started' %}">How We Started</a></li>
+                            <li><a href="{% url 'permaculture' %}">Permaculture</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="{% url 'education-hub' %}">Education</a></li>
+                            <li><a href="/recipes/">Recipes</a></li>
+                            <li><a href="{% url 'plants-hub' %}">Plants</a></li>
+                            <li><a href="{% url 'audio-tour' %}">Audio Tour</a></li>
+                            <li><a href="{% url 'code-of-conduct' %}">Code of Conduct</a></li>
+                            <li><a href="{% url 'volunteers-hub' %}">Volunteers</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#" onclick="center_popup_open('calendar')">Calendar</a></li>
+                            <li><a href="#" onclick="center_popup_open('directions')">Directions</a></li>
+                          </ul>
+                        </li>
+                        <li><a href="#" onclick="center_popup_open('translate')">Translate</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav> -->
+        <nav class="navbar navbar-expand-md" style="background-color: #0DAED3;">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">Navbar</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#bff-collapse" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
                 <div class="collapse navbar-collapse" id="bff-collapse">
                     <ul class="menu nav navbar-nav navbar-right">
                         <li><button class="btn navbar-btn donate-button" onclick="center_popup_open('donate')">Donate</button></li>
