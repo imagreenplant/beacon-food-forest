@@ -504,7 +504,8 @@ div#directions p {
 /*Donate Form Begin*/
 #donate {
     width: 90%;
-    overflow: scroll;
+    max-height: 615px;
+    height: 94%;
 }
 #materials-donation {
     height: 94%;
