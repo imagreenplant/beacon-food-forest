@@ -5,7 +5,7 @@ from django.utils.timezone import localtime, now
 from django.utils import text as slugify
 import datetime
 import random
-
+import uuid
 
 class ExternalNewsArticle(models.Model):
 
@@ -49,6 +49,17 @@ class WorkPartyEvent(models.Model):
         away = self.work_party_date - localtime(now()).date()
         return away.days
 
+    # def save(self, *args, **kwargs):
+    #     self.slug = slugify.slugify(self.work_party_date.strftime("%B-%d-%Y"))
+    #     try:
+    #         # Bug in django requires this statement to catch IntegrityError
+    #         with transaction.atomic():
+    #             super(WorkPartyEvent, self).save(*args, **kwargs)
+    #     except IntegrityError:
+    #         self.slug = slugify.slugify("-".join(self.work_party_date.strftime("%B-%d-%Y"),
+    #                                              str(random.randrange(0, 100))))
+    #         super(WorkPartyEvent, self).save(*args, **kwargs)
+
     work_party_date = models.DateField(
         auto_now=False,
         auto_now_add=False,
@@ -67,6 +78,31 @@ class WorkPartyEvent(models.Model):
         blank=False,
         default=datetime.time(14, 0, 0),
         help_text="The time that the work party ends")
+    description = RichTextField(
+        "Description of work party",
+        blank=True,
+        help_text="(Optional) Description of work party (can be long) with formatting")
+    primary_image = models.ImageField(
+        "optional image(overrides default)",
+        blank=True,
+        help_text='(Optional) Primary image for the work party')
+    location = models.CharField(
+        "text of location",
+        max_length=300,
+        blank=True,
+        default="S. Dakota Street and 16th Avenue South",
+        help_text='(Optional) Describe in text the location of the event.  Defaults to Beacon Food Forest.')
+    location_link = models.URLField(
+        "Map link to work party",
+        blank=True,
+        default="https://goo.gl/maps/fpdzyHy5kjr",
+        help_text='(Optional) Using a service like Google maps, provide a link to location.\
+                   Defaults to Beacon Food Forest.')
+    # slug = models.SlugField(
+    #     unique=True,
+    #     blank=True,
+    #     default=uuid.uuid4,
+    #     help_text="(Optional) An url friendly short description.")
 
 
 class Announcement(models.Model):
