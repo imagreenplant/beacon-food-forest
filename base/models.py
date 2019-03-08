@@ -49,16 +49,16 @@ class WorkPartyEvent(models.Model):
         away = self.work_party_date - localtime(now()).date()
         return away.days
 
-    # def save(self, *args, **kwargs):
-    #     self.slug = slugify.slugify(self.work_party_date.strftime("%B-%d-%Y"))
-    #     try:
-    #         # Bug in django requires this statement to catch IntegrityError
-    #         with transaction.atomic():
-    #             super(WorkPartyEvent, self).save(*args, **kwargs)
-    #     except IntegrityError:
-    #         self.slug = slugify.slugify("-".join(self.work_party_date.strftime("%B-%d-%Y"),
-    #                                              str(random.randrange(0, 100))))
-    #         super(WorkPartyEvent, self).save(*args, **kwargs)
+    def save(self, *args, **kwargs):
+        self.slug = slugify.slugify(self.work_party_date.strftime("%B-%d-%Y"))
+        try:
+            # Bug in django requires this statement to catch IntegrityError
+            with transaction.atomic():
+                super(WorkPartyEvent, self).save(*args, **kwargs)
+        except IntegrityError:
+            self.slug = slugify.slugify("-".join(self.work_party_date.strftime("%B-%d-%Y"),
+                                                 str(random.randrange(0, 100))))
+            super(WorkPartyEvent, self).save(*args, **kwargs)
 
     work_party_date = models.DateField(
         auto_now=False,
@@ -98,11 +98,10 @@ class WorkPartyEvent(models.Model):
         default="https://goo.gl/maps/fpdzyHy5kjr",
         help_text='(Optional) Using a service like Google maps, provide a link to location.\
                    Defaults to Beacon Food Forest.')
-    # slug = models.SlugField(
-    #     unique=True,
-    #     blank=True,
-    #     default=uuid.uuid4,
-    #     help_text="(Optional) An url friendly short description.")
+    slug = models.SlugField(
+        unique=True,
+        default=uuid.uuid4,
+        help_text="(Optional) An url friendly short description.")
 
 
 class Announcement(models.Model):
