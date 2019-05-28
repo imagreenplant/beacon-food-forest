@@ -1,7 +1,7 @@
 appdirs==1.4.3
 appnope==0.1.0
 decorator==4.0.11
-Django==1.11.18
+Django==1.11.20
 django-admin-bootstrapped==2.5.7
 django-ckeditor==5.2.2
 django-crispy-forms==1.6.1
@@ -16,7 +16,7 @@ django-reversion==2.0.8
 django-simple-captcha==0.5.5
 django-taggit==0.22.0
 django-webpack-loader==0.4.1
-djangorestframework==3.6.2
+djangorestframework==3.9.1
 flup6==1.1.1
 gnureadline==6.3.3; sys_platform == 'darwin'
 ipython==5.3.0
@@ -29,7 +29,7 @@ pexpect==4.2.1
 pickleshare==0.7.4
 Pillow==4.1.0
 prompt-toolkit==1.0.14
-psycopg2==2.7.1
+psycopg2==2.8.2
 ptyprocess==0.5.1
 Pygments==2.2.0
 pyparsing==2.2.0
