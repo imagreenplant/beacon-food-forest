@@ -299,7 +299,7 @@ ENVIRONMENTS = {
         'MEDIA_ROOT': 'media/',
         'MEDIA_URL': '/media/',
         'CACHES': {'default': {'BACKEND': 'django.core.cache.backends.dummy.DummyCache', }},
-        'DATABASE': 'lite',
+        'DATABASE': 'lmysql',
         'TEMPLATE_LOADERS': [
             'django.template.loaders.filesystem.Loader',
             'django.template.loaders.app_directories.Loader',
@@ -404,7 +404,7 @@ CACHES = ENVIRONMENTS[ENVIRONMENT]['CACHES']
 
 LOGGING['handlers']['file']['filename'] = ENVIRONMENTS[ENVIRONMENT]['LOG_FILE']
 
-if not (ENVIRONMENT in ("local", "codeship")):
+if not (ENVIRONMENT in ("codeship")):
     DATABASES['default'] = SECRETS.get('databases').get(ENVIRONMENTS[ENVIRONMENT]['DATABASE'])
 
 # For material donation page
