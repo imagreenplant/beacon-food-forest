@@ -8,7 +8,7 @@ db.sqlite3
 beacondb
 .DS_Store
 logs/*
-secrets*.json
+secrets*.json*
 media/*
 node_modules/
 assets/bundles/*
