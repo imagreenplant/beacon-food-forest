@@ -14,3 +14,4 @@ node_modules/
 assets/bundles/*
 .eslintrc.json
 env/*
+my.cnf
