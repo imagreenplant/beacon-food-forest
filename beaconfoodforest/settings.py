@@ -32,6 +32,8 @@ elif socket.gethostname().find("bluehost") > -1:
     ENVIRONMENT = "production"
 elif socket.gethostname().find("railsonfire") > -1:
     ENVIRONMENT = "codeship"
+elif socket.gethostname().find("ribbon") > -1:
+    ENVIRONMENT = "dreamhost"
 else:
     ENVIRONMENT = "local"
 
@@ -347,6 +349,26 @@ ENVIRONMENTS = {
         'STATIC_ROOT': "".join((SECRETS.get('server_public_root'), 'public_html/s')),
         'ALLOWED_HOSTS': ['.beaconfoodforest.org', ],  # Allows domain and subdomains
         'DEBUG': False,
+        'STATIC_URL': 'https://beaconfoodforest.org/s/',
+        'CACHES': {'default': {'BACKEND': 'django.core.cache.backends.locmem.LocMemCache', }},
+        'DATABASE': 'production',
+        'MEDIA_ROOT': "".join((SECRETS.get('server_public_root'), 'public_html/media')),
+        'MEDIA_URL': 'https://beaconfoodforest.org/media/',
+        'TEMPLATE_LOADERS': [('django.template.loaders.cached.Loader',
+                              [
+                                  'django.template.loaders.filesystem.Loader',
+                                  'django.template.loaders.app_directories.Loader',
+                              ]),
+                             ],
+        'DONATE_EMAIL': SECRETS.get('donate_email').get('live'),
+        'LOG_FILE': "".join((BASE_DIR, "/logs/request.log")),
+    },
+    'dreamhost': {
+        # This the place on the live server where static files will be collected
+        # for delivery.
+        'STATIC_ROOT': "".join((SECRETS.get('server_public_root'), 'lapora.net/public')),
+        'ALLOWED_HOSTS': ['.beaconfoodforest.org', 'lapora.net'],  # Allows domain and subdomains
+        'DEBUG': True,
         'STATIC_URL': 'https://beaconfoodforest.org/s/',
         'CACHES': {'default': {'BACKEND': 'django.core.cache.backends.locmem.LocMemCache', }},
         'DATABASE': 'production',
