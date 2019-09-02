@@ -301,7 +301,7 @@ ENVIRONMENTS = {
         'MEDIA_ROOT': 'media/',
         'MEDIA_URL': '/media/',
         'CACHES': {'default': {'BACKEND': 'django.core.cache.backends.dummy.DummyCache', }},
-        'DATABASE': 'lmysql',
+        'DATABASE': 'local',
         'TEMPLATE_LOADERS': [
             'django.template.loaders.filesystem.Loader',
             'django.template.loaders.app_directories.Loader',
