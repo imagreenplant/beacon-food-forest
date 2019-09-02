@@ -15,3 +15,4 @@ assets/bundles/*
 .eslintrc.json
 env/*
 my.cnf
+natural.json
