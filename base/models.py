@@ -124,7 +124,7 @@ class Announcement(models.Model):
     link = models.URLField(
         blank=True, help_text="(Optional) A pertinent url for the announcement")
     slug = models.CharField(
-        max_length=500, blank=True, unique=True, help_text="A short description of announcement")
+        max_length=255, blank=True, unique=True, help_text="A short description of announcement")
     headline = models.CharField(
         'The short headline for the announcement', max_length=200, blank=False,
         default="HEADLINE", help_text='(Required) The short headline of the announcement')
