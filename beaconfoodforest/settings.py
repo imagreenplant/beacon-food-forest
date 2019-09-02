@@ -371,7 +371,7 @@ ENVIRONMENTS = {
         'DEBUG': True,
         'STATIC_URL': 'https://beaconfoodforest.org/s/',
         'CACHES': {'default': {'BACKEND': 'django.core.cache.backends.locmem.LocMemCache', }},
-        'DATABASE': 'production',
+        'DATABASE': 'mysql',
         'MEDIA_ROOT': "".join((SECRETS.get('server_public_root'), 'public_html/media')),
         'MEDIA_URL': 'https://beaconfoodforest.org/media/',
         'TEMPLATE_LOADERS': [('django.template.loaders.cached.Loader',
