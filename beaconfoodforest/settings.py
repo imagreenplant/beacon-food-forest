@@ -366,13 +366,13 @@ ENVIRONMENTS = {
     'dreamhost': {
         # This the place on the live server where static files will be collected
         # for delivery.
-        'STATIC_ROOT': "".join((SECRETS.get('server_public_root'), 'lapora.net/public')),
+        'STATIC_ROOT': "".join((SECRETS.get('server_public_root'), 'lapora.net/public/static')),
         'ALLOWED_HOSTS': ['.beaconfoodforest.org', 'lapora.net'],  # Allows domain and subdomains
         'DEBUG': True,
         'STATIC_URL': 'https://beaconfoodforest.org/s/',
         'CACHES': {'default': {'BACKEND': 'django.core.cache.backends.locmem.LocMemCache', }},
         'DATABASE': 'mysql',
-        'MEDIA_ROOT': "".join((SECRETS.get('server_public_root'), 'public_html/media')),
+        'MEDIA_ROOT': "".join((SECRETS.get('server_public_root'), 'lapora.net/public/media')),
         'MEDIA_URL': 'https://beaconfoodforest.org/media/',
         'TEMPLATE_LOADERS': [('django.template.loaders.cached.Loader',
                               [
