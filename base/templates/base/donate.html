@@ -5,17 +5,33 @@
     <br/>
     <strong>Donate through GROW, our fiscal sponsor</strong>
 </p>
-<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top" id="paypal-donate-form">
-    <input type="hidden" name="cmd" value="_s-xclick">
-    <input type="hidden" name="hosted_button_id" value="54RE2DFELYAC4">
-    <!--<input type="button" name="submit" class="paypal-button" value="Donate Now" alt="PayPal - The safer, easier way to pay online!">
-     <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!"> -->
-    <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
-</form>
-<button type="submit" form="paypal-donate-form" value="Donate" class="paypal-button">
-    <img src="{% static 'base/svg/donation.svg' %}" alt="Link to donate money">
-    <strong>Donate</strong>
-</button>
+<div id="paypal-button-container"></div>
+<script src="https://www.paypal.com/sdk/js?client-id=sb&currency=USD" data-sdk-integration-source="button-factory"></script>
+<script>
+    paypal.Buttons({
+        style: {
+            shape: 'rect',
+            color: 'gold',
+            layout: 'horizontal',
+            label: 'paypal',
+            
+        },
+        createOrder: function(data, actions) {
+            return actions.order.create({
+                purchase_units: [{
+                    amount: {
+                        value: '1'
+                    }
+                }]
+            });
+        },
+        onApprove: function(data, actions) {
+            return actions.order.capture().then(function(details) {
+                alert('Transaction completed by ' + details.payer.name.given_name + '!');
+            });
+        }
+    }).render('#paypal-button-container');
+</script>
 <hr />
 <p>For your contribution to be recognized as a tax deductible donation, please make your check out to our fiscal sponsor GROW. In the memo line on the check include our legal name: <strong>Food Forest Collective</strong>.<br /><br />
 Mail the check to:</p>
