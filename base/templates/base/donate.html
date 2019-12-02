@@ -3,25 +3,16 @@
 <p>As we are powered by our community, we appreciate and welcome any donations for you to show your support of the Beacon Food Forest.
     <br/>
     <br/>
-    <strong>Donate through GROW, our fiscal sponsor</strong>
+    <strong>Donate through our non-profit entity the Food Forest Collective.</strong>
 </p>
-<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top" id="paypal-donate-form">
-    <input type="hidden" name="cmd" value="_s-xclick">
-    <input type="hidden" name="hosted_button_id" value="54RE2DFELYAC4">
-    <!--<input type="button" name="submit" class="paypal-button" value="Donate Now" alt="PayPal - The safer, easier way to pay online!">
-     <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!"> -->
-    <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
-</form>
-<button type="submit" form="paypal-donate-form" value="Donate" class="paypal-button">
-    <img src="{% static 'base/svg/donation.svg' %}" alt="Link to donate money">
-    <strong>Donate</strong>
-</button>
+<script src="https://www.paypal.com/sdk/js?client-id=sb"></script>
+<script>paypal.Buttons().render('body');</script>
 <hr />
-<p>For your contribution to be recognized as a tax deductible donation, please make your check out to our fiscal sponsor GROW. In the memo line on the check include our legal name: <strong>Food Forest Collective</strong>.<br /><br />
+<p>For your contribution to be recognized as a tax deductible donation, please make your check out to "Food Forest Collective". In the memo line on the check include: <strong>Beacon Food Forest</strong>.<br /><br />
 Mail the check to:</p>
-<p>GROW<br />
-PO Box 19748<br />
-Seattle, WA 98109
+<p>Food Forest Collective<br />
+1410 S Lander St<br />
+Seattle, WA 98144
 </p>
 <p>For other donations or concerns, please email <a href="mailto:donate@beaconfoodforest.org">donate@beaconfoodforest.org</a></p>
 <hr />
