@@ -1,7 +1,7 @@
 appdirs==1.4.3
 appnope==0.1.0
 decorator==4.0.11
-Django==1.11.20
+Django==1.11.23
 django-admin-bootstrapped==2.5.7
 django-ckeditor==5.2.2
 django-crispy-forms==1.6.1
@@ -28,7 +28,7 @@ packaging==16.8
 path.py==10.1
 pexpect==4.7.0
 pickleshare==0.7.4
-Pillow==4.1.0
+Pillow==6.2.0
 prompt-toolkit==1.0.14
 ptyprocess==0.5.1
 Pygments==2.2.0
