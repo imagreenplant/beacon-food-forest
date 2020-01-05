@@ -3,12 +3,8 @@ echo "============ Fetching new code from git =============="
 git fetch
 git rebase
 echo "============ Applying virtual environment =============="
-export WORKON_HOME=$HOME/.python-environments
-export PROJECT_HOME=$HOME/django-projects
-export VIRTUALENVWRAPPER_PYTHON=$HOME/python3.5/bin/python3.5
-source $HOME/bin/virtualenvwrapper.sh
-workon bff-py3.5
-cd $HOME/django-projects/beacon-food-forest-main/
+source /home/foodforest/lapora.net/ff/bin/activate
+cd /home/foodforest/lapora.net/beacon-food-forest
 echo "============ Installing new requirements =============="
 pip install --upgrade pip
 pip install -r requirements.txt
@@ -16,4 +12,6 @@ echo "============ Collecting new static files =============="
 python manage.py collectstatic --noinput
 echo "============ Migrating database schema =============="
 python manage.py migrate
+echo "============ Restarting Passenger ================="
+touch ~/lapora.net/tmp/restart.txt
 echo "============ Finished Deployment =============="
