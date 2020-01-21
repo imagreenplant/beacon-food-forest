@@ -1108,6 +1108,9 @@ h2.subtitle-text {
     margin: 0.5em 1em 0.5em 1em;
     vertical-align: top;
 }
+p.indent {
+    margin-left: 0.5em;
+}
 .content-text {
     margin-bottom: 0;
 }

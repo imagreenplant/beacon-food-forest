@@ -4,31 +4,33 @@
 {% load announcements %}
 {% block main-content %}
     <div class="imageBar">
-        <img class="regular" src="{% static "home/img/bff_map.png" %}" alt="Beacon Food Forest schematic">
         <img class="regular img-follow" src="{% static "home/img/bff_banner.png" %}" alt="Food Foresters">
     </div>
     {% show_all_announcements %}
     <div class="content-div">
         <h2 class="content-title">
-            Community Grows Here
+            Welcome
         </h2>
         <p class="lead">
-            We cultivate a community dedicated to building equitable food systems for all people, and steward our environment for the benefit of all species.
+            Community grows here.  We cultivate a community dedicated to building equitable food systems for all people, and steward our environment for the benefit of all species.
         </p>
-        <div class="well">
+        <div>
             <h3>We believe in Caring for the Earth</h3>    
-            <p>We steward our local ecosystem by building healthy soil and increasing the diversity of plants and habitat.</p>
-     
+            <p>
+                We steward our local ecosystem by building healthy soil and increasing the diversity of plants and habitat.
+            </p>
             <h3>We believe in Caring for the People.</h3>
-            
-            <p>We bring people together to grow and share food, learn from each other, and know their neighbors.</p>
-     
+            <p>
+                We bring people together to grow and share food, learn from each other, and know their neighbors.
+            </p>
             <h3>We work to create a Fair Share for all</h3>
-
-            <p>We are on land stolen from the Duwamish, Suquamish, Muckleshoot, and other peoples, stewards and co-creators of abundance with the land since time immemorial. We work to dismantle an unjust food system rooted in white supremacy and conquest by nurturing its replacement, already alive and ready to grow. Through open harvest and collaboration within and among communities, we work to create a fair share for all.</p>
+            <p>
+                We are on land stolen from the Duwamish, Suquamish, Muckleshoot, and other peoples, stewards and co-creators of abundance with the land since time immemorial. We work to dismantle an unjust food system rooted in white supremacy and conquest by nurturing its replacement, already alive and ready to grow. Through open harvest and collaboration within and among communities, we work to create a fair share for all.
+            </p>
         </div>
-
-        <p>Please support the Beacon Food Forest by <a href="{% url "get-involved" %}">getting involved</a>, <a href="#" onclick="center_popup_open('donate')">donating</a> and <a href="https://www.facebook.com/beaconfoodforest" target="_blank" rel="noopener">spreading the word</a>.
+        <br/>
+        <p class="indent">
+            Please support the Beacon Food Forest by <a href="{% url "get-involved" %}">getting involved</a>, <a href="#" onclick="center_popup_open('donate')">donating</a> and <a href="https://www.facebook.com/beaconfoodforest" target="_blank" rel="noopener">spreading the word</a>.
         </p>
     </div>
     <div class="content-div">
