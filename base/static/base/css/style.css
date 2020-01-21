@@ -16,7 +16,7 @@ h1 {
     font-family: Verdana, Geneva, sans-serif;
 }
 h2 {
-    font-size: 150%;
+    font-size: 2em;
     color: #A5978D;
     font-family: Verdana, Geneva, sans-serif;
 }
@@ -317,11 +317,6 @@ h2.content-title {
     margin: 1em 0 1em 0;
 }
 
-p.subtitle {
-    font-size: 0.9rem;
-}
-
-
 .content-title a, .content-title a:link, .content-title a:visited, .content-title a:hover, .content-title a:active {
     color: #A5978D;
     font-size: 200%;
@@ -330,6 +325,13 @@ p.subtitle {
     text-transform: none;
     padding: 0px 0 0 0;
 }
+
+p.subtitle {
+    font-size: 0.9rem;
+}
+
+
+
 /* //////   END - Global text styles ////// */
 
 #fade {
@@ -1105,6 +1107,9 @@ h2.subtitle-text {
     height: auto;
     margin: 0.5em 1em 0.5em 1em;
     vertical-align: top;
+}
+p.indent {
+    margin-left: 0.5em;
 }
 .content-text {
     margin-bottom: 0;
